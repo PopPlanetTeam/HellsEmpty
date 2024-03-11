@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c37e7mq2aivhl"]
+
+[ext_resource type="Texture2D" uid="uid://cghy5yat07150" path="res://menus/main_menu/imgs/capa.jpeg" id="1_6jdgg"]
+[ext_resource type="Script" path="res://menus/main_menu/menu.gd" id="1_xfcws"]
+[ext_resource type="LabelSettings" uid="uid://cnp8np503k2ae" path="res://fonts/new_label_settings.tres" id="2_jfdyu"]
+[ext_resource type="AudioStream" uid="uid://bgc5ak3ft47hr" path="res://music/main_theme.mp3" id="3_8x0o7"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_xfcws")
+
+[node name="Texture" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6jdgg")
+
+[node name="Message" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 154.0
+offset_right = 1152.0
+offset_bottom = 401.0
+text = "Muito obrigado por 
+visitar a nossa demo
+ Isso representa só 
+um gostinho do que
+está por vir"
+label_settings = ExtResource("2_jfdyu")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 405.0
+offset_top = 489.0
+offset_right = 793.0
+offset_bottom = 624.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 389.0
+offset_bottom = 134.0
+text = "JOGAR"
+label_settings = ExtResource("2_jfdyu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8x0o7")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

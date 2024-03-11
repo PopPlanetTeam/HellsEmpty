@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c07d0k137oox7"]
+
+[ext_resource type="Texture2D" uid="uid://dnobbbr10pb34" path="res://safe_house/img/safe_house_0.jpeg" id="1_a4vu1"]
+[ext_resource type="Script" path="res://safe_house/safe_house.gd" id="1_p6tra"]
+[ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://player/player.tscn" id="2_a782f"]
+[ext_resource type="LabelSettings" uid="uid://cnp8np503k2ae" path="res://fonts/new_label_settings.tres" id="4_x52st"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6l67n"]
+radius = 44.1814
+
+[node name="SafeHouse" type="Node2D"]
+script = ExtResource("1_p6tra")
+
+[node name="Texture" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_a4vu1")
+
+[node name="player" parent="." instance=ExtResource("2_a782f")]
+position = Vector2(624, 723)
+scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="player"]
+offset_left = -191.0
+offset_top = -108.0
+offset_right = 188.0
+offset_bottom = -61.0
+text = "Vá até o caldeirão"
+label_settings = ExtResource("4_x52st")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(403, 1183)
+shape = SubResource("CircleShape2D_6l67n")
+
+[connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]

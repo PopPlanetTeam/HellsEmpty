@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cnp8np503k2ae"]
+
+[ext_resource type="FontFile" uid="uid://dw2bsua1hqmwa" path="res://fonts/GHORAtrial.ttf" id="1_kbqhg"]
+
+[resource]
+font = ExtResource("1_kbqhg")
+font_size = 14
+font_color = Color(0, 0.478431, 0.886275, 1)
+outline_size = 3
+outline_color = Color(0.639216, 0, 0.239216, 1)
+shadow_size = 9
