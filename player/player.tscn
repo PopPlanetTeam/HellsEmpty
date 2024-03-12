@@ -95,8 +95,8 @@ _data = {
 "walk_side": SubResource("Animation_gxgy0")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjwbi"]
-size = Vector2(39, 61)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8hp"]
+size = Vector2(20, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qliaw"]
 size = Vector2(38, 62)
@@ -117,8 +117,8 @@ libraries = {
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_tjwbi")
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_vm8hp")
 
 [node name="Shoot_timer" type="Timer" parent="."]
 wait_time = 0.4
@@ -140,6 +140,7 @@ target_position = Vector2(27, 0)
 collide_with_areas = true
 
 [node name="Portal_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 collision_mask = 128
 
