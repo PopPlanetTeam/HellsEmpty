@@ -5,9 +5,13 @@ extends CharacterBody2D
 @onready var player = game.get_node("player")
 var sprite_texture
 var speed = 100
+@export var life: float = 100.0;
+@export var damage: float = 24.0;
 
 const RANDOM_MOVEMENT_RATE: float = 0.05
 var movement_randomness:Vector2 = Vector2(0.0, 0.0)
+
+signal enemy_killed
 
 func _ready():
 	var rand = randi_range(0, 5)
@@ -28,13 +32,16 @@ func _process(delta):
 		
 		# Do not go directly to the player, add some random noise to movement
 		if randf() < RANDOM_MOVEMENT_RATE:
-			movement_randomness = Vector2(randf_range(0.0, PI), randf_range(0.0, PI)).normalized() * randf()
+			movement_randomness = Vector2(randf_range(0.0, PI), randf_range(0.0, PI)).normalized() * 0.33
 		global_position += (direction + movement_randomness).normalized() * speed * delta
-	else:
-		print("Not player")
+	
+	$ProgressBar.value = life
 
 func _on_damage_area_body_entered(body) -> void:
-	body.queue_free()
-	game.qtd_enemies -= 1
-	game.killed_enemies += 1
-	queue_free()
+	if body.is_in_group("inflict_damage"):
+		life -= body.damage
+		body.queue_free()
+		if life <= 0.0:
+			enemy_killed.emit()
+			queue_free()
+			
