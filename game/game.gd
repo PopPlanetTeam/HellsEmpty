@@ -6,6 +6,7 @@ var killed_enemies = 0
 var viewport_size = get_viewport_rect().size
 @onready var audio = $Audio
 @onready var label = $player/Label
+@onready var player = $player
 
 func _ready():
 	viewport_size = get_viewport_rect().size
@@ -13,10 +14,9 @@ func _ready():
 func _process(delta):
 	if qtd_enemies < limit:
 		qtd_enemies += 1
-		var random_x = randf_range(0, viewport_size.x)
-		var random_y = randf_range(0, viewport_size.y)
+		var position = Vector2().from_angle(randf_range(0, 2*PI)) * viewport_size
 		var enemy = load("res://enemy/enemy.tscn").instantiate()
-		enemy.position = Vector2(random_x, random_y)
+		enemy.position = position + player.position
 		self.add_child(enemy)
 	label.text = "Almas coletadas = " + str(killed_enemies)
 
