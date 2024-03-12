@@ -32,5 +32,5 @@ func _on_enemy_killed():
 	self.killed_enemies += 1
 	
 	# Every 50 enemies killed the number of spawned enemies increase by 5
-	if killed_enemies % 50 == 0:
-		self.qtd_enemies += 5
+	if self.killed_enemies % 50 == 0:
+		self.limit += 5
