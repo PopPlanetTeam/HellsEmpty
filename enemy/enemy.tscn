@@ -67,9 +67,9 @@ shape = SubResource("RectangleShape2D_jhbei")
 
 [node name="Damage_area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
 
 [node name="Collision" type="CollisionShape2D" parent="Damage_area"]
 shape = SubResource("RectangleShape2D_2qiy4")
 
-[connection signal="area_entered" from="Damage_area" to="." method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="Damage_area" to="." method="_on_damage_area_body_entered"]
