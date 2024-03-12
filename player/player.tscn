@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwjq66nym7gmn"]
+[gd_scene load_steps=13 format=3 uid="uid://dwjq66nym7gmn"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_7tilq"]
 [ext_resource type="Texture2D" uid="uid://b640xbenp8p6l" path="res://player/img/player_0-Sheet.png" id="1_nwut5"]
@@ -101,6 +101,9 @@ size = Vector2(20, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qliaw"]
 size = Vector2(38, 62)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob3tr"]
+size = Vector2(32, 60)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_7tilq")
 
@@ -115,8 +118,10 @@ libraries = {
 }
 
 [node name="Camera" type="Camera2D" parent="."]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_vm8hp")
 
@@ -124,18 +129,22 @@ shape = SubResource("RectangleShape2D_vm8hp")
 wait_time = 0.4
 
 [node name="TopRay" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(0, -39)
 collide_with_areas = true
 
 [node name="BottomRay" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(0, 39)
 collide_with_areas = true
 
 [node name="LeftRay" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(-27, 0)
 collide_with_areas = true
 
 [node name="RightRay" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(27, 0)
 collide_with_areas = true
 
@@ -147,4 +156,19 @@ collision_mask = 128
 [node name="Collision" type="CollisionShape2D" parent="Portal_area"]
 shape = SubResource("RectangleShape2D_qliaw")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -52.0
+offset_right = 67.0
+offset_bottom = -25.0
+scale = Vector2(0.5, 0.5)
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("RectangleShape2D_ob3tr")
+
 [connection signal="timeout" from="Shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
