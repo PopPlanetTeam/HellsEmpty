@@ -10,8 +10,6 @@ var viewport_size = get_viewport_rect().size
 func _ready():
 	viewport_size = get_viewport_rect().size
 
-
-
 func _process(delta):
 	if qtd_enemies < limit:
 		qtd_enemies += 1
@@ -22,11 +20,8 @@ func _process(delta):
 		self.add_child(enemy)
 	label.text = "Almas coletadas = " + str(killed_enemies)
 
-
-
-func _on_game_limits_body_exited(body):
-	body.queue_free()
-
-
 func _on_audio_finished():
 	audio.play()
+
+func _on_game_limits_body_exited(body:Node2D) -> void:
+	body.queue_free()
