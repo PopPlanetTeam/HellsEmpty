@@ -3,15 +3,14 @@ class_name Shot
 
 @export var damage:float = 51
 var speed = 500 
-var direction
-var viewport_size = get_viewport_rect().size
+var direction = null
 @onready var game = get_parent()
 @onready var shoot = $shoot_audio
 
 func _ready():
-	var mouse_position = get_global_mouse_position()
-	direction = (mouse_position - position).normalized()
-	viewport_size = get_viewport_rect().size
+	if !direction:
+		var mouse_position = get_global_mouse_position()
+		direction = (mouse_position - position).normalized()
 	shoot.play()
 
 func _process(delta):
