@@ -7,9 +7,11 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var can_shoot = true
+var can_drop_bomb = false
 var life : float = 100.0
 const angle_between_shoots = 25.0
 const angle_between_shoots_radians = deg_to_rad(angle_between_shoots)
+var time_between_shots = 0.4
 
 func _process(delta):
 	$ProgressBar.value = life
@@ -25,14 +27,14 @@ func _physics_process(delta):
 		
 	if can_shoot and Input.is_action_pressed("shoot"):
 		can_shoot = false
-		shoot_timer.start(shoot_timer.wait_time)
+		shoot_timer.start(time_between_shots)
 		var shoot = load("res://shoot/shoot.tscn").instantiate()
 		shoot.position = position
 		scene.add_child(shoot)
 		
 	if can_shoot and Input.is_action_pressed("triple_shot_radial"):
 		can_shoot = false
-		shoot_timer.start(shoot_timer.wait_time)
+		shoot_timer.start(time_between_shots)
 		var mouse_position = get_global_mouse_position()
 		var mouse_vector = (mouse_position - position).normalized()
 		
@@ -56,7 +58,7 @@ func _physics_process(delta):
 		
 	if can_shoot and Input.is_action_pressed("mega_shot"):
 		can_shoot = false
-		shoot_timer.start(shoot_timer.wait_time)
+		shoot_timer.start(time_between_shots * 1.4)
 		var mouse_position = get_global_mouse_position()
 		var mouse_vector = (mouse_position - position).normalized()
 		
@@ -66,6 +68,10 @@ func _physics_process(delta):
 		shoot.speed /= 2.0
 		shoot.position = position
 		scene.add_child(shoot)
+
+	if can_drop_bomb and Input.is_action_pressed("drop_bomb"):
+		
+		pass
 
 	player_sprite.animate(velocity)
 	move_and_slide()
@@ -78,7 +84,7 @@ func _on_damage_area_body_entered(body):
 		self.life -= body.damage
 		body.queue_free()
 		if self.life <= 25.0:
-			$Shoot_timer.wait_time /= 1.5 
+			time_between_shots /= 1.5 
 		if self.life <= 0.0:
 			get_tree().change_scene_to_file("res://game_over/game_over.tscn")
 			print("Perdeu")
