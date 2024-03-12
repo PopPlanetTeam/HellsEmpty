@@ -1,5 +1,7 @@
 extends CharacterBody2D
+class_name Shot
 
+@export var damage:float = 51
 var speed = 500 
 var direction
 var viewport_size = get_viewport_rect().size
