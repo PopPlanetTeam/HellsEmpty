@@ -1,4 +1,5 @@
 extends Node2D
+class_name GameOver
 
 @export var almas_coletadas : int = 0
 @export var time_to_restart : = 5
