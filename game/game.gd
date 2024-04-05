@@ -9,6 +9,7 @@ var viewport_size = get_viewport_rect().size
 @onready var player = $player
 
 func _ready():
+	player.life = 100.0
 	viewport_size = get_viewport_rect().size
 
 func _process(delta):
@@ -32,5 +33,6 @@ func _on_enemy_killed():
 	self.killed_enemies += 1
 	
 	# Every 50 enemies killed the number of spawned enemies increase by 5
-	if self.killed_enemies % 50 == 0:
+	if self.killed_enemies % 50 == 0 and self.limit < 100:
 		self.limit += 5
+		print("Increased by 5! limit: ", self.limit)
