@@ -1,8 +1,22 @@
 [gd_scene load_steps=13 format=3 uid="uid://dwjq66nym7gmn"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_7tilq"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_81fyr"]
 [ext_resource type="Texture2D" uid="uid://b640xbenp8p6l" path="res://player/img/player_0-Sheet.png" id="1_nwut5"]
-[ext_resource type="Script" path="res://player/Sprite.gd" id="3_nhl0r"]
+[ext_resource type="PackedScene" uid="uid://bmfw53l7xnpeb" path="res://weapon/weapon.tscn" id="2_j3k11"]
+
+[sub_resource type="GDScript" id="GDScript_3jkn6"]
+script/source = "extends \"res://player/Sprite.gd\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="Animation" id="Animation_1urf3"]
 length = 0.001
@@ -98,30 +112,23 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8hp"]
 size = Vector2(20, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qliaw"]
-size = Vector2(38, 62)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob3tr"]
 size = Vector2(32, 60)
 
 [node name="player" type="CharacterBody2D"]
-script = ExtResource("1_7tilq")
+script = ExtResource("1_81fyr")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_nwut5")
 hframes = 24
-script = ExtResource("3_nhl0r")
+script = SubResource("GDScript_3jkn6")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1sww8")
 }
 
-[node name="Camera" type="Camera2D" parent="."]
-visible = false
-
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_vm8hp")
 
@@ -129,34 +136,6 @@ shape = SubResource("RectangleShape2D_vm8hp")
 wait_time = 0.4
 
 [node name="Heal_timer" type="Timer" parent="."]
-
-[node name="TopRay" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(0, -39)
-collide_with_areas = true
-
-[node name="BottomRay" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(0, 39)
-collide_with_areas = true
-
-[node name="LeftRay" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(-27, 0)
-collide_with_areas = true
-
-[node name="RightRay" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(27, 0)
-collide_with_areas = true
-
-[node name="Portal_area" type="Area2D" parent="."]
-visible = false
-collision_layer = 128
-collision_mask = 128
-
-[node name="Collision" type="CollisionShape2D" parent="Portal_area"]
-shape = SubResource("RectangleShape2D_qliaw")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -21.0
@@ -166,11 +145,24 @@ offset_bottom = -25.0
 scale = Vector2(0.5, 0.5)
 
 [node name="DamageArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("RectangleShape2D_ob3tr")
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="Speed" type="Node" parent="Stats"]
+
+[node name="Life" type="Node" parent="Stats"]
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="Weapon1" parent="Weapons" instance=ExtResource("2_j3k11")]
+
+[node name="Weapon2" parent="Weapons" instance=ExtResource("2_j3k11")]
 
 [connection signal="timeout" from="Shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Heal_timer" to="." method="_on_heal_timer_timeout"]
