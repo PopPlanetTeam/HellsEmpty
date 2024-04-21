@@ -1,9 +1,10 @@
 extends CharacterBody2D
+class_name Player
 
-@onready var player_sprite: Sprite2D = get_node("Sprite")
 @onready var scene = get_parent()
-@onready var shoot_timer = $Shoot_timer
-@onready var heal_timer = $Heal_timer
+@onready var player_sprite: Sprite2D = $Sprite
+@onready var shoot_timer:Timer = $Shoot_timer
+@onready var heal_timer:Timer = $Heal_timer
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
@@ -18,15 +19,18 @@ var heal_timer_started = false
 var commands_table = {}
 
 func _ready() -> void:
-	commands_table["shoot"] = shoot_handler
-	commands_table["shoot_radial"] = shoot_radial_handler
-	commands_table["triple_shoot_radial"] = triple_shoot_radial_handler
-	commands_table["mega_shoot"] = mega_shoot_handler
+	commands_table = {
+ 		"shoot": shoot_handler,
+ 		"shoot_radial": shoot_radial_handler,
+ 		"triple_shoot_radial": triple_shoot_radial_handler,
+ 		"mega_shoot": mega_shoot_handler
+ 		}
 
 func handle_shoot_event() -> void:
-	for action in commands_table:
-		if can_shoot and Input.is_action_pressed(action):
-			commands_table[action].call()
+	if can_shoot:
+		for action in commands_table:
+			if can_shoot and Input.is_action_pressed(action):
+				commands_table[action].call()
 
 func shoot_radial_handler() -> void:
 	can_shoot = false
@@ -88,6 +92,7 @@ func triple_shoot_radial_handler() -> void:
 	scene.add_child(shoot)
 	
 func _process(delta):
+	#pass
 	$ProgressBar.value = life
 
 func _physics_process(delta):
@@ -126,7 +131,7 @@ func _on_damage_area_body_entered(body):
 		self.life -= (body.damage * body.life) / 100.0
 		body.queue_free()
 		if self.life <= 25.0:
-			time_between_shots /= 1.5 
+			time_between_shots /= 1.5
 		if self.life <= 0.0:
 			var game_over_scene:GameOver = load("res://game_over/game_over.tscn").instantiate()
 			game_over_scene.almas_coletadas = scene.killed_enemies
