@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c07d0k137oox7"]
+[gd_scene load_steps=9 format=3 uid="uid://c07d0k137oox7"]
 
 [ext_resource type="Texture2D" uid="uid://dnobbbr10pb34" path="res://safe_house/img/safe_house_0.jpeg" id="1_a4vu1"]
 [ext_resource type="Script" path="res://safe_house/safe_house.gd" id="1_p6tra"]
-[ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://player/player.tscn" id="2_a782f"]
-[ext_resource type="LabelSettings" uid="uid://cnp8np503k2ae" path="res://fonts/new_label_settings.tres" id="4_x52st"]
+[ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://player/player.tscn" id="3_akc8g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8qqu"]
 radius = 52.0
@@ -76,8 +75,6 @@ position = Vector2(90.25, 1169)
 shape = SubResource("RectangleShape2D_el338")
 
 [node name="Cauldron" type="Area2D" parent="Texture/MapColisions"]
-collision_layer = 128
-collision_mask = 128
 
 [node name="Collision" type="CollisionShape2D" parent="Texture/MapColisions/Cauldron"]
 position = Vector2(403, 1183)
@@ -94,16 +91,10 @@ shape = SubResource("RectangleShape2D_120oo")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Texture/MapColisions/StaticBody2D8"]
 polygon = PackedVector2Array(629, 942, 750, 1019, 867, 950, 748, 795, 639, 837)
 
-[node name="player" parent="." instance=ExtResource("2_a782f")]
-position = Vector2(624, 723)
-scale = Vector2(3, 3)
+[node name="player" parent="." instance=ExtResource("3_akc8g")]
+position = Vector2(592, 700)
+scale = Vector2(1.5, 1.5)
 
-[node name="Label" type="Label" parent="player"]
-offset_left = -191.0
-offset_top = -108.0
-offset_right = 188.0
-offset_bottom = -61.0
-text = "Vá até o caldeirão"
-label_settings = ExtResource("4_x52st")
+[node name="Camera2D" type="Camera2D" parent="player"]
 
-[connection signal="area_entered" from="Texture/MapColisions/Cauldron" to="." method="_on_area_area_entered"]
+[connection signal="body_entered" from="Texture/MapColisions/Cauldron" to="." method="_on_cauldron_body_entered"]
