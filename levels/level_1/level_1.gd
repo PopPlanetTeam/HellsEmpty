@@ -5,13 +5,19 @@ var qtd_enemies = 0
 var killed_enemies : int = 0
 var viewport_size = get_viewport_rect().size
 @onready var audio = $Audio
-@onready var label = $player/Label
-@onready var player = $player
+@onready var camera = $Camera2D
+@onready var label = $Camera2D/Label
+var player : Player
 
 func _ready():
+	TranslationServer.set_locale("us")
+	remove_child(camera)
+	player = load("res://player/player.tscn").instantiate()
 	player.life = 100.0
+	player.add_child(camera)
+	add_child(player)
 	viewport_size = get_viewport_rect().size
-
+	
 func _process(delta):
 	if qtd_enemies < limit:
 		qtd_enemies += 1
@@ -20,7 +26,8 @@ func _process(delta):
 		enemy.position = position + player.position
 		enemy.connect("enemy_killed", _on_enemy_killed)
 		self.add_child(enemy)
-	label.text = "Almas coletadas = " + str(killed_enemies)
+	
+	label.text = tr("COLLECTED_SOULS") + ": " + str(killed_enemies)
 
 func _on_audio_finished():
 	audio.play()
