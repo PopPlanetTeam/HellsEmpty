@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvlnpxo2hgk2m"]
+
+[ext_resource type="PackedScene" uid="uid://duhh63eud563x" path="res://weapon/weapon_base.tscn" id="1_uqjty"]
+[ext_resource type="Script" path="res://weapon/single_shot/single_shot_weapon.gd" id="2_1j54u"]
+
+[node name="SingleShotWeapon" instance=ExtResource("1_uqjty")]
+script = ExtResource("2_1j54u")
