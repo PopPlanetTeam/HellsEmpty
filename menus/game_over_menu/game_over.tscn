@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://wawnamtg0j3s"]
+
+[ext_resource type="Script" path="res://menus/game_over_menu/game_over.gd" id="1_bo6ur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mq7gn"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_bo6ur")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 522.0
+offset_top = 241.0
+offset_right = 630.0
+offset_bottom = 264.0
+text = "VOCE PERDEU"
+label_settings = SubResource("LabelSettings_mq7gn")
+
+[node name="AlmasColetadas" type="Label" parent="."]
+offset_left = 500.0
+offset_top = 295.0
+offset_right = 662.0
+offset_bottom = 318.0
+text = "ALMAS COLETADAS 0"
+
+[node name="TimeUntilRestart" type="Label" parent="."]
+offset_left = 573.0
+offset_top = 550.0
+offset_right = 613.0
+offset_bottom = 573.0
+
+[node name="RestartTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
