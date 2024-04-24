@@ -1,12 +1,13 @@
 extends Node2D
 
-@export var tilemap_instance: TileMap
+@export var generator_button_click = func():
+	$WalkerGenerator.generate()
+@export var generator_settings: WalkerGeneratorSettings = null
+@export var tilemap_instance: TileMap = null
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	assert(generator_settings != null, "Error: you must provide the generator settings!")
+	assert(tilemap_instance != null, "Error: you must provide the tilemap instance!")
+	
+	$WalkerGenerator.settings = generator_settings
+	$TilemapGaeaRenderer.tile_map = tilemap_instance

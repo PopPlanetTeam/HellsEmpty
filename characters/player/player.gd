@@ -24,7 +24,7 @@ func _ready() -> void:
  		"shoot_radial": shoot_radial_handler,
  		"triple_shoot_radial": triple_shoot_radial_handler,
  		"mega_shoot": mega_shoot_handler
- 		}
+ 	}
 
 func handle_shoot_event() -> void:
 	if can_shoot:

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://joas87kxf2ia"]
+
+[ext_resource type="Script" path="res://levels/base_level/enemy_generator.gd" id="1_24k8e"]
+
+[node name="EnemyGenerator" type="Node2D"]
+script = ExtResource("1_24k8e")
+
+[node name="GenerationCooldown" type="Timer" parent="."]
+autostart = true

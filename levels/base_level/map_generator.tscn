@@ -1,14 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmh8sgm7w7p40"]
+[gd_scene load_steps=6 format=3 uid="uid://bmh8sgm7w7p40"]
 
 [ext_resource type="Script" path="res://levels/base_level/map_generator.gd" id="1_8s6pl"]
 [ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="2_v8b14"]
+[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="3_6bo0a"]
 [ext_resource type="Script" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="3_s5l1l"]
+
+[sub_resource type="Resource" id="Resource_ycyb7"]
+resource_name = "Settings"
+script = ExtResource("3_6bo0a")
+fullness_check = 0
+max_tiles = 150
+constrain_world_size = false
+max_walkers = 5
+new_dir_chance = 0.5
+new_walker_chance = 0.05
+destroy_walker_chance = 0.05
+room_chances = {
+Vector2i(2, 2): 0.5,
+Vector2i(3, 3): 0.1
+}
+modifiers = Array[Resource("res://addons/gaea/modifiers/2D/modifier_2d.gd")]([])
 
 [node name="MapGenerator" type="Node2D"]
 script = ExtResource("1_8s6pl")
 
-[node name="WalkerGenerator" type="Node" parent="."]
+[node name="WalkerGenerator" type="Node" parent="." node_paths=PackedStringArray("next_pass")]
 script = ExtResource("2_v8b14")
+settings = SubResource("Resource_ycyb7")
+next_pass = NodePath(".")
+editor_preview = true
 
-[node name="TilemapGaeaRenderer" type="Node" parent="."]
+[node name="TilemapGaeaRenderer" type="Node" parent="." node_paths=PackedStringArray("generator")]
 script = ExtResource("3_s5l1l")
+generator = NodePath("../WalkerGenerator")

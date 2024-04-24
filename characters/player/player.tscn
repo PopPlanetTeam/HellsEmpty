@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_81fyr"]
 [ext_resource type="Texture2D" uid="uid://b640xbenp8p6l" path="res://characters/player/img/player_0-Sheet.png" id="1_nwut5"]
-[ext_resource type="PackedScene" uid="uid://d12arl68bf76u" path="res://levels/level_1/terrain/tile_map.tscn" id="2_j3k11"]
+[ext_resource type="PackedScene" uid="uid://d12arl68bf76u" path="res://levels/hugging_heaven/terrain/tile_map.tscn" id="2_j3k11"]
 
 [sub_resource type="GDScript" id="GDScript_3jkn6"]
 script/source = "extends \"res://player/Sprite.gd\"
