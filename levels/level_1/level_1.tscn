@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cprj7rk2orlei"]
 
-[ext_resource type="PackedScene" uid="uid://dv81qikgc81cm" path="res://terrain/floor.tscn" id="1_0c36f"]
+[ext_resource type="PackedScene" uid="uid://dv81qikgc81cm" path="res://levels/level_1/terrain/floor.tscn" id="1_0c36f"]
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_htlbk"]
-[ext_resource type="PackedScene" uid="uid://bod712pfcjr7" path="res://terrain/tree.tscn" id="2_0yemr"]
-[ext_resource type="AudioStream" uid="uid://daxfniylbde3d" path="res://music/theme_2.mp3" id="5_hsjds"]
+[ext_resource type="PackedScene" uid="uid://bod712pfcjr7" path="res://levels/level_1/terrain/tree.tscn" id="2_0yemr"]
+[ext_resource type="AudioStream" uid="uid://daxfniylbde3d" path="res://musics/theme_2.mp3" id="5_hsjds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd85"]
 size = Vector2(3082.5, 1606)

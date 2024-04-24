@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmh8sgm7w7p40"]
+
+[ext_resource type="Script" path="res://levels/base_level/map_generator.gd" id="1_8s6pl"]
+[ext_resource type="Script" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="2_v8b14"]
+[ext_resource type="Script" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="3_s5l1l"]
+
+[node name="MapGenerator" type="Node2D"]
+script = ExtResource("1_8s6pl")
+
+[node name="WalkerGenerator" type="Node" parent="."]
+script = ExtResource("2_v8b14")
+
+[node name="TilemapGaeaRenderer" type="Node" parent="."]
+script = ExtResource("3_s5l1l")

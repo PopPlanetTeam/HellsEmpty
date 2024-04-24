@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cghy5yat07150" path="res://menus/main_menu/imgs/capa.jpeg" id="1_6jdgg"]
 [ext_resource type="Script" path="res://menus/main_menu/menu.gd" id="1_xfcws"]
 [ext_resource type="LabelSettings" uid="uid://cnp8np503k2ae" path="res://fonts/new_label_settings.tres" id="2_jfdyu"]
-[ext_resource type="AudioStream" uid="uid://bgc5ak3ft47hr" path="res://music/main_theme.mp3" id="3_8x0o7"]
+[ext_resource type="AudioStream" uid="uid://bgc5ak3ft47hr" path="res://musics/main_theme.mp3" id="3_8x0o7"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_xfcws")
