@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var game = get_parent()
 @onready var sprite = $Sprite
-@onready var player = game.get_node("player")
+@onready var player = game.get_node("PlayerWithWeapon")
 var sprite_texture
 var speed = 100
 @export var life: float = 100.0;

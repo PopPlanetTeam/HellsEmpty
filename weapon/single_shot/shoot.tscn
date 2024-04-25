@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://clstqocbijma6"]
 
-[ext_resource type="Script" path="res://characters/shoot/shoot.gd" id="1_nddoc"]
-[ext_resource type="Texture2D" uid="uid://wnimge47tcig" path="res://characters/shoot/shoot.png" id="1_s7ggm"]
+[ext_resource type="Script" path="res://weapon/single_shot/shoot.gd" id="1_1pynw"]
+[ext_resource type="Texture2D" uid="uid://wnimge47tcig" path="res://weapon/single_shot/shoot.png" id="1_s7ggm"]
 [ext_resource type="AudioStream" uid="uid://sipghqosom7s" path="res://musics/shoot.mp3" id="3_a2qqb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bj2qv"]
@@ -11,7 +11,7 @@ radius = 18.3333
 scale = Vector2(0.6, 0.6)
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("1_nddoc")
+script = ExtResource("1_1pynw")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
