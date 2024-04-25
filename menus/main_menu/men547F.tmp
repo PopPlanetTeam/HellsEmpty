@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://c37e7mq2aivhl"]
+
+[ext_resource type="Script" path="res://menus/main_menu/menu.gd" id="1_xfcws"]
+[ext_resource type="Texture2D" uid="uid://dln16y78quqjf" path="res://menus/main_menu/imgs/capa_nova_pronta.jpg" id="2_fa3yd"]
+[ext_resource type="AudioStream" uid="uid://bgc5ak3ft47hr" path="res://musics/main_theme.mp3" id="3_8x0o7"]
+[ext_resource type="Texture2D" uid="uid://chvm7wrdxfkco" path="res://menus/main_menu/imgs/iniciar.png" id="4_3ejbm"]
+[ext_resource type="Texture2D" uid="uid://c1htvnlybvxun" path="res://menus/main_menu/imgs/opcoes.png" id="5_p5re4"]
+[ext_resource type="Texture2D" uid="uid://b0757n37ipusa" path="res://menus/main_menu/imgs/iniciar_click.png" id="5_uftje"]
+[ext_resource type="Texture2D" uid="uid://dna43qawoln74" path="res://menus/main_menu/imgs/iniciar_hover.png" id="6_4fw0q"]
+[ext_resource type="Texture2D" uid="uid://bd3pjjnmar37x" path="res://menus/main_menu/imgs/sair.png" id="6_85hn1"]
+[ext_resource type="Texture2D" uid="uid://bv08loc2ytewq" path="res://menus/main_menu/imgs/opcoes_click.png" id="8_epfgc"]
+[ext_resource type="Texture2D" uid="uid://750kdndls0g5" path="res://menus/main_menu/imgs/opcoes_hover.png" id="9_x5sac"]
+[ext_resource type="Texture2D" uid="uid://m66qqsrrtqpn" path="res://menus/main_menu/imgs/sair_click.png" id="11_dft2v"]
+[ext_resource type="Texture2D" uid="uid://5v1i7rl32ce" path="res://menus/main_menu/imgs/sair_hover.png" id="12_o35om"]
+[ext_resource type="PackedScene" uid="uid://c4kiyktmxw3i5" path="res://menus/main_menu/opcoes_menu.tscn" id="13_5fyjp"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_xfcws")
+
+[node name="Capa" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fa3yd")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8x0o7")
+volume_db = -80.0
+autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 818.0
+offset_top = 792.0
+offset_right = 1102.0
+offset_bottom = 1051.0
+pivot_offset = Vector2(142, 0)
+alignment = 1
+
+[node name="Iniciar" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_3ejbm")
+texture_pressed = ExtResource("5_uftje")
+texture_hover = ExtResource("6_4fw0q")
+
+[node name="Opcoes" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("5_p5re4")
+texture_pressed = ExtResource("8_epfgc")
+texture_hover = ExtResource("9_x5sac")
+
+[node name="Sair" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_85hn1")
+texture_pressed = ExtResource("11_dft2v")
+texture_hover = ExtResource("12_o35om")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OpcoesMenu" parent="CanvasLayer" groups=["main_menu"] instance=ExtResource("13_5fyjp")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sair" to="." method="_on_sair_pressed"]

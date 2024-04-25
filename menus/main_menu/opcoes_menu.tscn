@@ -33,7 +33,8 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 500
 
-[node name="Label" type="Label" parent="CenterContainer/Settings/Language"]
+[node name="LanguageLabel" type="Label" parent="CenterContainer/Settings/Language"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 50
@@ -45,7 +46,7 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="OptionButton" type="OptionButton" parent="CenterContainer/Settings/Language/Container"]
+[node name="LanguageSelector" type="OptionButton" parent="CenterContainer/Settings/Language/Container"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -63,7 +64,8 @@ popup/item_1/id = 1
 layout_mode = 2
 theme_override_constants/separation = 500
 
-[node name="Label" type="Label" parent="CenterContainer/Settings/TelaCheia"]
+[node name="FullscreenLabel" type="Label" parent="CenterContainer/Settings/TelaCheia"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 50
@@ -75,10 +77,11 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="CheckBox" type="CheckBox" parent="CenterContainer/Settings/TelaCheia/PanelContainer"]
+[node name="FullscreenButton" type="CheckBox" parent="CenterContainer/Settings/TelaCheia/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 theme_override_icons/checked = ExtResource("3_fnhap")
 theme_override_icons/unchecked = ExtResource("4_vrbju")
 text = "Habilitado"
@@ -96,4 +99,6 @@ texture_pressed = ExtResource("3_03kid")
 texture_hover = ExtResource("4_cssc8")
 stretch_mode = 0
 
+[connection signal="item_selected" from="CenterContainer/Settings/Language/Container/LanguageSelector" to="." method="_on_language_selector_item_selected"]
+[connection signal="toggled" from="CenterContainer/Settings/TelaCheia/PanelContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
