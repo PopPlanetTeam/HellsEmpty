@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd3pjjnmar37x"
-path="res://.godot/imported/sair.png-54f267abf82c316e5805187b49fd7261.ctex"
+uid="uid://c1htvnlybvxun"
+path="res://.godot/imported/opcoes.png-e3e46def5a789ca837310fce425f0201.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/main_menu/imgs/sair.png"
-dest_files=["res://.godot/imported/sair.png-54f267abf82c316e5805187b49fd7261.ctex"]
+source_file="res://menus/main_menu/imgs/br/opcoes.png"
+dest_files=["res://.godot/imported/opcoes.png-e3e46def5a789ca837310fce425f0201.ctex"]
 
 [params]
 

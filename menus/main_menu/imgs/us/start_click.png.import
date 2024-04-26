@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dna43qawoln74"
-path="res://.godot/imported/iniciar_hover.png-f97a42ddd304065e8919f38e92d5466e.ctex"
+uid="uid://cg3f11qe08qri"
+path="res://.godot/imported/start_click.png-4ff2bad7c5147b53c42854bb1ef8e2ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/main_menu/imgs/iniciar_hover.png"
-dest_files=["res://.godot/imported/iniciar_hover.png-f97a42ddd304065e8919f38e92d5466e.ctex"]
+source_file="res://menus/main_menu/imgs/us/start_click.png"
+dest_files=["res://.godot/imported/start_click.png-4ff2bad7c5147b53c42854bb1ef8e2ab.ctex"]
 
 [params]
 

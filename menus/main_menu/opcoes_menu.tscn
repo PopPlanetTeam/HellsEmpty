@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4kiyktmxw3i5"]
+
+[ext_resource type="Script" path="res://menus/main_menu/opcoes_menu.gd" id="1_hl0bv"]
+[ext_resource type="Texture2D" uid="uid://bof1gqaye760k" path="res://menus/main_menu/imgs/opcoes_bg.jpg" id="1_wpjju"]
+[ext_resource type="Texture2D" uid="uid://clfldtsca8maf" path="res://menus/main_menu/imgs/right_arr.png" id="2_4ju52"]
+[ext_resource type="Texture2D" uid="uid://ilf3jrodckr4" path="res://menus/main_menu/imgs/right_arr_click.png" id="3_03kid"]
+[ext_resource type="Texture2D" uid="uid://im657nsg0v35" path="res://menus/main_menu/imgs/check_icon_active.png" id="3_fnhap"]
+[ext_resource type="Texture2D" uid="uid://cfldmuf7n6ig4" path="res://menus/main_menu/imgs/right_arr hover.png" id="4_cssc8"]
+[ext_resource type="Texture2D" uid="uid://d25w075n021vh" path="res://menus/main_menu/imgs/check_icon.png" id="4_vrbju"]
+
+[node name="OpcoesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hl0bv")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_wpjju")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Settings" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Language" type="HBoxContainer" parent="CenterContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 500
+
+[node name="LanguageLabel" type="Label" parent="CenterContainer/Settings/Language"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Idioma"
+
+[node name="Container" type="PanelContainer" parent="CenterContainer/Settings/Language"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="LanguageSelector" type="OptionButton" parent="CenterContainer/Settings/Language/Container"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+flat = true
+item_count = 2
+selected = 0
+popup/item_0/text = "Português"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
+[node name="TelaCheia" type="HBoxContainer" parent="CenterContainer/Settings"]
+layout_mode = 2
+theme_override_constants/separation = 500
+
+[node name="FullscreenLabel" type="Label" parent="CenterContainer/Settings/TelaCheia"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Tela cheia"
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Settings/TelaCheia"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="FullscreenButton" type="CheckBox" parent="CenterContainer/Settings/TelaCheia/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_icons/checked = ExtResource("3_fnhap")
+theme_override_icons/unchecked = ExtResource("4_vrbju")
+text = "Habilitado"
+expand_icon = true
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 895.0
+offset_right = 228.0
+offset_bottom = 1036.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_4ju52")
+texture_pressed = ExtResource("3_03kid")
+texture_hover = ExtResource("4_cssc8")
+stretch_mode = 0
+
+[connection signal="item_selected" from="CenterContainer/Settings/Language/Container/LanguageSelector" to="." method="_on_language_selector_item_selected"]
+[connection signal="toggled" from="CenterContainer/Settings/TelaCheia/PanelContainer/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5v1i7rl32ce"
-path="res://.godot/imported/sair_hover.png-a09358d19caaa428f8de91bead74d532.ctex"
+uid="uid://cuq215ybj1qty"
+path="res://.godot/imported/exit_click.png-4166c6d357c48b3b2b68c8f27cceddd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/main_menu/imgs/sair_hover.png"
-dest_files=["res://.godot/imported/sair_hover.png-a09358d19caaa428f8de91bead74d532.ctex"]
+source_file="res://menus/main_menu/imgs/us/exit_click.png"
+dest_files=["res://.godot/imported/exit_click.png-4166c6d357c48b3b2b68c8f27cceddd9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m66qqsrrtqpn"
-path="res://.godot/imported/sair_click.png-4589d60b2b5ade5f2262221a08ab3d72.ctex"
+uid="uid://bd3pjjnmar37x"
+path="res://.godot/imported/sair.png-b3af7ae1ad613fd3f9ce964155ed1557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/main_menu/imgs/sair_click.png"
-dest_files=["res://.godot/imported/sair_click.png-4589d60b2b5ade5f2262221a08ab3d72.ctex"]
+source_file="res://menus/main_menu/imgs/br/sair.png"
+dest_files=["res://.godot/imported/sair.png-b3af7ae1ad613fd3f9ce964155ed1557.ctex"]
 
 [params]
 
