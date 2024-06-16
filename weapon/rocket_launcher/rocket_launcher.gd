@@ -1,4 +1,4 @@
-extends WeaponBase
+extends Node2D
 class_name RocketLauncher
 
 @onready var fire_rate_timer = $FireRateTimer
