@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwjq66nym7gmn"]
+[gd_scene load_steps=11 format=3 uid="uid://dwjq66nym7gmn"]
 
 [ext_resource type="Script" path="res://characters/player/player_base.gd" id="1_81fyr"]
 [ext_resource type="Texture2D" uid="uid://b640xbenp8p6l" path="res://characters/player/img/player_0-Sheet.png" id="1_nwut5"]
@@ -98,9 +98,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8hp"]
 size = Vector2(20, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob3tr"]
-size = Vector2(32, 60)
-
 [node name="PlayerBase" type="CharacterBody2D" node_paths=PackedStringArray("player_sprite")]
 script = ExtResource("1_81fyr")
 player_sprite = NodePath("Sprite")
@@ -118,13 +115,3 @@ libraries = {
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_vm8hp")
-
-[node name="DamageArea" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-shape = SubResource("RectangleShape2D_ob3tr")
-
-[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

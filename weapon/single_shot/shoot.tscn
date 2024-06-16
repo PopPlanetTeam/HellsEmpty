@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" path="res://weapon/single_shot/shoot.gd" id="1_1pynw"]
 [ext_resource type="Texture2D" uid="uid://wnimge47tcig" path="res://weapon/single_shot/shoot.png" id="1_s7ggm"]
-[ext_resource type="AudioStream" uid="uid://sipghqosom7s" path="res://musics/shoot.mp3" id="3_a2qqb"]
+[ext_resource type="AudioStream" uid="uid://sipghqosom7s" path="res://weapon/single_shot/shoot.mp3" id="3_1f0i6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bj2qv"]
 radius = 18.3333
 
 [node name="shoot" type="CharacterBody2D" groups=["inflict_damage"]]
-scale = Vector2(0.6, 0.6)
-collision_layer = 8
-collision_mask = 2
 script = ExtResource("1_1pynw")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -23,4 +20,4 @@ offset_bottom = 40.0
 texture = ExtResource("1_s7ggm")
 
 [node name="shoot_audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_a2qqb")
+stream = ExtResource("3_1f0i6")

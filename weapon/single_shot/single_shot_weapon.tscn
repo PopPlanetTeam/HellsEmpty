@@ -5,3 +5,8 @@
 
 [node name="SingleShotWeapon" instance=ExtResource("1_uqjty")]
 script = ExtResource("2_1j54u")
+
+[node name="FireRateTimer" type="Timer" parent="." index="0"]
+wait_time = 0.05
+
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

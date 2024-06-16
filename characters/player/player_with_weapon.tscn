@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmarbndog3nql"]
+[gd_scene load_steps=6 format=3 uid="uid://cmarbndog3nql"]
 
 [ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://characters/player/player_base.tscn" id="2_3npts"]
-[ext_resource type="Script" path="res://characters/health/health.gd" id="2_7k1ld"]
+[ext_resource type="Script" path="res://misc/health/health.gd" id="2_7k1ld"]
+[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://misc/hitbox/hitbox.tscn" id="2_7sstc"]
 [ext_resource type="Script" path="res://weapon/weapon_base.gd" id="3_30o4a"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gida"]
+size = Vector2(29, 62)
+
 [node name="PlayerWithWeapon" instance=ExtResource("2_3npts")]
+
+[node name="HitBox" parent="." index="3" node_paths=PackedStringArray("health_component") instance=ExtResource("2_7sstc")]
+health_component = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0gida")
 
 [node name="Health" type="Node2D" parent="." index="4"]
 script = ExtResource("2_7k1ld")
