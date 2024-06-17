@@ -10,7 +10,7 @@ var state_dictionary: Dictionary
 ## The initial state of the state machine.
 @export var initial_state: State
 
-## In this function, we get all the children of the PhasesStateMachine node and add them to the state_dictionary.
+## In this function, we get all the children of the StateMachine node and add them to the state_dictionary.
 ##
 ## If the initial_state variable is set, we set the current_state to the initial_state and call the Enter function of the initial_state.
 func _ready():
@@ -20,7 +20,7 @@ func _ready():
 			child.transition.connect(_on_transition)
 	
 	if initial_state == null:
-		print("StateMachine: Initial state not set. Exiting.")
+		printerr("StateMachine> Initial state not set. Exiting.")
 		get_tree().quit()
 
 	current_state = initial_state
@@ -42,7 +42,7 @@ func _on_transition(state_from: State, state_to_transition: String):
 		new_state.Enter()
 		current_state = new_state
 	else:
-		print("State not found: " + state_to_transition)
+		printerr("StateMachine> State not found: " + state_to_transition)
 
 ## In this function, we call the Update function of the current state.
 func _process(delta):
