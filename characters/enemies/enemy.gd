@@ -1,12 +1,22 @@
 extends CharacterBody2D
+class_name EnemyBase
 
-@onready var game = get_parent()
-@onready var sprite = $Sprite
-@onready var player = game.get_node("PlayerWithWeapon")
+@export_group("Life and Damage")
+@export var life: float = 100.0
+@export var damage: float = 24.0
+
+@export var enemy_texture: Texture2D
+@export var player: PlayerBase
+
+@export_group("Layers and Masks")
+@export_flags_2d_physics var provides_collision = 0b001
+@export_flags_2d_physics var scan_collision = 0
+@export_flags_2d_physics var takes_damage = 0
+@export_flags_2d_physics var provide_damage = 0
+
+@onready var sprite_node = $Sprite
 var sprite_texture
 var speed = 100
-@export var life: float = 100.0;
-@export var damage: float = 24.0;
 
 const RANDOM_MOVEMENT_RATE: float = 0.05
 var movement_randomness:Vector2 = Vector2(0.0, 0.0)
@@ -15,7 +25,7 @@ signal enemy_killed
 
 func _ready():
 	var rand = randi_range(0, 5)
-	sprite.texture = load("res://enemy/imgs/enemy_" + str(rand) + "-Sheet.png")
+	sprite_node.texture = load("res://enemy/imgs/enemy_" + str(rand) + "-Sheet.png")
 	match rand:
 		1:
 			speed = randi_range(120, 170)
