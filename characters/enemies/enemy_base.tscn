@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://6wqxmw2vokg2"]
+
+[ext_resource type="Script" path="res://characters/enemies/enemy_base.gd" id="1_6cwuq"]
+[ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://misc/health/health.tscn" id="2_3h5nx"]
+[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://misc/hitbox/hitbox.tscn" id="3_8bcgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhbei"]
+size = Vector2(128, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cywy3"]
+size = Vector2(132, 128)
+
+[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("health_component") groups=["inflict_damage"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_6cwuq")
+health_component = NodePath("Health")
+
+[node name="PhysicCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jhbei")
+
+[node name="Health" parent="." instance=ExtResource("2_3h5nx")]
+
+[node name="LifeBar" type="ProgressBar" parent="Health"]
+offset_left = -33.0
+offset_top = -50.0
+offset_right = 33.0
+offset_bottom = -32.0
+theme_override_font_sizes/font_size = 10
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_8bcgd")]
+health_component = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_cywy3")
