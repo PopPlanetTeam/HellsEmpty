@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvlnpxo2hgk2m"]
+
+[ext_resource type="Script" path="res://weapon/rocket_launcher/rocket_launcher.gd" id="2_7ntej"]
+[ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/weapon_textures.png" id="3_dfysl"]
+[ext_resource type="AudioStream" uid="uid://bhncbibuo4mec" path="res://weapon/rocket_launcher/rocket_sound.mp3" id="4_cgsha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt6p5"]
+atlas = ExtResource("3_dfysl")
+region = Rect2(242, 342, 166, 81)
+
+[node name="RocketLauncher" type="Node2D"]
+script = ExtResource("2_7ntej")
+
+[node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.34
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(48, 0)
+texture = SubResource("AtlasTexture_vt6p5")
+
+[node name="FiringSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cgsha")
+
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

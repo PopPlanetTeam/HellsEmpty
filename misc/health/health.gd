@@ -10,5 +10,8 @@ class_name Health
 func take_damage(ammount:float) -> void:
 	life -= ammount
 	
+	if life < 0.0:
+		get_parent().queue_free()
+	
 func regenerate(ammount: float) -> void:
 	life += ammount
