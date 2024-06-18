@@ -14,7 +14,7 @@ var state_dictionary: Dictionary
 ##
 ## If the initial_state variable is set, we set the current_state to the initial_state and call the Enter function of the initial_state.
 func _ready():
-	if initial_state == null:
+	if not initial_state:
 		printerr("StateMachine> Initial state not set. Exiting.")
 		get_tree().quit()
 	
