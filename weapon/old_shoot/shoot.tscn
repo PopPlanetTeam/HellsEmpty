@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://clstqocbijma6"]
 
 [ext_resource type="Script" path="res://weapon/old_shoot/shoot.gd" id="1_so4fc"]
-[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://misc/hitbox/hitbox.tscn" id="2_h0006"]
+[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="2_h0006"]
 [ext_resource type="Texture2D" uid="uid://wnimge47tcig" path="res://weapon/old_shoot/shoot.png" id="3_e8bmv"]
 [ext_resource type="AudioStream" uid="uid://sipghqosom7s" path="res://weapon/old_shoot/shoot.mp3" id="4_5ixkj"]
 
