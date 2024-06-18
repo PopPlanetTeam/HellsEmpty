@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://misc/hitbox/hitbox.tscn" id="3_8bcgd"]
 [ext_resource type="Script" path="res://misc/state_machine/state_machine.gd" id="4_rk02a"]
 
-[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("health_component")]
+[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "health_component")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_6cwuq")
+state_machine = NodePath("StateMachine")
 health_component = NodePath("Health")
 
 [node name="PhysicCollision" type="CollisionShape2D" parent="."]
