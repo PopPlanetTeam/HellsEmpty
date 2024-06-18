@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6wqxmw2vokg2"]
+[gd_scene load_steps=5 format=3 uid="uid://6wqxmw2vokg2"]
 
 [ext_resource type="Script" path="res://characters/enemies/enemy_base.gd" id="1_6cwuq"]
 [ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://misc/health/health.tscn" id="2_3h5nx"]
 [ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://misc/hitbox/hitbox.tscn" id="3_8bcgd"]
+[ext_resource type="Script" path="res://misc/state_machine/state_machine.gd" id="4_rk02a"]
 
 [node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("health_component")]
 scale = Vector2(0.5, 0.5)
@@ -28,5 +29,8 @@ theme_override_font_sizes/font_size = 10
 health_component = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_rk02a")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
