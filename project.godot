@@ -88,3 +88,7 @@ toggle_fullscreen={
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations/translations.br.translation", "res://translations/translations.us.translation")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
