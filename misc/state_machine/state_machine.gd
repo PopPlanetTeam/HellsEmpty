@@ -44,8 +44,8 @@ func change_to_state(state_from: State, state_to_transition: String):
 		current_state.Exit()
 		remove_child(current_state)
 		var new_state = state_dictionary[state_to_transition]
-		new_state.Enter()
 		add_child(new_state)
+		new_state.Enter()
 		current_state = new_state
 	else:
 		printerr("StateMachine> State not found: " + state_to_transition)
