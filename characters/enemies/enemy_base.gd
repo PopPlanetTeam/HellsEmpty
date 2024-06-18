@@ -3,6 +3,7 @@ class_name EnemyBase
 
 @export var speed: float = 100.0
 @export var player: PlayerBase
+@export var state_machine: StateMachine
 
 @export_group("Life and Damage")
 @export var health_component: Health
@@ -27,7 +28,7 @@ func _ready():
 	_hitbox.collision_layer = provide_damage
 	_hitbox.collision_mask = takes_damage
 
-func _process(delta):
+func _process(_delta):
 	_life_bar.value = health_component.life
 
 # Take damage
