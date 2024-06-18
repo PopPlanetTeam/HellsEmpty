@@ -21,7 +21,7 @@ func _ready():
 	for child in get_children():
 		if child is State:
 			state_dictionary[child.name.to_lower()] = child
-			child.transition.connect(change_to_state)
+			child.state_machine = self
 
 			# Remove all states from the tree except the initial state
 			if child != initial_state:
