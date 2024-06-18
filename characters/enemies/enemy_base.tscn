@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://6wqxmw2vokg2"]
 
 [ext_resource type="Script" path="res://characters/enemies/enemy_base.gd" id="1_6cwuq"]
-[ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://misc/health/health.tscn" id="2_3h5nx"]
-[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://misc/hitbox/hitbox.tscn" id="3_8bcgd"]
-[ext_resource type="Script" path="res://misc/state_machine/state_machine.gd" id="4_rk02a"]
+[ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://components/health/health.tscn" id="2_3h5nx"]
+[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="3_8bcgd"]
+[ext_resource type="Script" path="res://components/state_machine/state_machine.gd" id="4_rk02a"]
 
 [node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "health_component")]
 scale = Vector2(0.5, 0.5)
