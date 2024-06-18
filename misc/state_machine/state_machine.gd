@@ -10,18 +10,22 @@ var state_dictionary: Dictionary
 ## The initial state of the state machine.
 @export var initial_state: State
 
-## In this function, we get all the children of the StateMachine node and add them to the state_dictionary.
+## In this function, we get all the children of the StateMachine node, add them to the state_dictionary and removes from the tree. The only state remaining is the initial_state.
 ##
 ## If the initial_state variable is set, we set the current_state to the initial_state and call the Enter function of the initial_state.
 func _ready():
+	if initial_state == null:
+		printerr("StateMachine> Initial state not set. Exiting.")
+		get_tree().quit()
+	
 	for child in get_children():
 		if child is State:
 			state_dictionary[child.name.to_lower()] = child
 			child.transition.connect(_on_transition)
-	
-	if initial_state == null:
-		printerr("StateMachine> Initial state not set. Exiting.")
-		get_tree().quit()
+
+			# Remove all states from the tree except the initial state
+			if child != initial_state:
+				remove_child(child)
 
 	current_state = initial_state
 	current_state.Enter()
@@ -38,8 +42,10 @@ func _on_transition(state_from: State, state_to_transition: String):
 
 	if state_dictionary.has(state_to_transition):
 		current_state.Exit()
+		remove_child(current_state)
 		var new_state = state_dictionary[state_to_transition]
 		new_state.Enter()
+		add_child(new_state)
 		current_state = new_state
 	else:
 		printerr("StateMachine> State not found: " + state_to_transition)

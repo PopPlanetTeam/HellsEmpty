@@ -18,6 +18,3 @@ func Exit():
 ## This function is called every frame.
 func Update(_delta):
 	pass
-
-func PhysicsProcess(_delta):
-	pass
