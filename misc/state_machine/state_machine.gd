@@ -21,7 +21,7 @@ func _ready():
 	for child in get_children():
 		if child is State:
 			state_dictionary[child.name.to_lower()] = child
-			child.transition.connect(_on_transition)
+			child.transition.connect(change_to_state)
 
 			# Remove all states from the tree except the initial state
 			if child != initial_state:
@@ -30,10 +30,10 @@ func _ready():
 	current_state = initial_state
 	current_state.Enter()
 
-## This function is called when a transition signal is emitted from a state.
+## This function is called when a node wants to change the state of the state machine.
 ##
 ## We change the current_state to the state_to_transition state and call the Exit function of the current_state and the Enter function of the new state.
-func _on_transition(state_from: State, state_to_transition: String):
+func change_to_state(state_from: State, state_to_transition: String):
 	if state_from != current_state:
 		return
 	
