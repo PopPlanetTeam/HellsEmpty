@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtfcwig0nufkq"]
+[gd_scene load_steps=16 format=3 uid="uid://dtfcwig0nufkq"]
 
 [ext_resource type="PackedScene" uid="uid://6wqxmw2vokg2" path="res://characters/enemies/enemy_base.tscn" id="1_hxv06"]
 [ext_resource type="Texture2D" uid="uid://c2w7jvnuc8ppo" path="res://characters/enemies/imgs/enemy_0-Sheet.png" id="2_4bt3x"]
 [ext_resource type="Script" path="res://characters/enemies/luna/states/idle.gd" id="2_20bgs"]
 [ext_resource type="Script" path="res://characters/enemies/luna/luna.gd" id="2_dkfnr"]
+[ext_resource type="Script" path="res://characters/enemies/luna/states/chase.gd" id="4_4mccc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14woq"]
 size = Vector2(128, 128)
@@ -82,12 +83,18 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="EnemyBase" instance=ExtResource("1_hxv06")]
+[node name="Luna" instance=ExtResource("1_hxv06")]
 script = ExtResource("2_dkfnr")
 
 [node name="PhysicCollision" parent="." index="0"]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_14woq")
+
+[node name="LifeBar" parent="Health" index="0"]
+offset_left = -62.0
+offset_top = -94.0
+offset_right = 62.0
+offset_bottom = -72.0
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 visible = false
@@ -98,6 +105,9 @@ initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("2_20bgs")
+
+[node name="chase" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("4_4mccc")
 
 [node name="Animation" type="AnimatedSprite2D" parent="." index="4"]
 unique_name_in_owner = true
