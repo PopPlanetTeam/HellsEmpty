@@ -10,10 +10,6 @@ func Enter():
 func Exit():
 	pass
 
-## This function is called every frame.
-func Update(delta):
-	pass
-
 func _on_timeout():
 	state_machine.change_to_state(self, "idle")
 

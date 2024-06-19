@@ -49,7 +49,3 @@ func change_to_state(state_from: State, state_to_transition: String):
 		current_state = new_state
 	else:
 		printerr("StateMachine> State not found: " + state_to_transition)
-
-## In this function, we call the Update function of the current state.
-func _process(delta):
-	current_state.Update(delta)
