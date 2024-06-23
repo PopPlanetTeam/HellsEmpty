@@ -4,7 +4,11 @@ class_name PlayerBase
 @export var player_sprite: Sprite2D
 @export var SPEED = 150.0
 
-func _physics_process(delta):
+func _ready():
+	# Add itself to the global player variable
+	GlobalData.player = self
+
+func _physics_process(_delta):
 	var x_direction = Input.get_axis("left", "right")
 	var y_direction = Input.get_axis("up", "down")
 	

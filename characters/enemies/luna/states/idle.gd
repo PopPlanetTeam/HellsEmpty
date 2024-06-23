@@ -9,7 +9,3 @@ func Enter():
 ## This function is automatically called when the state is exited.
 func Exit():
 	pass
-
-## This function is called every frame.
-func Update(_delta):
-	pass
