@@ -1,19 +1,33 @@
 extends State
 
-@onready var _enemy = $"../.."
+signal player_too_far
+
+var _enemy: EnemyBase
+var _player: PlayerBase
+var _distance_threshold
 
 ## This function is automatically called when the state is entered.
 func Enter():
-	get_tree().create_timer(1.0).timeout.connect(_on_timeout)
+	_enemy = state_machine.get_parent()
+	_distance_threshold = _enemy.distance_threshold
 
 ## This function is automatically called when the state is exited.
 func Exit():
 	pass
 
-func _on_timeout():
-	state_machine.change_to_state(self, "idle")
+func _physics_process(_delta):
+	_player = GlobalData.player
 
-func _physics_process(delta):
-	_enemy.velocity = Vector2(-1, 0) * _enemy.speed
+	if _player:
+		var distance = _enemy.global_position.distance_to(_player.global_position)
 
-	_enemy.move_and_slide()
+		if distance > _distance_threshold:
+			player_too_far.emit()
+
+		# Get direction
+		var direction = _player.global_position - _enemy.global_position
+		# Normalize it
+		direction = direction.normalized()
+
+		_enemy.velocity = direction * _enemy.speed
+		_enemy.move_and_slide()

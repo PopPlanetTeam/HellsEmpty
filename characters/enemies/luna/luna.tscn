@@ -103,8 +103,10 @@ shape = SubResource("RectangleShape2D_14woq")
 [node name="StateMachine" parent="." index="3" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="StateMachine" index="0"]
+[node name="idle" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("animation")]
 script = ExtResource("2_20bgs")
+animation = NodePath("../../Animation")
+debug = true
 
 [node name="chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("4_4mccc")
@@ -114,3 +116,6 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_dnox1")
 animation = &"running"
 frame_progress = 0.853434
+
+[connection signal="next_to_player" from="StateMachine/idle" to="." method="_on_idle_next_to_player"]
+[connection signal="player_too_far" from="StateMachine/chase" to="." method="_on_chase_player_too_far"]

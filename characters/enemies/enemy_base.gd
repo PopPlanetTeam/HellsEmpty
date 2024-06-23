@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name EnemyBase
 
 @export var speed: float = 100.0
-@export var player: PlayerBase
+@export var distance_threshold: float = 100.0
 @export var state_machine: StateMachine
 
 @export_group("Life and Damage")
