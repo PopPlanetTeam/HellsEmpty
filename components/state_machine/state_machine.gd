@@ -31,21 +31,16 @@ func _ready():
 	current_state.Enter()
 
 ## This function is called when a node wants to change the state of the state machine.
-##
-## We change the current_state to the state_to_transition state and call the Exit function of the current_state and the Enter function of the new state.
-func change_to_state(state_from: State, state_to_transition: String):
-	if state_from != current_state:
-		return
-	
+func change_to_state(state_name: String):
 	# Set to_lower in new state name to avoid case sensitivity
-	state_to_transition = state_to_transition.to_lower()
+	state_name = state_name.to_lower()
 
-	if state_dictionary.has(state_to_transition):
+	if state_dictionary.has(state_name):
 		current_state.Exit()
 		remove_child(current_state)
-		var new_state = state_dictionary[state_to_transition]
+		var new_state = state_dictionary[state_name]
 		add_child(new_state)
 		new_state.Enter()
 		current_state = new_state
 	else:
-		printerr("StateMachine> State not found: " + state_to_transition)
+		printerr("StateMachine> State not found: " + state_name)
