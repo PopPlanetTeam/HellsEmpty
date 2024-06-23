@@ -15,6 +15,10 @@ run/main_scene="res://menus/main_menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalData="*res://global/global_data.gd"
+
 [display]
 
 window/size/viewport_width=1920
