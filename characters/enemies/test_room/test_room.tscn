@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://5o1814iptoxj"]
+[gd_scene load_steps=5 format=3 uid="uid://5o1814iptoxj"]
 
 [ext_resource type="PackedScene" uid="uid://dtfcwig0nufkq" path="res://characters/enemies/luna/luna.tscn" id="1_hi3j7"]
 [ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://characters/player/player_base.tscn" id="2_d5sl7"]
+[ext_resource type="PackedScene" uid="uid://bun5j18wnhwup" path="res://characters/enemies/test_room/obstacle.tscn" id="3_lm105"]
+[ext_resource type="Texture2D" uid="uid://cf5nkbmbdiou6" path="res://characters/enemies/test_room/imgs/rock.jpg" id="4_1gvl7"]
 
 [node name="TestRoom" type="Node2D"]
 
-[node name="EnemyBase" parent="." instance=ExtResource("1_hi3j7")]
+[node name="Luna" parent="." instance=ExtResource("1_hi3j7")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
 [node name="PlayerBase" parent="." instance=ExtResource("2_d5sl7")]
 position = Vector2(-295, -146)
+
+[node name="Obstacle" parent="." instance=ExtResource("3_lm105")]
+position = Vector2(-131, 0)
+texture = ExtResource("4_1gvl7")
+size = Vector2(75, 75)
