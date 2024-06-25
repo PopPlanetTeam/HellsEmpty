@@ -12,3 +12,12 @@ func format_array(array: Array, format: String) -> String:
 	result += "]"
 
 	return result
+
+func subtract_arrays(from: Array, subtract: Array) -> Array:
+	var result = []
+	result.resize(from.size())
+
+	for i in range(from.size()):
+		result[i] = from[i] - subtract[i]
+	
+	return result
