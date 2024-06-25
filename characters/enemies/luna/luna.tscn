@@ -6,8 +6,9 @@
 [ext_resource type="Script" path="res://characters/enemies/luna/luna.gd" id="2_dkfnr"]
 [ext_resource type="Script" path="res://characters/enemies/luna/states/chase.gd" id="4_4mccc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14woq"]
-size = Vector2(128, 128)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fchlr"]
+radius = 64.0
+height = 130.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klfrl"]
 atlas = ExtResource("2_4bt3x")
@@ -85,10 +86,15 @@ animations = [{
 
 [node name="Luna" instance=ExtResource("1_hxv06")]
 script = ExtResource("2_dkfnr")
+provides_collision = 2
+scan_collision = 3
+takes_damage = 2
+provide_damage = 4
 
 [node name="PhysicCollision" parent="." index="0"]
+visible = true
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_14woq")
+shape = SubResource("CapsuleShape2D_fchlr")
 
 [node name="LifeBar" parent="Health" index="0"]
 offset_left = -62.0
@@ -98,19 +104,24 @@ offset_bottom = -72.0
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 visible = false
-shape = SubResource("RectangleShape2D_14woq")
+shape = SubResource("CapsuleShape2D_fchlr")
 
 [node name="StateMachine" parent="." index="3" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="StateMachine" index="0"]
+[node name="idle" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("animation")]
 script = ExtResource("2_20bgs")
+animation = NodePath("../../Animation")
+debug = true
 
 [node name="chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("4_4mccc")
+smooth_factor = 0.05
 
 [node name="Animation" type="AnimatedSprite2D" parent="." index="4"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_dnox1")
-animation = &"running"
-frame_progress = 0.853434
+animation = &"idle"
+
+[connection signal="next_to_player" from="StateMachine/idle" to="." method="_on_idle_next_to_player"]
+[connection signal="player_too_far" from="StateMachine/chase" to="." method="_on_chase_player_too_far"]
