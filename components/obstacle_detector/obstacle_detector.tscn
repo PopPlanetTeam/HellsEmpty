@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://53t88b24s425"]
+
+[ext_resource type="Script" path="res://components/obstacle_detector/obstacle_detector.gd" id="1_uteye"]
+
+[node name="ObstacleDetector" type="Node2D"]
+script = ExtResource("1_uteye")
+
+[node name="-10" type="RayCast2D" parent="."]
+target_position = Vector2(-150, 0)
+
+[node name="-11" type="RayCast2D" parent="."]
+target_position = Vector2(-106, 106)
+
+[node name="01" type="RayCast2D" parent="."]
+target_position = Vector2(0, 150)
+
+[node name="11" type="RayCast2D" parent="."]
+target_position = Vector2(106, 106)
+
+[node name="10" type="RayCast2D" parent="."]
+target_position = Vector2(150, 0)
+
+[node name="1-1" type="RayCast2D" parent="."]
+target_position = Vector2(106, -106)
+
+[node name="0-1" type="RayCast2D" parent="."]
+target_position = Vector2(0, -150)
+
+[node name="-1-1" type="RayCast2D" parent="."]
+target_position = Vector2(-106, -106)
