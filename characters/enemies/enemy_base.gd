@@ -4,6 +4,7 @@ class_name EnemyBase
 @export var speed: float = 100.0
 @export var distance_threshold: float = 100.0
 @export var state_machine: StateMachine
+@export var obstacle_detector: ObstacleDetector
 
 @export_group("Life and Damage")
 @export var health_component: Health
@@ -27,6 +28,9 @@ func _ready():
 	self.collision_mask = scan_collision
 	_hitbox.collision_layer = provide_damage
 	_hitbox.collision_mask = takes_damage
+
+	# Set collision mask of obstacle detector
+	obstacle_detector.collision_mask = scan_collision
 
 func _process(_delta):
 	_life_bar.value = health_component.life
