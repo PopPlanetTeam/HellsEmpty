@@ -9,6 +9,9 @@ size = Vector2(29, 62)
 
 [node name="PlayerWithWeapon" instance=ExtResource("2_3npts")]
 
+[node name="Sprite" parent="." index="0"]
+region_rect = Rect2(17, 31, 680, 34.0237)
+
 [node name="HitBox" parent="." index="3" node_paths=PackedStringArray("health_component") instance=ExtResource("2_7sstc")]
 health_component = NodePath("../Health")
 
