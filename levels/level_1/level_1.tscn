@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cprj7rk2orlei"]
+[gd_scene load_steps=7 format=3 uid="uid://cprj7rk2orlei"]
 
 [ext_resource type="PackedScene" uid="uid://dv81qikgc81cm" path="res://levels/level_1/terrain/floor.tscn" id="1_0c36f"]
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_htlbk"]
 [ext_resource type="PackedScene" uid="uid://bod712pfcjr7" path="res://levels/level_1/terrain/tree.tscn" id="2_0yemr"]
 [ext_resource type="AudioStream" uid="uid://daxfniylbde3d" path="res://musics/theme_2.mp3" id="5_hsjds"]
 [ext_resource type="PackedScene" uid="uid://cmarbndog3nql" path="res://characters/player/player_with_weapon.tscn" id="5_l1ega"]
-[ext_resource type="PackedScene" uid="uid://bvlnpxo2hgk2m" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="6_pu42u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd85"]
 size = Vector2(3082.5, 1606)
@@ -40,10 +39,6 @@ stream = ExtResource("5_hsjds")
 autoplay = true
 
 [node name="PlayerWithWeapon" parent="." instance=ExtResource("5_l1ega")]
-
-[node name="RocketLauncher" parent="PlayerWithWeapon" instance=ExtResource("6_pu42u")]
-position = Vector2(26, 6)
-scale = Vector2(0.33, 0.33)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerWithWeapon"]
 

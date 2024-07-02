@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmarbndog3nql"]
+[gd_scene load_steps=6 format=3 uid="uid://cmarbndog3nql"]
 
 [ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://characters/player/player_base.tscn" id="2_3npts"]
-[ext_resource type="Script" path="res://characters/player/player_with_weapon_sprite.gd" id="2_7fiyj"]
 [ext_resource type="Script" path="res://components/health/health.gd" id="2_7k1ld"]
 [ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="2_7sstc"]
 [ext_resource type="PackedScene" uid="uid://bvlnpxo2hgk2m" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="2_pbgb2"]
@@ -10,9 +9,6 @@
 size = Vector2(54, 67)
 
 [node name="PlayerWithWeapon" instance=ExtResource("2_3npts")]
-
-[node name="Sprite" parent="." index="0"]
-script = ExtResource("2_7fiyj")
 
 [node name="WeaponSlot" type="Node2D" parent="." index="3"]
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwjq66nym7gmn"]
+[gd_scene load_steps=16 format=3 uid="uid://dwjq66nym7gmn"]
 
 [ext_resource type="Script" path="res://characters/player/player_base.gd" id="1_81fyr"]
 [ext_resource type="Texture2D" uid="uid://dt80u528utfdg" path="res://characters/player/NightBorne/NightBorne.png" id="2_q8myf"]
 [ext_resource type="Script" path="res://characters/player/Sprite.gd" id="3_tgoun"]
-[ext_resource type="Script" path="res://characters/player/Node2D.gd" id="4_2evvj"]
 [ext_resource type="Texture2D" uid="uid://dfsyngjhbqt8i" path="res://characters/player/NightBorne/weapon_ready2.png" id="5_8qxqh"]
 
 [sub_resource type="Animation" id="Animation_1urf3"]
@@ -31,7 +30,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(35, 1)]
+"values": [Vector2(0, -48)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -43,7 +42,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Rect2(17, 31, 680, 34.0237)]
+"values": [Rect2(16.865, 31, 680, 34.024)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -55,7 +54,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [14]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -68,42 +67,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_q8myf")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/Arm:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D/Arm:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, -68)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Node2D/Arm:region_rect")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(102.144, 51.25, 376.671, 13.605)]
 }
 
 [sub_resource type="Animation" id="Animation_n32fa"]
@@ -527,42 +490,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, -44), Vector2(0, -44)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/Arm:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D/Arm:region_rect")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(102.144, 51.25, 376.671, 13.605)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Node2D/Arm:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-4, -68), Vector2(-4, -66), Vector2(-4, -62.482), Vector2(-4, -60.109), Vector2(-4, -63.226), Vector2(-4, -63.762), Vector2(-4, -63.965), Vector2(-4, -62.904), Vector2(-4, -62.988), Vector2(-4, -64.009), Vector2(-4, -63.19)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1sww8"]
 _data = {
@@ -586,36 +513,14 @@ player_sprite = NodePath("Sprite")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(35, 1)
+position = Vector2(0, -48)
 scale = Vector2(3, 3)
 texture = ExtResource("2_q8myf")
-hframes = 6
+hframes = 14
 region_enabled = true
-region_rect = Rect2(17, 31, 680, 34.0237)
+region_rect = Rect2(16.865, 31, 680, 34.024)
 region_filter_clip_enabled = true
 script = ExtResource("3_tgoun")
-
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-script = ExtResource("4_2evvj")
-
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
-offset_left = -21.0
-offset_top = -56.0
-offset_right = 69.0
-offset_bottom = -44.0
-pivot_offset = Vector2(37, 6)
-size_flags_horizontal = 0
-size_flags_vertical = 4
-color = Color(0.513726, 1, 1, 1)
-
-[node name="Arm" type="Sprite2D" parent="Node2D"]
-position = Vector2(-4, -68)
-scale = Vector2(3, 3)
-texture = ExtResource("5_8qxqh")
-hframes = 2
-region_enabled = true
-region_rect = Rect2(102.144, 51.25, 376.671, 13.605)
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

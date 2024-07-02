@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	if qtd_enemies < limit:
 		qtd_enemies += 1
-		var enemy = preload("res://characters/enemies/enemy.tscn").instantiate()
+		var enemy = preload("res://characters/enemies/luna/luna.tscn").instantiate()
 		enemy.connect("enemy_killed", _on_enemy_killed)
 		self.add_child(enemy)
 	
