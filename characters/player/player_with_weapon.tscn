@@ -5,18 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="2_7sstc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gida"]
-size = Vector2(29, 62)
+size = Vector2(54, 67)
 
 [node name="PlayerWithWeapon" instance=ExtResource("2_3npts")]
 
-[node name="Sprite" parent="." index="0"]
-region_rect = Rect2(17, 31, 680, 34.0237)
-
 [node name="HitBox" parent="." index="3" node_paths=PackedStringArray("health_component") instance=ExtResource("2_7sstc")]
+visible = false
 health_component = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-0.5, 0)
+position = Vector2(-1, -33.5)
 shape = SubResource("RectangleShape2D_0gida")
 
 [node name="Health" type="Node2D" parent="." index="4"]

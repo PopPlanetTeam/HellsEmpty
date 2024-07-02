@@ -4,14 +4,15 @@ extends Sprite2D
 @onready var animation : AnimationPlayer = $"../Animation"
 
 func animate(direction: Vector2) -> void:
-	if Input.is_action_pressed("shoot"):
-		animation.play("sword_attack")
-	else:
-		verify_position(direction)
-		if direction.x != 0:
-			horizontal_behavior(direction)
-		else:
-			vertical_behavior(direction)
+	animation.play("weapon_carying")
+	#if Input.is_action_pressed("shoot"):
+		#animation.play("sword_attack")
+	#else:
+		#verify_position(direction)
+		#if direction.x != 0:
+			#horizontal_behavior(direction)
+		#else:
+			#vertical_behavior(direction)
 
 func verify_position(direction: Vector2) -> void:
 	if direction.x > 0:

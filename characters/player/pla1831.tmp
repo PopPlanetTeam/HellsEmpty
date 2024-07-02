@@ -585,7 +585,6 @@ script = ExtResource("1_81fyr")
 player_sprite = NodePath("Sprite")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
 position = Vector2(35, 1)
 scale = Vector2(3, 3)
 texture = ExtResource("2_q8myf")
@@ -596,7 +595,6 @@ region_filter_clip_enabled = true
 script = ExtResource("3_tgoun")
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
 script = ExtResource("4_2evvj")
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
@@ -604,10 +602,6 @@ offset_left = -21.0
 offset_top = -56.0
 offset_right = 69.0
 offset_bottom = -44.0
-pivot_offset = Vector2(37, 6)
-size_flags_horizontal = 0
-size_flags_vertical = 4
-color = Color(0.513726, 1, 1, 1)
 
 [node name="Arm" type="Sprite2D" parent="Node2D"]
 position = Vector2(-4, -68)
