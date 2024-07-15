@@ -18,6 +18,7 @@ script = ExtResource("1_ym5lm")
 texture = SubResource("AtlasTexture_6ejw2")
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_hse7j")
