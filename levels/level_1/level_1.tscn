@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_htlbk"]
 [ext_resource type="PackedScene" uid="uid://bod712pfcjr7" path="res://levels/level_1/terrain/tree.tscn" id="2_0yemr"]
 [ext_resource type="AudioStream" uid="uid://daxfniylbde3d" path="res://musics/theme_2.mp3" id="5_hsjds"]
-[ext_resource type="PackedScene" uid="uid://cmarbndog3nql" path="res://characters/player/player_with_weapon.tscn" id="5_l1ega"]
+[ext_resource type="PackedScene" uid="uid://cmarbndog3nql" path="res://characters/player/player_with_weapon/player_with_weapon.tscn" id="5_l1ega"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd85"]
 size = Vector2(3082.5, 1606)

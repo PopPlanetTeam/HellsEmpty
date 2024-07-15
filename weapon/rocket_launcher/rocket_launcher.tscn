@@ -15,10 +15,12 @@ script = ExtResource("2_7ntej")
 wait_time = 0.34
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(48, 0)
 texture = SubResource("AtlasTexture_vt6p5")
 
 [node name="FiringSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_cgsha")
+
+[node name="GunOrigin" type="Marker2D" parent="."]
+position = Vector2(37, 12)
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

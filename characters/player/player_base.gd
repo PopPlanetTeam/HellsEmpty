@@ -1,10 +1,16 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-@export var player_sprite: Sprite2D
-@export var SPEED = 150.0
+@export var player_animated_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
+@export var SPEED = 300.0
 
-func _physics_process(delta):
+func _ready():
+	if not (player_animated_sprite or animation_player):
+		printerr("PlayerBase> ERROR: No AnimatedSprite2D or AnimationPlayer assigned.")
+		get_tree().quit()
+
+func _physics_process(_delta):
 	var x_direction = Input.get_axis("left", "right")
 	var y_direction = Input.get_axis("up", "down")
 	
@@ -13,5 +19,9 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2(move_toward(velocity.x, 0, SPEED), move_toward(velocity.y, 0, SPEED))
 
-	player_sprite.animate(velocity)
+	if player_animated_sprite:
+		player_animated_sprite.animate(velocity)
+	else:
+		animation_player.animate(velocity)
+	
 	move_and_slide()
