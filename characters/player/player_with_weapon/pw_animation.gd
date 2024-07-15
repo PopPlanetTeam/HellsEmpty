@@ -2,7 +2,6 @@ extends AnimationPlayer
 
 @export var vertical_threshold: int = 50
 @export var player_sprites: Node2D
-@export var player_prites_overlay: Node2D
 @export var animation_container: Node2D
 
 @onready var _weapon_slot: Node2D = %WeaponSlot
@@ -11,7 +10,7 @@ var _origin: Marker2D
 var _current_animation: String = ""
 
 func _ready():
-	if not animation_container or not player_sprites or not player_prites_overlay:
+	if not animation_container or not player_sprites:
 		printerr("PwAnimation> ERROR: one of the required nodes is missing.")
 		get_tree().quit()
 	
@@ -48,8 +47,7 @@ func _set_rotation_around_origin(angle: float) -> void:
 		_weapon_slot.weapon.scale.y *= - 1 if _weapon_slot.weapon.scale.y < 0 else 1
 
 func animate(velocity: Vector2):
-	player_sprites.visible = true
-	player_prites_overlay.visible = false
+	player_sprites.z_index = 0
 
 	var mouse_direction = _get_mouse_direction()
 
@@ -67,19 +65,19 @@ func animate(velocity: Vector2):
 				_current_animation = "run_down"
 			
 			_flip_animation(velocity.x < 0)
+		# The player is moving in the vertical
 		elif velocity.y != 0:
 			if velocity.y < 0:
-				player_prites_overlay.visible = true
-				player_sprites.visible = false
+				player_sprites.z_index = 1
 				_current_animation = "run_back_up"
 			else:
-				player_prites_overlay.visible = false
-				player_sprites.visible = true
+				player_sprites.z_index = 0
 				_current_animation = "run_up_down"
 			
-			if mouse_direction.y < - vertical_threshold and velocity.y < 0:
+			if mouse_direction.y > vertical_threshold and velocity.y < 0:
+				player_sprites.z_index = 0
 				_current_animation = "run_back_back"
-			elif mouse_direction.y > vertical_threshold and velocity.y > 0:
+			elif mouse_direction.y < - vertical_threshold and velocity.y > 0:
 				_current_animation = "run_up_up"
 	else:
 		if mouse_direction.y < - vertical_threshold:
