@@ -1,11 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://dwjq66nym7gmn"]
+[gd_scene load_steps=43 format=3 uid="uid://dwjq66nym7gmn"]
 
-[ext_resource type="Script" path="res://characters/player/player_base.gd" id="1_2txsd"]
+[ext_resource type="Script" path="res://characters/player/player_no_weapon/player_no_weapon.gd" id="1_4q5f8"]
 [ext_resource type="Texture2D" uid="uid://xvlh3ty0xcou" path="res://characters/player/img/no_weapon/idle.png" id="2_jofxx"]
 [ext_resource type="Texture2D" uid="uid://iuuuv4na1h6d" path="res://characters/player/img/no_weapon/run.png" id="3_4njp0"]
 [ext_resource type="Texture2D" uid="uid://cmav6yrhr4iny" path="res://characters/player/img/no_weapon/run_back.png" id="4_s6fyi"]
 [ext_resource type="Texture2D" uid="uid://do2tvnpjdshom" path="res://characters/player/img/no_weapon/run_front.png" id="5_pvol1"]
 [ext_resource type="Script" path="res://characters/player/player_no_weapon/pnw_animation.gd" id="6_0626e"]
+[ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://components/health/health.tscn" id="7_u2qvi"]
+[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="8_etqf7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8hp"]
 size = Vector2(99, 95)
@@ -250,10 +252,14 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygqgb"]
+size = Vector2(109, 118)
+
 [node name="PlayerNoWeapon" type="CharacterBody2D"]
-script = ExtResource("1_2txsd")
+script = ExtResource("1_4q5f8")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(6.5, 13.5)
 shape = SubResource("RectangleShape2D_vm8hp")
 
@@ -264,3 +270,23 @@ animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -8.5)
 script = ExtResource("6_0626e")
+
+[node name="Health" parent="." instance=ExtResource("7_u2qvi")]
+
+[node name="HitBox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_etqf7")]
+health_component = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(6.5, 3)
+shape = SubResource("RectangleShape2D_ygqgb")
+
+[node name="ObjectsDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectsDetection"]
+position = Vector2(6.5, 3)
+shape = SubResource("RectangleShape2D_ygqgb")
+
+[connection signal="body_entered" from="ObjectsDetection" to="." method="_on_objects_detection_body_entered"]

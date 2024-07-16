@@ -1,6 +1,6 @@
 [gd_scene load_steps=121 format=3 uid="uid://t5mo6ly3ikms"]
 
-[ext_resource type="Script" path="res://characters/player/player_base.gd" id="1_g60gl"]
+[ext_resource type="Script" path="res://characters/player/player_with_weapon/player_with_weapon.gd" id="1_wjd5o"]
 [ext_resource type="PackedScene" uid="uid://bvlnpxo2hgk2m" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="2_pbgb2"]
 [ext_resource type="Texture2D" uid="uid://dg61ghqvh0urx" path="res://characters/player/img/with_weapon/idle_front.png" id="2_ycknc"]
 [ext_resource type="Texture2D" uid="uid://n74gvijowhj6" path="res://characters/player/img/with_weapon/idle_down.png" id="3_ejau7"]
@@ -1686,8 +1686,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlayerWithWeapon" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("1_g60gl")
+[node name="PlayerWithWeapon" type="CharacterBody2D" node_paths=PackedStringArray("weapon_slot", "animation_player")]
+script = ExtResource("1_wjd5o")
+weapon_slot = NodePath("AnimationContainer/WeaponSlot")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
