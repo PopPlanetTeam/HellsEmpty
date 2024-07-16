@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://17kmbw6hgkne"]
+[gd_scene load_steps=6 format=3 uid="uid://17kmbw6hgkne"]
 
 [ext_resource type="Script" path="res://weapon/rocket_launcher/rocket_projectile.gd" id="1_ym5lm"]
+[ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/weapon_textures.png" id="2_qboyl"]
 [ext_resource type="Script" path="res://components/hitbox/hitbox.gd" id="3_hse7j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ejw2"]
+atlas = ExtResource("2_qboyl")
 region = Rect2(414, 357, 107, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bioen"]
@@ -16,6 +18,7 @@ script = ExtResource("1_ym5lm")
 texture = SubResource("AtlasTexture_6ejw2")
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("3_hse7j")

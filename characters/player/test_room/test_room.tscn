@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvumaxtvwqtp3"]
+
+[ext_resource type="PackedScene" uid="uid://t5mo6ly3ikms" path="res://characters/player/player_with_weapon/player_with_weapon.tscn" id="1_r3yfh"]
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="PlayerWithWeapon" parent="." instance=ExtResource("1_r3yfh")]
+position = Vector2(-5, 2)
