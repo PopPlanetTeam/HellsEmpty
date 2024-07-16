@@ -17,6 +17,9 @@ func _ready():
 	if animation_player and animation_player.get_script() == null:
 		printerr("PlayerBase> ERROR: AnimationPlayer has no script assigned.")
 		get_tree().quit()
+   
+	# Add itself to the global player variable
+	GlobalData.player = self
 
 func _physics_process(_delta):
 	var x_direction = Input.get_axis("left", "right")

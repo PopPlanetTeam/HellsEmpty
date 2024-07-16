@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://6wqxmw2vokg2"]
+[gd_scene load_steps=6 format=3 uid="uid://6wqxmw2vokg2"]
 
 [ext_resource type="Script" path="res://characters/enemies/enemy_base.gd" id="1_6cwuq"]
 [ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://components/health/health.tscn" id="2_3h5nx"]
 [ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="3_8bcgd"]
 [ext_resource type="Script" path="res://components/state_machine/state_machine.gd" id="4_rk02a"]
+[ext_resource type="PackedScene" uid="uid://53t88b24s425" path="res://components/obstacle_detector/obstacle_detector.tscn" id="5_phv5f"]
 
-[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "health_component")]
-scale = Vector2(0.5, 0.5)
+[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "obstacle_detector", "health_component")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_6cwuq")
 state_machine = NodePath("StateMachine")
+obstacle_detector = NodePath("ObstacleDetector")
 health_component = NodePath("Health")
 
 [node name="PhysicCollision" type="CollisionShape2D" parent="."]
@@ -33,5 +34,7 @@ health_component = NodePath("../Health")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_rk02a")
+
+[node name="ObstacleDetector" parent="." instance=ExtResource("5_phv5f")]
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
