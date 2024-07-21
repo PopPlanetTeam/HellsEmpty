@@ -4,23 +4,34 @@ extends AnimationPlayer
 @export var player_sprites: Node2D
 @export var animation_container: Node2D
 
-@onready var _weapon_slot: Node2D = %WeaponSlot
+@onready var _weapon_slot: WeaponSlot = %WeaponSlot
 
 var _origin: Marker2D
 var _current_animation: String = ""
+
+var _node_ready: bool = false
 
 func _ready():
 	if not animation_container or not player_sprites:
 		printerr("PwAnimation> ERROR: one of the required nodes is missing.")
 		get_tree().quit()
+		return
 	
 	await _weapon_slot.ready
+
+	if not _weapon_slot.has_weapon():
+		printerr("PwAnimation> ERROR: No weapon assigned to the WeaponSlot. It is impossible to animate the player.")
+		get_tree().quit()
+		return
+
 	_origin = _weapon_slot.get_origin()
+	_node_ready = true
 	
 func _process(_delta):
-	var aiming_angle = _get_aiming_direction().angle()
+	if _node_ready:
+		var aiming_angle = _get_aiming_direction().angle()
 
-	_set_rotation_around_origin(aiming_angle)
+		_set_rotation_around_origin(aiming_angle)
 	
 func _get_aiming_direction() -> Vector2:
 	return (_weapon_slot.get_global_mouse_position() - _weapon_slot.weapon.global_position)

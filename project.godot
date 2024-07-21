@@ -94,6 +94,13 @@ toggle_fullscreen={
 
 locale/translations=PackedStringArray("res://translations/translations.br.translation", "res://translations/translations.us.translation")
 
+[layer_names]
+
+2d_physics/layer_1="common_collision"
+2d_physics/layer_2="player_damage"
+2d_physics/layer_3="enemies_collision"
+2d_physics/layer_4="enemies_damage"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

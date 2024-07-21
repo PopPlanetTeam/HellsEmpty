@@ -1,16 +1,15 @@
-[gd_scene load_steps=43 format=3 uid="uid://dwjq66nym7gmn"]
+[gd_scene load_steps=41 format=3 uid="uid://c5wobxnhte8w7"]
 
+[ext_resource type="PackedScene" uid="uid://cmag0aulmy0ie" path="res://characters/player/player_base.tscn" id="1_3q3ak"]
 [ext_resource type="Script" path="res://characters/player/player_no_weapon/player_no_weapon.gd" id="1_4q5f8"]
 [ext_resource type="Texture2D" uid="uid://xvlh3ty0xcou" path="res://characters/player/img/no_weapon/idle.png" id="2_jofxx"]
 [ext_resource type="Texture2D" uid="uid://iuuuv4na1h6d" path="res://characters/player/img/no_weapon/run.png" id="3_4njp0"]
 [ext_resource type="Texture2D" uid="uid://cmav6yrhr4iny" path="res://characters/player/img/no_weapon/run_back.png" id="4_s6fyi"]
 [ext_resource type="Texture2D" uid="uid://do2tvnpjdshom" path="res://characters/player/img/no_weapon/run_front.png" id="5_pvol1"]
 [ext_resource type="Script" path="res://characters/player/player_no_weapon/pnw_animation.gd" id="6_0626e"]
-[ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://components/health/health.tscn" id="7_u2qvi"]
-[ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="8_etqf7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8hp"]
-size = Vector2(99, 95)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebbay"]
+size = Vector2(100, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nfey"]
 atlas = ExtResource("2_jofxx")
@@ -136,7 +135,7 @@ region = Rect2(480, 0, 80, 80)
 atlas = ExtResource("5_pvol1")
 region = Rect2(560, 0, 80, 80)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_y3hq2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_03hvk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -252,41 +251,23 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygqgb"]
-size = Vector2(109, 118)
-
-[node name="PlayerNoWeapon" type="CharacterBody2D"]
+[node name="PlayerNoWeapon" node_paths=PackedStringArray("player_animated_sprite") instance=ExtResource("1_3q3ak")]
 script = ExtResource("1_4q5f8")
+player_animated_sprite = NodePath("PwnAnimation")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." index="0"]
 visible = false
-position = Vector2(6.5, 13.5)
-shape = SubResource("RectangleShape2D_vm8hp")
+position = Vector2(6, 14)
+shape = SubResource("RectangleShape2D_ebbay")
 
-[node name="PwnAnimation" type="AnimatedSprite2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(6, 14)
+shape = SubResource("RectangleShape2D_ebbay")
+
+[node name="PwnAnimation" type="AnimatedSprite2D" parent="." index="3"]
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_y3hq2")
+sprite_frames = SubResource("SpriteFrames_03hvk")
 animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -8.5)
 script = ExtResource("6_0626e")
-
-[node name="Health" parent="." instance=ExtResource("7_u2qvi")]
-
-[node name="HitBox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_etqf7")]
-health_component = NodePath("../Health")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(6.5, 3)
-shape = SubResource("RectangleShape2D_ygqgb")
-
-[node name="ObjectsDetection" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectsDetection"]
-position = Vector2(6.5, 3)
-shape = SubResource("RectangleShape2D_ygqgb")
-
-[connection signal="body_entered" from="ObjectsDetection" to="." method="_on_objects_detection_body_entered"]

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://weapon/rocket_launcher/rocket_projectile.gd" id="1_ym5lm"]
 [ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/weapon_textures.png" id="2_qboyl"]
-[ext_resource type="Script" path="res://components/hitbox/hitbox.gd" id="3_hse7j"]
+[ext_resource type="PackedScene" uid="uid://b547eiqrskj6c" path="res://components/damage_area/damage_area.tscn" id="3_rs3i7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ejw2"]
 atlas = ExtResource("2_qboyl")
 region = Rect2(414, 357, 107, 40)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bioen"]
-radius = 17.0294
+[sub_resource type="CircleShape2D" id="CircleShape2D_qeobs"]
+radius = 22.0227
 
 [node name="RocketProjectile" type="Node2D"]
 script = ExtResource("1_ym5lm")
@@ -17,14 +17,11 @@ script = ExtResource("1_ym5lm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_6ejw2")
 
-[node name="HitBox" type="Area2D" parent="."]
-visible = false
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_hse7j")
+[node name="DamageArea" parent="." instance=ExtResource("3_rs3i7")]
+collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(31, 0)
-shape = SubResource("CircleShape2D_bioen")
+shape = SubResource("CircleShape2D_qeobs")
 
-[connection signal="area_entered" from="HitBox" to="." method="_on_hitbox_area_entered"]
+[connection signal="damage_dealt" from="DamageArea" to="." method="_on_damage_area_damage_dealt"]

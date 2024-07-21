@@ -18,7 +18,8 @@ func has_weapon() -> bool:
 	return weapon != null
 
 func assign_weapon(new_weapon: Node2D) -> void:
-	weapon.queue_free()
+	if weapon:
+		weapon.queue_free()
 
 	self.weapon = new_weapon
 	new_weapon.global_position = origin.global_position - new_weapon.get_origin().global_position

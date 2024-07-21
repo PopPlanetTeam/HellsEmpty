@@ -1,5 +1,6 @@
-[gd_scene load_steps=121 format=3 uid="uid://t5mo6ly3ikms"]
+[gd_scene load_steps=122 format=3 uid="uid://bra6fq827ewxa"]
 
+[ext_resource type="PackedScene" uid="uid://cmag0aulmy0ie" path="res://characters/player/player_base.tscn" id="1_vn2f0"]
 [ext_resource type="Script" path="res://characters/player/player_with_weapon/player_with_weapon.gd" id="1_wjd5o"]
 [ext_resource type="PackedScene" uid="uid://bvlnpxo2hgk2m" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="2_pbgb2"]
 [ext_resource type="Texture2D" uid="uid://dg61ghqvh0urx" path="res://characters/player/img/with_weapon/idle_front.png" id="2_ycknc"]
@@ -16,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://v3e24nyryaka" path="res://characters/player/img/with_weapon/run_back.png" id="12_16kh4"]
 [ext_resource type="Texture2D" uid="uid://dk3kyl5h3m24o" path="res://characters/player/img/with_weapon/run_back_up.png" id="14_2u4qw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg2kw"]
-size = Vector2(100, 95.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2je"]
+size = Vector2(100, 96)
 
 [sub_resource type="Animation" id="Animation_bhr7r"]
 length = 0.001
@@ -1379,7 +1380,7 @@ region = Rect2(480, 0, 80, 80)
 atlas = ExtResource("11_4gdgo")
 region = Rect2(560, 0, 80, 80)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_66vcs"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8p2ki"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -1686,17 +1687,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PlayerWithWeapon" type="CharacterBody2D" node_paths=PackedStringArray("weapon_slot", "animation_player")]
+[node name="PlayerWithWeapon" node_paths=PackedStringArray("weapon_slot", "animation_player") groups=["player_with_weapon"] instance=ExtResource("1_vn2f0")]
 script = ExtResource("1_wjd5o")
 weapon_slot = NodePath("AnimationContainer/WeaponSlot")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." index="0"]
 visible = false
-position = Vector2(6.5, 13.5)
-shape = SubResource("RectangleShape2D_hg2kw")
+position = Vector2(6, 14)
+shape = SubResource("RectangleShape2D_8h2je")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("player_sprites", "animation_container")]
+[node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
+visible = false
+position = Vector2(6, 14)
+shape = SubResource("RectangleShape2D_8h2je")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" node_paths=PackedStringArray("player_sprites", "animation_container")]
 libraries = {
 "": SubResource("AnimationLibrary_cf0kc")
 }
@@ -1706,24 +1712,25 @@ script = ExtResource("3_hnou4")
 player_sprites = NodePath("../PwAnimation")
 animation_container = NodePath("../AnimationContainer")
 
-[node name="PwAnimation" type="AnimatedSprite2D" parent="."]
+[node name="PwAnimation" type="AnimatedSprite2D" parent="." index="4"]
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_66vcs")
+sprite_frames = SubResource("SpriteFrames_8p2ki")
 animation = &"idle_front"
 frame = 1
 offset = Vector2(0, -8.5)
 
-[node name="AnimationContainer" type="Node2D" parent="."]
+[node name="AnimationContainer" type="Node2D" parent="." index="5"]
 
-[node name="WeaponSlot" type="Node2D" parent="AnimationContainer" node_paths=PackedStringArray("weapon")]
+[node name="WeaponSlot" type="Node2D" parent="AnimationContainer" index="0" node_paths=PackedStringArray("weapon")]
 unique_name_in_owner = true
+position = Vector2(1, 9)
 rotation = 0.00122329
 script = ExtResource("4_dup28")
 weapon = NodePath("RocketLauncher")
 
-[node name="RocketLauncher" parent="AnimationContainer/WeaponSlot" instance=ExtResource("2_pbgb2")]
-position = Vector2(30.9926, -6.03792)
+[node name="RocketLauncher" parent="AnimationContainer/WeaponSlot" index="0" instance=ExtResource("2_pbgb2")]
+position = Vector2(21.9926, -6.02691)
 scale = Vector2(0.4, 0.4)
 
-[node name="Origin" type="Marker2D" parent="AnimationContainer/WeaponSlot"]
+[node name="Origin" type="Marker2D" parent="AnimationContainer/WeaponSlot" index="1"]
 position = Vector2(37, -1)

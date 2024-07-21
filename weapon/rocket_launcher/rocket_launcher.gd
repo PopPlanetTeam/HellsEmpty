@@ -21,8 +21,6 @@ func _process(_delta) -> void:
 
 		# The gun should always shoot in the direction of the mouse
 		new_shot.direction = mouse_direction.normalized()
-		new_shot.speed = 500.0
-		new_shot.damage = 100.0
 		new_shot.rotation = mouse_direction.angle()
 		new_shot.scale = self.scale
 		new_shot.global_position = _projectile_origin.global_position
