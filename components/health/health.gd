@@ -14,7 +14,7 @@ signal died
 func _ready():
 	_life_bar.max_value = life
 
-func _process(delta):
+func _process(_delta):
 	_life_bar.value = life
 
 func take_damage(ammount:float) -> void:

@@ -1701,7 +1701,7 @@ visible = false
 position = Vector2(6, 14)
 shape = SubResource("RectangleShape2D_8h2je")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" node_paths=PackedStringArray("player_sprites")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" node_paths=PackedStringArray("player_sprites", "animation_container")]
 libraries = {
 "": SubResource("AnimationLibrary_cf0kc")
 }
@@ -1709,6 +1709,7 @@ autoplay = "idle_front"
 speed_scale = 1.2
 script = ExtResource("3_hnou4")
 player_sprites = NodePath("../PwAnimation")
+animation_container = NodePath("../AnimationContainer")
 
 [node name="PwAnimation" type="AnimatedSprite2D" parent="." index="4"]
 scale = Vector2(4, 4)
@@ -1719,14 +1720,15 @@ offset = Vector2(0, -8.5)
 
 [node name="AnimationContainer" type="Node2D" parent="." index="5"]
 
-[node name="WeaponSlot" type="Node2D" parent="AnimationContainer" index="0"]
+[node name="WeaponSlot" type="Node2D" parent="AnimationContainer" index="0" node_paths=PackedStringArray("weapon")]
 unique_name_in_owner = true
 rotation = 0.00122329
 script = ExtResource("4_dup28")
+weapon = NodePath("")
 
-[node name="RocketLauncher" parent="AnimationContainer/WeaponSlot" index="0" instance=ExtResource("2_pbgb2")]
+[node name="Origin" type="Marker2D" parent="AnimationContainer/WeaponSlot" index="0"]
+position = Vector2(37.0024, 1.95474)
+
+[node name="RocketLauncher" parent="AnimationContainer/WeaponSlot" index="1" instance=ExtResource("2_pbgb2")]
 position = Vector2(23.9975, -2.02936)
 scale = Vector2(0.359175, 0.359175)
-
-[node name="Origin" type="Marker2D" parent="AnimationContainer/WeaponSlot" index="1"]
-position = Vector2(37.0024, 1.95474)

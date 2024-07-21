@@ -2,7 +2,6 @@ extends AnimationPlayer
 
 @export var vertical_threshold: int = 50
 @export var player_sprites: Node2D
-@export var animation_container: Node2D
 
 @onready var _weapon_slot: WeaponSlot = %WeaponSlot
 
@@ -12,17 +11,12 @@ var _current_animation: String = ""
 var _node_ready: bool = false
 
 func _ready():
-	if not animation_container or not player_sprites:
-		printerr("PwAnimation> ERROR: one of the required nodes is missing.")
+	if not player_sprites:
+		printerr("PwAnimation> ERROR: No player_sprites assigned.")
 		get_tree().quit()
 		return
 	
 	await _weapon_slot.ready
-
-	if not _weapon_slot.has_weapon():
-		printerr("PwAnimation> ERROR: No weapon assigned to the WeaponSlot. It is impossible to animate the player.")
-		get_tree().quit()
-		return
 
 	_origin = _weapon_slot.get_origin()
 	_node_ready = true
@@ -34,7 +28,7 @@ func _process(_delta):
 		_set_rotation_around_origin(aiming_angle)
 	
 func _get_aiming_direction() -> Vector2:
-	return (_weapon_slot.get_global_mouse_position() - _weapon_slot.weapon.global_position)
+	return (player_sprites.get_global_mouse_position() - _origin.global_position)
 
 func _get_mouse_direction() -> Vector2:
 	return (player_sprites.get_global_mouse_position() - player_sprites.global_position)
@@ -47,15 +41,20 @@ func _flip_animation(_flip_h: bool):
 
 # Set the rotation of the WeaponSlot node around the origin Marker2D
 func _set_rotation_around_origin(angle: float) -> void:
-	var original_position = Vector2(_origin.global_position)
+	# Mark origin position before any transformations
+	var origin_start_pos = Vector2(_origin.global_position)
 
+	# Rotate the WeaponSlot node
 	_weapon_slot.rotation = angle
-	_weapon_slot.global_position -= (_origin.global_position - original_position)
 
+	# Flip the WeaponSlot node vertically if the angle is greater than 90 degrees
 	if angle > deg_to_rad(90) or angle < deg_to_rad( - 90):
-		_weapon_slot.weapon.scale.y *= - 1 if _weapon_slot.weapon.scale.y > 0 else 1
+		_weapon_slot.scale.y *= - 1 if _weapon_slot.scale.y > 0 else 1
 	else:
-		_weapon_slot.weapon.scale.y *= - 1 if _weapon_slot.weapon.scale.y < 0 else 1
+		_weapon_slot.scale.y *= - 1 if _weapon_slot.scale.y < 0 else 1
+	
+	# Compensate the flip and rotation by moving the WeaponSlot node
+	_weapon_slot.global_position -= (_origin.global_position - origin_start_pos)
 
 func animate(velocity: Vector2):
 	player_sprites.z_index = 0

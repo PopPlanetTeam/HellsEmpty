@@ -1,14 +1,12 @@
-extends Node2D
+extends WeaponBase
 class_name RocketLauncher
 
 @onready var _fire_rate_timer = $FireRateTimer
 @onready var _firing_sound = $FiringSound
 @onready var _gun_sprite: Sprite2D = $Sprite2D
-@onready var _gun_origin = $GunOrigin
-@onready var _projectile_origin: Marker2D = $ProjectileOrigin
 @onready var _tree_root: Node = get_tree().root
 
-var _shot: PackedScene = preload ("res://weapon/rocket_launcher/rocket_projectile.tscn")
+var _shot: PackedScene = preload("res://weapon/rocket_launcher/projectile/rocket_projectile.tscn")
 var _can_shoot: bool = true
 
 func _process(_delta) -> void:
@@ -35,6 +33,3 @@ func _process(_delta) -> void:
 func _on_fire_rate_timer_timeout() -> void:
 	_can_shoot = true
 	_gun_sprite.frame = 0 # Change the gun sprite back to the idle state
-
-func get_gun_origin() -> Marker2D:
-	return _gun_origin
