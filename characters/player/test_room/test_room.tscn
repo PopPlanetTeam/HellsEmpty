@@ -9,10 +9,10 @@
 zoom = Vector2(2, 2)
 
 [node name="Luna" parent="." instance=ExtResource("2_6750j")]
-visible = false
 position = Vector2(233, -37)
 collision_layer = 2
 collision_mask = 3
+damage = 50.0
 
 [node name="PlayerWithWeapon" parent="." instance=ExtResource("1_r3yfh")]
 position = Vector2(-115, -10)

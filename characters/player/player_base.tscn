@@ -14,3 +14,5 @@ takes_damage = 2
 
 [node name="HitBox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_el6bx")]
 health_component = NodePath("../Health")
+
+[connection signal="died" from="Health" to="." method="_on_died"]

@@ -9,6 +9,7 @@ class_name EnemyBase
 @export_group("Life and Damage")
 @export var health_component: Health
 @export var damage: float = 24.0
+@export var knockback_strength: float = 100.0
 
 @export_group("Layers and Masks")
 @export_flags_2d_physics var provides_collision = 0
@@ -27,6 +28,8 @@ func _ready():
 	_hitbox.collision_mask = 0 # The hitbox will not collide with anything, it needs to only be visible to damage areas
 	_damage_area.collision_layer = 0 # The damage area will not collide with anything, it only needs to search for hitboxes
 	_damage_area.collision_mask = provide_damage
+	_damage_area.damage = damage
+	_damage_area.knockback_strength = knockback_strength
 
 	# Set collision mask of obstacle detector
 	obstacle_detector.collision_mask = scan_collision

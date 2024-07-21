@@ -100,3 +100,12 @@ func animate(velocity: Vector2):
 		_flip_animation(mouse_direction.x < 0)
 
 	self.current_animation = _current_animation
+
+func damage_animation():
+	_current_animation = "damage"
+	self._flip_animation(_get_mouse_direction().x < 0)
+	self.play(_current_animation)
+
+func die_animation():
+	_current_animation = "die"
+	self.play(_current_animation)

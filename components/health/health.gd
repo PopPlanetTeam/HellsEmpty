@@ -21,6 +21,7 @@ func take_damage(ammount:float) -> void:
 	life -= ammount
 	
 	if life <= 0.0:
+		life = 0.0
 		died.emit()
 	
 func regenerate(ammount: float) -> void:
