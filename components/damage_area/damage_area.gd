@@ -5,6 +5,7 @@ signal damage_dealt
 
 @export var damage: float = 10.0
 @export var knockback_strength: float = 50.0
+@export var debug: bool = false
 
 func _on_area_entered(area):
 	if area is HitBox:
@@ -16,6 +17,9 @@ func _on_area_entered(area):
 		
 		target_hitbox.take_damage(damage, knockback)
 		
-		print("Damage dealt: ", damage)
-		print("Knockback: ", knockback)
+		if debug:
+			print("Target: ", target_hitbox.get_parent().name)
+			print("Damage dealt: ", damage)
+			print("Knockback: ", knockback)
+		
 		damage_dealt.emit()
