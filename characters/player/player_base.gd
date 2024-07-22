@@ -11,7 +11,7 @@ class_name PlayerBase
 @export_flags_2d_physics var scan_collision = 0
 @export_flags_2d_physics var takes_damage = 0
 
-var knockback: Vector2 = Vector2.ZERO
+var _knockback: Vector2 = Vector2.ZERO
 var _movement_enabled: bool = true
 
 func _ready():
@@ -44,8 +44,8 @@ func _ready():
 	GlobalData.player = self
 
 func _physics_process(_delta):
-	if not knockback.is_equal_approx(Vector2.ZERO):
-		# We gonna redirect the physics process to the knockback process
+	if not _knockback.is_equal_approx(Vector2.ZERO):
+		# We gonna redirect the physics process to the _knockback process
 		_knockback_process()
 		return
 
@@ -68,10 +68,10 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _knockback_process():
-	velocity += knockback
+	velocity += _knockback
 
 	move_and_slide()
-	knockback = knockback.lerp(Vector2.ZERO, 0.5)
+	_knockback = _knockback.lerp(Vector2.ZERO, 0.5)
 
 func _on_died():
 	self.queue_free()

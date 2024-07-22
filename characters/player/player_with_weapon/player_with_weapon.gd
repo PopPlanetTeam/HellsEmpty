@@ -25,7 +25,7 @@ func _on_died():
 	self.queue_free()
 
 func _on_hit_box_damage_taken(_amount: float, knockback_taken: Vector2):
-	self.knockback = knockback_taken
+	self._knockback = knockback_taken
 	self.set_movement_enabled(false)
 
 	weapon_slot.set_weapon_enabled(false)

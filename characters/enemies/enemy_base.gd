@@ -3,11 +3,12 @@ class_name EnemyBase
 
 @export var speed: float = 100.0
 @export var distance_threshold: float = 100.0
+@export var health_component: Health
 @export var state_machine: StateMachine
 @export var obstacle_detector: ObstacleDetector
 
-@export_group("Life and Damage")
-@export var health_component: Health
+@export_group("Attack")
+@export var distance_to_attack: float = 60.0
 @export var damage: float = 24.0
 @export var knockback_strength: float = 100.0
 
@@ -21,7 +22,7 @@ class_name EnemyBase
 @onready var _damage_area = $DamageArea
 
 func _ready():
-	# Set the collision layer and mask
+	# Set collision layers and masks
 	self.collision_layer = provides_collision
 	self.collision_mask = scan_collision
 	_hitbox.collision_layer = takes_damage

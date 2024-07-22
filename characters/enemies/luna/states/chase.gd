@@ -1,19 +1,22 @@
 extends State
 
 signal player_too_far
+signal player_next_to_enemy
 
 @export_range(0, 1) var smooth_factor: float = 0.1
 @export var debug: bool = false
 
 var _enemy: EnemyBase
 var _player: PlayerBase
-var _distance_threshold
+var _distance_threshold: float
+var _distance_to_attack: float
 var _possible_directions = [Vector2( - 1, 0), Vector2( - 1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(1, 0), Vector2(1, -1), Vector2(0, -1), Vector2( - 1, -1)]
 
 ## This function is automatically called when the state is entered.
 func Enter():
 	_enemy = state_machine.get_parent()
 	_distance_threshold = _enemy.distance_threshold
+	_distance_to_attack = _enemy.distance_to_attack
 
 	# Normalize all possible directions
 	for i in range(_possible_directions.size()):
@@ -44,6 +47,11 @@ func _physics_process(_delta):
 
 		if distance > _distance_threshold:
 			player_too_far.emit()
+			return
+		
+		if distance <= _distance_to_attack:
+			player_next_to_enemy.emit()
+			return
 
 		# Get direction
 		var direction = _player.global_position - _enemy.global_position
@@ -74,8 +82,13 @@ func _physics_process(_delta):
 
 		# Smooth the movement using linear interpolation
 		var current_direction = _enemy.velocity.normalized()
-		var new_direction = current_direction.lerp(direction_to_player, smooth_factor).normalized()
+		var new_direction = current_direction.slerp(direction_to_player, smooth_factor).normalized()
+
+		_enemy.animation_sprites.play("run")
+		_enemy.animation_sprites.flip_h = new_direction.x < 0
 
 		# Move the enemy
 		_enemy.velocity = new_direction * _enemy.speed
 		_enemy.move_and_slide()
+	else:
+		player_too_far.emit()
