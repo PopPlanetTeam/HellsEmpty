@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmohtwp4su7"
-path="res://.godot/imported/weapon_projectiles.png-da650378760aabf11ca6c5b20ee2e731.ctex"
+uid="uid://dosp635o6oyyl"
+path="res://.godot/imported/Pink_Monster_Attack2_6.png-5cff5022f34af4c16065385c5051060c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapon/weapon_projectiles.png"
-dest_files=["res://.godot/imported/weapon_projectiles.png-da650378760aabf11ca6c5b20ee2e731.ctex"]
+source_file="res://characters/enemies/luna/img_tmp/Pink_Monster_Attack2_6.png"
+dest_files=["res://.godot/imported/Pink_Monster_Attack2_6.png-5cff5022f34af4c16065385c5051060c.ctex"]
 
 [params]
 

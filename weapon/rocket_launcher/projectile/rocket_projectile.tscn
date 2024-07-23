@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://17kmbw6hgkne"]
+
+[ext_resource type="Script" path="res://weapon/rocket_launcher/projectile/rocket_projectile.gd" id="1_dk764"]
+[ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/wepons_tilesheets/weapon_textures.png" id="2_kapg0"]
+[ext_resource type="PackedScene" uid="uid://b547eiqrskj6c" path="res://components/damage_area/damage_area.tscn" id="3_32gev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ejw2"]
+atlas = ExtResource("2_kapg0")
+region = Rect2(414, 357, 107, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qeobs"]
+radius = 22.0227
+
+[node name="RocketProjectile" type="Node2D"]
+script = ExtResource("1_dk764")
+damage = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6ejw2")
+
+[node name="DamageArea" parent="." instance=ExtResource("3_32gev")]
+collision_mask = 8
+debug = true
+knockback_strength = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(31, 0)
+shape = SubResource("CircleShape2D_qeobs")
+
+[connection signal="damage_dealt" from="DamageArea" to="." method="_on_damage_area_damage_dealt"]

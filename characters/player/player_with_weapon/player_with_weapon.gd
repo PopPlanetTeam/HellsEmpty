@@ -1,18 +1,37 @@
 extends PlayerBase
 
-@export var weapon_slot : WeaponSlot
+signal player_died
 
-@onready var _player_without_weapon = preload("res://characters/player/player_no_weapon/player_no_weapon.tscn")
+@export var weapon_slot: WeaponSlot
 
 func _ready():
 	super._ready()
+	
+	if not weapon_slot:
+		printerr("PlayerWithWeapon> ERROR: No weapon slot assigned.")
+		get_tree().quit()
+		return
 
-	# Verificar se há arma no slot
-	if not weapon_slot.has_weapon():
-		# Mudamos para o player sem arma
-		var player_no_weapon : PlayerBase = _player_without_weapon.instantiate()
-		
-		player_no_weapon.global_position = self.global_position
-		
-		self.get_parent().call_deferred("add_child", player_no_weapon)
-		self.queue_free()
+func _on_died():
+	GlobalData.player = null
+
+	self.set_movement_enabled(false)
+	weapon_slot.set_weapon_enabled(false)
+	
+	animation_player.die_animation()
+	await animation_player.animation_finished
+	
+	player_died.emit()
+	self.queue_free()
+
+func _on_hit_box_damage_taken(_amount: float, knockback_taken: Vector2):
+	self._knockback = knockback_taken
+	self.set_movement_enabled(false)
+
+	weapon_slot.set_weapon_enabled(false)
+	
+	animation_player.damage_animation()
+	await animation_player.animation_finished
+	
+	self.set_movement_enabled(true)
+	weapon_slot.set_weapon_enabled(true)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnobbbr10pb34" path="res://levels/safe_house/img/safe_house_0.jpeg" id="1_a4vu1"]
 [ext_resource type="Script" path="res://levels/safe_house/safe_house.gd" id="1_p6tra"]
-[ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="3_akc8g"]
+[ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://characters/player/player_no_weapon/player_no_weapon_2.tscn" id="3_akc8g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8qqu"]
 radius = 52.0

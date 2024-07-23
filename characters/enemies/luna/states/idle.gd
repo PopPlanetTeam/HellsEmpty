@@ -2,7 +2,6 @@ extends State
 
 signal next_to_player
 
-@export var animation: AnimatedSprite2D
 @export var debug: bool = false
 
 var _enemy: EnemyBase
@@ -11,13 +10,9 @@ var _distance_threshold
 
 ## This function is automatically called when the state is entered.
 func Enter():
-	if not animation:
-		printerr("No animation node provided for state ", self.get_name())
-		get_tree().quit()
-
 	_enemy = state_machine.get_parent()
 	_distance_threshold = _enemy.distance_threshold
-
+	
 	# Create debug line and label
 	if debug:
 		var line = Line2D.new()
@@ -33,8 +28,6 @@ func Enter():
 		_enemy.call_deferred("add_child", line)
 		_enemy.call_deferred("add_child", distance_label)
 
-	animation.play("idle")
-
 ## This function is automatically called when the state is exited.
 func Exit():
 	# Remove debug line and label on exit
@@ -44,6 +37,7 @@ func Exit():
 
 func _process(_delta):
 	_player = GlobalData.player
+	_enemy.animation_sprites.play("idle")
 
 	if _player:
 		var distance: float = _enemy.global_position.distance_to(_player.global_position)
