@@ -2177,9 +2177,6 @@ layer_0/tile_data = PackedInt32Array(327679, 65536, 1, 393215, 65536, 2, 458751,
 position = Vector2(-169, 32)
 scale = Vector2(0.25, 0.25)
 
-[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
-zoom = Vector2(7, 7)
-
 [node name="RocketPick" parent="." instance=ExtResource("12_oeuh5")]
 weapon = ExtResource("13_oeehp")
 

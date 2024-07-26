@@ -18,14 +18,11 @@ func _on_picker_area_entered(area):
 			# Add player with weapon to the scene
 			self.get_parent().call_deferred("add_child", player_with_weapon)
 			await player_with_weapon.ready
-			
-			# Move camera to player with weapon
-			self.get_node("Camera2D").reparent(player_with_weapon)
-			
-			print("OI")
+
+			GlobalData.player = player_with_weapon
 			
 			# Set player with weapon position, scale and assign weapon
-			player_with_weapon.set_position(self.get_position())
+			player_with_weapon.global_position = self.global_position
 			player_with_weapon.set_scale(self.get_scale())
 			player_with_weapon.weapon_slot.assign_weapon(weapon_instance)
 
