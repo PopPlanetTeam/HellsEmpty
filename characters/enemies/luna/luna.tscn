@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://characters/enemies/luna/states/attack.gd" id="10_a6psu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fchlr"]
-radius = 64.0
-height = 130.0
+radius = 35.119
+height = 70.238
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jidh"]
 atlas = ExtResource("3_oh64i")
@@ -242,22 +242,27 @@ animations = [{
 [node name="Luna" instance=ExtResource("1_hxv06")]
 script = ExtResource("2_dkfnr")
 distance_threshold = 400.0
-distance_to_attack = 100.0
+distance_to_attack = 20.0
 damage = 0.0
 
 [node name="PhysicCollision" parent="." index="0"]
-position = Vector2(0, 0)
+position = Vector2(0, 27)
 shape = SubResource("CapsuleShape2D_fchlr")
 
 [node name="DamageArea" parent="." index="2"]
-visible = false
 monitoring = false
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
+visible = false
+position = Vector2(0, 8)
+rotation = -1.57079
+scale = Vector2(1.68, 2.08)
 shape = SubResource("CapsuleShape2D_fchlr")
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 visible = false
+position = Vector2(0, 6)
+scale = Vector2(1.6018, 1.93377)
 shape = SubResource("CapsuleShape2D_fchlr")
 
 [node name="Animation" type="AnimatedSprite2D" parent="." index="4"]
@@ -275,10 +280,13 @@ debug = true
 
 [node name="chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("4_4mccc")
-smooth_factor = 0.05
+smooth_factor = 0.03
 
 [node name="attack" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("10_a6psu")
+
+[node name="ObstacleDetector" parent="." index="6"]
+max_obstacle_danger = 5.0
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]
 [connection signal="next_to_player" from="StateMachine/idle" to="." method="_on_idle_next_to_player"]

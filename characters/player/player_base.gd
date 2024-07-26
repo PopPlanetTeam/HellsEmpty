@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-@export var SPEED = 300.0
+@export var SPEED = 190.0
 @export var hitbox: HitBox
 @export var player_animated_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c5wobxnhte8w7"]
+[gd_scene load_steps=42 format=3 uid="uid://c5wobxnhte8w7"]
 
 [ext_resource type="PackedScene" uid="uid://cmag0aulmy0ie" path="res://characters/player/player_base.tscn" id="1_3q3ak"]
 [ext_resource type="Script" path="res://characters/player/player_no_weapon/player_no_weapon.gd" id="1_4q5f8"]
@@ -8,8 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://do2tvnpjdshom" path="res://characters/player/img/no_weapon/run_front.png" id="5_pvol1"]
 [ext_resource type="Script" path="res://characters/player/player_no_weapon/pnw_animation.gd" id="6_0626e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebbay"]
-size = Vector2(100, 96)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_se0hv"]
+radius = 16.0
+height = 76.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ob4g"]
+size = Vector2(74, 86)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nfey"]
 atlas = ExtResource("2_jofxx")
@@ -257,17 +261,24 @@ player_animated_sprite = NodePath("PwnAnimation")
 
 [node name="Collision" type="CollisionShape2D" parent="." index="0"]
 visible = false
-position = Vector2(6, 14)
-shape = SubResource("RectangleShape2D_ebbay")
+position = Vector2(6, 33)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_se0hv")
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(6, 14)
-shape = SubResource("RectangleShape2D_ebbay")
+position = Vector2(6, 12)
+shape = SubResource("RectangleShape2D_2ob4g")
 
-[node name="PwnAnimation" type="AnimatedSprite2D" parent="." index="3"]
+[node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]
+position = Vector2(6, 12)
+shape = SubResource("RectangleShape2D_2ob4g")
+
+[node name="PwnAnimation" type="AnimatedSprite2D" parent="." index="4"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_03hvk")
 animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -8.5)
 script = ExtResource("6_0626e")
+
+[connection signal="area_entered" from="Picker" to="." method="_on_picker_area_entered"]

@@ -2,6 +2,7 @@ extends Node2D
 class_name ObstacleDetector
 
 @export var debug: bool = false
+@export var max_obstacle_danger: float = 1.0
 @export_flags_2d_physics var collision_mask: int = 0:
 	set(value):
 		for ray in _rays:
@@ -31,6 +32,9 @@ func _normalize_danger_array():
 	var max_value: float = float(inverted_array.max())
 	var scaled_array = inverted_array.map(func(x: float): return x / max_value) if max_value > 0 else inverted_array
 
+	# Scaling array to have values between 0 and max_obstacle_danger
+	scaled_array = scaled_array.map(func(x: float): return x * max_obstacle_danger)
+
 	if debug:
 		print("ObstacleDetector> Danger array: ", Utils.format_array(scaled_array, "%.2f"))
 
@@ -39,7 +43,7 @@ func _normalize_danger_array():
 ## Add 60% danger to nearby directions around the detected obstacles.
 func _pad_danger_array():
 	var d_size = _danger_array.size()
-	var pad_decrement = 0.6
+	var pad_decrement = 0.3
 
 	var indexes_to_ignore = []
 	indexes_to_ignore.resize(d_size)
