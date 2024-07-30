@@ -27,6 +27,8 @@ func _on_picker_area_entered(area):
 
 			print("PlayerNoWeapon> Switching to player with weapon")
 
+			self.get_node("Camera2D").call_deferred("reparent", player_with_weapon)
+
 			# Delete player without weapon
 			self.queue_free()
 			return

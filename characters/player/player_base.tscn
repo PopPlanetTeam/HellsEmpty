@@ -19,7 +19,4 @@ health_component = NodePath("../Health")
 collision_layer = 0
 collision_mask = 16
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
-
 [connection signal="died" from="Health" to="." method="_on_died"]

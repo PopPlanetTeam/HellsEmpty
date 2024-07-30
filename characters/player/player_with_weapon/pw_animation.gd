@@ -57,7 +57,7 @@ func _set_rotation_around_origin(angle: float) -> void:
 	_weapon_slot.global_position -= (_origin.global_position - origin_start_pos)
 
 func animate(velocity: Vector2):
-	player_sprites.z_index = 0
+	_weapon_slot.z_index = 0
 
 	var mouse_direction = _get_mouse_direction()
 
@@ -78,14 +78,14 @@ func animate(velocity: Vector2):
 		# The player is moving in the vertical
 		elif velocity.y != 0:
 			if velocity.y < 0:
-				player_sprites.z_index = 1
+				_weapon_slot.z_index = -1
 				_current_animation = "run_back_up"
 			else:
-				player_sprites.z_index = 0
+				_weapon_slot.z_index = 0
 				_current_animation = "run_up_down"
 			
 			if mouse_direction.y > vertical_threshold and velocity.y < 0:
-				player_sprites.z_index = 0
+				_weapon_slot.z_index = 0
 				_current_animation = "run_back_back"
 			elif mouse_direction.y < - vertical_threshold and velocity.y > 0:
 				_current_animation = "run_up_up"
