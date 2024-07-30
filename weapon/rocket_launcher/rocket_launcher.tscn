@@ -1,27 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvlnpxo2hgk2m"]
+[gd_scene load_steps=5 format=3 uid="uid://lnbggmj1jryo"]
 
+[ext_resource type="PackedScene" uid="uid://cl6stp7w7150v" path="res://weapon/weapon_base.tscn" id="1_qcdfr"]
 [ext_resource type="Script" path="res://weapon/rocket_launcher/rocket_launcher.gd" id="2_7ntej"]
-[ext_resource type="Texture2D" uid="uid://barwjcdd54nuh" path="res://weapon/rocket_launcher/rocket_launcher.png" id="2_653kh"]
+[ext_resource type="Texture2D" uid="uid://barwjcdd54nuh" path="res://weapon/rocket_launcher/img/rocket_launcher.png" id="2_jy7sq"]
 [ext_resource type="AudioStream" uid="uid://bamij8l81ydk3" path="res://weapon/rocket_launcher/rocket_launcher.wav" id="3_atonm"]
 
-[node name="RocketLauncher" type="Node2D"]
+[node name="RocketLauncher" instance=ExtResource("1_qcdfr")]
 script = ExtResource("2_7ntej")
 
-[node name="FireRateTimer" type="Timer" parent="."]
+[node name="FireRateTimer" type="Timer" parent="." index="0"]
 wait_time = 0.34
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_653kh")
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_jy7sq")
 hframes = 2
 
-[node name="FiringSound" type="AudioStreamPlayer" parent="."]
+[node name="FiringSound" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("3_atonm")
 
-[node name="GunOrigin" type="Marker2D" parent="."]
+[node name="GunOrigin" parent="." index="3"]
 position = Vector2(37, 12)
 
-[node name="ProjectileOrigin" type="Marker2D" parent="."]
+[node name="ProjectileOrigin" parent="." index="4"]
 position = Vector2(95, -5)
-gizmo_extents = 20.0
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

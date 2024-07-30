@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjnw0bq7a40l2"
-path="res://.godot/imported/weapon_textures.png-9b083bec69d74729ae29dff2a980194c.ctex"
+uid="uid://bsnubmvdscjc"
+path="res://.godot/imported/Pink_Monster_Walk_6.png-81fb8d33f8679a3d0dcde3b374bd583a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapon/weapon_textures.png"
-dest_files=["res://.godot/imported/weapon_textures.png-9b083bec69d74729ae29dff2a980194c.ctex"]
+source_file="res://characters/enemies/luna/img_tmp/Pink_Monster_Walk_6.png"
+dest_files=["res://.godot/imported/Pink_Monster_Walk_6.png-81fb8d33f8679a3d0dcde3b374bd583a.ctex"]
 
 [params]
 

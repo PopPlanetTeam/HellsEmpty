@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://5o1814iptoxj"]
 
 [ext_resource type="PackedScene" uid="uid://dtfcwig0nufkq" path="res://characters/enemies/luna/luna.tscn" id="1_hi3j7"]
-[ext_resource type="PackedScene" uid="uid://dwjq66nym7gmn" path="res://characters/player/player_base.tscn" id="2_d5sl7"]
-[ext_resource type="PackedScene" uid="uid://bun5j18wnhwup" path="res://characters/enemies/test_room/obstacle.tscn" id="3_lm105"]
+[ext_resource type="PackedScene" path="res://characters/enemies/test_room/obstacle.tscn" id="3_lm105"]
 [ext_resource type="Texture2D" uid="uid://cf5nkbmbdiou6" path="res://characters/enemies/test_room/imgs/rock.jpg" id="4_1gvl7"]
+[ext_resource type="PackedScene" uid="uid://t5mo6ly3ikms" path="res://characters/player/player_with_weapon/player_with_weapon_2.tscn" id="4_m2o8x"]
 
 [node name="TestRoom" type="Node2D"]
 
@@ -14,11 +14,10 @@ distance_threshold = 200.0
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
-[node name="PlayerBase" parent="." instance=ExtResource("2_d5sl7")]
-position = Vector2(-295, -146)
-collision_layer = 0
-
 [node name="Obstacle" parent="." instance=ExtResource("3_lm105")]
 position = Vector2(-233, 0)
 texture = ExtResource("4_1gvl7")
 size = Vector2(75, 75)
+
+[node name="PlayerWithWeapon" parent="." instance=ExtResource("4_m2o8x")]
+position = Vector2(-240, -101)

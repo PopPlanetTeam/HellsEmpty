@@ -9,12 +9,20 @@ signal died
 	get:
 		return life
 
+@onready var _life_bar = $LifeBar
+
+func _ready():
+	_life_bar.max_value = life
+
+func _process(_delta):
+	_life_bar.value = life
+
 func take_damage(ammount:float) -> void:
 	life -= ammount
 	
-	if life < 0.0:
+	if life <= 0.0:
+		life = 0.0
 		died.emit()
-		get_parent().queue_free()
 	
 func regenerate(ammount: float) -> void:
 	life += ammount

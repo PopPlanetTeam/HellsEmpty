@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvumaxtvwqtp3"]
+[gd_scene load_steps=3 format=3 uid="uid://cvumaxtvwqtp3"]
 
-[ext_resource type="PackedScene" uid="uid://t5mo6ly3ikms" path="res://characters/player/player_with_weapon/player_with_weapon.tscn" id="1_r3yfh"]
+[ext_resource type="PackedScene" uid="uid://bra6fq827ewxa" path="res://characters/player/player_with_weapon/player_with_weapon.tscn" id="1_r3yfh"]
+[ext_resource type="PackedScene" uid="uid://dtfcwig0nufkq" path="res://characters/enemies/luna/luna.tscn" id="2_6750j"]
 
 [node name="TestRoom" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
+[node name="Luna" parent="." instance=ExtResource("2_6750j")]
+position = Vector2(233, -37)
+collision_layer = 2
+collision_mask = 3
+
 [node name="PlayerWithWeapon" parent="." instance=ExtResource("1_r3yfh")]
-position = Vector2(-5, 2)
+position = Vector2(-115, -10)
