@@ -22,8 +22,8 @@
 radius = 16.0
 height = 76.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h2je"]
-size = Vector2(74, 86)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi2w2"]
+size = Vector2(100, 86)
 
 [sub_resource type="Animation" id="Animation_bhr7r"]
 length = 0.001
@@ -2099,13 +2099,16 @@ position = Vector2(6, 33)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jo2es")
 
+[node name="Health" parent="." index="1"]
+position = Vector2(0, 10)
+
 [node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(6, 12)
-shape = SubResource("RectangleShape2D_8h2je")
+shape = SubResource("RectangleShape2D_mi2w2")
 
 [node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]
 position = Vector2(6, 12)
-shape = SubResource("RectangleShape2D_8h2je")
+shape = SubResource("RectangleShape2D_mi2w2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" node_paths=PackedStringArray("player_sprites")]
 libraries = {

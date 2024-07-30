@@ -38,7 +38,7 @@ func _ready():
 	self.collision_layer = provides_collision
 	self.collision_mask = scan_collision
 	hitbox.collision_layer = takes_damage
-	hitbox.collision_mask = 0 # The hitbox should not collide with anything, it needs to only be visible to damage areas
+	hitbox.collision_mask = takes_damage
    
 	# Add itself to the global player variable
 	GlobalData.player = self

@@ -1,6 +1,5 @@
 extends PlayerBase
 
-
 func _on_picker_area_entered(area):
 	var parent_obj = area.get_parent()
 
@@ -31,3 +30,12 @@ func _on_picker_area_entered(area):
 			# Delete player without weapon
 			self.queue_free()
 			return
+
+func _on_hit_box_damage_taken(_amount, knockback_taken):
+	self._knockback = knockback_taken
+	self.set_movement_enabled(false)
+
+	self.player_animated_sprite.play("damage")
+	await self.player_animated_sprite.animation_finished
+
+	self.set_movement_enabled(true)
