@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://m0e6cc4500hd"]
+[gd_scene load_steps=100 format=3 uid="uid://m0e6cc4500hd"]
 
 [ext_resource type="Texture2D" uid="uid://csjchmeub4ddu" path="res://levels/forest/Bench and chest/Bench.png" id="1_kwxvb"]
 [ext_resource type="Texture2D" uid="uid://blw6ixpm7pss3" path="res://levels/forest/Bench and chest/Chest.png" id="2_xvmap"]
@@ -71,39 +71,59 @@ texture_region_size = Vector2i(17, 17)
 2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oyjlj"]
-texture = ExtResource("2_xvmap")
-texture_region_size = Vector2i(22, 21)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
 [sub_resource type="TileSet" id="TileSet_qts00"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gdqvx")
-sources/1 = SubResource("TileSetAtlasSource_oyjlj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x2d2"]
+texture = ExtResource("2_xvmap")
+texture_region_size = Vector2i(22, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_2nw7c"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7x2d2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s66lo"]
 texture = ExtResource("3_l6qeb")
+texture_region_size = Vector2i(23, 18)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3gw6"]
 texture = ExtResource("4_8b15i")
+texture_region_size = Vector2i(18, 15)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mscoc"]
 texture = ExtResource("5_qq6la")
+texture_region_size = Vector2i(25, 19)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nink"]
 texture = ExtResource("6_ckmdq")
+texture_region_size = Vector2i(28, 19)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dnha"]
 texture = ExtResource("7_uyuj5")
+texture_region_size = Vector2i(29, 19)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.972272, 8, -0.972272, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_hbw80"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s66lo")
 sources/1 = SubResource("TileSetAtlasSource_a3gw6")
 sources/2 = SubResource("TileSetAtlasSource_mscoc")
@@ -2457,10 +2477,17 @@ sources/11 = SubResource("TileSetAtlasSource_t33yg")
 [node name="Bench" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qts00")
 format = 2
+layer_0/tile_data = PackedInt32Array(65539, 0, 0, 131075, 0, 1, 65540, 65536, 0, 131076, 65536, 1, 65541, 131072, 0, 131077, 131072, 1, 65542, 0, 0, 131078, 0, 1, 65543, 65536, 0, 131079, 65536, 1, 65544, 131072, 0, 131080, 131072, 1, 65545, 0, 0, 131081, 0, 1, 65546, 65536, 0, 131082, 65536, 1, 65547, 131072, 0, 131083, 131072, 1, 65548, 0, 0, 131084, 0, 1, 65549, 65536, 0, 131085, 65536, 1, 65550, 131072, 0, 131086, 131072, 1, 65551, 0, 0, 131087, 0, 1, 65552, 65536, 0, 131088, 65536, 1, 65553, 131072, 0, 131089, 131072, 1, 393233, 1, 0)
+
+[node name="Chest" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2nw7c")
+format = 2
+layer_0/tile_data = PackedInt32Array(524306, 0, 0)
 
 [node name="Bushes" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hbw80")
 format = 2
+layer_0/tile_data = PackedInt32Array(262172, 2, 0, 262173, 2, 0, 327709, 0, 0, 393245, 0, 0, 393246, 0, 0, 458782, 0, 0, 524318, 0, 0, 524317, 0, 0, 458781, 0, 0, 327708, 2, 0, 262171, 0, 0, 327707, 2, 0, 393243, 2, 0, 393244, 0, 0, 458780, 0, 0, 524316, 0, 0, 524315, 0, 0, 524314, 0, 0, 458778, 0, 0, 393242, 2, 0, 327706, 2, 0, 262170, 2, 0, 458779, 0, 0, 327704, 2, 0, 262169, 2, 0, 196633, 2, 0, 196634, 2, 0, 196635, 2, 0, 131099, 2, 0, 327705, 2, 0, 393241, 2, 0, 458777, 2, 0, 458776, 2, 0, 196638, 2, 0, 262176, 3, 0, 262177, 3, 0, 262178, 3, 0, 327714, 3, 0, 393250, 3, 0, 393249, 3, 0, 393248, 3, 0, 393247, 3, 0, 327711, 3, 0, 262175, 3, 0, 262174, 3, 0, 327710, 3, 0, 327712, 3, 0, 327713, 3, 0, 327715, 3, 0, 458785, 3, 0, 524320, 3, 0, 589856, 3, 0, 589855, 3, 0, 458784, 3, 0, 458783, 3, 0, 524319, 3, 0, 589853, 4, 0)
 
 [node name="Fences" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ioiax")
