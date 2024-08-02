@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://diah1045fuaax"]
+[gd_scene load_steps=43 format=3 uid="uid://diah1045fuaax"]
 
 [ext_resource type="PackedScene" uid="uid://6wqxmw2vokg2" path="res://characters/enemies/enemy_base.tscn" id="1_gm2id"]
 [ext_resource type="Script" path="res://characters/enemies/states/idle.gd" id="2_8gwy6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://characters/enemies/states/chase_a_star.gd" id="4_w7ghj"]
 [ext_resource type="Script" path="res://characters/enemies/states/attack.gd" id="5_t08sr"]
 [ext_resource type="Texture2D" uid="uid://7wlmyhxeu4f5" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Hurt_4.png" id="6_o2yey"]
+[ext_resource type="Texture2D" uid="uid://cw661u0yf0tmy" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Death_8.png" id="8_pqd1v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufpni"]
 radius = 7.0
@@ -59,6 +60,38 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjenn"]
 atlas = ExtResource("6_o2yey")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm63h"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pt0j"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uahy"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0rv"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1xnp"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyfgb"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6c5m"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0huk"]
+atlas = ExtResource("8_pqd1v")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wi2t"]
 atlas = ExtResource("2_e8rgn")
@@ -144,6 +177,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nm63h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pt0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uahy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1xnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyfgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6c5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0huk")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2wi2t")
 }, {
 "duration": 1.0,
@@ -224,7 +286,7 @@ visible = false
 
 [node name="Animation" type="AnimatedSprite2D" parent="." index="6"]
 sprite_frames = SubResource("SpriteFrames_py3r5")
-animation = &"attack"
+animation = &"die"
 metadata/_edit_lock_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]

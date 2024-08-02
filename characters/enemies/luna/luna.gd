@@ -21,8 +21,8 @@ func _on_attack_finished():
 	state_machine.change_to_state("chase")
 
 func _on_died():
-	state_machine.current_state.set_process(false)
 	state_machine.current_state.set_physics_process(false)
+	state_machine.current_state.set_process(false)
 
 	animation_sprites.play("die")
 	await animation_sprites.animation_finished
@@ -30,8 +30,8 @@ func _on_died():
 	self.queue_free()
 
 func _on_hit_box_damage_taken(_amount, knockback):
-	state_machine.current_state.set_process(false)
 	state_machine.current_state.set_physics_process(false)
+	state_machine.current_state.set_process(false)
 
 	_knockback = knockback
 
@@ -39,5 +39,5 @@ func _on_hit_box_damage_taken(_amount, knockback):
 
 	await animation_sprites.animation_finished
 
-	state_machine.current_state.set_process(true)
 	state_machine.current_state.set_physics_process(true)
+	state_machine.current_state.set_process(true)

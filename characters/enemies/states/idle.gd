@@ -44,7 +44,7 @@ func _process(_delta):
 	if _player:
 		var distance: float = _enemy.global_position.distance_to(_player.global_position)
 
-		if distance < _chase_distance:
+		if distance <= _chase_distance:
 			next_to_player.emit()
 		
 		# Update debug line and label

@@ -61,6 +61,7 @@ hframes = 2
 
 [node name="Owlet" parent="." instance=ExtResource("8_f2lkn")]
 position = Vector2(-63, 12)
+distance_to_attack = 32.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_p0xb2")

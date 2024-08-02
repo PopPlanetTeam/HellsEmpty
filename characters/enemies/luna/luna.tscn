@@ -275,7 +275,9 @@ shape = SubResource("CircleShape2D_oikq2")
 [node name="Animation" type="AnimatedSprite2D" parent="." index="4"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_dnox1")
-animation = &"run"
+animation = &"die"
+frame = 7
+frame_progress = 1.0
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("idle")
