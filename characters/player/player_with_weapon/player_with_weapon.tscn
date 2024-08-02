@@ -2100,7 +2100,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jo2es")
 
 [node name="Health" parent="." index="1"]
-position = Vector2(0, 10)
+position = Vector2(0, -92)
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(6, 12)

@@ -1,19 +1,25 @@
-[gd_scene load_steps=41 format=3 uid="uid://dtfcwig0nufkq"]
+[gd_scene load_steps=43 format=3 uid="uid://dtfcwig0nufkq"]
 
 [ext_resource type="PackedScene" uid="uid://6wqxmw2vokg2" path="res://characters/enemies/enemy_base.tscn" id="1_hxv06"]
-[ext_resource type="Script" path="res://characters/enemies/luna/states/idle.gd" id="2_20bgs"]
 [ext_resource type="Script" path="res://characters/enemies/luna/luna.gd" id="2_dkfnr"]
 [ext_resource type="Texture2D" uid="uid://dosp635o6oyyl" path="res://characters/enemies/luna/img_tmp/Pink_Monster_Attack2_6.png" id="3_oh64i"]
 [ext_resource type="Texture2D" uid="uid://dk160hjkc6c03" path="res://characters/enemies/luna/img_tmp/Pink_Monster_Idle_4.png" id="4_2f4gj"]
-[ext_resource type="Script" path="res://characters/enemies/luna/states/chase.gd" id="4_4mccc"]
 [ext_resource type="Texture2D" uid="uid://cm25xr8g7agn6" path="res://characters/enemies/luna/img_tmp/Pink_Monster_Hurt_4.png" id="4_a2fb6"]
 [ext_resource type="Texture2D" uid="uid://c8kcdu3h7uf3c" path="res://characters/enemies/luna/img_tmp/Pink_Monster_Run_6.png" id="5_fsb81"]
 [ext_resource type="Texture2D" uid="uid://b5elaqrp3rbk7" path="res://characters/enemies/luna/img_tmp/Pink_Monster_Death_8.png" id="5_ydpad"]
-[ext_resource type="Script" path="res://characters/enemies/luna/states/attack.gd" id="10_a6psu"]
+[ext_resource type="Script" path="res://characters/enemies/states/idle.gd" id="8_uvbrt"]
+[ext_resource type="Script" path="res://characters/enemies/states/chase.gd" id="9_bsoyp"]
+[ext_resource type="Script" path="res://characters/enemies/states/attack.gd" id="10_va63x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fchlr"]
-radius = 35.119
-height = 70.238
+radius = 7.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qtrv"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oikq2"]
+radius = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jidh"]
 atlas = ExtResource("3_oh64i")
@@ -239,35 +245,35 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Luna" instance=ExtResource("1_hxv06")]
+[node name="Luna" node_paths=PackedStringArray("animation_sprites") instance=ExtResource("1_hxv06")]
 script = ExtResource("2_dkfnr")
-distance_threshold = 400.0
-distance_to_attack = 20.0
-damage = 0.0
+animation_sprites = NodePath("Animation")
 
 [node name="PhysicCollision" parent="." index="0"]
-position = Vector2(0, 27)
+position = Vector2(0, 9)
+rotation = -1.57079
 shape = SubResource("CapsuleShape2D_fchlr")
+
+[node name="Health" parent="." index="1"]
+position = Vector2(0, -72)
 
 [node name="DamageArea" parent="." index="2"]
 monitoring = false
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
-visible = false
-position = Vector2(0, 8)
+position = Vector2(0, 2)
 rotation = -1.57079
-scale = Vector2(1.68, 2.08)
-shape = SubResource("CapsuleShape2D_fchlr")
+shape = SubResource("CircleShape2D_2qtrv")
+
+[node name="HitBox" parent="." index="3"]
+visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-visible = false
-position = Vector2(0, 6)
-scale = Vector2(1.6018, 1.93377)
-shape = SubResource("CapsuleShape2D_fchlr")
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_oikq2")
 
 [node name="Animation" type="AnimatedSprite2D" parent="." index="4"]
 unique_name_in_owner = true
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_dnox1")
 animation = &"run"
 
@@ -275,17 +281,18 @@ animation = &"run"
 initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("2_20bgs")
+script = ExtResource("8_uvbrt")
 debug = true
 
 [node name="chase" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("4_4mccc")
-smooth_factor = 0.03
+script = ExtResource("9_bsoyp")
+smooth_factor = 0.06
 
 [node name="attack" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("10_a6psu")
+script = ExtResource("10_va63x")
 
 [node name="ObstacleDetector" parent="." index="6"]
+scale = Vector2(0.25, 0.25)
 max_obstacle_danger = 5.0
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]

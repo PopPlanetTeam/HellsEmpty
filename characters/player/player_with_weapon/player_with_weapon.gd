@@ -1,7 +1,5 @@
 extends PlayerBase
 
-signal player_died
-
 @export var weapon_slot: WeaponSlot
 
 func _ready():

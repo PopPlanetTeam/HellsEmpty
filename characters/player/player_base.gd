@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name PlayerBase
 
+signal player_died
+
 @export var SPEED = 190.0
-@export var hitbox: HitBox
 @export var player_animated_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
 
@@ -10,6 +11,8 @@ class_name PlayerBase
 @export_flags_2d_physics var provides_collision = 0
 @export_flags_2d_physics var scan_collision = 0
 @export_flags_2d_physics var takes_damage = 0
+
+@onready var hitbox: HitBox = $HitBox
 
 var _knockback: Vector2 = Vector2.ZERO
 var _movement_enabled: bool = true
@@ -74,6 +77,8 @@ func _knockback_process():
 	_knockback = _knockback.lerp(Vector2.ZERO, 0.5)
 
 func _on_died():
+	GlobalData.player = null
+	player_died.emit()
 	self.queue_free()
 
 func set_movement_enabled(enabled: bool):

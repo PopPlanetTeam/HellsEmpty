@@ -7,13 +7,12 @@
 [ext_resource type="Script" path="res://components/state_machine/state_machine.gd" id="4_rk02a"]
 [ext_resource type="PackedScene" uid="uid://53t88b24s425" path="res://components/obstacle_detector/obstacle_detector.tscn" id="5_phv5f"]
 
-[node name="EnemyBase" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "obstacle_detector", "health_component")]
+[node name="EnemyBase" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_6cwuq")
-state_machine = NodePath("StateMachine")
-obstacle_detector = NodePath("ObstacleDetector")
-health_component = NodePath("Health")
+speed = 125.0
+distance_to_attack = 32.0
 provides_collision = 4
 scan_collision = 5
 takes_damage = 8

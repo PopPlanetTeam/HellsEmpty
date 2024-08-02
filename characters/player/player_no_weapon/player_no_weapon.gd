@@ -41,3 +41,14 @@ func _on_hit_box_damage_taken(_amount, knockback_taken):
 	await self.player_animated_sprite.animation_finished
 
 	self.set_movement_enabled(true)
+
+func _on_died():
+	GlobalData.player = null
+
+	self.set_movement_enabled(false)
+	
+	player_animated_sprite.play("die")
+	await player_animated_sprite.animation_finished
+	
+	player_died.emit()
+	self.queue_free()
