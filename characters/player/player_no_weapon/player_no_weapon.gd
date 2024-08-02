@@ -25,6 +25,9 @@ func _on_picker_area_entered(area):
 			player_with_weapon.set_scale(self.get_scale())
 			player_with_weapon.weapon_slot.assign_weapon(weapon_instance)
 
+			# Update the attributes of the player with weapon
+			player_with_weapon.set_attributes(self.get_attributes())
+
 			print("PlayerNoWeapon> Switching to player with weapon")
 
 			self.get_node("Camera2D").call_deferred("reparent", player_with_weapon)

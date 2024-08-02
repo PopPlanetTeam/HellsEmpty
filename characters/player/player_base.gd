@@ -17,6 +17,8 @@ signal player_died
 var _knockback: Vector2 = Vector2.ZERO
 var _movement_enabled: bool = true
 
+var _attributes: PlayerAttributes
+
 func _ready():
 	if not hitbox:
 		printerr("PlayerBase> ERROR: No HitBox assigned.")
@@ -43,8 +45,17 @@ func _ready():
 	hitbox.collision_layer = takes_damage
 	hitbox.collision_mask = takes_damage
    
+	_attributes = PlayerAttributes.new()
+	_attributes.health = hitbox.health_component.life
+	_attributes.speed = self.SPEED
+   
 	# Add itself to the global player variable
 	GlobalData.player = self
+
+# The only purpose of this function is to update the attributes of the player
+func _process(_delta):
+	_attributes.health = hitbox.health_component.life
+	_attributes.speed = self.SPEED
 
 func _physics_process(_delta):
 	if not _knockback.is_equal_approx(Vector2.ZERO):
@@ -83,3 +94,12 @@ func _on_died():
 
 func set_movement_enabled(enabled: bool):
 	_movement_enabled = enabled
+
+func get_attributes() -> PlayerAttributes:
+	return _attributes
+
+func set_attributes(attributes: PlayerAttributes):
+	_attributes = attributes
+
+	self.SPEED = _attributes.speed
+	hitbox.health_component.life = _attributes.health

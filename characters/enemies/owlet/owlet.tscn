@@ -215,7 +215,6 @@ debug = true
 [node name="chase_a_star" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("navigation_agent")]
 script = ExtResource("4_w7ghj")
 navigation_agent = NodePath("../../NavigationAgent2D")
-debug = true
 
 [node name="attack" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("5_t08sr")
