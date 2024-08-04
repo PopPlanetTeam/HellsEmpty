@@ -10,6 +10,8 @@ size = Vector2(20, 14)
 [node name="PistolProjectile" type="Node2D"]
 script = ExtResource("1_u505v")
 speed = 1500.0
+direction = null
+damage = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_t4477")
