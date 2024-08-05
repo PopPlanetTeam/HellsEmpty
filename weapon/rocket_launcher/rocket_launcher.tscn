@@ -24,4 +24,6 @@ position = Vector2(37, 12)
 [node name="ProjectileOrigin" parent="." index="4"]
 position = Vector2(95, -5)
 
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
