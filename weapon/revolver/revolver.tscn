@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dovwd1wn0n7mo"]
+
+[ext_resource type="PackedScene" uid="uid://cl6stp7w7150v" path="res://weapon/weapon_base.tscn" id="1_i80tr"]
+[ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/wepons_tilesheets/weapon_textures.png" id="2_05j0r"]
+[ext_resource type="Script" path="res://weapon/revolver/revolver.gd" id="2_o6js1"]
+[ext_resource type="AudioStream" uid="uid://xwn17gcdbcyi" path="res://weapon/revolver/revolver_sound.mp3" id="3_5jb1k"]
+
+[node name="Revolver" instance=ExtResource("1_i80tr")]
+script = ExtResource("2_o6js1")
+
+[node name="FireRateTimer" type="Timer" parent="." index="0"]
+wait_time = 0.33
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_05j0r")
+region_enabled = true
+region_rect = Rect2(80, 615, 79.3972, 45)
+
+[node name="FiringSound" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("3_5jb1k")
+
+[node name="GunOrigin" parent="." index="3"]
+position = Vector2(-16, 7)
+
+[node name="ProjectileOrigin" parent="." index="4"]
+position = Vector2(40, -6)
+
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
