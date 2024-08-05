@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dtfcwig0nufkq"]
+[gd_scene load_steps=44 format=3 uid="uid://dtfcwig0nufkq"]
 
 [ext_resource type="PackedScene" uid="uid://6wqxmw2vokg2" path="res://characters/enemies/enemy_base.tscn" id="1_hxv06"]
 [ext_resource type="Script" path="res://characters/enemies/luna/luna.gd" id="2_dkfnr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://characters/enemies/states/idle.gd" id="8_uvbrt"]
 [ext_resource type="Script" path="res://characters/enemies/states/chase.gd" id="9_bsoyp"]
 [ext_resource type="Script" path="res://characters/enemies/states/attack.gd" id="10_va63x"]
+[ext_resource type="PackedScene" uid="uid://53t88b24s425" path="res://components/obstacle_detector/obstacle_detector.tscn" id="11_gsk2p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fchlr"]
 radius = 7.0
@@ -293,7 +294,7 @@ smooth_factor = 0.06
 [node name="attack" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("10_va63x")
 
-[node name="ObstacleDetector" parent="." index="6"]
+[node name="ObstacleDetector" parent="." index="6" instance=ExtResource("11_gsk2p")]
 scale = Vector2(0.25, 0.25)
 max_obstacle_danger = 5.0
 

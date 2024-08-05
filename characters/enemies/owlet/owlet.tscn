@@ -1,22 +1,23 @@
-[gd_scene load_steps=43 format=3 uid="uid://diah1045fuaax"]
+[gd_scene load_steps=50 format=3 uid="uid://diah1045fuaax"]
 
 [ext_resource type="PackedScene" uid="uid://6wqxmw2vokg2" path="res://characters/enemies/enemy_base.tscn" id="1_gm2id"]
-[ext_resource type="Script" path="res://characters/enemies/states/idle.gd" id="2_8gwy6"]
 [ext_resource type="Texture2D" uid="uid://c0hc36h8lfd48" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Idle_4.png" id="2_e8rgn"]
 [ext_resource type="Texture2D" uid="uid://ch7bw2vsp4gkx" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Attack2_6.png" id="2_m1mfu"]
 [ext_resource type="Script" path="res://characters/enemies/owlet/owlet.gd" id="2_uc0uy"]
 [ext_resource type="Texture2D" uid="uid://ra6t0ef2aq4w" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Run_6.png" id="3_65pxb"]
 [ext_resource type="Script" path="res://characters/enemies/states/chase_a_star.gd" id="4_w7ghj"]
+[ext_resource type="Script" path="res://characters/enemies/states/idle_walking.gd" id="5_7yjiw"]
 [ext_resource type="Script" path="res://characters/enemies/states/attack.gd" id="5_t08sr"]
 [ext_resource type="Texture2D" uid="uid://7wlmyhxeu4f5" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Hurt_4.png" id="6_o2yey"]
 [ext_resource type="Texture2D" uid="uid://cw661u0yf0tmy" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Death_8.png" id="8_pqd1v"]
+[ext_resource type="Texture2D" uid="uid://c750tdks5nn6l" path="res://characters/enemies/owlet/imgs/Owlet_Monster_Walk_6.png" id="11_d4w7a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufpni"]
 radius = 7.0
 height = 14.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gamdc"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxtym"]
+size = Vector2(52, 52)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0offr"]
 radius = 18.0
@@ -133,6 +134,30 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("3_65pxb")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7esj"]
+atlas = ExtResource("11_d4w7a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbj8x"]
+atlas = ExtResource("11_d4w7a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryljj"]
+atlas = ExtResource("11_d4w7a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woxln"]
+atlas = ExtResource("11_d4w7a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltqqe"]
+atlas = ExtResource("11_d4w7a")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clh1w"]
+atlas = ExtResource("11_d4w7a")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_py3r5"]
 animations = [{
 "frames": [{
@@ -243,6 +268,29 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7esj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbj8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryljj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woxln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltqqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clh1w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
 }]
 
 [node name="Owlet" node_paths=PackedStringArray("animation_sprites") instance=ExtResource("1_gm2id")]
@@ -261,39 +309,39 @@ scale = Vector2(0.465, 0.465)
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 position = Vector2(-2, 3)
-shape = SubResource("CircleShape2D_gamdc")
+shape = SubResource("RectangleShape2D_bxtym")
+
+[node name="HitBox" parent="." index="3"]
+visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-2, 3)
 shape = SubResource("CircleShape2D_0offr")
 
 [node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("idle")
+initial_state = NodePath("idle_walking")
 
-[node name="idle" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("2_8gwy6")
-debug = true
-
-[node name="chase_a_star" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("navigation_agent")]
+[node name="chase_a_star" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("navigation_agent")]
 script = ExtResource("4_w7ghj")
 navigation_agent = NodePath("../../NavigationAgent2D")
 
-[node name="attack" type="Node" parent="StateMachine" index="2"]
+[node name="attack" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("5_t08sr")
 
-[node name="ObstacleDetector" parent="." index="5"]
-visible = false
+[node name="idle_walking" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("5_7yjiw")
+debug = true
 
-[node name="Animation" type="AnimatedSprite2D" parent="." index="6"]
+[node name="Animation" type="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_py3r5")
-animation = &"die"
+animation = &"walk"
 metadata/_edit_lock_ = true
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="6"]
 debug_enabled = true
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]
-[connection signal="next_to_player" from="StateMachine/idle" to="." method="_on_idle_next_to_player"]
 [connection signal="player_next_to_enemy" from="StateMachine/chase_a_star" to="." method="_on_chase_a_star_player_next_to_enemy"]
 [connection signal="player_too_far" from="StateMachine/chase_a_star" to="." method="_on_chase_a_star_player_too_far"]
 [connection signal="attack_finished" from="StateMachine/attack" to="." method="_on_attack_finished"]
+[connection signal="next_to_player" from="StateMachine/idle_walking" to="." method="_on_idle_next_to_player"]

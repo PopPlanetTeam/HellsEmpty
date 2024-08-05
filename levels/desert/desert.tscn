@@ -60,7 +60,7 @@ texture = ExtResource("13_2durd")
 hframes = 2
 
 [node name="Owlet" parent="." instance=ExtResource("8_f2lkn")]
-position = Vector2(-63, 12)
+position = Vector2(77, 189)
 distance_to_attack = 32.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]

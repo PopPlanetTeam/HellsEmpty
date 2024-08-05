@@ -8,10 +8,25 @@ var _enemy: EnemyBase
 var _player: PlayerBase
 var _chase_distance: float
 
+var _current_animation: String = "walk"
+var _current_direction: Vector2
+var _directions = [Vector2.RIGHT, Vector2.LEFT]
+var _timer: Timer
+
 ## This function is automatically called when the state is entered.
 func Enter():
 	_enemy = state_machine.get_parent()
 	_chase_distance = _enemy.chase_distance
+
+	_timer = Timer.new()
+	_timer.wait_time = randf_range(3.0, 7.0)
+	_timer.one_shot = true
+	_timer.autostart = true
+	_timer.timeout.connect(_on_timer_timeout)
+	_enemy.call_deferred("add_child", _timer)
+
+	# Set random direction to start walking
+	_current_direction = _directions[randi() % 2]
 	
 	# Create debug line and label
 	if debug:
@@ -37,8 +52,15 @@ func Exit():
 		_enemy.get_node("DebugLine").queue_free()
 		_enemy.get_node("DistanceLabel").queue_free()
 
-func _process(_delta):
-	_enemy.animation_sprites.play("idle")
+func _physics_process(_delta):
+	_enemy.animation_sprites.play(_current_animation)
+
+	_enemy.velocity = _current_direction * (_enemy.speed / 2)
+	_enemy.move_and_slide()
+
+	if _enemy.is_on_wall():
+		_current_direction *= -1
+		_enemy.animation_sprites.flip_h = _current_direction.x < 0
 
 	_player = GlobalData.player
 	if _player:
@@ -62,3 +84,19 @@ func _process(_delta):
 
 			line.set_points([line.to_local(_enemy.global_position), line.to_local(_player.global_position)])
 			distance_label.text = "Player dist: " + str(distance as int)
+
+func _on_timer_timeout():
+	var decision = randi() % 2
+
+	print("Decision: ", decision)
+
+	if decision == 0:
+		_current_animation = "walk"
+		_current_direction = _directions[randi() % _directions.size()]
+		_enemy.animation_sprites.flip_h = _current_direction.x < 0
+	else:
+		_current_animation = "idle"
+		_current_direction = Vector2.ZERO
+	
+	_timer.wait_time = randf_range(3.0, 7.0)
+	_timer.start()

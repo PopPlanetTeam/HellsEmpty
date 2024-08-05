@@ -4,7 +4,7 @@ func _on_idle_next_to_player():
 	state_machine.change_to_state("chase_a_star")
 
 func _on_chase_a_star_player_too_far():
-	state_machine.change_to_state("idle")
+	state_machine.change_to_state("idle_walking")
 
 func _on_chase_a_star_player_next_to_enemy():
 	state_machine.change_to_state("attack")
