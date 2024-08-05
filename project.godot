@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalData="*res://global/global_data.gd"
 Utils="*res://global/utils.gd"
+PlayerInventory="*res://global/player_inventory.gd"
 
 [debug]
 

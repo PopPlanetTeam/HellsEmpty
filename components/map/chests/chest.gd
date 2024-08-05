@@ -19,14 +19,8 @@ func _process(_delta):
 			_area_2d.monitoring = false
 
 
-func _on_area_2d_area_exited(area):
-	var parent = area.get_parent()
+func _on_area_2d_area_exited(_area):
+	_can_open = false
 
-	if parent is PlayerBase:
-		_can_open = false
-
-func _on_area_2d_area_entered(area):
-	var parent = area.get_parent()
-
-	if parent is PlayerBase:
-		_can_open = true
+func _on_area_2d_area_entered(_area):
+	_can_open = true
