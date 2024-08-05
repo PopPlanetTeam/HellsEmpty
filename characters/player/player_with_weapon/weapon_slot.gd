@@ -30,8 +30,13 @@ func is_weapon_enabled() -> bool:
 func assign_weapon(new_weapon: Node2D) -> void:
 	if weapon:
 		weapon.queue_free()
+	
+	print("WeaponSlot> Assigning weapon: ", new_weapon)
 
+	self.call_deferred("add_child", new_weapon)
+	await new_weapon.ready
+	
 	self.weapon = new_weapon
-	self.add_child(new_weapon)
+	print("WeaponSlot> Weapon assigned: ", new_weapon)
 
-	new_weapon.global_position -= (new_weapon.get_origin().global_position - origin.global_position)
+	new_weapon.global_position -= (new_weapon.get_gun_origin().global_position - origin.global_position)

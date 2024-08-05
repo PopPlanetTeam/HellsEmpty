@@ -1,9 +1,12 @@
 extends EnemyBase
 
-@onready var animation_sprites: AnimatedSprite2D = $Animation
-@onready var damage_area: DamageArea = $DamageArea
+@onready var obstacle_detector: ObstacleDetector = $ObstacleDetector
 
-var _knockback: Vector2 = Vector2.ZERO
+func _ready():
+	super._ready()
+
+	# Set collision mask of obstacle detector (it must scan for obstacles that are not itself)
+	obstacle_detector.collision_mask = scan_collision - provides_collision
 
 func _on_idle_next_to_player():
 	state_machine.change_to_state("chase")
@@ -18,8 +21,8 @@ func _on_attack_finished():
 	state_machine.change_to_state("chase")
 
 func _on_died():
-	state_machine.current_state.set_process(false)
 	state_machine.current_state.set_physics_process(false)
+	state_machine.current_state.set_process(false)
 
 	animation_sprites.play("die")
 	await animation_sprites.animation_finished
@@ -27,8 +30,8 @@ func _on_died():
 	self.queue_free()
 
 func _on_hit_box_damage_taken(_amount, knockback):
-	state_machine.current_state.set_process(false)
 	state_machine.current_state.set_physics_process(false)
+	state_machine.current_state.set_process(false)
 
 	_knockback = knockback
 
@@ -36,13 +39,5 @@ func _on_hit_box_damage_taken(_amount, knockback):
 
 	await animation_sprites.animation_finished
 
-	state_machine.current_state.set_process(true)
 	state_machine.current_state.set_physics_process(true)
-
-func _physics_process(_delta):
-	if not _knockback.is_equal_approx(Vector2.ZERO):
-		velocity += _knockback
-
-		move_and_slide()
-
-		_knockback = _knockback.lerp(Vector2.ZERO, 0.5)
+	state_machine.current_state.set_process(true)

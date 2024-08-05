@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bamij8l81ydk3" path="res://weapon/rocket_launcher/rocket_launcher.wav" id="3_atonm"]
 
 [node name="RocketLauncher" instance=ExtResource("1_qcdfr")]
+scale = Vector2(0.405, 0.405)
 script = ExtResource("2_7ntej")
 
 [node name="FireRateTimer" type="Timer" parent="." index="0"]
@@ -19,10 +20,11 @@ hframes = 2
 stream = ExtResource("3_atonm")
 
 [node name="GunOrigin" parent="." index="3"]
-position = Vector2(37, 12)
+position = Vector2(38, 12)
 
 [node name="ProjectileOrigin" parent="." index="4"]
-position = Vector2(95, -5)
+position = Vector2(89, -5)
+gizmo_extents = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 

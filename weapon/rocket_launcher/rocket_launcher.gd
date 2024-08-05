@@ -20,7 +20,7 @@ func _process(_delta) -> void:
 		# The gun should always shoot in the direction of the mouse
 		new_shot.direction = mouse_direction.normalized()
 		new_shot.rotation = mouse_direction.angle()
-		new_shot.scale = self.scale
+		new_shot.scale = self.scale * GlobalData.player.scale
 		new_shot.global_position = _projectile_origin.global_position
 		
 		_gun_sprite.frame = 1 # Change the gun sprite to the fired state
