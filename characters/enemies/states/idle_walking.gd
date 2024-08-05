@@ -54,13 +54,13 @@ func Exit():
 
 func _physics_process(_delta):
 	_enemy.animation_sprites.play(_current_animation)
+	_enemy.animation_sprites.flip_h = _current_direction.x < 0
 
 	_enemy.velocity = _current_direction * (_enemy.speed / 2)
 	_enemy.move_and_slide()
 
 	if _enemy.is_on_wall():
 		_current_direction *= -1
-		_enemy.animation_sprites.flip_h = _current_direction.x < 0
 
 	_player = GlobalData.player
 	if _player:
@@ -93,7 +93,6 @@ func _on_timer_timeout():
 	if decision == 0:
 		_current_animation = "walk"
 		_current_direction = _directions[randi() % _directions.size()]
-		_enemy.animation_sprites.flip_h = _current_direction.x < 0
 	else:
 		_current_animation = "idle"
 		_current_direction = Vector2.ZERO
