@@ -489,9 +489,6 @@ visible = false
 position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_2ob4g")
 
-[node name="Picker" parent="." index="3"]
-visible = false
-
 [node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]
 position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_2ob4g")

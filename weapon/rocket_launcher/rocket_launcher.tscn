@@ -26,6 +26,4 @@ position = Vector2(38, 12)
 position = Vector2(89, -5)
 gizmo_extents = 10.0
 
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
-
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

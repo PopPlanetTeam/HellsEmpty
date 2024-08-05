@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=10 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="PackedScene" uid="uid://diah1045fuaax" path="res://characters/enemies/owlet/owlet.tscn" id="8_f2lkn"]
+[ext_resource type="PackedScene" uid="uid://vobk73dbbqqu" path="res://components/map/chests/chest_small.tscn" id="8_qnxfj"]
 [ext_resource type="Script" path="res://components/damage_tilemap/damage_tilemap.gd" id="10_sysmy"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
@@ -65,3 +66,6 @@ distance_to_attack = 32.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_p0xb2")
+
+[node name="ChestSmall" parent="." instance=ExtResource("8_qnxfj")]
+position = Vector2(-78, -27)
