@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c07d0k137oox7"]
+[gd_scene load_steps=10 format=3 uid="uid://c07d0k137oox7"]
 
 [ext_resource type="Texture2D" uid="uid://dnobbbr10pb34" path="res://levels/safe_house/img/safe_house_0.jpeg" id="1_a4vu1"]
 [ext_resource type="Script" path="res://levels/safe_house/safe_house.gd" id="1_p6tra"]
 [ext_resource type="PackedScene" uid="uid://78k2wthjvrdj" path="res://characters/player/player_no_weapon/player_no_weapon_2.tscn" id="3_akc8g"]
+[ext_resource type="PackedScene" uid="uid://c37e7mq2aivhl" path="res://menus/pause_menu/pause_menu.tscn" id="4_54u0p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8qqu"]
 radius = 52.0
@@ -96,5 +97,7 @@ position = Vector2(592, 700)
 scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="pause_menu" parent="player/Camera2D" instance=ExtResource("4_54u0p")]
 
 [connection signal="body_entered" from="Texture/MapColisions/Cauldron" to="." method="_on_cauldron_body_entered"]

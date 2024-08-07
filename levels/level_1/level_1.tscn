@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cprj7rk2orlei"]
+[gd_scene load_steps=8 format=3 uid="uid://cprj7rk2orlei"]
 
 [ext_resource type="PackedScene" uid="uid://dv81qikgc81cm" path="res://levels/level_1/terrain/floor.tscn" id="1_0c36f"]
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_htlbk"]
 [ext_resource type="PackedScene" uid="uid://bod712pfcjr7" path="res://levels/level_1/terrain/tree.tscn" id="2_0yemr"]
 [ext_resource type="AudioStream" uid="uid://daxfniylbde3d" path="res://musics/theme_2.mp3" id="5_hsjds"]
-[ext_resource type="PackedScene" uid="uid://cmarbndog3nql" path="res://characters/player/player_with_weapon/player_with_weapon.tscn" id="5_l1ega"]
+[ext_resource type="PackedScene" uid="uid://bra6fq827ewxa" path="res://characters/player/player_with_weapon/player_with_weapon.tscn" id="5_l1ega"]
+[ext_resource type="PackedScene" uid="uid://c37e7mq2aivhl" path="res://menus/pause_menu/pause_menu.tscn" id="6_glf27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxd85"]
 size = Vector2(3082.5, 1606)
@@ -49,6 +50,9 @@ offset_top = -311.0
 offset_right = 517.0
 offset_bottom = -288.0
 text = "collected_souls"
+
+[node name="pause_menu" parent="PlayerWithWeapon/Camera2D" instance=ExtResource("6_glf27")]
+visible = false
 
 [connection signal="body_exited" from="Map/game_limits" to="." method="_on_game_limits_body_exited"]
 [connection signal="finished" from="Audio" to="." method="_on_audio_finished"]
