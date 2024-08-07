@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c37e7mq2aivhl"]
+
+[ext_resource type="Script" path="res://menus/pause_menu/pause_menu.gd" id="1_35c3k"]
+[ext_resource type="Texture2D" uid="uid://chvm7wrdxfkco" path="res://menus/main_menu/imgs/br/iniciar.png" id="4_3ejbm"]
+[ext_resource type="Texture2D" uid="uid://b0757n37ipusa" path="res://menus/main_menu/imgs/br/iniciar_click.png" id="5_uftje"]
+[ext_resource type="Texture2D" uid="uid://dna43qawoln74" path="res://menus/main_menu/imgs/br/iniciar_hover.png" id="6_4fw0q"]
+[ext_resource type="Texture2D" uid="uid://bd3pjjnmar37x" path="res://menus/main_menu/imgs/br/sair.png" id="6_85hn1"]
+[ext_resource type="Texture2D" uid="uid://m66qqsrrtqpn" path="res://menus/main_menu/imgs/br/sair_click.png" id="11_dft2v"]
+[ext_resource type="Texture2D" uid="uid://5v1i7rl32ce" path="res://menus/main_menu/imgs/br/sair_hover.png" id="12_o35om"]
+
+[node name="pause_menu" type="Control" groups=["main_menu"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_35c3k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ContinueButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_3ejbm")
+texture_pressed = ExtResource("5_uftje")
+texture_hover = ExtResource("6_4fw0q")
+
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_85hn1")
+texture_pressed = ExtResource("11_dft2v")
+texture_hover = ExtResource("12_o35om")
