@@ -16,7 +16,7 @@ wait_time = 0.34
 texture = ExtResource("2_jy7sq")
 hframes = 2
 
-[node name="FiringSound" type="AudioStreamPlayer" parent="." index="2"]
+[node name="FiringSound" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource("3_atonm")
 
 [node name="GunOrigin" parent="." index="3"]
@@ -25,7 +25,5 @@ position = Vector2(38, 12)
 [node name="ProjectileOrigin" parent="." index="4"]
 position = Vector2(89, -5)
 gizmo_extents = 10.0
-
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

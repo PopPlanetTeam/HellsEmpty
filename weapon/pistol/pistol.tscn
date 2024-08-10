@@ -11,7 +11,7 @@ script = ExtResource("2_8idfs")
 [node name="FireRateTimer" type="Timer" parent="." index="0"]
 wait_time = 0.16
 
-[node name="FiringSound" type="AudioStreamPlayer" parent="." index="1"]
+[node name="FiringSound" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("3_lsmkd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]

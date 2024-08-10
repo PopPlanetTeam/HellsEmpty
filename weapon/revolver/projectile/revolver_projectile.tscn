@@ -9,6 +9,7 @@ size = Vector2(20, 14)
 
 [node name="RevolverProjectile" type="Node2D"]
 script = ExtResource("1_lmane")
+damage = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_aw1iu")
@@ -16,9 +17,12 @@ region_enabled = true
 region_rect = Rect2(25.1014, 114.395, 19.8986, 15.6046)
 
 [node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("3_8k5dg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("RectangleShape2D_xcl0e")
 
 [connection signal="area_entered" from="DamageArea" to="DamageArea" method="_on_area_entered"]
+[connection signal="damage_dealt" from="DamageArea" to="." method="_on_damage_area_damage_dealt"]
