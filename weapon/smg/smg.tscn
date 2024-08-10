@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1rsnihkthqoi"]
+
+[ext_resource type="PackedScene" uid="uid://cl6stp7w7150v" path="res://weapon/weapon_base.tscn" id="1_l6qiq"]
+[ext_resource type="Script" path="res://weapon/smg/smg.gd" id="2_yw44h"]
+[ext_resource type="AudioStream" uid="uid://rclv5yf6j4ok" path="res://weapon/smg/smg_firing.mp3" id="3_43qgs"]
+[ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/wepons_tilesheets/weapon_textures.png" id="4_xdybw"]
+
+[node name="SMG" instance=ExtResource("1_l6qiq")]
+script = ExtResource("2_yw44h")
+
+[node name="FireRateTimer" type="Timer" parent="." index="0"]
+wait_time = 0.119
+
+[node name="FiringSound" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("3_43qgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("4_xdybw")
+region_enabled = true
+region_rect = Rect2(159.589, 523.221, 106.017, 57.8513)
+
+[node name="GunOrigin" parent="." index="3"]
+position = Vector2(-13, 3)
+
+[node name="ProjectileOrigin" parent="." index="4"]
+position = Vector2(48, -16)
+
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
