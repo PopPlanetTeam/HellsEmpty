@@ -15,7 +15,7 @@ radius = 16.0
 height = 76.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ob4g"]
-size = Vector2(100, 86)
+size = Vector2(100, 99)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_854xn"]
 atlas = ExtResource("3_iwrca")
@@ -482,11 +482,8 @@ shape = SubResource("CapsuleShape2D_se0hv")
 [node name="Health" parent="." index="1"]
 position = Vector2(0, -92)
 
-[node name="HitBox" parent="." index="2"]
-visible = false
-
 [node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(6, 12)
+position = Vector2(6, 18.5)
 shape = SubResource("RectangleShape2D_2ob4g")
 
 [node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]

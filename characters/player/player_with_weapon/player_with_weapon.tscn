@@ -23,7 +23,7 @@ radius = 16.0
 height = 76.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi2w2"]
-size = Vector2(100, 86)
+size = Vector2(100, 98)
 
 [sub_resource type="Animation" id="Animation_bhr7r"]
 length = 0.001
@@ -2102,7 +2102,7 @@ shape = SubResource("CapsuleShape2D_jo2es")
 position = Vector2(0, -92)
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(6, 12)
+position = Vector2(6, 18)
 shape = SubResource("RectangleShape2D_mi2w2")
 
 [node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]

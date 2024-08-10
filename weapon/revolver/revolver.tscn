@@ -17,8 +17,9 @@ texture = ExtResource("2_05j0r")
 region_enabled = true
 region_rect = Rect2(80, 615, 79.3972, 45)
 
-[node name="FiringSound" type="AudioStreamPlayer" parent="." index="2"]
+[node name="FiringSound" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource("3_5jb1k")
+volume_db = -12.0
 
 [node name="GunOrigin" parent="." index="3"]
 position = Vector2(-8, 4)

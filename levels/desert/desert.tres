@@ -1223,6 +1223,7 @@ texture = ExtResource("6_l7moq")
 13:5/0/physics_layer_0/angular_velocity = 0.0
 13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.5, 8, 3.625, -8, -3.5, -8, -3.5, 8)
 1:6/0 = 0
+1:6/0/y_sort_origin = -15
 1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:6/0/physics_layer_0/angular_velocity = 0.0
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5, 3.625, -3.5, -8, 3.5, -8, 3.5, 3.75)

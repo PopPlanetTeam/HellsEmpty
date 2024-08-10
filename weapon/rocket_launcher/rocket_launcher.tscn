@@ -16,7 +16,7 @@ wait_time = 0.34
 texture = ExtResource("2_jy7sq")
 hframes = 2
 
-[node name="FiringSound" type="AudioStreamPlayer" parent="." index="2"]
+[node name="FiringSound" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource("3_atonm")
 
 [node name="GunOrigin" parent="." index="3"]
