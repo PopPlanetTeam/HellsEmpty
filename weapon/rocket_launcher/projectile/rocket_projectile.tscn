@@ -13,7 +13,6 @@ radius = 22.0227
 
 [node name="RocketProjectile" type="Node2D"]
 script = ExtResource("1_dk764")
-damage = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_6ejw2")

@@ -2094,8 +2094,7 @@ weapon_slot = NodePath("AnimationContainer/WeaponSlot")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Collision" type="CollisionShape2D" parent="." index="0"]
-visible = false
-position = Vector2(6, 33)
+position = Vector2(6, 46)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jo2es")
 
@@ -2139,3 +2138,4 @@ position = Vector2(38.0024, 1.95351)
 gizmo_extents = 3.0
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]
+[connection signal="area_entered" from="Picker" to="." method="_on_picker_area_entered"]

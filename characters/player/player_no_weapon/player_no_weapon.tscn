@@ -475,7 +475,7 @@ script = ExtResource("1_4q5f8")
 player_animated_sprite = NodePath("PwnAnimation")
 
 [node name="Collision" type="CollisionShape2D" parent="." index="0"]
-position = Vector2(6, 33)
+position = Vector2(6, 48)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_se0hv")
 
