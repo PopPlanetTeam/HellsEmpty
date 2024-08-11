@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://vobk73dbbqqu"]
+[gd_scene load_steps=6 format=3 uid="uid://vobk73dbbqqu"]
 
 [ext_resource type="Texture2D" uid="uid://vb1buopui3gq" path="res://components/map/chests/desert_small_chest.png" id="1_6s2e0"]
 [ext_resource type="Script" path="res://components/map/chests/chest.gd" id="1_jf6lb"]
+[ext_resource type="AudioStream" uid="uid://bn41w2b61bkeh" path="res://components/map/chests/chest_open.mp3" id="3_3rb2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hloj1"]
 size = Vector2(24, 22)
@@ -33,6 +34,9 @@ collision_mask = 0
 position = Vector2(0, 8)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_j3ign")
+
+[node name="OpeningSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3rb2s")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

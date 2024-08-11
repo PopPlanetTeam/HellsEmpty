@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _area_2d: Area2D = $Area2D
+@onready var _opening_sound : AudioStreamPlayer2D = $OpeningSound
 
 var _can_open: bool = false
 
@@ -13,6 +14,8 @@ func _process(_delta):
 
 		if _can_open:
 			_sprite.frame = 1
+			
+			_opening_sound.play()
 
 			# Spit out contents like an explosion
 			var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_spawner.tscn")
