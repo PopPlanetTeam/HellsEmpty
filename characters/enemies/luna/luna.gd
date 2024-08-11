@@ -41,3 +41,5 @@ func _on_hit_box_damage_taken(_amount, knockback):
 
 	state_machine.current_state.set_physics_process(true)
 	state_machine.current_state.set_process(true)
+
+	state_machine.change_to_state("chase")
