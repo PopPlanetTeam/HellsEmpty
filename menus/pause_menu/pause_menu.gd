@@ -11,3 +11,10 @@ func _input(_event) -> void:
 			self.show()
 			Engine.time_scale = 0
 		is_paused = !is_paused
+		
+func handleBtnContinue():
+	self.hide()
+	Engine.time_scale = 1
+	
+func hadleBtnExit():
+	pass

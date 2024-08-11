@@ -22,7 +22,7 @@ offset_bottom = 1080.0
 layout_mode = 2
 alignment = 1
 
-[node name="ContinueButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="BtnContinue" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -31,7 +31,7 @@ texture_normal = ExtResource("4_3ejbm")
 texture_pressed = ExtResource("5_uftje")
 texture_hover = ExtResource("6_4fw0q")
 
-[node name="ExitButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="BtnExit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
