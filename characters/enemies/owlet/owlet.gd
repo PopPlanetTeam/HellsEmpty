@@ -25,6 +25,8 @@ func _on_hit_box_damage_taken(_amount, knockback):
 	state_machine.current_state.set_physics_process(true)
 	state_machine.current_state.set_process(true)
 
+	state_machine.change_to_state("chase_a_star")
+
 func _on_died():
 	state_machine.current_state.set_physics_process(false)
 	state_machine.current_state.set_process(false)

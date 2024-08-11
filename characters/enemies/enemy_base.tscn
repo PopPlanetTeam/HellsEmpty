@@ -11,6 +11,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_6cwuq")
 speed = 125.0
+run_away_distance = 250.0
 distance_to_attack = 26.0
 provides_collision = 4
 scan_collision = 5
