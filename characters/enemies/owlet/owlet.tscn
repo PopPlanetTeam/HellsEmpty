@@ -297,7 +297,6 @@ animations = [{
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("2_uc0uy")
-run_away_distance = 250.0
 animation_sprites = NodePath("Animation")
 
 [node name="PhysicCollision" parent="." index="0"]

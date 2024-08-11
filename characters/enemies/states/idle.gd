@@ -15,6 +15,7 @@ func Enter():
 	
 	# Create debug line and label
 	if debug:
+		var canvas_layer = CanvasLayer.new()
 		var line = Line2D.new()
 		var distance_label = Label.new()
 
@@ -22,20 +23,25 @@ func Enter():
 		line.default_color = Color.RED
 		line.width = 2
 
-		distance_label.name = "DistanceLabel"
-		distance_label.position = Vector2(50, 0)
-		distance_label.add_theme_color_override("font_color", Color.RED)
-		distance_label.add_theme_font_size_override("font_size", 12)
-		
 		_enemy.call_deferred("add_child", line)
-		_enemy.call_deferred("add_child", distance_label)
+
+		distance_label.name = "DistanceLabel"
+		distance_label.position = Vector2(50, 50)
+		distance_label.add_theme_color_override("font_color", Color.RED)
+		distance_label.add_theme_font_size_override("font_size", 24)
+		
+		canvas_layer.name = "DebugCanvas"
+		canvas_layer.add_child(distance_label)
+
+		_enemy.call_deferred("add_child", canvas_layer)
+	
 
 ## This function is automatically called when the state is exited.
 func Exit():
 	# Remove debug line and label on exit
 	if debug:
 		_enemy.get_node("DebugLine").queue_free()
-		_enemy.get_node("DistanceLabel").queue_free()
+		_enemy.get_node("DebugCanvas").queue_free()
 
 func _process(_delta):
 	_enemy.animation_sprites.play("idle")
@@ -58,7 +64,7 @@ func _process(_delta):
 		# Update debug line and label
 		if debug and _enemy.has_node("DebugLine"):
 			var line: Line2D = _enemy.get_node("DebugLine")
-			var distance_label: Label = _enemy.get_node("DistanceLabel")
+			var distance_label: Label = _enemy.get_node("DebugCanvas").get_node("DistanceLabel")
 
 			line.set_points([line.to_local(_enemy.global_position), line.to_local(_player.global_position)])
 			distance_label.text = "Player dist: " + str(distance as int)
