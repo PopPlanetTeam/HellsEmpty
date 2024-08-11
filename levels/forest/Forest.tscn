@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://m0e6cc4500hd"]
+[gd_scene load_steps=109 format=3 uid="uid://m0e6cc4500hd"]
 
 [ext_resource type="Texture2D" uid="uid://csjchmeub4ddu" path="res://levels/forest/Bench and chest/Bench.png" id="1_kwxvb"]
 [ext_resource type="Texture2D" uid="uid://cwcwauatne4sm" path="res://levels/forest/Ground tileset/Bright-grass-tileset_3.png" id="2_l3vf0"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dhgig5jfmyeb7" path="res://levels/forest/Fences/Wooden fence/Wooden-fence-2.png" id="19_1p4k1"]
 [ext_resource type="Texture2D" uid="uid://dj0qbybef6e3" path="res://levels/forest/Flowers/Flower-1.png" id="20_ke1my"]
 [ext_resource type="Texture2D" uid="uid://blrk5s7ae503f" path="res://levels/forest/Flowers/Flower-2.png" id="21_ca86t"]
+[ext_resource type="PackedScene" uid="uid://vobk73dbbqqu" path="res://components/map/chests/chest_small.tscn" id="21_g1r85"]
 [ext_resource type="Texture2D" uid="uid://qtwteq86em5w" path="res://levels/forest/Flowers/Flower-3.png" id="22_cguka"]
 [ext_resource type="Texture2D" uid="uid://cqvptfw7gal03" path="res://levels/forest/Grass/Grass-1.png" id="23_n6gwn"]
 [ext_resource type="Texture2D" uid="uid://cccno86s6sbxu" path="res://levels/forest/Grass/Grass-2.png" id="24_qb1vp"]
@@ -324,9 +325,12 @@ texture_region_size = Vector2i(22, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.875, 2.75, 10.75, 2.75, 10.875, 10.25, -10.875, 10.25)
 
 [sub_resource type="TileSet" id="TileSet_2nw7c"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 0
+custom_data_layer_0/name = "Chest enrered"
+custom_data_layer_0/type = 26
 sources/0 = SubResource("TileSetAtlasSource_7x2d2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r83im"]
@@ -720,7 +724,30 @@ tile_set = SubResource("TileSet_qts00")
 format = 2
 layer_0/tile_data = PackedInt32Array(11206145, 0, 0)
 
+[node name="Chests" type="Node2D" parent="."]
+
+[node name="1" parent="Chests" instance=ExtResource("21_g1r85")]
+position = Vector2(-1144, 2639)
+scale = Vector2(1.54, 1.54)
+
+[node name="2" parent="Chests" instance=ExtResource("21_g1r85")]
+position = Vector2(-1000, -1730)
+scale = Vector2(1.54, 1.54)
+
+[node name="3" parent="Chests" instance=ExtResource("21_g1r85")]
+position = Vector2(2217, -160)
+scale = Vector2(1.54, 1.54)
+
+[node name="4" parent="Chests" instance=ExtResource("21_g1r85")]
+position = Vector2(-4504, 1054)
+scale = Vector2(1.54, 1.54)
+
+[node name="5" parent="Chests" instance=ExtResource("21_g1r85")]
+position = Vector2(-7865, -1746)
+scale = Vector2(1.54, 1.54)
+
 [node name="Chest" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource("TileSet_2nw7c")
 format = 2
 layer_0/tile_data = PackedInt32Array(-655222, 0, 0, 4390630, 0, 0, 10878904, 0, 0, -7078380, 0, 0, -7012415, 0, 0)
