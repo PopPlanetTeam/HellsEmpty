@@ -4,7 +4,8 @@ class_name SceneBase
 @export var player_spawn_markers: Node
 
 func _ready():
-	_spawn_player()
+	if SceneManager.player_transition:
+		_spawn_player()
 
 func _spawn_player():
 	var scene_from = SceneManager.last_scene
@@ -17,14 +18,17 @@ func _spawn_player():
 	if not marker:
 		printerr("No spawn marker found for scene: " + scene_from)
 		get_tree().quit()
+		return
 	
-	var player = GlobalData.player
+	var player = SceneManager.player_transition
 
-	if not player:
-		printerr("No player found in GlobalData")
-		get_tree().quit()
-
-	if not player.is_inside_tree():
-		add_child(player)
-
+	add_child(player)
 	player.global_position = marker.global_position
+
+	print("Player: " + player.name + " added to scene: " + name)
+
+	# Removing first spawned player from scene
+	if GlobalData.player != player:
+		var previous_player = GlobalData.player
+		GlobalData.player = player
+		previous_player.queue_free()
