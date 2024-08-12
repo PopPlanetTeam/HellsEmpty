@@ -1,4 +1,4 @@
-extends Node2D
+extends SceneBase
 
 @export_group("Audio")
 @export var level_song: AudioStream
@@ -6,5 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super._ready()
+
 	if level_song:
 		GlobalAudioPlayer.play_stream(level_song, song_volume_db)

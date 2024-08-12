@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=18 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://vobk73dbbqqu" path="res://components/map/chests/chest_small.tscn" id="8_qnxfj"]
 [ext_resource type="PackedScene" uid="uid://ddak21lokvpxm" path="res://components/pickups/coin/coin.tscn" id="9_aof2a"]
 [ext_resource type="Script" path="res://components/damage_tilemap/damage_tilemap.gd" id="10_sysmy"]
+[ext_resource type="Script" path="res://components/cameras/following_camera.gd" id="11_83a47"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
 [ext_resource type="Texture2D" uid="uid://barwjcdd54nuh" path="res://weapon/rocket_launcher/img/rocket_launcher.png" id="13_2durd"]
 [ext_resource type="PackedScene" uid="uid://lnbggmj1jryo" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="13_oeehp"]
+[ext_resource type="Script" path="res://levels/desert/chamber_passage.gd" id="14_wcksx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p0xb2"]
 vertices = PackedVector2Array(-222, -39, -306, -39, -306, -93, -222, -93, 345, -158, 190, -126, 130, -126, -364, -127, -364, -142, -237, -157, 333, -160, -359, 181, -557, 163, -407, 161, -380, 161, -327, 183, -355, -7, -637, -13, -502, -15, -476, -15, -355, -13, -205, -7, 594, 227, 1585, 496, 357, 420, 344, 406, 334, 291, 573, 224, -765, 483, -413, 451, -323, 448, -311, 449, -311, 487, -845, 498, -765, 468, -775, 453, -701, 419, -515, 416, -493, 419, -435, 433, -435, 448, -343, 151, -327, 151, -652, 305, -652, 290, -588, 225, -371, 208, -349, 211, -311, 325, -323, 337, -217, 151, -201, 119, -99, 96, -77, 99, -14, 291, -233, 279, -311, 183, -349, 196, -119, -25, -131, -16, -201, -25, -201, -119, 130, -15, 120, -26, 313, 103, 313, 247, 312, 246, 194, 103, -371, 193, -600, 198, -732, 177, -732, 162, -615, 225, -664, 278, -701, 83, -701, 68, -343, 39, -324, 39, -327, 49, -343, 73, -392, 134, -403, 146, -380, 146, -77, 84, -14, 82, 597, 212, 1598, -243, -201, 73, -99, 81, 366, 3, 366, -190, 584, 198, -842, -248, 194, -190, -439, -218, -647, -42, -701, -141, -701, -157, -598, -159, -572, -159, -387, -144, -390, -127, -487, -41, -499, -32, -637, -29, -249, 297, -249, 289, -237, 291, -233, 297, -508, 369, -508, 354, -327, 345, -327, 391, -493, 404, -503, 389, 334, 82, 573, 209, -588, 210, -567, 133, -205, -13, -134, 1, -413, 436, -323, 433, -711, 53, -716, -15, -716, -30, -659, -31, -659, -16, -355, -47, -476, -30, -515, 401, -701, 404, -535, 369, -557, 148, -311, 391, -311, 421, -423, 421, -237, -173, 194, -169, -108, 1, -108, -14, 109, -15, 109, 0, 30, 82, -451, -192, -583, -185, -684, -191, -684, -206, -451, -207, -259, -175, -259, -160, -375, -153, -572, -174, -429, -189, -429, -205, -247, -186, 333, -169, 345, -23, 302, -23, 302, -46, 242, -46, 242, -23, 151, -23, 151, -105, 190, -105, -327, -119, -327, -39, -333, -39, -333, -45, -343, -58, -205, -25, 299, 265, 7, 265, 7, 103, 30, 103, 301, 258, -217, 73, -217, 19, -205, 19, -355, 19, -343, 19, -311, 49, -311, 73, -323, 345, -520, 342, -290, 377, -297, 377, -297, 359, -290, 359, -290, 98, -254, 130, -290, 162, -306, 162, -306, 130, -297, 99, -322, 130, -322, 99, -297, 98, -290, 19, -238, 19, -238, 130, -254, 258, -270, 258, -270, 322, -263, 322, -263, 323, -270, 354, -254, 323, -254, 354, -249, 487, -249, 375, -233, 375, -237, 279, -233, 151, -217, 119, 333, 417, 354, 435, 130, 3, 194, 82, -87, 69, -742, -15, -723, 65, 333, 432, -531, 354, -711, 389, -679, 305, -270, 487, -290, 487, -595, -176, -711, -170, -710, -191, -723, 416, -723, 401, -759, 177, -579, 145, -579, 160, -744, 150, -723, 80, -695, -217, -611, 210, -675, 290, -727, -41, -723, -144, -739, -32, -707, -208, -723, -159, -787, 465, -755, 162, -787, 480)
@@ -24,11 +26,12 @@ agent_radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qgof"]
 
-[node name="Desert" type="Node2D"]
+[node name="Desert" type="Node2D" node_paths=PackedStringArray("player_spawn_markers")]
 y_sort_enabled = true
 script = ExtResource("1_ov8vq")
 level_song = ExtResource("1_ptu5i")
 song_volume_db = -6.0
+player_spawn_markers = NodePath("PlayerSpawns")
 
 [node name="DesertMap" type="TileMap" parent="." groups=["navigation"]]
 y_sort_enabled = true
@@ -80,13 +83,16 @@ region_rect = Rect2(80, 615, 79.3972, 45)
 position = Vector2(-160, -10)
 scale = Vector2(0.25, 0.25)
 
-[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-160, -10)
+scale = Vector2(0.25, 0.25)
 zoom = Vector2(6, 6)
 limit_left = -1170
 limit_top = -777
 limit_right = 4367
 limit_bottom = 900
 editor_draw_limits = true
+script = ExtResource("11_83a47")
 
 [node name="Owlet" parent="." instance=ExtResource("8_f2lkn")]
 position = Vector2(77, 189)
@@ -101,7 +107,18 @@ position = Vector2(-78, -27)
 contents = Array[PackedScene]([ExtResource("9_aof2a"), ExtResource("9_aof2a"), ExtResource("9_aof2a"), ExtResource("9_aof2a")])
 
 [node name="ChamberPassage" type="Area2D" parent="."]
-position = Vector2(272, -12)
+position = Vector2(272, -6)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("14_wcksx")
+chamber_scene = "res://levels/desert/chamber/desert_chamber.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChamberPassage"]
 shape = SubResource("CircleShape2D_7qgof")
+
+[node name="PlayerSpawns" type="Node" parent="."]
+
+[node name="any" type="Marker2D" parent="PlayerSpawns"]
+position = Vector2(-160, -10)
+
+[connection signal="area_entered" from="ChamberPassage" to="ChamberPassage" method="_on_area_entered"]
