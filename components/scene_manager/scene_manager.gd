@@ -14,3 +14,5 @@ func change_scene(from: Node, to: String) -> void:
 
 	from.get_tree().call_deferred("change_scene_to_file", to)
 	
+func transition_happened() -> bool:
+	return last_scene != ""

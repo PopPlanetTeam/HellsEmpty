@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://diqm7aebk6dck"]
+[gd_scene load_steps=12 format=3 uid="uid://diqm7aebk6dck"]
 
 [ext_resource type="Script" path="res://levels/desert/chamber/desert_chamber.gd" id="1_3uedp"]
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_yi7rn"]
 [ext_resource type="Script" path="res://components/damage_tilemap/damage_tilemap.gd" id="2_asrgc"]
 [ext_resource type="PackedScene" uid="uid://bjge2p02wej6e" path="res://components/map/bonfire/bonfire.tscn" id="4_148an"]
 [ext_resource type="Script" path="res://components/cameras/following_camera.gd" id="4_ibnig"]
+[ext_resource type="Script" path="res://levels/desert/chamber/desert_passage.gd" id="6_c7uwn"]
 
 [sub_resource type="Gradient" id="Gradient_1bf54"]
 offsets = PackedFloat32Array(0, 0.289753, 0.371025, 0.431095, 0.498233, 0.558304, 0.667845)
@@ -16,6 +17,19 @@ width = 200
 height = 200
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_eke3m"]
+offsets = PackedFloat32Array(0, 0.289753, 0.371025, 0.431095, 0.498233, 0.558304, 0.667845)
+colors = PackedColorArray(1, 1, 1, 1, 0.264874, 0.264874, 0.264874, 1, 0.126697, 0.126697, 0.126697, 1, 0.0742857, 0.0742857, 0.0742857, 1, 0.0322982, 0.0322982, 0.0322982, 1, 0.00999705, 0.00999705, 0.00999705, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_coe51"]
+gradient = SubResource("Gradient_eke3m")
+width = 200
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5jd0"]
 
 [node name="DesertChamber" type="Node2D" node_paths=PackedStringArray("player_spawn_markers")]
 y_sort_enabled = true
@@ -57,7 +71,6 @@ editor_draw_limits = true
 script = ExtResource("4_ibnig")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.15, 0.11485, 0.093, 1)
 
 [node name="Lights" type="Node" parent="."]
@@ -139,6 +152,12 @@ energy = 1.38
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ub5y5")
 
+[node name="ExitLight" type="PointLight2D" parent="Lights"]
+position = Vector2(0, 1110)
+energy = 1.38
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_coe51")
+
 [node name="Bonfires" type="Node" parent="."]
 
 [node name="Bonfire" parent="Bonfires" instance=ExtResource("4_148an")]
@@ -156,4 +175,16 @@ position = Vector2(-825, -483)
 [node name="PlayerSpawn" type="Node" parent="."]
 
 [node name="Desert" type="Marker2D" parent="PlayerSpawn"]
-position = Vector2(0, 1054)
+position = Vector2(0, 1099)
+
+[node name="DesertPassage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("6_c7uwn")
+desert_scene = "res://levels/desert/desert.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DesertPassage"]
+position = Vector2(0, 1131)
+shape = SubResource("CircleShape2D_h5jd0")
+
+[connection signal="area_entered" from="DesertPassage" to="DesertPassage" method="_on_area_entered"]
