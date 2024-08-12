@@ -479,15 +479,11 @@ position = Vector2(6, 48)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_se0hv")
 
-[node name="Health" parent="." index="1"]
+[node name="Health" parent="." index="2"]
 position = Vector2(0, -92)
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(6, 18.5)
-shape = SubResource("RectangleShape2D_2ob4g")
-
-[node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]
-position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_2ob4g")
 
 [node name="PwnAnimation" type="AnimatedSprite2D" parent="." index="4"]
@@ -497,6 +493,10 @@ animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -8.5)
 script = ExtResource("6_0626e")
+
+[node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]
+position = Vector2(6, 12)
+shape = SubResource("RectangleShape2D_2ob4g")
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]
 [connection signal="area_entered" from="Picker" to="." method="_on_picker_area_entered"]
