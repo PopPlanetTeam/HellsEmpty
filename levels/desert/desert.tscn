@@ -82,10 +82,10 @@ scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
 zoom = Vector2(6, 6)
-limit_left = -815
-limit_top = -222
-limit_right = 1567
-limit_bottom = 480
+limit_left = -1170
+limit_top = -777
+limit_right = 4367
+limit_bottom = 900
 editor_draw_limits = true
 
 [node name="Owlet" parent="." instance=ExtResource("8_f2lkn")]

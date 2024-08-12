@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di60smexvdmgu"
-path="res://.godot/imported/desert_ [bridgeHorizontal].png-9e074aa6b96daad418ed366211dabd76.ctex"
+uid="uid://bhtb2jb2h01rp"
+path="res://.godot/imported/desert_ [bridgeAnimatedTiles].png-32d847e2e67d2589e83131c955d04c33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/desert/desert_ [bridgeHorizontal].png"
-dest_files=["res://.godot/imported/desert_ [bridgeHorizontal].png-9e074aa6b96daad418ed366211dabd76.ctex"]
+source_file="res://levels/desert/imgs/desert_ [bridgeAnimatedTiles].png"
+dest_files=["res://.godot/imported/desert_ [bridgeAnimatedTiles].png-32d847e2e67d2589e83131c955d04c33.ctex"]
 
 [params]
 

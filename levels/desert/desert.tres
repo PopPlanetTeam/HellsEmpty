@@ -1,14 +1,14 @@
 [gd_resource type="TileSet" load_steps=26 format=3 uid="uid://bd362efpppnr7"]
 
-[ext_resource type="Texture2D" uid="uid://blsfpmh7rr0hc" path="res://levels/desert/desert_.png" id="1_2jtpd"]
-[ext_resource type="Texture2D" uid="uid://0lesqahsuaut" path="res://levels/desert/desertPath_.png" id="2_jqcsx"]
-[ext_resource type="Texture2D" uid="uid://bhtb2jb2h01rp" path="res://levels/desert/desert_ [bridgeAnimatedTiles].png" id="3_hi0pj"]
-[ext_resource type="Texture2D" uid="uid://di60smexvdmgu" path="res://levels/desert/desert_ [bridgeHorizontal].png" id="4_4778f"]
-[ext_resource type="Texture2D" uid="uid://bxh1om15ftl7c" path="res://levels/desert/desert_ [bridgeVertical].png" id="5_u2vsp"]
-[ext_resource type="Texture2D" uid="uid://dh1olcgv0swg1" path="res://levels/desert/desert_ [fencesAndWalls].png" id="6_l7moq"]
-[ext_resource type="Texture2D" uid="uid://c1gcj3qji2mr5" path="res://levels/desert/desert_ [fountain].png" id="7_evxfi"]
-[ext_resource type="Texture2D" uid="uid://j2gnxu2xxmpo" path="res://levels/desert/desert_ [resources].png" id="8_wfhmj"]
-[ext_resource type="Texture2D" uid="uid://bismwx7hipo33" path="res://levels/desert/quickSand_.png" id="9_x5lqo"]
+[ext_resource type="Texture2D" uid="uid://blsfpmh7rr0hc" path="res://levels/desert/imgs/desert_.png" id="1_2jtpd"]
+[ext_resource type="Texture2D" uid="uid://0lesqahsuaut" path="res://levels/desert/imgs/desertPath_.png" id="2_jqcsx"]
+[ext_resource type="Texture2D" uid="uid://bhtb2jb2h01rp" path="res://levels/desert/imgs/desert_ [bridgeAnimatedTiles].png" id="3_hi0pj"]
+[ext_resource type="Texture2D" uid="uid://di60smexvdmgu" path="res://levels/desert/imgs/desert_ [bridgeHorizontal].png" id="4_4778f"]
+[ext_resource type="Texture2D" uid="uid://bxh1om15ftl7c" path="res://levels/desert/imgs/desert_ [bridgeVertical].png" id="5_u2vsp"]
+[ext_resource type="Texture2D" uid="uid://dh1olcgv0swg1" path="res://levels/desert/imgs/desert_ [fencesAndWalls].png" id="6_l7moq"]
+[ext_resource type="Texture2D" uid="uid://c1gcj3qji2mr5" path="res://levels/desert/imgs/desert_ [fountain].png" id="7_evxfi"]
+[ext_resource type="Texture2D" uid="uid://j2gnxu2xxmpo" path="res://levels/desert/imgs/desert_ [resources].png" id="8_wfhmj"]
+[ext_resource type="Texture2D" uid="uid://bismwx7hipo33" path="res://levels/desert/imgs/quickSand_.png" id="9_x5lqo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0r4bv"]
 tile_data = PackedInt32Array(0, 196615, 1, 65536, 196615, 2)
