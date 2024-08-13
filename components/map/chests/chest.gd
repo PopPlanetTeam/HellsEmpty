@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var contents: Array[PackedScene]
+@export var contents: Array[ChestItem]
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _area_2d: Area2D = $Area2D
@@ -15,13 +15,16 @@ func _process(_delta):
 			_sprite.frame = 1
 
 			# Spit out contents like an explosion
-			var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_spawner.tscn")
+			var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_spawner/pickups_spawner.tscn")
 			
-			for content in contents:
-				var spawner = pickup_spawner.instantiate()
-				spawner.global_position = global_position
-				spawner.content = content
-				get_parent().call_deferred("add_child", spawner)
+			for item in contents:
+				for i in range(item.number_of_items):
+					var pickup_spawner_instance = pickup_spawner.instantiate()
+
+					pickup_spawner_instance.global_position = self.global_position
+					pickup_spawner_instance.content = item.item_scene
+					
+					get_parent().call_deferred("add_child", pickup_spawner_instance)
 
 			_area_2d.monitoring = false
 

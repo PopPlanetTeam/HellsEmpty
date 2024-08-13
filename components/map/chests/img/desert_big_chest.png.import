@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vb1buopui3gq"
-path="res://.godot/imported/desert_small_chest.png-4e170507710e1f72ab0521b5387ea580.ctex"
+uid="uid://clwfyc5lhmfr2"
+path="res://.godot/imported/desert_big_chest.png-db14150041fe1c6f69e665d9a5d9e201.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/map/chests/desert_small_chest.png"
-dest_files=["res://.godot/imported/desert_small_chest.png-4e170507710e1f72ab0521b5387ea580.ctex"]
+source_file="res://components/map/chests/img/desert_big_chest.png"
+dest_files=["res://.godot/imported/desert_big_chest.png-db14150041fe1c6f69e665d9a5d9e201.ctex"]
 
 [params]
 

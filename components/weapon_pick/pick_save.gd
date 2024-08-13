@@ -1,4 +1,5 @@
 extends Node2D
+class_name PickSave
 
 func save(weapons_array: Array):
 	if has_node("Picker"):

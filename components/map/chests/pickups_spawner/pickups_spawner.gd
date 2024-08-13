@@ -6,8 +6,8 @@ const min_height: float = 10.0
 const max_height: float = 50.0
 const min_width: float = 20.0
 const max_width: float = 50.0
-const min_end_offset: float = 5.0
-const max_end_offset: float = 15.0
+const min_end_offset: float = -1.0
+const max_end_offset: float = 16.0
 
 # Speed limits
 const min_speed: float = 2.0
@@ -57,7 +57,7 @@ var _curve_flip_h: bool :
 
 var _curve_end_offset: float :
 	set(value):
-		_curve_end_offset = value * (-1.0 if randi_range(0,1) == 0 else 1.0)
+		_curve_end_offset = value
 
 		var last_point = _path.curve.get_point_position(2) # Get last point
 		_path.curve.set_point_position(2, Vector2(last_point.x, _curve_end_offset))
@@ -83,8 +83,8 @@ func _ready():
 
 	await _content_node.ready
 	
-	_content_node.global_position = self.global_position
 	_content_node.set_enabled(false)
+	_content_node.global_position = self.global_position
 
 	self.z_index = 1
 

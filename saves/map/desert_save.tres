@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DesertSave" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://levels/save_stuff/desert_save.gd" id="1_5olgs"]
+[ext_resource type="Script" path="res://components/save_stuff/desert_save.gd" id="1_ik5cb"]
 
 [resource]
-script = ExtResource("1_5olgs")
+script = ExtResource("1_ik5cb")
 weapons = Array[Resource("res://levels/save_stuff/weapon_save.gd")]([])
