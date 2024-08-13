@@ -18,10 +18,12 @@ func _process(delta):
 
 func spawn_new_enemy() -> void:
 	var enemy = enemies_to_spawn.pick_random().instantiate()
+	
 	enemy.global_position = get_position_to_spawn()
 	var enemy_died_signal = enemy.died
 	enemy_died_signal.connect(spawn_new_enemy)
-	add_sibling(enemy)
+	#add_sibling(enemy)
+	add_child(enemy)
 
 # This function will get all the child markers, sort by distance to the player
 # and choose one of the best 3 at random
