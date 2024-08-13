@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bismwx7hipo33"
-path="res://.godot/imported/quickSand_.png-602b7ab6823db0a3124dcfcda0219960.ctex"
+uid="uid://bxh1om15ftl7c"
+path="res://.godot/imported/desert_ [bridgeVertical].png-3f161787fc5398842380cd8204a97ade.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/desert/quickSand_.png"
-dest_files=["res://.godot/imported/quickSand_.png-602b7ab6823db0a3124dcfcda0219960.ctex"]
+source_file="res://levels/desert/imgs/desert_ [bridgeVertical].png"
+dest_files=["res://.godot/imported/desert_ [bridgeVertical].png-3f161787fc5398842380cd8204a97ade.ctex"]
 
 [params]
 

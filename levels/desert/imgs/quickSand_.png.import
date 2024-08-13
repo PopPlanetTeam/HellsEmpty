@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0lesqahsuaut"
-path="res://.godot/imported/desertPath_.png-7b79061452b003beec13a65fab5d8c0f.ctex"
+uid="uid://bismwx7hipo33"
+path="res://.godot/imported/quickSand_.png-f9f0069f09393609d4f06f3958a4949d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/desert/desertPath_.png"
-dest_files=["res://.godot/imported/desertPath_.png-7b79061452b003beec13a65fab5d8c0f.ctex"]
+source_file="res://levels/desert/imgs/quickSand_.png"
+dest_files=["res://.godot/imported/quickSand_.png-f9f0069f09393609d4f06f3958a4949d.ctex"]
 
 [params]
 

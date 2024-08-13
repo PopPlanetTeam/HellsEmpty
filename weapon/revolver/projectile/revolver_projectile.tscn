@@ -1,28 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://brl5jubknergb"]
 
 [ext_resource type="Script" path="res://weapon/revolver/projectile/revolver_projectile.gd" id="1_lmane"]
+[ext_resource type="PackedScene" uid="uid://d3adyea0h0ygd" path="res://weapon/projectile_base.tscn" id="1_y2byh"]
 [ext_resource type="Texture2D" uid="uid://bmohtwp4su7" path="res://weapon/wepons_tilesheets/weapon_projectiles.png" id="2_aw1iu"]
-[ext_resource type="Script" path="res://components/damage_area/damage_area.gd" id="3_8k5dg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcl0e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2xo"]
 size = Vector2(20, 14)
 
-[node name="RevolverProjectile" type="Node2D"]
+[node name="RevolverProjectile" instance=ExtResource("1_y2byh")]
 script = ExtResource("1_lmane")
+speed = 600.0
 damage = 5.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_aw1iu")
 region_enabled = true
 region_rect = Rect2(25.1014, 114.395, 19.8986, 15.6046)
 
-[node name="DamageArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-script = ExtResource("3_8k5dg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-shape = SubResource("RectangleShape2D_xcl0e")
-
-[connection signal="area_entered" from="DamageArea" to="DamageArea" method="_on_area_entered"]
-[connection signal="damage_dealt" from="DamageArea" to="." method="_on_damage_area_damage_dealt"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource("RectangleShape2D_xy2xo")

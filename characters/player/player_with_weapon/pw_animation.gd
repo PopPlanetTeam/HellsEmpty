@@ -10,6 +10,10 @@ var _current_animation: String = ""
 
 var _node_ready: bool = false
 
+var animation_container
+var anim_cont_index
+var animation_tree
+
 func _ready():
 	if not player_sprites:
 		printerr("PwAnimation> ERROR: No player_sprites assigned.")
@@ -20,6 +24,10 @@ func _ready():
 
 	_origin = _weapon_slot.get_origin()
 	_node_ready = true
+
+	animation_container = _weapon_slot.get_parent()
+	anim_cont_index = animation_container.get_index()
+	animation_tree = animation_container.get_parent()
 	
 func _process(_delta):
 	if _node_ready:
@@ -57,7 +65,8 @@ func _set_rotation_around_origin(angle: float) -> void:
 	_weapon_slot.global_position -= (_origin.global_position - origin_start_pos)
 
 func animate(velocity: Vector2):
-	_weapon_slot.z_index = 0
+	# Move animation container to its original position in the AnimationTree
+	animation_tree.move_child(animation_container, anim_cont_index)
 
 	var mouse_direction = _get_mouse_direction()
 
@@ -78,14 +87,14 @@ func animate(velocity: Vector2):
 		# The player is moving in the vertical
 		elif velocity.y != 0:
 			if velocity.y < 0:
-				_weapon_slot.z_index = -1
+				animation_tree.move_child(animation_container, anim_cont_index - 1)
 				_current_animation = "run_back_up"
 			else:
-				_weapon_slot.z_index = 0
+				animation_tree.move_child(animation_container, anim_cont_index)
 				_current_animation = "run_up_down"
 			
 			if mouse_direction.y > vertical_threshold and velocity.y < 0:
-				_weapon_slot.z_index = 0
+				animation_tree.move_child(animation_container, anim_cont_index)
 				_current_animation = "run_back_back"
 			elif mouse_direction.y < - vertical_threshold and velocity.y > 0:
 				_current_animation = "run_up_up"

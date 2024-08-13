@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjge2p02wej6e"]
+
+[ext_resource type="Texture2D" uid="uid://r7sncd0om4nw" path="res://components/map/bonfire/desert_bonfire.png" id="1_bthct"]
+[ext_resource type="Script" path="res://components/map/bonfire/bonfire.gd" id="1_qh3oe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7gt7"]
+atlas = ExtResource("1_bthct")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3lpd"]
+atlas = ExtResource("1_bthct")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjo4l"]
+atlas = ExtResource("1_bthct")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfgd4"]
+atlas = ExtResource("1_bthct")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucy3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7gt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3lpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjo4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfgd4")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_3o3lh"]
+offsets = PackedFloat32Array(0, 0.204947, 0.339223, 0.402827, 0.473498, 0.55477, 0.607774, 0.657244)
+colors = PackedColorArray(1, 1, 1, 1, 0.525082, 0.525082, 0.525082, 1, 0.323404, 0.323404, 0.323404, 1, 0.229142, 0.229142, 0.229142, 1, 0.163158, 0.163158, 0.163158, 1, 0.0417381, 0.0417381, 0.0417381, 1, 0.0139127, 0.0139127, 0.0139127, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o22ty"]
+gradient = SubResource("Gradient_3o3lh")
+width = 300
+height = 300
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sor2a"]
+radius = 5.0
+
+[node name="Bonfire" type="Node2D"]
+script = ExtResource("1_qh3oe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ucy3x")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.154984
+offset = Vector2(0, 5)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 13)
+color = Color(1, 0.685, 0.58, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_o22ty")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_sor2a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

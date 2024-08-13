@@ -6,3 +6,4 @@ var player_no_weapon_scene: PackedScene = preload("res://characters/player/playe
 var player_with_weapon_scene: PackedScene = preload("res://characters/player/player_with_weapon/player_with_weapon.tscn")
 
 const DAMAGE_GROUP = "damage_body"
+const WEAPON_SAVE_GROUP = "weapon_save"

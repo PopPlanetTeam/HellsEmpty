@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di60smexvdmgu"
-path="res://.godot/imported/desert_ [bridgeHorizontal].png-9e074aa6b96daad418ed366211dabd76.ctex"
+uid="uid://dh1olcgv0swg1"
+path="res://.godot/imported/desert_ [fencesAndWalls].png-38fd1149ddba9078557b9b4280a097a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/desert/desert_ [bridgeHorizontal].png"
-dest_files=["res://.godot/imported/desert_ [bridgeHorizontal].png-9e074aa6b96daad418ed366211dabd76.ctex"]
+source_file="res://levels/desert/imgs/desert_ [fencesAndWalls].png"
+dest_files=["res://.godot/imported/desert_ [fencesAndWalls].png-38fd1149ddba9078557b9b4280a097a0.ctex"]
 
 [params]
 
