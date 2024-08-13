@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name EnemyBase
 
+signal died
+
 @export var speed: float = 100.0
 @export var chase_distance: float = 100.0
 @export var run_away_distance: float = 200.0
@@ -40,6 +42,7 @@ func _ready():
 	damage_area.knockback_strength = knockback_strength
 
 func _on_died():
+	died.emit()
 	self.queue_free()
 
 func _physics_process(_delta):
