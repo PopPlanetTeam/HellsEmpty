@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://m0e6cc4500hd"]
+[gd_scene load_steps=110 format=3 uid="uid://m0e6cc4500hd"]
 
 [ext_resource type="Texture2D" uid="uid://csjchmeub4ddu" path="res://levels/forest/Bench and chest/Bench.png" id="1_kwxvb"]
 [ext_resource type="Texture2D" uid="uid://cwcwauatne4sm" path="res://levels/forest/Ground tileset/Bright-grass-tileset_3.png" id="2_l3vf0"]
@@ -50,6 +50,8 @@
 [ext_resource type="Texture2D" uid="uid://c1owviy68p1rh" path="res://levels/forest/Trees/Tree-3/Tree-3-2.png" id="45_v7pfp"]
 [ext_resource type="Script" path="res://levels/forest/EnemySpawner.gd" id="49_fyuuu"]
 [ext_resource type="PackedScene" uid="uid://diah1045fuaax" path="res://characters/enemies/owlet/owlet.tscn" id="50_vqwpn"]
+[ext_resource type="AudioStream" uid="uid://bcpmpxg86ek5y" path="res://musics/forest_theme.mp3" id="51_04psl"]
+[ext_resource type="Script" path="res://levels/forest/ForestTheme.gd" id="52_ydicb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekg26"]
 texture = ExtResource("27_3236e")
@@ -789,3 +791,10 @@ position = Vector2(-4147, 684)
 
 [node name="TEST" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(141, 60)
+
+[node name="ForestTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_04psl")
+autoplay = true
+script = ExtResource("52_ydicb")
+
+[connection signal="finished" from="ForestTheme" to="ForestTheme" method="_on_finished"]
