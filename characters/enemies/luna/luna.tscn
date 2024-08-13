@@ -256,7 +256,8 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_fchlr")
 
 [node name="Health" parent="." index="1"]
-position = Vector2(0, -72)
+position = Vector2(0, -24)
+scale = Vector2(0.5, 0.5)
 
 [node name="DamageArea" parent="." index="2"]
 monitoring = false
@@ -276,16 +277,13 @@ shape = SubResource("CircleShape2D_oikq2")
 [node name="Animation" type="AnimatedSprite2D" parent="." index="4"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_dnox1")
-animation = &"die"
-frame = 7
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("8_uvbrt")
-debug = true
 
 [node name="chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("9_bsoyp")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://df832hq2pdg3"]
 
-[ext_resource type="Script" path="res://components/map/chests/pickups_spawner.gd" id="1_12kwf"]
+[ext_resource type="Script" path="res://components/map/chests/pickups_spawner/pickups_spawner.gd" id="1_12kwf"]
 [ext_resource type="PackedScene" uid="uid://ddak21lokvpxm" path="res://components/pickups/coin/coin.tscn" id="2_4mq37"]
 
 [sub_resource type="Curve2D" id="Curve2D_mwlou"]

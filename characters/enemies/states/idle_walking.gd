@@ -93,8 +93,6 @@ func _physics_process(_delta):
 func _on_timer_timeout():
 	var decision = randi() % 2
 
-	print("Decision: ", decision)
-
 	if decision == 0:
 		_current_animation = "walk"
 		_current_direction = _directions[randi() % _directions.size()]

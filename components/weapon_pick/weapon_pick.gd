@@ -5,3 +5,7 @@ class_name WeaponPick
 
 func get_weapon() -> PackedScene:
 	return weapon
+
+func set_enabled(enabled: bool):
+	$Area2D.monitoring = enabled
+	$Area2D.monitorable = enabled
