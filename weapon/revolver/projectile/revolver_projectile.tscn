@@ -10,7 +10,7 @@ size = Vector2(20, 14)
 [node name="RevolverProjectile" instance=ExtResource("1_y2byh")]
 script = ExtResource("1_lmane")
 speed = 600.0
-damage = 5.0
+damage = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_aw1iu")
