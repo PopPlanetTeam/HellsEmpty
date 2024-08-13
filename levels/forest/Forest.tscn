@@ -49,7 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="45_80xk6"]
 [ext_resource type="Texture2D" uid="uid://c1owviy68p1rh" path="res://levels/forest/Trees/Tree-3/Tree-3-2.png" id="45_v7pfp"]
 [ext_resource type="Script" path="res://levels/forest/EnemySpawner.gd" id="49_fyuuu"]
-[ext_resource type="PackedScene" uid="uid://diah1045fuaax" path="res://characters/enemies/owlet/owlet.tscn" id="50_vqwpn"]
+[ext_resource type="PackedScene" uid="uid://dtfcwig0nufkq" path="res://characters/enemies/luna/luna.tscn" id="50_7b1tw"]
 [ext_resource type="AudioStream" uid="uid://bcpmpxg86ek5y" path="res://musics/forest_theme.mp3" id="51_04psl"]
 [ext_resource type="Script" path="res://levels/forest/ForestTheme.gd" id="52_ydicb"]
 
@@ -759,8 +759,11 @@ scale = Vector2(0.5, 0.5)
 zoom = Vector2(2.4, 2.4)
 
 [node name="EnemySpawner" type="Node2D" parent="."]
+scale = Vector2(2.2, 2.2)
 script = ExtResource("49_fyuuu")
-enemies_to_spawn = Array[PackedScene]([ExtResource("50_vqwpn")])
+enemies_to_spawn = Array[PackedScene]([ExtResource("50_7b1tw")])
+closest_marker_points_to_consider = 5
+MAX_NUMBER_OF_ENEMIES = 4
 
 [node name="1" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1670, 856)
