@@ -1,6 +1,11 @@
 extends Node2D
 
+@export var disable: bool = false
+
 func _ready():
+	if disable:
+		return
+	
 	var spawners = get_children()
 
 	for s in spawners:

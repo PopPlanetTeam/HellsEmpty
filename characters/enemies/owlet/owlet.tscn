@@ -305,7 +305,7 @@ shape = SubResource("CapsuleShape2D_ufpni")
 
 [node name="Health" parent="." index="1"]
 position = Vector2(0, -19)
-scale = Vector2(0.465, 0.465)
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 position = Vector2(-2, 3)

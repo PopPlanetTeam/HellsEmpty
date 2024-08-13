@@ -471,6 +471,7 @@ animations = [{
 }]
 
 [node name="PlayerNoWeapon" node_paths=PackedStringArray("player_animated_sprite") instance=ExtResource("1_3q3ak")]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_4q5f8")
 player_animated_sprite = NodePath("PwnAnimation")
 

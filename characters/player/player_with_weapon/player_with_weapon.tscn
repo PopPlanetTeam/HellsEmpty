@@ -2089,6 +2089,7 @@ animations = [{
 }]
 
 [node name="PlayerWithWeapon" node_paths=PackedStringArray("weapon_slot", "animation_player") groups=["player_with_weapon"] instance=ExtResource("1_vn2f0")]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_wjd5o")
 weapon_slot = NodePath("AnimationContainer/WeaponSlot")
 animation_player = NodePath("AnimationPlayer")
