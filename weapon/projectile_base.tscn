@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3adyea0h0ygd"]
+
+[ext_resource type="Script" path="res://weapon/projectile_base.gd" id="1_bjx48"]
+[ext_resource type="PackedScene" uid="uid://b547eiqrskj6c" path="res://components/damage_area/damage_area.tscn" id="2_uitei"]
+
+[node name="ProjectileBase" type="Node2D"]
+script = ExtResource("1_bjx48")
+
+[node name="DamageArea" parent="." instance=ExtResource("2_uitei")]
+collision_mask = 9
+
+[connection signal="hit" from="." to="." method="_on_hit"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="damage_dealt" from="DamageArea" to="." method="_on_damage_area_damage_dealt"]

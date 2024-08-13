@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=18 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -13,8 +13,6 @@
 [ext_resource type="Script" path="res://components/cameras/following_camera.gd" id="11_83a47"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
-[ext_resource type="Texture2D" uid="uid://barwjcdd54nuh" path="res://weapon/rocket_launcher/img/rocket_launcher.png" id="13_2durd"]
-[ext_resource type="PackedScene" uid="uid://lnbggmj1jryo" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="13_oeehp"]
 [ext_resource type="Script" path="res://levels/desert/chamber_passage.gd" id="14_wcksx"]
 [ext_resource type="Script" path="res://levels/save_stuff/scene_saver_loader.gd" id="16_mrk3c"]
 
@@ -58,18 +56,6 @@ layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(327674, 131079, 1, 393210, 131079, 2, -786411, 196615, 1, -720875, 196615, 2, -131065, 131079, 1, -65529, 131079, 2, -65544, 65543, 1, -8, 65543, 2, 983059, 65543, 1, 1048595, 65543, 2, 786468, 131079, 1, 852004, 131079, 2, 1638421, 131079, 1, 1703957, 131079, 2, 1376236, 196615, 1, 1441772, 196615, 2, 1114096, 131079, 1, 1179632, 131079, 2, 131052, 65543, 1, 196588, 65543, 2, -196630, 196615, 1, -131094, 196615, 2, 851930, 65543, 1, 917466, 65543, 2, 1441759, 65543, 1, 1507295, 65543, 2, -131103, 65543, 1, -65567, 65543, 2, 1179606, 65543, 1, 1245142, 65543, 2, 589799, 65543, 1, 655335, 65543, 2, -131118, 65543, 1, -65582, 65543, 2, -589848, 65543, 1, -524312, 65543, 2, -720933, 65543, 1, -655397, 65543, 2, -852012, 65543, 1, -786476, 65543, 2, 655313, 65543, 1, 720849, 65543, 2, 589788, 131079, 1, 655324, 131079, 2, 1638368, 131079, 1, 1703904, 131079, 2, 1900495, 131079, 1, 1966031, 131079, 2, -131113, 131079, 1, -65577, 131079, 2, -720912, 131079, 1, -655376, 131079, 2, 262099, 131079, 1, 327635, 131079, 2, 1769452, 131079, 1, 1834988, 131079, 2, 1638355, 196615, 1, 1703891, 196615, 2, 1769445, 196615, 1, 1834981, 196615, 2, 786409, 196615, 1, 851945, 196615, 2, -655405, 196615, 1, -589869, 196615, 2, -851996, 196615, 1, -786460, 196615, 2)
 script = ExtResource("10_sysmy")
 provides_damage = 10
-
-[node name="RocketPick" type="Node2D" parent="." groups=["weapon_save"]]
-position = Vector2(335, -39)
-script = ExtResource("8_0oaru")
-
-[node name="Picker" parent="RocketPick" instance=ExtResource("12_oeuh5")]
-weapon = ExtResource("13_oeehp")
-
-[node name="Sprite2D" type="Sprite2D" parent="RocketPick/Picker"]
-scale = Vector2(0.101, 0.101)
-texture = ExtResource("13_2durd")
-hframes = 2
 
 [node name="RevolverPick" type="Node2D" parent="." groups=["weapon_save"]]
 position = Vector2(92, 23)
