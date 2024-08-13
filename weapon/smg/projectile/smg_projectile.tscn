@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg3rknrm1j4e4"]
+
+[ext_resource type="PackedScene" uid="uid://d3adyea0h0ygd" path="res://weapon/projectile_base.tscn" id="1_4q858"]
+[ext_resource type="Script" path="res://weapon/smg/projectile/smg_projectile.gd" id="2_dv6j0"]
+[ext_resource type="Texture2D" uid="uid://bmohtwp4su7" path="res://weapon/wepons_tilesheets/weapon_projectiles.png" id="2_tc5bt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bnpp"]
+size = Vector2(21, 16)
+
+[node name="SMGProjectile" instance=ExtResource("1_4q858")]
+script = ExtResource("2_dv6j0")
+speed = 600.0
+damage = 11.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_tc5bt")
+region_enabled = true
+region_rect = Rect2(24, 34.368, 21.3391, 16.2502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_8bnpp")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjiv3j7llqmgb"]
+
+[ext_resource type="Script" path="res://components/weapon_pick/weapon_pick.gd" id="1_1xgjx"]
+
+[sub_resource type="Animation" id="Animation_c3x4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yonrx"]
+resource_name = "move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcmxw"]
+_data = {
+"RESET": SubResource("Animation_c3x4b"),
+"move": SubResource("Animation_yonrx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtiul"]
+radius = 8.0
+
+[node name="WeaponPick" type="Node2D"]
+script = ExtResource("1_1xgjx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lcmxw")
+}
+autoplay = "move"
+speed_scale = 0.5
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gtiul")

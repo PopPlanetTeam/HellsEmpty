@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-@export var SPEED = 300.0
-@export var hitbox: HitBox
+signal player_died
+
+@export var SPEED = 190.0
 @export var player_animated_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
 
@@ -11,8 +12,12 @@ class_name PlayerBase
 @export_flags_2d_physics var scan_collision = 0
 @export_flags_2d_physics var takes_damage = 0
 
+@onready var hitbox: HitBox = $HitBox
+
 var _knockback: Vector2 = Vector2.ZERO
 var _movement_enabled: bool = true
+
+var _attributes: PlayerAttributes
 
 func _ready():
 	if not hitbox:
@@ -38,10 +43,19 @@ func _ready():
 	self.collision_layer = provides_collision
 	self.collision_mask = scan_collision
 	hitbox.collision_layer = takes_damage
-	hitbox.collision_mask = 0 # The hitbox should not collide with anything, it needs to only be visible to damage areas
+	hitbox.collision_mask = takes_damage
+   
+	_attributes = PlayerAttributes.new()
+	_attributes.health = hitbox.health_component.life
+	_attributes.speed = self.SPEED
    
 	# Add itself to the global player variable
 	GlobalData.player = self
+
+# The only purpose of this function is to update the attributes of the player
+func _process(_delta):
+	_attributes.health = hitbox.health_component.life
+	_attributes.speed = self.SPEED
 
 func _physics_process(_delta):
 	if not _knockback.is_equal_approx(Vector2.ZERO):
@@ -74,7 +88,18 @@ func _knockback_process():
 	_knockback = _knockback.lerp(Vector2.ZERO, 0.5)
 
 func _on_died():
+	GlobalData.player = null
+	player_died.emit()
 	self.queue_free()
 
 func set_movement_enabled(enabled: bool):
 	_movement_enabled = enabled
+
+func get_attributes() -> PlayerAttributes:
+	return _attributes
+
+func set_attributes(attributes: PlayerAttributes):
+	_attributes = attributes
+
+	self.SPEED = _attributes.speed
+	hitbox.health_component.life = _attributes.health

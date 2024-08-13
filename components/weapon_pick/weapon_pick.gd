@@ -1,0 +1,11 @@
+extends Node2D
+class_name WeaponPick
+
+@export var weapon: PackedScene
+
+func get_weapon() -> PackedScene:
+	return weapon
+
+func set_enabled(enabled: bool):
+	$Area2D.monitoring = enabled
+	$Area2D.monitorable = enabled

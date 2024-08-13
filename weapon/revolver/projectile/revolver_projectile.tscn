@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://brl5jubknergb"]
+
+[ext_resource type="Script" path="res://weapon/revolver/projectile/revolver_projectile.gd" id="1_lmane"]
+[ext_resource type="PackedScene" uid="uid://d3adyea0h0ygd" path="res://weapon/projectile_base.tscn" id="1_y2byh"]
+[ext_resource type="Texture2D" uid="uid://bmohtwp4su7" path="res://weapon/wepons_tilesheets/weapon_projectiles.png" id="2_aw1iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2xo"]
+size = Vector2(20, 14)
+
+[node name="RevolverProjectile" instance=ExtResource("1_y2byh")]
+script = ExtResource("1_lmane")
+speed = 600.0
+damage = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_aw1iu")
+region_enabled = true
+region_rect = Rect2(25.1014, 114.395, 19.8986, 15.6046)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource("RectangleShape2D_xy2xo")

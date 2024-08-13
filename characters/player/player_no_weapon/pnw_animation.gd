@@ -1,14 +1,18 @@
 extends AnimatedSprite2D
 
+var _current_animation: String
+
 func animate(velocity: Vector2):
 	if velocity.length() > 0:
 		if velocity.x != 0:
-			animation = "run"
+			_current_animation = "run"
 			flip_h = velocity.x < 0
 		elif velocity.y != 0:
 			if velocity.y < 0:
-				animation = "run_back"
+				_current_animation = "run_back"
 			else:
-				animation = "run_front"
+				_current_animation = "run_front"
 	else:
-		animation = "idle"
+		_current_animation = "idle"
+	
+	play(_current_animation)

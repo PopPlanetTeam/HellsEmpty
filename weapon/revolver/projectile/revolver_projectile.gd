@@ -1,0 +1,2 @@
+extends ProjectileBase
+class_name RevolverProjectile

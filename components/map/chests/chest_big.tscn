@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://qeh5nnhw3rf2"]
+
+[ext_resource type="Script" path="res://components/map/chests/chest.gd" id="1_g4kdt"]
+[ext_resource type="Texture2D" uid="uid://clwfyc5lhmfr2" path="res://components/map/chests/img/desert_big_chest.png" id="2_2w0vu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hloj1"]
+size = Vector2(32, 22)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3ign"]
+radius = 5.0
+height = 24.0
+
+[node name="ChestBig" type="Node2D"]
+script = ExtResource("1_g4kdt")
+contents = Array[Resource("res://components/map/chests/chest_item/chest_item.gd")]([null])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2w0vu")
+offset = Vector2(0, 3)
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_hloj1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 8)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_j3ign")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
