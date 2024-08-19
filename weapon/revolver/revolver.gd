@@ -9,6 +9,15 @@ class_name Revolver
 var _shot: PackedScene = preload("res://weapon/revolver/projectile/revolver_projectile.tscn")
 var _can_shoot: bool = true
 
+func _ready():
+	set_process(false)
+
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		set_process(true)
+	elif event.is_action_released("shoot"):
+		set_process(false)
+
 func _process(_delta) -> void:
 	if !_can_shoot:
 		return
