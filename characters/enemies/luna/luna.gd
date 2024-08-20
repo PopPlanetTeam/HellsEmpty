@@ -27,7 +27,7 @@ func _on_died():
 	animation_sprites.play("die")
 	await animation_sprites.animation_finished
 
-	self.queue_free()
+	super._on_died()
 
 func _on_hit_box_damage_taken(_amount, knockback):
 	state_machine.current_state.set_physics_process(false)

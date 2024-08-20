@@ -13,6 +13,7 @@ signal player_died
 @export_flags_2d_physics var takes_damage = 0
 
 @onready var hitbox: HitBox = $HitBox
+@onready var health: Health = $Health
 
 var _knockback: Vector2 = Vector2.ZERO
 var _movement_enabled: bool = true
@@ -46,7 +47,7 @@ func _ready():
 	hitbox.collision_mask = takes_damage
    
 	_attributes = PlayerAttributes.new()
-	_attributes.health = hitbox.health_component.life
+	_attributes.health = health.life
 	_attributes.speed = self.SPEED
    
 	# Add itself to the global player variable
@@ -54,7 +55,7 @@ func _ready():
 
 # The only purpose of this function is to update the attributes of the player
 func _process(_delta):
-	_attributes.health = hitbox.health_component.life
+	_attributes.health = health.life
 	_attributes.speed = self.SPEED
 
 func _physics_process(_delta):
@@ -90,6 +91,7 @@ func _knockback_process():
 func _on_died():
 	GlobalData.player = null
 	player_died.emit()
+	get_tree().call_group(GlobalData.PHASE_SCENE, "_on_player_died")
 	self.queue_free()
 
 func set_movement_enabled(enabled: bool):

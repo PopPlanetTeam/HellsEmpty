@@ -65,7 +65,7 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 agent_radius = 7.0
 
-[node name="DesertChamber" type="Node2D" node_paths=PackedStringArray("player_spawn_markers")]
+[node name="DesertChamber" type="Node2D" node_paths=PackedStringArray("player_spawn_markers") groups=["phase"]]
 y_sort_enabled = true
 script = ExtResource("1_3uedp")
 player_spawn_markers = NodePath("PlayerSpawn")
@@ -369,7 +369,8 @@ editor_draw_limits = true
 script = ExtResource("4_ibnig")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.15, 0.11485, 0.093, 1)
+visible = false
+color = Color(0.24, 0.19856, 0.1728, 1)
 
 [node name="Lights" type="Node" parent="."]
 
@@ -486,6 +487,7 @@ position = Vector2(0, 1131)
 shape = SubResource("CircleShape2D_h5jd0")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_5t6ej")
 
 [connection signal="area_entered" from="DesertPassage" to="DesertPassage" method="_on_area_entered"]

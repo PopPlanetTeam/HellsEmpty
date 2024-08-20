@@ -34,4 +34,4 @@ func _on_died():
 	animation_sprites.play("die")
 	await animation_sprites.animation_finished
 
-	self.queue_free()
+	super._on_died()
