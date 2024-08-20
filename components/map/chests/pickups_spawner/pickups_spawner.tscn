@@ -6,7 +6,7 @@
 [sub_resource type="Curve2D" id="Curve2D_mwlou"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -12.5, 0, 12.5, 0, 25, -50, 0, 0, 0, 0, 50, 0)
+"points": PackedVector2Array(-1.04056, 4.01357, 1.04056, -4.01357, 0, 0, -12.5, 0, 12.5, 0, 25, -50, 0, 0, 0, 0, 50, 0)
 }
 point_count = 3
 
@@ -19,7 +19,7 @@ curve = SubResource("Curve2D_mwlou")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
-rotation = -1.10715
+rotates = false
 loop = false
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -298,6 +298,7 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("2_uc0uy")
 animation_sprites = NodePath("Animation")
+damage = 20.0
 
 [node name="PhysicCollision" parent="." index="0"]
 position = Vector2(-1, 9)

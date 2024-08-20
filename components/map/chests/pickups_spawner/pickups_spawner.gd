@@ -79,13 +79,14 @@ func _ready():
 
 	# Create content node
 	_content_node = content.instantiate()
+	_path_follow.rotates = _content_node.can_rotate()
 	_path_follow.call_deferred("add_child", _content_node)
 
 	await _content_node.ready
 	
 	_content_node.set_enabled(false)
 	_content_node.global_position = self.global_position
-
+	
 	self.z_index = 1
 
 	_can_move = true

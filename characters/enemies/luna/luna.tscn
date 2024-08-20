@@ -249,6 +249,7 @@ animations = [{
 [node name="Luna" node_paths=PackedStringArray("animation_sprites") instance=ExtResource("1_hxv06")]
 script = ExtResource("2_dkfnr")
 animation_sprites = NodePath("Animation")
+damage = 18.0
 
 [node name="PhysicCollision" parent="." index="0"]
 position = Vector2(0, 9)
