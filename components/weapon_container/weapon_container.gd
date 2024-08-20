@@ -29,7 +29,7 @@ func set_locked(value: bool):
 	locked = value
 
 func _input(event):
-	if event.is_action_pressed("select"):
+	if event.is_action_pressed("ui_select"):
 		var buy_weapon = buy()
 		if !buy_weapon:
 			print("Cannot buy weapon now")

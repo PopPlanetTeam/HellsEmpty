@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://tjoxdhib3wpw"]
+[gd_scene load_steps=20 format=3 uid="uid://tjoxdhib3wpw"]
 
 [ext_resource type="Texture2D" uid="uid://eunfdsj2a0de" path="res://levels/shop/tiles/Damp Dungeon Tileset.png" id="1_0htse"]
 [ext_resource type="Script" path="res://levels/shop/shop.gd" id="1_48ic5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dovwd1wn0n7mo" path="res://weapon/revolver/revolver.tscn" id="7_71lpt"]
 [ext_resource type="PackedScene" uid="uid://lnbggmj1jryo" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="8_p5nwd"]
 [ext_resource type="Script" path="res://levels/shop/player_money.gd" id="12_mcrxx"]
+[ext_resource type="Script" path="res://levels/shop/pause.gd" id="13_utyce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2mgg"]
 texture = ExtResource("1_0htse")
@@ -1126,18 +1127,6 @@ texture = ExtResource("3_xieam")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_c7wpm")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vj2em"]
-radius = 37.1214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2y0yy"]
-radius = 38.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_y6dc7"]
-radius = 40.0125
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2g4rc"]
-radius = 41.0488
-
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_48ic5")
 
@@ -1163,72 +1152,19 @@ position = Vector2(-321, -383)
 price = 11000
 scene_path = ExtResource("5_kf2wx")
 
-[node name="PriceLabel" type="Label" parent="Weapons/SMGContainer"]
-offset_left = -37.0
-offset_top = -39.0
-offset_right = 32.0
-offset_bottom = -16.0
-
-[node name="Area2D" type="Area2D" parent="Weapons/SMGContainer"]
-collision_layer = 0
-collision_mask = 2
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/SMGContainer/Area2D"]
-shape = SubResource("CircleShape2D_vj2em")
-
 [node name="PistolContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(-128, -383)
 scene_path = ExtResource("6_pytb6")
-
-[node name="PriceLabel" type="Label" parent="Weapons/PistolContainer"]
-offset_left = -31.0
-offset_top = -39.0
-offset_right = 38.0
-offset_bottom = -16.0
-
-[node name="Area2D" type="Area2D" parent="Weapons/PistolContainer"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/PistolContainer/Area2D"]
-shape = SubResource("CircleShape2D_2y0yy")
 
 [node name="RevolverContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(129, -383)
 price = 5000
 scene_path = ExtResource("7_71lpt")
 
-[node name="PriceLabel" type="Label" parent="Weapons/RevolverContainer"]
-offset_left = -29.0
-offset_top = -41.0
-offset_right = 40.0
-offset_bottom = -18.0
-
-[node name="Area2D" type="Area2D" parent="Weapons/RevolverContainer"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/RevolverContainer/Area2D"]
-shape = SubResource("CircleShape2D_y6dc7")
-
 [node name="RocketLauncherContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(353, -383)
 price = 20000
 scene_path = ExtResource("8_p5nwd")
-
-[node name="PriceLabel" type="Label" parent="Weapons/RocketLauncherContainer"]
-offset_left = -33.0
-offset_top = -47.0
-offset_right = 33.0
-offset_bottom = -24.0
-
-[node name="Area2D" type="Area2D" parent="Weapons/RocketLauncherContainer"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapons/RocketLauncherContainer/Area2D"]
-shape = SubResource("CircleShape2D_2g4rc")
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("4_ppuhn")]
 scale = Vector2(0.5, 0.5)
@@ -1244,13 +1180,6 @@ offset_bottom = -507.0
 theme_override_font_sizes/font_size = 50
 script = ExtResource("12_mcrxx")
 
-[connection signal="area_entered" from="Weapons/SMGContainer/Area2D" to="Weapons/SMGContainer" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Weapons/SMGContainer/Area2D" to="Weapons/SMGContainer/Area2D" method="_on_area_entered"]
-[connection signal="area_exited" from="Weapons/SMGContainer/Area2D" to="Weapons/SMGContainer" method="_on_area_2d_area_exited"]
-[connection signal="area_exited" from="Weapons/SMGContainer/Area2D" to="Weapons/SMGContainer/Area2D" method="_on_area_exited"]
-[connection signal="area_entered" from="Weapons/PistolContainer/Area2D" to="Weapons/PistolContainer" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Weapons/PistolContainer/Area2D" to="Weapons/PistolContainer" method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="Weapons/RevolverContainer/Area2D" to="Weapons/RevolverContainer" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Weapons/RevolverContainer/Area2D" to="Weapons/RevolverContainer" method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="Weapons/RocketLauncherContainer/Area2D" to="Weapons/RocketLauncherContainer" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Weapons/RocketLauncherContainer/Area2D" to="Weapons/RocketLauncherContainer" method="_on_area_2d_area_exited"]
+[node name="Pause" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("13_utyce")
