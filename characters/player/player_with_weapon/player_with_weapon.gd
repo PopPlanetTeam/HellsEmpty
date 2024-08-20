@@ -19,8 +19,7 @@ func _on_died():
 	animation_player.die_animation()
 	await animation_player.animation_finished
 	
-	player_died.emit()
-	self.queue_free()
+	super._on_died()
 
 func _on_hit_box_damage_taken(_amount: float, knockback_taken: Vector2):
 	self._knockback = knockback_taken

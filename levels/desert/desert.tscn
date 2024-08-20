@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=30 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="15_kly4v"]
 [ext_resource type="Script" path="res://components/enemy_spawner/enemy_spawner.gd" id="16_fjw0s"]
 [ext_resource type="Script" path="res://components/save_stuff/scene_saver_loader.gd" id="16_mrk3c"]
+[ext_resource type="PackedScene" uid="uid://lnbggmj1jryo" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="19_7k0rk"]
+[ext_resource type="Texture2D" uid="uid://barwjcdd54nuh" path="res://weapon/rocket_launcher/img/rocket_launcher.png" id="20_y70os"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfq5l"]
 size = Vector2(136, 1727)
@@ -61,7 +63,7 @@ number_of_items = 15
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qgof"]
 radius = 3.0
 
-[node name="Desert" type="Node2D" node_paths=PackedStringArray("player_spawn_markers")]
+[node name="Desert" type="Node2D" node_paths=PackedStringArray("player_spawn_markers") groups=["phase"]]
 y_sort_enabled = true
 script = ExtResource("1_ov8vq")
 level_song = ExtResource("1_ptu5i")
@@ -473,4 +475,18 @@ position = Vector2(272, 5)
 [node name="SceneSaverLoader" type="Node" parent="."]
 script = ExtResource("16_mrk3c")
 
+[node name="RocketPick" type="Node2D" parent="." groups=["weapon_save"]]
+position = Vector2(168, 24)
+script = ExtResource("8_0oaru")
+
+[node name="Picker" parent="RocketPick" instance=ExtResource("12_oeuh5")]
+weapon = ExtResource("19_7k0rk")
+
+[node name="Sprite2D" type="Sprite2D" parent="RocketPick/Picker"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("20_y70os")
+region_enabled = true
+region_rect = Rect2(0, 0, 170, 75)
+
+[connection signal="player_died" from="PlayerNoWeapon" to="." method="_on_player_no_weapon_player_died"]
 [connection signal="area_entered" from="ChamberPassage" to="ChamberPassage" method="_on_area_entered"]

@@ -4,8 +4,13 @@ class_name EnemyBase
 signal died
 
 @export var speed: float = 100.0
-@export var chase_distance: float = 100.0
-@export var run_away_distance: float = 200.0
+@export var chase_distance: float = 100.0 :
+	get:
+		return chase_distance * transform.get_scale().x
+
+@export var run_away_distance: float = 200.0 :
+	get:
+		return run_away_distance * transform.get_scale().x
 
 @export_group("Animation")
 @export var animation_sprites: AnimatedSprite2D
@@ -42,7 +47,7 @@ func _ready():
 	damage_area.knockback_strength = knockback_strength
 
 func _on_died():
-	died.emit()
+	GlobalData.enemies_killed += 1
 	self.queue_free()
 
 func _physics_process(_delta):

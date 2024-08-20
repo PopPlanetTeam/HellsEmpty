@@ -32,3 +32,9 @@ func _spawn_player():
 		var previous_player = GlobalData.player
 		GlobalData.player = player
 		previous_player.queue_free()
+
+func _on_player_died():
+	print("Player died")
+	print("Enemies killed: ", GlobalData.enemies_killed)
+	
+	get_tree().quit()

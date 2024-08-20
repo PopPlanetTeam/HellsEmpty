@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nbxlpgxwj2bc"
+path="res://.godot/imported/Forest - OST - Hells Empty.wav-4c4ae3f53a0897d8b37a678c36ff2409.sample"
+
+[deps]
+
+source_file="res://musics/Forest - OST - Hells Empty.wav"
+dest_files=["res://.godot/imported/Forest - OST - Hells Empty.wav-4c4ae3f53a0897d8b37a678c36ff2409.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

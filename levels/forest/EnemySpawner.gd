@@ -17,9 +17,15 @@ func _process(delta):
 		number_of_enemies += 1
 
 func spawn_new_enemy() -> void:
+	var scale = Vector2(2.2, 2.2)
+	
 	var enemy = enemies_to_spawn.pick_random().instantiate()
 	
 	enemy.global_position = get_position_to_spawn()
+	enemy.scale = scale
+	enemy.speed *= scale.x
+	
+
 	var enemy_died_signal = enemy.died
 	enemy_died_signal.connect(spawn_new_enemy)
 	#add_sibling(enemy)

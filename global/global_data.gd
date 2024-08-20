@@ -12,3 +12,6 @@ var enemies_scenes: Array[PackedScene] = [
 
 const DAMAGE_GROUP = "damage_body"
 const WEAPON_SAVE_GROUP = "weapon_save"
+const PHASE_SCENE = "phase"
+
+var enemies_killed: int = 0
