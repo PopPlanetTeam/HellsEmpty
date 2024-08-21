@@ -2,7 +2,7 @@ extends WeaponBase
 class_name SMG
 
 @onready var _fire_rate_timer = $FireRateTimer
-@onready var _firing_sound = $FiringSound
+@onready var _firing_sound: AudioStreamPlayer2D = $FiringSound
 @onready var _gun_sprite: Sprite2D = $Sprite2D
 @onready var _tree_root: Node = get_tree().root
 
@@ -25,16 +25,10 @@ func _process(_delta) -> void:
 		
 		_tree_root.add_child(new_shot)
 		
-		if !_firing_sound.playing:
-			_firing_sound.play()
-		elif _firing_sound.get_playback_position() > 0.90:
-			_firing_sound.seek(0.10)
+		_firing_sound.play()
 		
 		_can_shoot = false
 		_fire_rate_timer.start()
-	else:
-		if _firing_sound.playing:
-			_firing_sound.seek(0.9)
 	
 
 func _on_fire_rate_timer_timeout() -> void:

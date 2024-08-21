@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=36 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://components/save_stuff/scene_saver_loader.gd" id="16_mrk3c"]
 [ext_resource type="PackedScene" uid="uid://lnbggmj1jryo" path="res://weapon/rocket_launcher/rocket_launcher.tscn" id="20_eciax"]
 [ext_resource type="Texture2D" uid="uid://barwjcdd54nuh" path="res://weapon/rocket_launcher/img/rocket_launcher.png" id="21_2aslq"]
+[ext_resource type="PackedScene" uid="uid://b1rsnihkthqoi" path="res://weapon/smg/smg.tscn" id="22_684qp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfq5l"]
 size = Vector2(136, 1727)
@@ -166,6 +167,19 @@ script = ExtResource("8_0oaru")
 weapon = ExtResource("7_i5x4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="PistolPick/Picker"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_58fw4")
+region_enabled = true
+region_rect = Rect2(0, 610, 60, 50)
+
+[node name="PistolPick2" type="Node2D" parent="." groups=["weapon_save"]]
+position = Vector2(44, 49)
+script = ExtResource("8_0oaru")
+
+[node name="Picker" parent="PistolPick2" instance=ExtResource("12_oeuh5")]
+weapon = ExtResource("7_i5x4j")
+
+[node name="Sprite2D" type="Sprite2D" parent="PistolPick2/Picker"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_58fw4")
 region_enabled = true
@@ -448,6 +462,19 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("21_2aslq")
 region_enabled = true
 region_rect = Rect2(0, 0, 170, 75)
+
+[node name="SmgPick" type="Node2D" parent="." groups=["weapon_save"]]
+position = Vector2(19, -49)
+script = ExtResource("8_0oaru")
+
+[node name="Picker" parent="SmgPick" instance=ExtResource("12_oeuh5")]
+weapon = ExtResource("22_684qp")
+
+[node name="Sprite2D" type="Sprite2D" parent="SmgPick/Picker"]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("7_58fw4")
+region_enabled = true
+region_rect = Rect2(159.589, 523.221, 106.017, 57.8513)
 
 [connection signal="player_died" from="PlayerNoWeapon" to="." method="_on_player_no_weapon_player_died"]
 [connection signal="area_entered" from="ChamberPassage" to="ChamberPassage" method="_on_area_entered"]
