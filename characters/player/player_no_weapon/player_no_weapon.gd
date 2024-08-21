@@ -1,4 +1,5 @@
 extends PlayerBase
+class_name PlayerNoWeapon
 
 func _on_picker_area_entered(area):
 	var parent_obj = area.get_parent()

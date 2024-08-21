@@ -26,3 +26,6 @@ func take_damage(ammount:float) -> void:
 	
 func regenerate(ammount: float) -> void:
 	life += ammount
+
+	if life > 100.0:
+		life = 100.0

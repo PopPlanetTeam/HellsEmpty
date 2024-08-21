@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://u5seb4vya2kq"]
+
+[ext_resource type="Shader" path="res://characters/player/shaders/power_up.gdshader" id="1_kpnt2"]
+
+[resource]
+shader = ExtResource("1_kpnt2")
+shader_parameter/speed = 1.0
+shader_parameter/tint = Vector4(0.285, 0.575, 1, 1)
+shader_parameter/span = 0.6

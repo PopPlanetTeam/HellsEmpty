@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2j8cjvv54878"]
+
+[ext_resource type="PackedScene" uid="uid://crgicqv15vbu7" path="res://components/pickups/power_ups/power_up_base.tscn" id="1_12s8o"]
+[ext_resource type="Texture2D" uid="uid://disajy3e5gkpq" path="res://components/pickups/power_ups/3x_damage/damage.png" id="2_0t2kq"]
+[ext_resource type="Script" path="res://components/pickups/power_ups/3x_damage/3x_damage.gd" id="2_u62mc"]
+
+[node name="3XDamage" node_paths=PackedStringArray("sprite") instance=ExtResource("1_12s8o")]
+script = ExtResource("2_u62mc")
+sprite = NodePath("Path2D/PathFollow2D/Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" index="0"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0t2kq")

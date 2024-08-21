@@ -1,4 +1,5 @@
 extends PlayerBase
+class_name PlayerWithWeapon
 
 @export var weapon_slot: WeaponSlot
 

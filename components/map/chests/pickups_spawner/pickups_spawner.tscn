@@ -21,6 +21,3 @@ curve = SubResource("Curve2D_mwlou")
 unique_name_in_owner = true
 rotates = false
 loop = false
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)

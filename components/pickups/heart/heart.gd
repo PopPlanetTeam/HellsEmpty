@@ -16,7 +16,7 @@ func _on_area_2d_area_entered(_area):
 	visible = false
 
 	if GlobalData.player:
-		GlobalData.player.health.life += heal_amount
+		GlobalData.player.health.regenerate(heal_amount)
 
 	_audio.play()
 	await _audio.finished
