@@ -16,6 +16,7 @@ func _process(_delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_iniciar_pressed():
+	PlayerInventorySaverLoader.new().load_scene()
 	get_tree().change_scene_to_file("res://levels/shop/shop.tscn")
 
 func _on_opcoes_pressed():
