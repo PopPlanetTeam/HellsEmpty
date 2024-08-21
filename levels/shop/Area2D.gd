@@ -21,4 +21,3 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	#Input.disconnect("action_pressed", _select_to_buy)
 	set_process(false)
-

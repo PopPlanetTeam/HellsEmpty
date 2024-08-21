@@ -1172,6 +1172,21 @@ scale = Vector2(0.5, 0.5)
 [node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
 zoom = Vector2(1.67, 1.67)
 
+[node name="Pause" type="Node2D" parent="PlayerNoWeapon/Camera2D"]
+process_mode = 3
+script = ExtResource("13_utyce")
+
+[node name="Paused" type="Label" parent="PlayerNoWeapon/Camera2D/Pause"]
+offset_left = -352.0
+offset_top = -76.0
+offset_right = 352.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="PlayerMoney" type="Label" parent="PlayerNoWeapon/Camera2D"]
 offset_left = 638.0
 offset_top = -608.0
@@ -1179,7 +1194,3 @@ offset_right = 1068.0
 offset_bottom = -507.0
 theme_override_font_sizes/font_size = 50
 script = ExtResource("12_mcrxx")
-
-[node name="Pause" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("13_utyce")

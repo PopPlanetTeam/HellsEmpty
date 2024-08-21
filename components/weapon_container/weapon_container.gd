@@ -11,13 +11,27 @@ var locked: bool = true
 @onready var price_label : Label = $PriceLabel
 
 func _ready():
-	price_label.text = str(self.price)
 	set_process_input(false)
 	
 	if scene_path != null:
 		weapon = scene_path.instantiate()
 		add_child(weapon)
 		disable_input_for_wapon()
+
+func handle_lock_weapon():
+	locked = not check_weapon_is_in_inventory()
+
+	if locked:
+		price_label.text = str(self.price)
+	else:
+		price_label.queue_free()
+		
+	if locked:
+		weapon.modulate = Color.CHOCOLATE
+
+func check_weapon_is_in_inventory() -> bool:
+	return PlayerInventory.unlocked_weapons \
+		.any(func(a:PackedScene) : return a.resource_path == scene_path.resource_path)
 
 func disable_input_for_wapon() -> void:
 	weapon.set_process_input(false)
