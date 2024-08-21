@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="DesertSave" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="SceneSave" load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://components/save_stuff/desert_save.gd" id="1_ohc31"]
-[ext_resource type="Script" path="res://components/save_stuff/weapon_save.gd" id="2_uixxu"]
+[ext_resource type="Script" path="res://components/save_stuff/chest_save.gd" id="1_b3ocq"]
+[ext_resource type="Script" path="res://components/save_stuff/scene_save.gd" id="2_tosh3"]
+[ext_resource type="Script" path="res://components/save_stuff/weapon_save.gd" id="3_5ympx"]
 
-[sub_resource type="Resource" id="Resource_bdcj5"]
-script = ExtResource("2_uixxu")
+[sub_resource type="Resource" id="Resource_mplaw"]
+script = ExtResource("3_5ympx")
 node_name = "PistolPick"
 
 [resource]
-script = ExtResource("1_ohc31")
-weapons = Array[ExtResource("2_uixxu")]([SubResource("Resource_bdcj5")])
+script = ExtResource("2_tosh3")
+weapons = Array[ExtResource("3_5ympx")]([SubResource("Resource_mplaw")])
+chests = Array[ExtResource("1_b3ocq")]([])

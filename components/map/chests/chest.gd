@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var contents: Array[ChestItem]
+var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_spawner/pickups_spawner.tscn")
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _area_2d: Area2D = $Area2D
@@ -9,25 +10,26 @@ extends Node2D
 var _can_open: bool = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_select"):
-		if _can_open:
-			_sprite.frame = 1
-			
-			_opening_sound.play()
+	if Input.is_action_just_pressed("ui_select") and _can_open:
+		open(true)
 
-			# Spit out contents like an explosion
-			var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_spawner/pickups_spawner.tscn")
-			
-			for item in contents:
-				for i in range(item.number_of_items):
-					var pickup_spawner_instance = pickup_spawner.instantiate()
+func open(spit_contents: bool = false):
+	_sprite.frame = 1
 
-					pickup_spawner_instance.global_position = self.global_position
-					pickup_spawner_instance.content = item.item_scene
-					
-					get_parent().call_deferred("add_child", pickup_spawner_instance)
+	if spit_contents:	
+		_opening_sound.play()
 
-			_area_2d.monitoring = false
+		# Spit out contents like an explosion
+		for item in contents:
+			for i in range(item.number_of_items):
+				var pickup_spawner_instance = pickup_spawner.instantiate()
+
+				pickup_spawner_instance.global_position = self.global_position
+				pickup_spawner_instance.content = item.item_scene
+				
+				get_parent().call_deferred("add_child", pickup_spawner_instance)
+
+	_area_2d.monitoring = false
 
 
 func _on_area_2d_area_exited(_area):
