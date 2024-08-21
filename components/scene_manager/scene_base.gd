@@ -25,8 +25,6 @@ func _spawn_player():
 	add_child(player)
 	player.global_position = marker.global_position
 
-	print("Player: " + player.name + " added to scene: " + name)
-
 	# Removing first spawned player from scene
 	if GlobalData.player != player:
 		var previous_player = GlobalData.player

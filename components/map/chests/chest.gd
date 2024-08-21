@@ -10,8 +10,6 @@ var _can_open: bool = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_select"):
-		print(contents)
-
 		if _can_open:
 			_sprite.frame = 1
 			

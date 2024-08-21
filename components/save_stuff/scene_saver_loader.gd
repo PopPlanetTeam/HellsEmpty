@@ -19,7 +19,7 @@ func load_scene():
 	var save = load("res://saves/map/desert_save.tres") as DesertSave
 
 	if not save:
-		print("No save found. Going with default values.")
+		# print("No save found. Going with default values.")
 		return
 	
 	var weapons = get_tree().get_nodes_in_group(GlobalData.WEAPON_SAVE_GROUP)
@@ -30,5 +30,5 @@ func load_scene():
 		)
 
 		if not weapon:
-			print("No weapon found for node: " + w.name)
+			# print("No weapon found for node: " + w.name)
 			w.queue_free()

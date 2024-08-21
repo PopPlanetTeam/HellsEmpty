@@ -7,8 +7,6 @@ func _on_picker_area_entered(area):
 	if parent_obj is WeaponPick:
 		var weapon: PackedScene = parent_obj.get_weapon()
 		if weapon:
-			print("PlayerNoWeapon> Picked up weapon: ", weapon)
-			
 			var weapon_instance = weapon.instantiate()
 			var player_with_weapon = GlobalData.player_with_weapon_scene.instantiate()
 
@@ -28,8 +26,6 @@ func _on_picker_area_entered(area):
 
 			# Update the attributes of the player with weapon
 			player_with_weapon.set_attributes(self.get_attributes())
-
-			print("PlayerNoWeapon> Switching to player with weapon")
 
 			# Delete player without weapon
 			self.queue_free()

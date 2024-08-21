@@ -73,8 +73,6 @@ func _ready():
 	_curve_flip_h = randi() % 2 == 0
 	_curve_end_offset = randf_range(min_end_offset, max_end_offset)
 
-	print("Height: " + str(_curve_height) + " Width: " + str(_curve_width) + " End offset: " + str(_curve_end_offset))
-
 	_move_speed = randf_range(min_speed, max_speed)
 
 	# Create content node

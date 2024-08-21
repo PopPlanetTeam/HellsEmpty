@@ -10,8 +10,6 @@ func change_scene(from: Node, to: String) -> void:
 	player_transition = GlobalData.player
 	from.remove_child(player_transition)
 
-	print("Player: " + player_transition.name + " removed from scene: " + from.name)
-
 	from.get_tree().call_deferred("change_scene_to_file", to)
 	
 func transition_happened() -> bool:
