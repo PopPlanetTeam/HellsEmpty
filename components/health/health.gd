@@ -6,6 +6,11 @@ signal died
 @export var life: float = 100.0 :
 	set(value):
 		life = value
+
+		if life < 0.0:
+			life = 0.0
+		elif life > 100.0:
+			life = 100.0
 	get:
 		return life
 

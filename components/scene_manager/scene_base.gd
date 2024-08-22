@@ -2,10 +2,43 @@ extends Node2D
 class_name SceneBase
 
 @export var player_spawn_markers: Node
+@export var enemies_spawner: EnemySpawner
+@export var saver_loader: SceneSaverLoader
 
 func _ready():
-	if SceneManager.player_transition:
+	if SceneManager.transition_happened():
 		_spawn_player()
+
+		pause_for_transition()
+		
+		saver_loader.load_scene()
+		if not saver_loader.load_completed:
+			await(saver_loader.load_complete)
+		
+		resume_after_transition()
+	else:
+		_new_scene()
+
+## Here we put everything that should happen when the player enters the scene for the first time.
+## It's stuff that needs to be GENERATED and later LOADED when the player comes back to the scene.
+func _new_scene():
+	pass
+
+# Pause for scene transition
+func pause_for_transition():
+	# Pause player
+	GlobalData.player.process_mode = Node.PROCESS_MODE_DISABLED
+	# Pause enemies
+	if enemies_spawner:
+		enemies_spawner.process_mode = Node.PROCESS_MODE_DISABLED
+
+# Resume after scene transition
+func resume_after_transition():
+	# Resume player
+	GlobalData.player.process_mode = Node.PROCESS_MODE_INHERIT
+	# Resume enemies
+	if enemies_spawner:
+		enemies_spawner.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _spawn_player():
 	var scene_from = SceneManager.last_scene

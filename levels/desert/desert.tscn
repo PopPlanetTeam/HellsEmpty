@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=43 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://components/damage_tilemap/damage_tilemap.gd" id="10_sysmy"]
 [ext_resource type="Script" path="res://components/cameras/following_camera.gd" id="11_83a47"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
+[ext_resource type="Script" path="res://components/map/chests/chests_group_node.gd" id="12_215nv"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="14_e8w7s"]
 [ext_resource type="Script" path="res://levels/desert/chamber_passage.gd" id="14_wcksx"]
@@ -119,12 +120,14 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 agent_radius = 7.0
 
-[node name="Desert" type="Node2D" node_paths=PackedStringArray("player_spawn_markers") groups=["phase"]]
+[node name="Desert" type="Node2D" node_paths=PackedStringArray("player_spawn_markers", "enemies_spawner", "saver_loader") groups=["phase"]]
 y_sort_enabled = true
 script = ExtResource("1_ov8vq")
 level_song = ExtResource("1_ptu5i")
 song_volume_db = -8.0
 player_spawn_markers = NodePath("PlayerSpawns")
+enemies_spawner = NodePath("EnemySpawner")
+saver_loader = NodePath("SceneSaverLoader")
 
 [node name="NavigationSource" type="TileMap" parent="." groups=["navigation"]]
 visible = false
@@ -215,7 +218,7 @@ region_rect = Rect2(80, 615, 79.3972, 45)
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("11_j4mmx")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_spawns")]
 position = Vector2(-160, -10)
 scale = Vector2(0.25, 0.25)
 zoom = Vector2(6, 6)
@@ -225,9 +228,11 @@ limit_right = 3227
 limit_bottom = 900
 editor_draw_limits = true
 script = ExtResource("11_83a47")
+player_spawns = NodePath("../PlayerSpawns")
 
-[node name="Chests" type="Node2D" parent="."]
+[node name="Chests" type="Node2D" parent="." groups=["chest_save"]]
 y_sort_enabled = true
+script = ExtResource("12_215nv")
 
 [node name="ChestSmall" parent="Chests" instance=ExtResource("8_qnxfj")]
 position = Vector2(-59, -27)
@@ -253,190 +258,190 @@ contents = Array[ExtResource("14_e8w7s")]([SubResource("Resource_xvdfb"), SubRes
 position = Vector2(3166, -120)
 contents = Array[ExtResource("14_e8w7s")]([SubResource("Resource_ogx6l"), SubResource("Resource_osu0t"), SubResource("Resource_oio4c"), SubResource("Resource_gnqwk")])
 
-[node name="EnemiesSpawn" type="Node2D" parent="."]
+[node name="EnemySpawner" type="Node2D" parent="." groups=["enemy_spawn"]]
 script = ExtResource("16_fjw0s")
 
-[node name="Marker2D" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(259, 223)
 
-[node name="Marker2D57" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D57" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2033, -411)
 
-[node name="Marker2D58" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D58" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2508, 54)
 
-[node name="Marker2D59" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D59" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(3098, -630)
 
-[node name="Marker2D66" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D66" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2967, 183)
 
-[node name="Marker2D69" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D69" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2925, 456)
 
-[node name="Marker2D70" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D70" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2790, 688)
 
-[node name="Marker2D71" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D71" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2691, 830)
 
-[node name="Marker2D72" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D72" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2462, 723)
 
-[node name="Marker2D73" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D73" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2649, 306)
 
-[node name="Marker2D77" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D77" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1482, -559)
 
-[node name="Marker2D78" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D78" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(395, -685)
 
-[node name="Marker2D79" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D79" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-467, -344)
 
-[node name="Marker2D80" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D80" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2216, -128)
 
-[node name="Marker2D81" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D81" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2505, -287)
 
-[node name="Marker2D82" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D82" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2249, -681)
 
-[node name="Marker2D83" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D83" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2642, -576)
 
-[node name="Marker2D44" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D44" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(334, -142)
 
-[node name="Marker2D45" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D45" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(302, -103)
 
-[node name="Marker2D46" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D46" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(181, -57)
 
-[node name="Marker2D47" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D47" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(201, -116)
 
-[node name="Marker2D48" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D48" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(94, -273)
 
-[node name="Marker2D49" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D49" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(55, 160)
 
-[node name="Marker2D50" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D50" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(155, 240)
 
-[node name="Marker2D51" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D51" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(249, 156)
 
-[node name="Marker2D52" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D52" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(155, 119)
 
-[node name="Marker2D53" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D53" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(467, 155)
 
-[node name="Marker2D54" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D54" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(520, -57)
 
-[node name="Marker2D55" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D55" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(413, 27)
 
-[node name="Marker2D56" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D56" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(757, 125)
 
-[node name="Marker2D2" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(49, 213)
 
-[node name="Marker2D3" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(492, 229)
 
-[node name="Marker2D4" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-152, 156)
 
-[node name="Marker2D5" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D5" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-501, 118)
 
-[node name="Marker2D6" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D6" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-1079, -416)
 
-[node name="Marker2D7" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D7" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-971, -524)
 
-[node name="Marker2D8" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D8" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-857, -403)
 
-[node name="Marker2D9" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D9" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-1016, -663)
 
-[node name="Marker2D10" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D10" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-927, -79)
 
-[node name="Marker2D11" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D11" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-806, 258)
 
-[node name="Marker2D12" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D12" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-940, 728)
 
-[node name="Marker2D13" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D13" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-578, 595)
 
-[node name="Marker2D14" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D14" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(-426, -561)
 
-[node name="Marker2D15" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D15" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(190, -459)
 
-[node name="Marker2D16" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D16" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1047, -313)
 
-[node name="Marker2D17" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D17" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1097, -249)
 
-[node name="Marker2D18" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D18" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1026, -253)
 
-[node name="Marker2D19" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D19" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(990, -331)
 
-[node name="Marker2D20" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D20" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1047, -388)
 
-[node name="Marker2D21" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D21" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(929, 350)
 
-[node name="Marker2D22" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D22" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(465, 633)
 
-[node name="Marker2D23" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D23" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(663, -317)
 
-[node name="Marker2D24" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D24" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1455, -283)
 
-[node name="Marker2D25" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D25" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1342, 554)
 
-[node name="Marker2D26" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D26" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1517, 345)
 
-[node name="Marker2D27" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D27" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1805, -192)
 
-[node name="Marker2D28" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D28" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2410, -526)
 
-[node name="Marker2D29" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D29" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2178, 266)
 
-[node name="Marker2D30" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D30" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2687, 605)
 
-[node name="Marker2D42" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D42" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2817, -339)
 
-[node name="Marker2D43" type="Marker2D" parent="EnemiesSpawn"]
+[node name="Marker2D43" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(2224, 619)
 
 [node name="ChamberPassage" type="Area2D" parent="."]

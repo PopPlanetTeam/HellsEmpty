@@ -66,10 +66,12 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 agent_radius = 7.0
 
-[node name="DesertChamber" type="Node2D" node_paths=PackedStringArray("player_spawn_markers") groups=["phase"]]
+[node name="DesertChamber" type="Node2D" node_paths=PackedStringArray("player_spawn_markers", "enemies_spawner", "saver_loader") groups=["phase"]]
 y_sort_enabled = true
 script = ExtResource("1_3uedp")
 player_spawn_markers = NodePath("PlayerSpawn")
+enemies_spawner = NodePath("EnemySpawn")
+saver_loader = NodePath("SceneSaverLoader")
 
 [node name="NavigationSource" type="TileMap" parent="." groups=["navigation"]]
 visible = false
@@ -358,7 +360,7 @@ position = Vector2(641, -189)
 [node name="Marker2D67" type="Marker2D" parent="EnemySpawn"]
 position = Vector2(717, -155)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_spawns")]
 position = Vector2(0, 1054)
 scale = Vector2(0.25, 0.25)
 zoom = Vector2(6, 6)
@@ -368,6 +370,7 @@ limit_right = 1097
 limit_bottom = 1110
 editor_draw_limits = true
 script = ExtResource("4_ibnig")
+player_spawns = NodePath("../PlayerSpawn")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.24, 0.19856, 0.1728, 1)

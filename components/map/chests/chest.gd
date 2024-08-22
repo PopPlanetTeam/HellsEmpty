@@ -1,4 +1,5 @@
 extends Node2D
+class_name Chest
 
 @export var contents: Array[ChestItem]
 var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_spawner/pickups_spawner.tscn")
@@ -8,12 +9,18 @@ var pickup_spawner: PackedScene = preload("res://components/map/chests/pickups_s
 @onready var _opening_sound : AudioStreamPlayer2D = $OpeningSound
 
 var _can_open: bool = false
+var _is_open: bool = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_select") and _can_open:
 		open(true)
 
 func open(spit_contents: bool = false):
+	if _is_open:
+		return
+	
+	_is_open = true
+
 	_sprite.frame = 1
 
 	if spit_contents:	
@@ -31,6 +38,8 @@ func open(spit_contents: bool = false):
 
 	_area_2d.monitoring = false
 
+func is_open():
+	return _is_open
 
 func _on_area_2d_area_exited(_area):
 	_can_open = false
