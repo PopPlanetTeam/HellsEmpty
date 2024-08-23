@@ -1,8 +1,9 @@
 extends PlayerBase
+class_name PlayerNoWeapon
 
 func _on_picker_area_entered(area):
 	var parent_obj = area.get_parent()
-
+	
 	if parent_obj is WeaponPick:
 		var weapon: PackedScene = parent_obj.get_weapon()
 		if weapon:
@@ -10,7 +11,7 @@ func _on_picker_area_entered(area):
 			
 			var weapon_instance = weapon.instantiate()
 			var player_with_weapon = GlobalData.player_with_weapon_scene.instantiate()
-
+			
 			# Delete weapon pick
 			parent_obj.queue_free()
 

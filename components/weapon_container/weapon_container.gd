@@ -10,6 +10,8 @@ var locked: bool = true
 
 @onready var price_label : Label = $PriceLabel
 
+signal weapon_selected (w:WeaponBase)
+
 func _ready():
 	set_process_input(false)
 	
@@ -20,14 +22,19 @@ func _ready():
 
 func handle_lock_weapon():
 	locked = not check_weapon_is_in_inventory()
-
+	
+	if locked:
+		weapon.modulate = Color.CHOCOLATE
+	else:
+		weapon.modulate = Color.WHITE
+		
+	if !price_label:
+		return
+		
 	if locked:
 		price_label.text = str(self.price)
 	else:
 		price_label.queue_free()
-		
-	if locked:
-		weapon.modulate = Color.CHOCOLATE
 
 func check_weapon_is_in_inventory() -> bool:
 	return PlayerInventory.unlocked_weapons \
@@ -44,15 +51,26 @@ func set_locked(value: bool):
 
 func _input(event):
 	if event.is_action_pressed("ui_select"):
-		var buy_weapon = buy()
-		if !buy_weapon:
-			print("Cannot buy weapon now")
+		if locked:
+			var buy_weapon = buy()
+			if !buy_weapon:
+				print("Cannot buy weapon now")
+			else:
+				print("Weapon added to inventory sucessfully")
+				#queue_free()
+				weapon.modulate = Color.WHITE
+				self.locked = false
+				handle_lock_weapon()
+				select_weapon()
 		else:
-			print("Weapon added to inventory sucessfully")
-			queue_free()
+			select_weapon()
+			
 
+func select_weapon() -> void:
+	weapon_selected.emit(weapon)
+	
 func buy() -> bool:	
-	if PlayerInventory.unlocked_weapons.any(func (w): typeof(w) == typeof(weapon)):
+	if PlayerInventory.unlocked_weapons.any(func (w): return w.resource_path == scene_path.resource_path):
 		return false
 		
 	if PlayerInventory.coins_amount >= price:

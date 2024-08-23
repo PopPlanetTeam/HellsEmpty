@@ -1148,7 +1148,7 @@ layer_0/tile_data = PackedInt32Array(-1507357, 0, 7, -1900574, 327680, 4, -39319
 script = ExtResource("4_x3mxt")
 
 [node name="SMGContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
-position = Vector2(-351, -384)
+position = Vector2(-321, -383)
 price = 11000
 scene_path = ExtResource("5_kf2wx")
 

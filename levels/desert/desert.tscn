@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=29 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://components/cameras/following_camera.gd" id="11_83a47"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
+[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause.tscn" id="12_vh8ng"]
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="14_e8w7s"]
 [ext_resource type="Script" path="res://levels/desert/chamber_passage.gd" id="14_wcksx"]
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="15_kly4v"]
@@ -168,6 +169,10 @@ limit_right = 4367
 limit_bottom = 900
 editor_draw_limits = true
 script = ExtResource("11_83a47")
+
+[node name="Pause" parent="Camera2D" instance=ExtResource("12_vh8ng")]
+position = Vector2(640, 40)
+scale = Vector2(4, 4)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_p0xb2")

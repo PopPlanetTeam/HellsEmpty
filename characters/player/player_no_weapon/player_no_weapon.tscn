@@ -491,7 +491,7 @@ shape = SubResource("RectangleShape2D_2ob4g")
 [node name="PwnAnimation" type="AnimatedSprite2D" parent="." index="4"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_03hvk")
-animation = &"idle"
+animation = &"damage"
 autoplay = "idle"
 offset = Vector2(0, -8.5)
 script = ExtResource("6_0626e")

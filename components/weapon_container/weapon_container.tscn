@@ -14,7 +14,7 @@ offset_top = -43.0
 offset_right = 21.0
 offset_bottom = -20.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["weapon_container_selection_area"]]
 collision_layer = 0
 collision_mask = 2
 
