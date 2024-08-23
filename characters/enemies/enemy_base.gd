@@ -82,7 +82,7 @@ func _on_died():
 	
 	enemy_died = true
 	
-	GlobalData.enemies_killed += 1
+	GlobalData.level_enemies_killed += 1
 
 	for i in range(number_of_drops):
 		_drop_item()

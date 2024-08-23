@@ -17,5 +17,8 @@ texture = ExtResource("1_t4477")
 region_enabled = true
 region_rect = Rect2(25.1014, 114.395, 19.8986, 15.6046)
 
+[node name="DamageArea" parent="." index="1"]
+knockback_strength = 30.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
 shape = SubResource("RectangleShape2D_s7fky")

@@ -3,13 +3,13 @@ class_name ItemDropper
 
 # Curve limits
 const min_height: float = 0
-const max_height: float = 8.0
-const min_width: float = 20.0
-const max_width: float = 30.0
+const max_height: float = 2.0
+const min_width: float = 0.0
+const max_width: float = 8.0
 
 # Speed limits
-const min_speed: float = 2.0
-const max_speed: float = 4.0
+const min_speed: float = 5.0
+const max_speed: float = 6.0
 
 @export var content: PackedScene
 
@@ -18,9 +18,6 @@ const max_speed: float = 4.0
 
 var _curve_height: float : 
 	set(value):
-		# Must invert y values
-		_curve_height = -value
-
 		var old_value = _path.curve.get_point_position(1) # End
 		var new_value = Vector2(old_value.x, _curve_height) # New End
 		

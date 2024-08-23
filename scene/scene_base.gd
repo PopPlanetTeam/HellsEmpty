@@ -66,6 +66,6 @@ func _spawn_player():
 
 func _on_player_died():
 	print("Player died")
-	print("Enemies killed: ", GlobalData.enemies_killed)
+	print("Enemies killed: ", GlobalData.level_enemies_killed)
 	
 	get_tree().quit()
