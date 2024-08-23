@@ -1,10 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://6wqxmw2vokg2"]
+[gd_scene load_steps=15 format=3 uid="uid://6wqxmw2vokg2"]
 
 [ext_resource type="Script" path="res://characters/enemies/enemy_base.gd" id="1_6cwuq"]
 [ext_resource type="PackedScene" uid="uid://cx7e2bwi2l7h3" path="res://components/health/health.tscn" id="2_3h5nx"]
+[ext_resource type="Script" path="res://components/item_dropper/drop_item/drop_item.gd" id="2_iytin"]
 [ext_resource type="PackedScene" uid="uid://cwgbesasfx62a" path="res://components/hitbox/hitbox.tscn" id="3_8bcgd"]
+[ext_resource type="PackedScene" uid="uid://ddak21lokvpxm" path="res://components/pickups/coin/coin.tscn" id="3_15gal"]
 [ext_resource type="PackedScene" uid="uid://b547eiqrskj6c" path="res://components/damage_area/damage_area.tscn" id="3_kbrri"]
 [ext_resource type="Script" path="res://components/state_machine/state_machine.gd" id="4_rk02a"]
+[ext_resource type="PackedScene" uid="uid://da22xr0ykypco" path="res://components/pickups/heart/heart.tscn" id="4_tru0x"]
+[ext_resource type="PackedScene" uid="uid://b027dih6dqe3i" path="res://components/pickups/power_ups/2x_cadence/2x_cadence.tscn" id="5_4tluw"]
+[ext_resource type="PackedScene" uid="uid://d2j8cjvv54878" path="res://components/pickups/power_ups/3x_damage/3x_damage.tscn" id="6_weti2"]
+
+[sub_resource type="Resource" id="Resource_0aq7g"]
+script = ExtResource("2_iytin")
+item_scene = ExtResource("3_15gal")
+min_amount = 1
+max_amount = 5
+probability = 0.45
+
+[sub_resource type="Resource" id="Resource_ymfq1"]
+script = ExtResource("2_iytin")
+item_scene = ExtResource("4_tru0x")
+min_amount = 1
+max_amount = 2
+probability = 0.43
+
+[sub_resource type="Resource" id="Resource_mtemn"]
+script = ExtResource("2_iytin")
+item_scene = ExtResource("5_4tluw")
+min_amount = 1
+max_amount = 1
+probability = 0.07
+
+[sub_resource type="Resource" id="Resource_k6b7v"]
+script = ExtResource("2_iytin")
+item_scene = ExtResource("6_weti2")
+min_amount = 1
+max_amount = 1
+probability = 0.05
 
 [node name="EnemyBase" type="CharacterBody2D"]
 collision_layer = 0
@@ -17,6 +50,7 @@ provides_collision = 4
 scan_collision = 5
 takes_damage = 8
 provide_damage = 2
+possible_drops = Array[ExtResource("2_iytin")]([SubResource("Resource_0aq7g"), SubResource("Resource_ymfq1"), SubResource("Resource_mtemn"), SubResource("Resource_k6b7v")])
 
 [node name="PhysicCollision" type="CollisionShape2D" parent="."]
 visible = false

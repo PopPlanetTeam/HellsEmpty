@@ -17,6 +17,9 @@ script = ExtResource("1_dk764")
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture = SubResource("AtlasTexture_8ulk0")
 
+[node name="DamageArea" parent="." index="1"]
+knockback_strength = 65.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
 position = Vector2(31, 0)
 shape = SubResource("CircleShape2D_jdfo4")

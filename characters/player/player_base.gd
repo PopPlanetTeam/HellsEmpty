@@ -20,6 +20,8 @@ var _movement_enabled: bool = true
 
 var _attributes: PlayerAttributes
 
+var _power_up_shader = preload("res://characters/player/shaders/power_up.tres")
+
 func _ready():
 	if not hitbox:
 		printerr("PlayerBase> ERROR: No HitBox assigned.")
@@ -105,3 +107,14 @@ func set_attributes(attributes: PlayerAttributes):
 
 	self.SPEED = _attributes.speed
 	hitbox.health_component.life = _attributes.health
+
+var actives_power_ups: int = 0
+func set_power_up_shader(enabled: bool):
+	if enabled:
+		self.material = _power_up_shader
+		actives_power_ups += 1
+	else:
+		actives_power_ups -= 1
+
+		if actives_power_ups == 0:
+			self.material = null

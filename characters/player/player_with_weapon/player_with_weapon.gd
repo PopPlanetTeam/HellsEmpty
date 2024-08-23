@@ -1,4 +1,5 @@
 extends PlayerBase
+class_name PlayerWithWeapon
 
 @export var weapon_slot: WeaponSlot
 
@@ -40,8 +41,6 @@ func _on_picker_area_entered(area):
 	if parent_obj is WeaponPick:
 		var weapon: PackedScene = parent_obj.get_weapon()
 		if weapon:
-			print("PlayerWithWeapon> Picked up weapon: ", weapon)
-			
 			# Get weapon instance
 			var weapon_instance = weapon.instantiate()
 

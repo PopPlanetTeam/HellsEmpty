@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b027dih6dqe3i"]
+
+[ext_resource type="PackedScene" uid="uid://crgicqv15vbu7" path="res://components/pickups/power_ups/power_up_base.tscn" id="1_1en6b"]
+[ext_resource type="Script" path="res://components/pickups/power_ups/2x_cadence/2x_cadence.gd" id="2_byg2a"]
+[ext_resource type="Texture2D" uid="uid://md7d43hxbhv2" path="res://components/pickups/power_ups/2x_cadence/cadence.png" id="2_una5m"]
+
+[node name="2XCadence" node_paths=PackedStringArray("sprite") instance=ExtResource("1_1en6b")]
+script = ExtResource("2_byg2a")
+sprite = NodePath("Path2D/PathFollow2D/Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D" index="0"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_una5m")

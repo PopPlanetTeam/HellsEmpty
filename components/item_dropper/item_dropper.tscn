@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2nwqlqk1j0km"]
+
+[ext_resource type="Script" path="res://components/item_dropper/item_dropper.gd" id="1_n3e2a"]
+
+[sub_resource type="Curve2D" id="Curve2D_mwlou"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(-5.05408, -9.81096, 5.05408, 9.81096, 0, -15, 0, 0, 0, 0, 7, 0)
+}
+point_count = 2
+
+[node name="ItemDropper" type="Node2D"]
+script = ExtResource("1_n3e2a")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mwlou")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(0, -15)
+rotates = false
+loop = false

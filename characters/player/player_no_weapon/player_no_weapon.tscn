@@ -488,6 +488,7 @@ position = Vector2(6, 18.5)
 shape = SubResource("RectangleShape2D_2ob4g")
 
 [node name="PwnAnimation" type="AnimatedSprite2D" parent="." index="4"]
+use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_03hvk")
 animation = &"idle"

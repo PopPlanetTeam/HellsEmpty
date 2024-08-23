@@ -26,6 +26,10 @@ signal died
 @export_flags_2d_physics var takes_damage = 0
 @export_flags_2d_physics var provide_damage = 0
 
+@export_group("Drops")
+@export var number_of_drops: int = 1
+@export var possible_drops: Array[DropItem]
+
 @onready var hitbox: HitBox = $HitBox
 @onready var damage_area: DamageArea = $DamageArea
 @onready var health_component: Health = $Health
@@ -46,8 +50,43 @@ func _ready():
 	damage_area.damage = damage
 	damage_area.knockback_strength = knockback_strength
 
+func _drop_item():
+	var item_dropper_scene = preload("res://components/item_dropper/item_dropper.tscn")
+
+	var random_val = randf()
+	var cumulative_probability = 0.0
+
+	for drop in possible_drops:
+		cumulative_probability += drop.probability
+
+		if random_val > cumulative_probability:
+			continue
+
+		var amount = randi_range(drop.min_amount, drop.max_amount)
+		var item = drop.item_scene
+
+		for i in range(amount):
+			var item_dropper = item_dropper_scene.instantiate()
+
+			item_dropper.content = item
+			item_dropper.global_position = self.global_position
+
+			get_parent().call_deferred("add_child", item_dropper)
+		
+		break
+
+var enemy_died: bool = false
 func _on_died():
-	GlobalData.enemies_killed += 1
+	if enemy_died:
+		return
+	
+	enemy_died = true
+	
+	GlobalData.level_enemies_killed += 1
+
+	for i in range(number_of_drops):
+		_drop_item()
+
 	self.queue_free()
 
 func _physics_process(_delta):

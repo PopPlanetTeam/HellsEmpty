@@ -7,6 +7,12 @@ signal hit
 @export var direction : Vector2 = Vector2.ZERO
 @export var damage : float = 50.0
 
+func get_damage() -> float:
+	return damage
+
+func set_damage(_damage: float) -> void:
+	damage = _damage
+
 func _ready():
 	$DamageArea.damage = damage
 

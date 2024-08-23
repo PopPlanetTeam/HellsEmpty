@@ -2116,6 +2116,7 @@ script = ExtResource("3_hnou4")
 player_sprites = NodePath("../PwAnimation")
 
 [node name="PwAnimation" type="AnimatedSprite2D" parent="." index="5"]
+use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8p2ki")
 animation = &"idle_front"
@@ -2133,6 +2134,9 @@ script = ExtResource("4_dup28")
 visible = false
 position = Vector2(38.0024, 1.95351)
 gizmo_extents = 3.0
+
+[node name="Picker" parent="." index="7"]
+visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="Picker" index="0"]
 position = Vector2(6, 12)
