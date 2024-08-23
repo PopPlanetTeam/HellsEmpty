@@ -10,6 +10,9 @@ func change_scene_packed(from: Node, to: PackedScene) -> void:
 	player_transition = GlobalData.player
 	from.remove_child(player_transition)
 
+	FadeTransition.transition()
+	await FadeTransition.transition_finished
+
 	from.get_tree().call_deferred("change_scene_to_packed", to)
 
 func transition_happened() -> bool:
