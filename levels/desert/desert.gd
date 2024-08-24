@@ -11,7 +11,6 @@ extends SceneBase
 @onready var player = $PlayerNoWeapon
 @onready var pause = $Pause
 
-		
 func transfer_all_children_added_on_this_scene(from_node, to_node):
 	from_node.get_children(false) \
 		.filter(func(child): return child.owner != from_node) \
@@ -28,9 +27,7 @@ func _ready():
 	next_level_portal.set_enabled(false)
 	_set_exit_passage_enabled(false)
 	
-	
-	PlayerInventorySaverLoader.new().load_scene()
-	if PlayerInventory.current_weapon:
+	if PlayerInventory.current_weapon != null:
 		if GlobalData.player !=  null:
 				var player_with_weapon : PlayerWithWeapon = GlobalData.player_with_weapon_scene.instantiate()
 				player_with_weapon.transform = player.transform

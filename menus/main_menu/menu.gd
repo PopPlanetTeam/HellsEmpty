@@ -4,6 +4,7 @@ func _ready():
 	# Idioma padrão será Português dos guri
 	TranslationServer.set_locale("br")
 	
+
 	%OpcoesMenu.visible = false
 
 func _process(_delta):

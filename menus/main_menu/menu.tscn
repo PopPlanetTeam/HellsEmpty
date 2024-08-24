@@ -27,10 +27,10 @@ stream = ExtResource("3_8x0o7")
 autoplay = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 818.0
-offset_top = 792.0
-offset_right = 1102.0
-offset_bottom = 1051.0
+offset_left = 820.0
+offset_top = 780.0
+offset_right = 1104.0
+offset_bottom = 1039.0
 pivot_offset = Vector2(142, 0)
 alignment = 1
 

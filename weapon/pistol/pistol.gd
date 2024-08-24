@@ -1,8 +1,8 @@
 extends WeaponBase
 class_name Pistol
 
-@onready var _fire_rate_timer = $FireRateTimer
-@onready var _firing_sound = $FiringSound
+@onready var _fire_rate_timer : Timer = $FireRateTimer
+@onready var _firing_sound : AudioStreamPlayer2D = $FiringSound
 @onready var _gun_sprite: Sprite2D = $Sprite2D
 @onready var _tree_root: Node = get_tree().root
 

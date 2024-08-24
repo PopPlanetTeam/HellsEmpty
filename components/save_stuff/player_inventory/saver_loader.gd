@@ -15,7 +15,7 @@ func save_scene():
 	var packed_scene_weapon = PackedScene.new()
 	packed_scene_weapon.pack(PlayerInventory.current_weapon)
 	save.current_weapon = packed_scene_weapon
-
+	
 	ResourceSaver.save(save, "res://saves/player/inventory.tres")
 
 func load_scene():
@@ -23,6 +23,7 @@ func load_scene():
 
 	if not save:
 		print("No save found. Going with default values.")
+		PlayerInventory.current_weapon = null
 		return
 	
 	PlayerInventory.coins_amount = save.coins_ammount

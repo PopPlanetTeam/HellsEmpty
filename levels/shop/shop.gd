@@ -5,9 +5,8 @@ extends Node2D
 @onready var desert_map_tilemap = $DesertMap
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	# Disable desert collisions 
 	desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 0)
-	#PlayerInventory.coins_amount += 2000
 	
 	# Listen for all weapon selected signals
 	weapons.get_children() \
@@ -76,7 +75,6 @@ func set_weapon_for_player(weapon:WeaponBase):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("save"):
 		PlayerInventorySaverLoader.new().save_scene()
-
 
 func _on_go_to_desert_area_entered(area: Area2D) -> void:
 	if area.get_parent() is PlayerBase:

@@ -69,8 +69,6 @@ func _physics_process(_delta):
 
 	_player = GlobalData.player
 	if _player != null:
-		print("Player globpos: ", _player.global_position)
-		print("Enemy globpos: ", _enemy.global_position)
 		var distance: float = _enemy.global_position.distance_to(_player.global_position)
 
 		if distance <= _chase_distance:

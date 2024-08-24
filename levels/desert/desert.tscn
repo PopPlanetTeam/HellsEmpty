@@ -164,7 +164,6 @@ script = ExtResource("10_sysmy")
 provides_damage = 10
 
 [node name="ExitPassage" type="TileMap" parent="."]
-visible = false
 y_sort_enabled = true
 tile_set = ExtResource("1_ceihk")
 format = 2
@@ -246,8 +245,6 @@ script = ExtResource("11_83a47")
 player_spawns = NodePath("../../PlayerSpawns")
 
 [node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_vh8ng")]
-position = Vector2(640, 40)
-scale = Vector2(4, 4)
 
 [node name="Chests" type="Node2D" parent="." groups=["chest_save"]]
 
@@ -485,7 +482,6 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_5eebr")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_p0xb2")
 
 [node name="PlayerSpawns" type="Node" parent="."]
