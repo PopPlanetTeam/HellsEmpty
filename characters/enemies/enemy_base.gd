@@ -80,9 +80,12 @@ func _on_died():
 	if enemy_died:
 		return
 	
+	died.emit()
+	
 	enemy_died = true
 	
 	GlobalData.level_enemies_killed += 1
+	GlobalData.total_enemies_killed += 1
 
 	for i in range(number_of_drops):
 		_drop_item()

@@ -10,6 +10,7 @@ extends SceneBase
 @onready var exit_passage: TileMap = $ExitPassage
 @onready var player = $PlayerNoWeapon
 @onready var pause = $Pause
+@onready var auto_save_timer : Timer = $Autosave
 
 func transfer_all_children_added_on_this_scene(from_node, to_node):
 	from_node.get_children(false) \
@@ -26,6 +27,10 @@ func _ready():
 
 	next_level_portal.set_enabled(false)
 	_set_exit_passage_enabled(false)
+	
+	%LevelProgress._setup_event_handlers()
+	%LevelProgress.kills_to_win = kills_to_win
+	GlobalData.level_enemies_killed = 0
 	
 	PlayerInventorySaverLoader.new().load_scene()
 	if PlayerInventory.current_weapon != null:
@@ -70,3 +75,8 @@ func _set_exit_passage_enabled(enabled: bool):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("save"):
 		PlayerInventorySaverLoader.new().save_scene()
+
+func _on_autosave_timeout() -> void:
+	PlayerInventorySaverLoader.new().save_scene()
+	GlobalDataSaverLoader.new().save_scene()
+	auto_save_timer.start()

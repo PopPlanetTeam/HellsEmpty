@@ -3,6 +3,7 @@ extends Node2D
 @onready var player : PlayerBase = $PlayerNoWeapon
 @onready var weapons = $Weapons
 @onready var desert_map_tilemap = $DesertMap
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Disable desert collisions 
@@ -86,5 +87,8 @@ func _on_go_to_desert_area_entered(area: Area2D) -> void:
 		desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 1)
 		get_tree().change_scene_to_file("res://levels/desert/desert.tscn")
 
-func _on_go_to_desert_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+
+func _on_go_to_forest_area_entered(area: Area2D) -> void:
+	if area.get_parent() is PlayerBase:
+		PlayerInventorySaverLoader.new().save_scene()
+		get_tree().change_scene_to_file("res://levels/forest/Forest.tscn")
