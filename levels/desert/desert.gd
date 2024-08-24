@@ -9,6 +9,8 @@ extends SceneBase
 @onready var next_level_portal: ScenePortal = $SafeHousePortal
 @onready var exit_passage: TileMap = $ExitPassage
 
+@onready var player = $PlayerNoWeapon
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()

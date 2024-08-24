@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
 [ext_resource type="AudioStream" uid="uid://c005nxifyevqj" path="res://musics/Desert - OST - Hells Empty.wav" id="1_ptu5i"]
+[ext_resource type="PackedScene" uid="uid://dexj4bmlf7n0q" path="res://levels/desert/desert_tilemap.tscn" id="4_5uvlc"]
 [ext_resource type="Texture2D" uid="uid://cjnw0bq7a40l2" path="res://weapon/wepons_tilesheets/weapon_textures.png" id="7_58fw4"]
 [ext_resource type="PackedScene" uid="uid://cea5hawifcp0x" path="res://weapon/pistol/pistol.tscn" id="7_i5x4j"]
 [ext_resource type="PackedScene" uid="uid://dovwd1wn0n7mo" path="res://weapon/revolver/revolver.tscn" id="7_qsuqk"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="Script" path="res://components/map/chests/chests_group_node.gd" id="12_215nv"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
+[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause.tscn" id="12_vh8ng"]
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="14_e8w7s"]
 [ext_resource type="PackedScene" uid="uid://da22xr0ykypco" path="res://components/pickups/heart/heart.tscn" id="15_fqqwi"]
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="15_kly4v"]
@@ -246,6 +248,14 @@ script = ExtResource("11_83a47")
 player_spawns = NodePath("../PlayerSpawns")
 
 [node name="Chests" type="Node2D" parent="." groups=["chest_save"]]
+[node name="Pause" parent="Camera2D" instance=ExtResource("12_vh8ng")]
+position = Vector2(640, 40)
+scale = Vector2(4, 4)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_p0xb2")
+
+; [node name="Chests" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("12_215nv")
 

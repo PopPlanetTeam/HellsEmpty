@@ -10,17 +10,26 @@ var _projectile_scene: PackedScene = preload("res://weapon/smg/projectile/smg_pr
 var _can_shoot: bool = true
 
 func _ready():
+	set_process(false)
 	shot = _projectile_scene.instantiate()
 
 	cadence_timer = _fire_rate_timer
 	default_cadence = _fire_rate_timer.wait_time
 	default_damage = shot.get_damage()
 
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		set_process(true)
+	elif event.is_action_released("shoot"):
+		set_process(false)
+		if _firing_sound.playing:
+			_firing_sound.seek(0.99)
+
 func _process(_delta) -> void:
 	if !_can_shoot:
 		return
-	
-	if Input.is_action_pressed("shoot"):
+		
+	if Input.is_action_pressed('shoot'):
 		var mouse_direction = get_global_mouse_position() - self.global_position
 		var new_shot: SMGProjectile = shot.duplicate()
 
@@ -36,7 +45,10 @@ func _process(_delta) -> void:
 		
 		_can_shoot = false
 		_fire_rate_timer.start()
-	
+	else:
+		if _firing_sound.playing:
+			_firing_sound.seek(0.9)
 
 func _on_fire_rate_timer_timeout() -> void:
 	_can_shoot = true
+	

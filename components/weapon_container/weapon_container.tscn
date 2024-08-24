@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1pxjjslhali4"]
+
+[ext_resource type="Script" path="res://components/weapon_container/weapon_container.gd" id="1_o2syw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p12ha"]
+radius = 39.0128
+
+[node name="WeaponContainer" type="Node2D"]
+script = ExtResource("1_o2syw")
+
+[node name="PriceLabel" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -43.0
+offset_right = 21.0
+offset_bottom = -20.0
+
+[node name="Area2D" type="Area2D" parent="." groups=["weapon_container_selection_area"]]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_p12ha")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

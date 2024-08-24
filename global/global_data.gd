@@ -19,3 +19,4 @@ const ENEMY_SPAWN_GROUP = "enemy_spawn"
 
 var level_enemies_killed: int = 0
 var total_enemies_killed: int = 0
+const WEAPON_CONTAINER_SELECTION_AREA_GROUP = "weapon_container_selection_area"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerInventorySave" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://components/save_stuff/player_inventory/save.gd" id="1_1wbbd"]
+[ext_resource type="PackedScene" path="res://weapon/revolver/revolver.tscn" id="2_6p41f"]
+[ext_resource type="PackedScene" path="res://weapon/smg/smg.tscn" id="3_dxaf5"]
+[ext_resource type="PackedScene" path="res://weapon/pistol/pistol.tscn" id="4_2piyp"]
+
+[resource]
+script = ExtResource("1_1wbbd")
+coins_ammount = 1000
+unlocked_weapons = Array[PackedScene]([ExtResource("2_6p41f"), ExtResource("3_dxaf5"), ExtResource("4_2piyp")])
