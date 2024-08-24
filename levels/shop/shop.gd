@@ -17,9 +17,8 @@ func _process(delta):
 
 func transfer_all_children_added_on_this_scene(from_node, to_node):
 	from_node.get_children(false) \
-		.filter(func(child):return child.owner != from_node) \
+		.filter(func(child): return child.owner != from_node) \
 		.map(func(child): transfer_children(from_node, to_node, child))
-
 
 func _on_player_entered_weapon_selection(area:Area2D):
 	if area.get_parent() is PlayerBase and player is PlayerWithWeapon:
@@ -60,8 +59,6 @@ func change_player_no_weapon_to_player_with_weapon():
 	get_tree().get_nodes_in_group(GlobalData.WEAPON_CONTAINER_SELECTION_AREA_GROUP) \
 		.filter(func(item) : return item.has_signal("area_exited")) \
 		.map(func(item:Area2D): item.connect("area_exited", _on_player_exited_weapon_selection))
-		
-	
 
 func set_weapon_for_player(weapon:WeaponBase):
 	if player is PlayerNoWeapon:
@@ -76,3 +73,11 @@ func set_weapon_for_player(weapon:WeaponBase):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("save"):
 		PlayerInventorySaverLoader.new().save_scene()
+
+
+func _on_go_to_desert_area_entered(area: Area2D) -> void:
+	if area.get_parent() is PlayerBase:
+		get_tree().change_scene_to_file("res://levels/desert/desert.tscn")
+
+func _on_go_to_desert_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
