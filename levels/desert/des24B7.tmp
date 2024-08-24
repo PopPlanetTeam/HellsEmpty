@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="14_e8w7s"]
 [ext_resource type="PackedScene" uid="uid://da22xr0ykypco" path="res://components/pickups/heart/heart.tscn" id="15_fqqwi"]
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="15_kly4v"]
-[ext_resource type="Script" path="res://components/enemy_spawner/enemy_spawner_desert.gd" id="16_fjw0s"]
+[ext_resource type="Script" path="res://components/enemy_spawner/enemy_spawner.gd" id="16_fjw0s"]
 [ext_resource type="Script" path="res://components/save_stuff/scene_saver_loader.gd" id="16_mrk3c"]
 [ext_resource type="PackedScene" uid="uid://b027dih6dqe3i" path="res://components/pickups/power_ups/2x_cadence/2x_cadence.tscn" id="20_ye4hh"]
 [ext_resource type="PackedScene" uid="uid://d2j8cjvv54878" path="res://components/pickups/power_ups/3x_damage/3x_damage.tscn" id="21_nrt61"]
