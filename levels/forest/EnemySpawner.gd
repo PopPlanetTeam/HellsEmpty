@@ -25,7 +25,6 @@ func spawn_new_enemy() -> void:
 	enemy.scale = scale
 	enemy.speed *= scale.x
 	
-
 	var enemy_died_signal = enemy.died
 	enemy_died_signal.connect(spawn_new_enemy)
 	#add_sibling(enemy)
@@ -43,4 +42,7 @@ func get_position_to_spawn() -> Vector2:
 	markers.sort_custom(sort_lamda)
 	
 	var choosed_location : Marker2D = markers.slice(0, closest_marker_points_to_consider).pick_random()
-	return choosed_location.global_position
+	
+	const scale_factor = 100.0
+	var random_position_arround_marker = Vector2([-1.0, 1.0].pick_random(), [-1.0, 1.0].pick_random()).normalized() * scale_factor
+	return choosed_location.global_position + random_position_arround_marker

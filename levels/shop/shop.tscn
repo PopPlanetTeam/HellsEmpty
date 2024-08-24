@@ -1404,19 +1404,19 @@ price = 20000
 scene_path = ExtResource("8_p5nwd")
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("4_ppuhn")]
-visible = false
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.715, 0.715)
+SPEED = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
-zoom = Vector2(1.67, 1.67)
+zoom = Vector2(2.333, 2.333)
 
 [node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_y5fna")]
 
 [node name="PlayerMoney" type="Label" parent="PlayerNoWeapon/Camera2D"]
-offset_left = 638.0
-offset_top = -608.0
-offset_right = 1068.0
-offset_bottom = -507.0
+offset_left = 146.853
+offset_top = -320.28
+offset_right = 576.853
+offset_bottom = -219.28
 theme_override_font_sizes/font_size = 50
 text = "MONEY"
 horizontal_alignment = 1

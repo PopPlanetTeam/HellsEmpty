@@ -1,6 +1,7 @@
-[gd_scene load_steps=74 format=3 uid="uid://m0e6cc4500hd"]
+[gd_scene load_steps=76 format=3 uid="uid://m0e6cc4500hd"]
 
 [ext_resource type="Texture2D" uid="uid://csjchmeub4ddu" path="res://levels/forest/Bench and chest/Bench.png" id="1_kwxvb"]
+[ext_resource type="Script" path="res://levels/forest/forest.gd" id="1_sdvja"]
 [ext_resource type="PackedScene" uid="uid://crdl20xe755rm" path="res://levels/forest/forest_tilemap_ground.tscn" id="2_a1xpw"]
 [ext_resource type="Texture2D" uid="uid://bjbgj5k58vj36" path="res://levels/forest/Fences/Big wooden fence/Big-wooden-fence-1.png" id="8_v8b1c"]
 [ext_resource type="Texture2D" uid="uid://dfogvn28gq4yl" path="res://levels/forest/Fences/Big wooden fence/Big-wooden-fence-2.png" id="9_ylw7s"]
@@ -29,11 +30,12 @@
 [ext_resource type="Texture2D" uid="uid://duv0usm4l0py5" path="res://levels/forest/Stones/Stone-1.png" id="30_wbqh6"]
 [ext_resource type="Texture2D" uid="uid://d3rx4rkwxyfd5" path="res://levels/forest/Stones/Stone-2.png" id="31_wqxhv"]
 [ext_resource type="Texture2D" uid="uid://udyvgvao1gpu" path="res://levels/forest/Sculptures/Sculpture-1.png" id="32_m3skb"]
+[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause.tscn" id="33_for10"]
 [ext_resource type="Texture2D" uid="uid://cu43x3in6wbmw" path="res://levels/forest/Sculptures/Sculture-2.png" id="33_fuwfq"]
+[ext_resource type="AudioStream" uid="uid://nbxlpgxwj2bc" path="res://musics/Forest - OST - Hells Empty.wav" id="37_8t1nf"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="45_80xk6"]
 [ext_resource type="Script" path="res://levels/forest/EnemySpawner.gd" id="49_fyuuu"]
 [ext_resource type="PackedScene" uid="uid://dtfcwig0nufkq" path="res://characters/enemies/luna/luna.tscn" id="50_7b1tw"]
-[ext_resource type="AudioStream" uid="uid://bcpmpxg86ek5y" path="res://musics/forest_theme.mp3" id="51_04psl"]
 [ext_resource type="PackedScene" uid="uid://diah1045fuaax" path="res://characters/enemies/owlet/owlet.tscn" id="51_qgtau"]
 [ext_resource type="Script" path="res://levels/forest/ForestTheme.gd" id="52_ydicb"]
 
@@ -316,6 +318,7 @@ source_geometry_group_name = &"navigation"
 agent_radius = 7.0
 
 [node name="Forest" type="Node2D"]
+script = ExtResource("1_sdvja")
 
 [node name="Earth" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_grcq1")
@@ -403,11 +406,13 @@ SPEED = 360.0
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(2.4, 2.4)
 
+[node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("33_for10")]
+
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("49_fyuuu")
 enemies_to_spawn = Array[PackedScene]([ExtResource("50_7b1tw"), ExtResource("51_qgtau")])
 closest_marker_points_to_consider = 5
-MAX_NUMBER_OF_ENEMIES = 4
+MAX_NUMBER_OF_ENEMIES = 40
 
 [node name="1" type="Marker2D" parent="EnemySpawner"]
 position = Vector2(1670, 856)
@@ -440,7 +445,7 @@ position = Vector2(-4147, 684)
 position = Vector2(141, 60)
 
 [node name="ForestTheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("51_04psl")
+stream = ExtResource("37_8t1nf")
 autoplay = true
 script = ExtResource("52_ydicb")
 
@@ -448,4 +453,9 @@ script = ExtResource("52_ydicb")
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_hbsiq")
 
+[node name="Autosave" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="finished" from="ForestTheme" to="ForestTheme" method="_on_finished"]
+[connection signal="timeout" from="Autosave" to="." method="_on_autosave_timeout"]

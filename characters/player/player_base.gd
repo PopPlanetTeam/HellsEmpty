@@ -91,10 +91,10 @@ func _knockback_process():
 	_knockback = _knockback.lerp(Vector2.ZERO, 0.5)
 
 func _on_died():
-	GlobalData.player = null
 	player_died.emit()
-	get_tree().call_group(GlobalData.PHASE_SCENE, "_on_player_died")
+	#get_tree().call_group(GlobalData.PHASE_SCENE, "_on_player_died")
 	self.queue_free()
+	GlobalData.player = null
 
 func set_movement_enabled(enabled: bool):
 	_movement_enabled = enabled

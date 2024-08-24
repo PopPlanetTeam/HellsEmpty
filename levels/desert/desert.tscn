@@ -135,6 +135,7 @@ enemies_spawner = NodePath("EnemySpawner")
 saver_loader = NodePath("SceneSaverLoader")
 
 [node name="NavigationSource" type="TileMap" parent="." groups=["navigation"]]
+visible = false
 tile_set = ExtResource("1_ceihk")
 format = 2
 layer_0/name = "Ground"

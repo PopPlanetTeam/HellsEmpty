@@ -1,377 +1,337 @@
-[gd_resource type="Resource" script_class="SceneSave" load_steps=66 format=3]
+[gd_resource type="Resource" script_class="SceneSave" load_steps=59 format=3]
 
-[ext_resource type="Script" path="res://components/save_stuff/chest_save.gd" id="1_0leca"]
-[ext_resource type="Script" path="res://components/save_stuff/enemie_save.gd" id="2_3kpvp"]
-[ext_resource type="Script" path="res://components/save_stuff/scene_save.gd" id="3_mq7iq"]
-[ext_resource type="Script" path="res://components/save_stuff/weapon_save.gd" id="4_7wx71"]
+[ext_resource type="Script" path="res://components/save_stuff/chest_save.gd" id="1_duqm6"]
+[ext_resource type="Script" path="res://components/save_stuff/enemie_save.gd" id="2_1jiue"]
+[ext_resource type="Script" path="res://components/save_stuff/scene_save.gd" id="3_dfvqp"]
+[ext_resource type="Script" path="res://components/save_stuff/weapon_save.gd" id="4_ad5ak"]
 
-[sub_resource type="Resource" id="Resource_2gyn5"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(158.717, 223.795)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_7mbb6"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(2033, -411)
-scene_path = "res://characters/enemies/luna/luna.tscn"
-
-[sub_resource type="Resource" id="Resource_0smx5"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(2508, 54)
-scene_path = "res://characters/enemies/luna/luna.tscn"
-
-[sub_resource type="Resource" id="Resource_amjva"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(2966.54, -630)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_jehmi"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(2877.36, 179.54)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_81nd5"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(3009.37, 452.908)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_78i5p"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(2790, 688)
-scene_path = "res://characters/enemies/luna/luna.tscn"
-
-[sub_resource type="Resource" id="Resource_uwwor"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_u2yqw"]
+script = ExtResource("2_1jiue")
 life = 98.0
-global_position = Vector2(3003.12, 842.134)
+global_position = Vector2(2077.05, -415.578)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_nsbmw"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_dru4d"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(2356.95, 54)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_h3156"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(3160.3, -631.297)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_m6q4v"]
+script = ExtResource("2_1jiue")
 life = 98.0
-global_position = Vector2(2240.23, 729.484)
+global_position = Vector2(3073.41, 176.316)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_mwcbh"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_tnji3"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(2925, 456)
+scene_path = "res://characters/enemies/luna/luna.tscn"
+
+[sub_resource type="Resource" id="Resource_mrcv7"]
+script = ExtResource("2_1jiue")
+life = 97.0
+global_position = Vector2(2964.75, 692.369)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_hp8y2"]
+script = ExtResource("2_1jiue")
+life = 98.0
+global_position = Vector2(2984.37, 842.134)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_ib6rh"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(2590.91, 723.307)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_msjfg"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(2649, 306)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_f4dyd"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_a6wp5"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(1525.58, -559.524)
+global_position = Vector2(1633.29, -561.068)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_k2fvk"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_on6gr"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(395, -685)
-scene_path = "res://characters/enemies/luna/luna.tscn"
-
-[sub_resource type="Resource" id="Resource_y7we2"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(-467, -344)
-scene_path = "res://characters/enemies/luna/luna.tscn"
-
-[sub_resource type="Resource" id="Resource_7y2xt"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(2293.09, -128)
+global_position = Vector2(444.066, -682.617)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_ejile"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_u2ftc"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(-427.194, -343.898)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_pk4eu"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(2203.8, -127.763)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_di2ns"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(2505, -287)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_goydp"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_06ae4"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(2249, -681)
-scene_path = "res://characters/enemies/luna/luna.tscn"
+global_position = Vector2(2198.84, -684.239)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_vptoc"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_ffdcn"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(2642, -576)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_42i7m"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(113.464, -136.28)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_jnnmu"]
-script = ExtResource("2_3kpvp")
-life = 98.0
-global_position = Vector2(37.9631, -152.597)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_we50n"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_fcvs1"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(243.74, -59.0403)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_fg2c4"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(55.6956, -134.951)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_3yhyo"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(97.617, -273.424)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_mtthb"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(207.362, 239.294)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_awtmo"]
-script = ExtResource("2_3kpvp")
-life = 98.0
-global_position = Vector2(140.948, 160.61)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_57770"]
-script = ExtResource("2_3kpvp")
-life = 0.0
-global_position = Vector2(413.304, 97.8547)
+global_position = Vector2(334, -142)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_i7tsh"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_ycbrg"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(288.438, -58.3954)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_6bhrx"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(201, -116)
+scene_path = "res://characters/enemies/luna/luna.tscn"
+
+[sub_resource type="Resource" id="Resource_an5pg"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(94, -273)
+scene_path = "res://characters/enemies/luna/luna.tscn"
+
+[sub_resource type="Resource" id="Resource_j8r32"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(467, 155)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_4eal6"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(435.949, -57)
+[sub_resource type="Resource" id="Resource_kl1tp"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(785.488, -65.5926)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_6koeb"]
-script = ExtResource("2_3kpvp")
-life = 60.0
-global_position = Vector2(808.371, 127.988)
+[sub_resource type="Resource" id="Resource_73tnt"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(757, 125)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_03wou"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_ksmiy"]
+script = ExtResource("2_1jiue")
+life = 98.0
+global_position = Vector2(956.009, 235.151)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_hx6gn"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(146.616, 212.205)
+global_position = Vector2(-148.506, 152.25)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_hs64c"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(634.93, 232.133)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_g4f36"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(-89.2165, 156)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_b2to7"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_pmilr"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(-501, 118)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_kxf5b"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_p2ptr"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(-1079, -416)
-scene_path = "res://characters/enemies/luna/luna.tscn"
+global_position = Vector2(-894.078, -417.347)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_r17yv"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_dgc7b"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(-971, -524)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_fscwr"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_n2ubh"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(-857, -403)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_kxrbv"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_yblyy"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(-929.544, -661.185)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
+global_position = Vector2(-1016, -663)
+scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_xu4wm"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_3y62d"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(-721.71, -79.2051)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
+global_position = Vector2(-927, -79)
+scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_o4k27"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_pg3wv"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(-806, 258)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_ty3r4"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_n1vl0"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(-940, 728)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_elpcc"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_1us1e"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(-578, 595)
-scene_path = "res://characters/enemies/luna/luna.tscn"
-
-[sub_resource type="Resource" id="Resource_q8wpl"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(-555.927, -566.078)
+global_position = Vector2(-537.406, 595.823)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_ieqxf"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_tx27r"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(-431.031, -552.04)
+scene_path = "res://characters/enemies/luna/luna.tscn"
+
+[sub_resource type="Resource" id="Resource_22gyr"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(190, -459)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_jn1re"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_pkv42"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(961.618, -313)
+global_position = Vector2(1015.18, -313)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_3rxmk"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(1125.8, -248.789)
+[sub_resource type="Resource" id="Resource_tqr16"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(1134.09, -250.952)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_j22f0"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_hv5vr"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(1026, -253)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_18e6m"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_bnqhr"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(990, -331)
-scene_path = "res://characters/enemies/luna/luna.tscn"
+global_position = Vector2(1017.31, -328.871)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_m2rq0"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_76ok7"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(1047, -388)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_bc3w8"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_7ok20"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(929, 350)
+global_position = Vector2(1213.26, 350.084)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_dv48w"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(-25.8088, 638.279)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_787eo"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(663, -317)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_aur8y"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_ua5f7"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(465, 633)
+global_position = Vector2(1455, -283)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_36ke4"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_htvgi"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(495.745, -316.439)
+global_position = Vector2(1371.69, 553.781)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_nyl6v"]
-script = ExtResource("2_3kpvp")
-life = 98.0
-global_position = Vector2(1555.24, -289.684)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_pjy1o"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_t2wa8"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(1342, 554)
+global_position = Vector2(1517, 345)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_gejhg"]
-script = ExtResource("2_3kpvp")
-life = 100.0
-global_position = Vector2(1741.99, 345)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
+[sub_resource type="Resource" id="Resource_klxua"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(1811.3, -192.67)
+scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_5gbjr"]
-script = ExtResource("2_3kpvp")
-life = 96.0
-global_position = Vector2(1597.15, -194.064)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_t8xrr"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_qjfpr"]
+script = ExtResource("2_1jiue")
 life = 100.0
 global_position = Vector2(2410, -526)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_1rqir"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_vir4x"]
+script = ExtResource("2_1jiue")
 life = 97.0
-global_position = Vector2(2374.6, 255.947)
+global_position = Vector2(2748.76, 256.261)
 scene_path = "res://characters/enemies/owlet/owlet.tscn"
 
-[sub_resource type="Resource" id="Resource_fgc7s"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(3025.52, 606.254)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_mvkn0"]
-script = ExtResource("2_3kpvp")
-life = 99.0
-global_position = Vector2(2804.53, -339.756)
-scene_path = "res://characters/enemies/owlet/owlet.tscn"
-
-[sub_resource type="Resource" id="Resource_p5ixr"]
-script = ExtResource("2_3kpvp")
+[sub_resource type="Resource" id="Resource_kfx6k"]
+script = ExtResource("2_1jiue")
 life = 100.0
-global_position = Vector2(2224, 619)
+global_position = Vector2(2588.26, 604.842)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_hg860"]
+script = ExtResource("2_1jiue")
+life = 100.0
+global_position = Vector2(2817, -339)
 scene_path = "res://characters/enemies/luna/luna.tscn"
 
-[sub_resource type="Resource" id="Resource_d0kj6"]
-script = ExtResource("4_7wx71")
+[sub_resource type="Resource" id="Resource_qc3p5"]
+script = ExtResource("2_1jiue")
+life = 99.0
+global_position = Vector2(2200.46, 612.924)
+scene_path = "res://characters/enemies/owlet/owlet.tscn"
+
+[sub_resource type="Resource" id="Resource_qkbnm"]
+script = ExtResource("4_ad5ak")
 node_name = "PistolPick"
 
-[sub_resource type="Resource" id="Resource_obxwi"]
-script = ExtResource("4_7wx71")
-node_name = "RevolverPick"
-
 [resource]
-script = ExtResource("3_mq7iq")
-weapons = Array[ExtResource("4_7wx71")]([SubResource("Resource_d0kj6"), SubResource("Resource_obxwi")])
-chests = Array[ExtResource("1_0leca")]([])
+script = ExtResource("3_dfvqp")
+weapons = Array[ExtResource("4_ad5ak")]([SubResource("Resource_qkbnm")])
+chests = Array[ExtResource("1_duqm6")]([])
 enemies_spawner = {
-"enemies": Array[ExtResource("2_3kpvp")]([SubResource("Resource_2gyn5"), SubResource("Resource_7mbb6"), SubResource("Resource_0smx5"), SubResource("Resource_amjva"), SubResource("Resource_jehmi"), SubResource("Resource_81nd5"), SubResource("Resource_78i5p"), SubResource("Resource_uwwor"), SubResource("Resource_nsbmw"), SubResource("Resource_mwcbh"), SubResource("Resource_f4dyd"), SubResource("Resource_k2fvk"), SubResource("Resource_y7we2"), SubResource("Resource_7y2xt"), SubResource("Resource_ejile"), SubResource("Resource_goydp"), SubResource("Resource_vptoc"), SubResource("Resource_42i7m"), SubResource("Resource_jnnmu"), SubResource("Resource_we50n"), SubResource("Resource_fg2c4"), SubResource("Resource_3yhyo"), SubResource("Resource_mtthb"), SubResource("Resource_awtmo"), SubResource("Resource_57770"), SubResource("Resource_i7tsh"), SubResource("Resource_4eal6"), SubResource("Resource_6koeb"), SubResource("Resource_03wou"), SubResource("Resource_hs64c"), SubResource("Resource_g4f36"), SubResource("Resource_b2to7"), SubResource("Resource_kxf5b"), SubResource("Resource_r17yv"), SubResource("Resource_fscwr"), SubResource("Resource_kxrbv"), SubResource("Resource_xu4wm"), SubResource("Resource_o4k27"), SubResource("Resource_ty3r4"), SubResource("Resource_elpcc"), SubResource("Resource_q8wpl"), SubResource("Resource_ieqxf"), SubResource("Resource_jn1re"), SubResource("Resource_3rxmk"), SubResource("Resource_j22f0"), SubResource("Resource_18e6m"), SubResource("Resource_m2rq0"), SubResource("Resource_bc3w8"), SubResource("Resource_aur8y"), SubResource("Resource_36ke4"), SubResource("Resource_nyl6v"), SubResource("Resource_pjy1o"), SubResource("Resource_gejhg"), SubResource("Resource_5gbjr"), SubResource("Resource_t8xrr"), SubResource("Resource_1rqir"), SubResource("Resource_fgc7s"), SubResource("Resource_mvkn0"), SubResource("Resource_p5ixr")]),
+"enemies": Array[ExtResource("2_1jiue")]([SubResource("Resource_u2yqw"), SubResource("Resource_dru4d"), SubResource("Resource_h3156"), SubResource("Resource_m6q4v"), SubResource("Resource_tnji3"), SubResource("Resource_mrcv7"), SubResource("Resource_hp8y2"), SubResource("Resource_ib6rh"), SubResource("Resource_msjfg"), SubResource("Resource_a6wp5"), SubResource("Resource_on6gr"), SubResource("Resource_u2ftc"), SubResource("Resource_pk4eu"), SubResource("Resource_di2ns"), SubResource("Resource_06ae4"), SubResource("Resource_ffdcn"), SubResource("Resource_fcvs1"), SubResource("Resource_ycbrg"), SubResource("Resource_6bhrx"), SubResource("Resource_an5pg"), SubResource("Resource_j8r32"), SubResource("Resource_kl1tp"), SubResource("Resource_73tnt"), SubResource("Resource_ksmiy"), SubResource("Resource_hx6gn"), SubResource("Resource_pmilr"), SubResource("Resource_p2ptr"), SubResource("Resource_dgc7b"), SubResource("Resource_n2ubh"), SubResource("Resource_yblyy"), SubResource("Resource_3y62d"), SubResource("Resource_pg3wv"), SubResource("Resource_n1vl0"), SubResource("Resource_1us1e"), SubResource("Resource_tx27r"), SubResource("Resource_22gyr"), SubResource("Resource_pkv42"), SubResource("Resource_tqr16"), SubResource("Resource_hv5vr"), SubResource("Resource_bnqhr"), SubResource("Resource_76ok7"), SubResource("Resource_7ok20"), SubResource("Resource_dv48w"), SubResource("Resource_787eo"), SubResource("Resource_ua5f7"), SubResource("Resource_htvgi"), SubResource("Resource_t2wa8"), SubResource("Resource_klxua"), SubResource("Resource_qjfpr"), SubResource("Resource_vir4x"), SubResource("Resource_kfx6k"), SubResource("Resource_hg860"), SubResource("Resource_qc3p5")]),
 "spawner_disable": true
 }

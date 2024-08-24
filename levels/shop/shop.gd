@@ -48,6 +48,7 @@ func change_player_no_weapon_to_player_with_weapon():
 	player_with_weapon.transform = player.transform
 	player_with_weapon.position = player.position
 	player_with_weapon.global_position = player.global_position
+	player_with_weapon.SPEED = player.SPEED
 	
 	transfer_all_children_added_on_this_scene(player, player_with_weapon)
 	self.add_child(player_with_weapon)

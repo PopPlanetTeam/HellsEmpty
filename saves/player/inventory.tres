@@ -6,6 +6,6 @@
 
 [resource]
 script = ExtResource("1_8i7wg")
-coins_ammount = 1543
+coins_ammount = 1651
 unlocked_weapons = Array[PackedScene]([ExtResource("1_fu2tw")])
 current_weapon = ExtResource("1_b60oy")
