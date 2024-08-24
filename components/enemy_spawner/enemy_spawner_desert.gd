@@ -26,6 +26,8 @@ func save(enemies_dict: Dictionary) -> void:
 
 	for e in get_children():
 		e = e as EnemyBase
+		if e == null:
+			continue
 		var enemy_save = EnemieSave.new()
 
 		enemy_save.scene_path = e.scene_file_path
