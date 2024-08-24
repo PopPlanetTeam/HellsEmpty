@@ -1,5 +1,5 @@
 extends Node2D
-class_name EnemySpawner
+class_name EnemySpawnerDesert
 
 @export var disable: bool = false
 

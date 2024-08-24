@@ -10,11 +10,18 @@ var _projectile_scene: PackedScene = preload("res://weapon/rocket_launcher/proje
 var _can_shoot: bool = true
 
 func _ready():
+	set_process(false)
 	shot = _projectile_scene.instantiate()
 
 	cadence_timer = _fire_rate_timer
 	default_cadence = _fire_rate_timer.wait_time
 	default_damage = shot.get_damage()
+
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		set_process(true)
+	elif event.is_action_released("shoot"):
+		set_process(false)
 
 func _process(_delta) -> void:
 	if !_can_shoot:

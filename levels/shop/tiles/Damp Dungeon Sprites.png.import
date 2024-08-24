@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf2ac6fteh7r5"
-path="res://.godot/imported/Dungeon_Tileset.png-a2df0529b2e0e70234b37c99e46f2cb6.ctex"
+uid="uid://bqn0p073nt3vj"
+path="res://.godot/imported/Damp Dungeon Sprites.png-e63a82207d5ef44d87509b2bfbf9cccc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/Dungeon_Tileset.png"
-dest_files=["res://.godot/imported/Dungeon_Tileset.png-a2df0529b2e0e70234b37c99e46f2cb6.ctex"]
+source_file="res://levels/shop/tiles/Damp Dungeon Sprites.png"
+dest_files=["res://.godot/imported/Damp Dungeon Sprites.png-e63a82207d5ef44d87509b2bfbf9cccc.ctex"]
 
 [params]
 

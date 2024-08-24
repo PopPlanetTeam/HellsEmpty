@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://vobk73dbbqqu" path="res://components/map/chests/chest_small.tscn" id="10_mn7ao"]
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="11_2pxgu"]
 [ext_resource type="PackedScene" uid="uid://ddak21lokvpxm" path="res://components/pickups/coin/coin.tscn" id="11_erfqx"]
-[ext_resource type="Script" path="res://components/enemy_spawner/enemy_spawner.gd" id="12_ircvk"]
+[ext_resource type="Script" path="res://components/enemy_spawner/enemy_spawner_desert.gd" id="12_ircvk"]
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="12_lnf71"]
 [ext_resource type="Script" path="res://components/save_stuff/scene_saver_loader.gd" id="18_iqbda"]
 

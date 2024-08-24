@@ -474,6 +474,7 @@ animations = [{
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_4q5f8")
 player_animated_sprite = NodePath("PwnAnimation")
+provides_collision = 1
 
 [node name="Collision" type="CollisionShape2D" parent="." index="0"]
 position = Vector2(6, 48)
@@ -491,7 +492,7 @@ shape = SubResource("RectangleShape2D_2ob4g")
 use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_03hvk")
-animation = &"idle"
+animation = &"damage"
 autoplay = "idle"
 offset = Vector2(0, -8.5)
 script = ExtResource("6_0626e")

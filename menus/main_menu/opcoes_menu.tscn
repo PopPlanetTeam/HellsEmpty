@@ -53,10 +53,9 @@ size_flags_horizontal = 10
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 50
 flat = true
-item_count = 2
 selected = 0
+item_count = 2
 popup/item_0/text = "Português"
-popup/item_0/id = 0
 popup/item_1/text = "English"
 popup/item_1/id = 1
 

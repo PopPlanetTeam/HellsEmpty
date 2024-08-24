@@ -5,9 +5,11 @@ extends SceneBase
 @export var level_song: AudioStream
 @export var song_volume_db: float = 0.0
 
-@onready var enemy_spawner: EnemySpawner = $EnemySpawner
+@onready var enemy_spawner: EnemySpawnerDesert = $EnemySpawner
 @onready var next_level_portal: ScenePortal = $SafeHousePortal
 @onready var exit_passage: TileMap = $ExitPassage
+
+@onready var player = $PlayerNoWeapon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

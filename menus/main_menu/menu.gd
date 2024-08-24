@@ -16,7 +16,8 @@ func _process(_delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_iniciar_pressed():
-	get_tree().change_scene_to_file("res://levels/safe_house/safe_house.tscn")
+	PlayerInventorySaverLoader.new().load_scene()
+	get_tree().change_scene_to_file("res://levels/shop/shop.tscn")
 
 func _on_opcoes_pressed():
 	%OpcoesMenu.visible = true
