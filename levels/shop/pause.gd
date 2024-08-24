@@ -1,4 +1,5 @@
 extends Node2D
+class_name Pause
 
 @onready var paused_label = $Paused
 

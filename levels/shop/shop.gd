@@ -2,10 +2,17 @@ extends Node2D
 
 @onready var player : PlayerBase = $PlayerNoWeapon
 @onready var weapons = $Weapons
+@onready var desert_map_tilemap = $DesertMap
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PlayerInventory.coins_amount += 20000
+	# Disable desert collisions 
+	desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 0)
 	
+	PlayerInventorySaverLoader.new().load_scene()
+	if PlayerInventory.current_weapon != null:
+		set_weapon_for_player(PlayerInventory.current_weapon)
+
 	# Listen for all weapon selected signals
 	weapons.get_children() \
 		.filter(func(item): return item.has_signal("weapon_selected")) \
@@ -14,11 +21,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-func transfer_all_children_added_on_this_scene(from_node, to_node):
-	from_node.get_children(false) \
-		.filter(func(child): return child.owner != from_node) \
-		.map(func(child): transfer_children(from_node, to_node, child))
 
 func _on_player_entered_weapon_selection(area:Area2D):
 	if area.get_parent() is PlayerBase and player is PlayerWithWeapon:
@@ -32,7 +34,12 @@ func _on_player_exited_weapon_selection(area:Area2D):
 		if current_weapon:
 			current_weapon.set_process_input(true)
 		
-func transfer_children(from_node, to_node, child):
+func transfer_all_children_added_on_this_scene(from_node, to_node):
+	from_node.get_children(false) \
+		.filter(func(child): return child.owner != from_node) \
+		.map(func(child): transfer_child(from_node, to_node, child))
+
+func transfer_child(from_node, to_node, child):
 	from_node.remove_child(child)
 	to_node.add_child(child)
 
@@ -41,6 +48,7 @@ func change_player_no_weapon_to_player_with_weapon():
 	player_with_weapon.transform = player.transform
 	player_with_weapon.position = player.position
 	player_with_weapon.global_position = player.global_position
+	player_with_weapon.SPEED = player.SPEED
 	
 	transfer_all_children_added_on_this_scene(player, player_with_weapon)
 	self.add_child(player_with_weapon)
@@ -74,10 +82,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("save"):
 		PlayerInventorySaverLoader.new().save_scene()
 
-
 func _on_go_to_desert_area_entered(area: Area2D) -> void:
 	if area.get_parent() is PlayerBase:
+		PlayerInventorySaverLoader.new().save_scene()
+		desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 1)
 		get_tree().change_scene_to_file("res://levels/desert/desert.tscn")
 
-func _on_go_to_desert_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+
+func _on_go_to_forest_area_entered(area: Area2D) -> void:
+	if area.get_parent() is PlayerBase:
+		PlayerInventorySaverLoader.new().save_scene()
+		get_tree().change_scene_to_file("res://levels/forest/Forest.tscn")

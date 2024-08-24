@@ -4,6 +4,7 @@ func _ready():
 	# Idioma padrão será Português dos guri
 	TranslationServer.set_locale("br")
 	
+
 	%OpcoesMenu.visible = false
 
 func _process(_delta):
@@ -17,6 +18,7 @@ func _process(_delta):
 
 func _on_iniciar_pressed():
 	PlayerInventorySaverLoader.new().load_scene()
+	GlobalDataSaverLoader.new().load_scene()
 	get_tree().change_scene_to_file("res://levels/shop/shop.tscn")
 
 func _on_opcoes_pressed():

@@ -16,6 +16,7 @@ const DAMAGE_GROUP = "damage_body"
 const WEAPON_SAVE_GROUP = "weapon_save"
 const CHEST_SAVE_GROUP = "chest_save"
 const ENEMY_SPAWN_GROUP = "enemy_spawn"
+const ENEMY_GROUP = "enemy"
 
 var level_enemies_killed: int = 0
 var total_enemies_killed: int = 0
