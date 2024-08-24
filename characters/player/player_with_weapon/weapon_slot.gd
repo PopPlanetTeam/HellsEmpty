@@ -35,5 +35,6 @@ func assign_weapon(new_weapon: Node2D) -> void:
 	await new_weapon.ready
 	
 	self.weapon = new_weapon
+	PlayerInventory.current_weapon = new_weapon
 
 	new_weapon.global_position -= (new_weapon.get_gun_origin().global_position - origin.global_position)

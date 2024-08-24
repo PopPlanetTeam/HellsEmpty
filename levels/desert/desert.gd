@@ -8,8 +8,18 @@ extends SceneBase
 @onready var enemy_spawner: EnemySpawnerDesert = $EnemySpawner
 @onready var next_level_portal: ScenePortal = $SafeHousePortal
 @onready var exit_passage: TileMap = $ExitPassage
-
 @onready var player = $PlayerNoWeapon
+@onready var pause = $Pause
+
+		
+func transfer_all_children_added_on_this_scene(from_node, to_node):
+	from_node.get_children(false) \
+		.filter(func(child): return child.owner != from_node) \
+		.map(func(child): transfer_child(from_node, to_node, child))
+		
+func transfer_child(from_node, to_node, child):
+	from_node.remove_child(child)
+	to_node.add_child(child)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +27,24 @@ func _ready():
 
 	next_level_portal.set_enabled(false)
 	_set_exit_passage_enabled(false)
+	
+	
+	PlayerInventorySaverLoader.new().load_scene()
+	if PlayerInventory.current_weapon:
+		if GlobalData.player !=  null:
+				var player_with_weapon : PlayerWithWeapon = GlobalData.player_with_weapon_scene.instantiate()
+				player_with_weapon.transform = player.transform
+				player_with_weapon.position = player.position
+				player_with_weapon.global_position = player.global_position
 
+				transfer_all_children_added_on_this_scene(player, player_with_weapon)
+				self.add_child(player_with_weapon)
+				player.queue_free()
+				
+				player = player_with_weapon
+				GlobalData.player = player
+				player.weapon_slot.assign_weapon(PlayerInventory.current_weapon)
+	
 	if level_song:
 		GlobalAudioPlayer.play_stream(level_song, song_volume_db)
 
@@ -41,3 +68,7 @@ func _set_exit_passage_enabled(enabled: bool):
 	
 	exit_passage.set_layer_enabled(0, enabled)
 	exit_passage.set_layer_enabled(1, enabled)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("save"):
+		PlayerInventorySaverLoader.new().save_scene()

@@ -47,7 +47,7 @@ func _process(_delta):
 	_enemy.animation_sprites.play("idle")
 
 	_player = GlobalData.player
-	if _player:
+	if _player != null:
 		var distance: float = _enemy.global_position.distance_to(_player.global_position)
 
 		if distance <= _chase_distance:

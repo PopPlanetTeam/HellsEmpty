@@ -12,6 +12,10 @@ func save_scene():
 	save.coins_ammount = PlayerInventory.coins_amount
 	save.unlocked_weapons = PlayerInventory.unlocked_weapons
 	
+	var packed_scene_weapon = PackedScene.new()
+	packed_scene_weapon.pack(PlayerInventory.current_weapon)
+	save.current_weapon = packed_scene_weapon
+
 	ResourceSaver.save(save, "res://saves/player/inventory.tres")
 
 func load_scene():
@@ -23,3 +27,4 @@ func load_scene():
 	
 	PlayerInventory.coins_amount = save.coins_ammount
 	PlayerInventory.unlocked_weapons = save.unlocked_weapons
+	PlayerInventory.current_weapon = save.current_weapon.instantiate()

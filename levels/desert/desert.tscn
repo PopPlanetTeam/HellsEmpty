@@ -234,9 +234,8 @@ region_rect = Rect2(80, 615, 79.3972, 45)
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("11_j4mmx")]
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_spawns")]
-position = Vector2(-160, -10)
-scale = Vector2(0.25, 0.25)
+[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon" node_paths=PackedStringArray("player_spawns")]
+position = Vector2(-640, -40)
 zoom = Vector2(6, 6)
 limit_left = -1170
 limit_top = -777
@@ -244,9 +243,9 @@ limit_right = 3227
 limit_bottom = 900
 editor_draw_limits = true
 script = ExtResource("11_83a47")
-player_spawns = NodePath("../PlayerSpawns")
+player_spawns = NodePath("../../PlayerSpawns")
 
-[node name="Pause" parent="Camera2D" instance=ExtResource("12_vh8ng")]
+[node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_vh8ng")]
 position = Vector2(640, 40)
 scale = Vector2(4, 4)
 

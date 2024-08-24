@@ -1406,6 +1406,9 @@ offset_top = -608.0
 offset_right = 1068.0
 offset_bottom = -507.0
 theme_override_font_sizes/font_size = 50
+text = "MONEY"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("12_mcrxx")
 
 [node name="GoToDesert" type="Area2D" parent="."]
