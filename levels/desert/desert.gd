@@ -27,6 +27,7 @@ func _ready():
 	next_level_portal.set_enabled(false)
 	_set_exit_passage_enabled(false)
 	
+	PlayerInventorySaverLoader.new().load_scene()
 	if PlayerInventory.current_weapon != null:
 		if GlobalData.player !=  null:
 				var player_with_weapon : PlayerWithWeapon = GlobalData.player_with_weapon_scene.instantiate()

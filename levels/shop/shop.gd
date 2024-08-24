@@ -8,6 +8,10 @@ func _ready():
 	# Disable desert collisions 
 	desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 0)
 	
+	PlayerInventorySaverLoader.new().load_scene()
+	if PlayerInventory.current_weapon != null:
+		set_weapon_for_player(PlayerInventory.current_weapon)
+
 	# Listen for all weapon selected signals
 	weapons.get_children() \
 		.filter(func(item): return item.has_signal("weapon_selected")) \
