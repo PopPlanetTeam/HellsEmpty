@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd4o64byq21yk"]
+
+[ext_resource type="Script" path="res://components/pause/pause.gd" id="1_xyu4n"]
+[ext_resource type="Script" path="res://components/pause/buttons_container.gd" id="2_r17p6"]
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_xyu4n")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Paused" type="Label" parent="."]
+offset_left = 648.0
+offset_top = 184.0
+offset_right = 1352.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+offset_left = 679.0
+offset_top = 511.0
+offset_right = 1323.0
+offset_bottom = 930.0
+alignment = 1
+script = ExtResource("2_r17p6")
+
+[node name="BackToMenuButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+text = "Back to main menu"
+
+[node name="BackToShopButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+text = "Back to Shop"
+
+[node name="SaveButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="QuitButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="ButtonsContainer/BackToMenuButton" to="ButtonsContainer" method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/BackToShopButton" to="ButtonsContainer" method="_on_back_to_shop_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/SaveButton" to="ButtonsContainer" method="_on_save_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/QuitButton" to="ButtonsContainer" method="_on_quit_button_pressed"]

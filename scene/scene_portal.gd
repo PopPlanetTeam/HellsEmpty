@@ -30,6 +30,6 @@ func _on_area_entered(area: Area2D) -> void:
 			await saver_loader.save_complete
 		
 		# Update total enemies killed
-		GlobalData.total_enemies_killed += GlobalData.level_enemies_killed	
+		#GlobalData.total_enemies_killed += GlobalData.level_enemies_killed	
 		
 		SceneManager.change_scene_packed(get_tree().current_scene, _destinity)

@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dg5ccj8siatry" path="res://levels/forest/Ground tileset/Bright-grass-tileset.png" id="11_2rp6i"]
 [ext_resource type="Texture2D" uid="uid://dx8wuvstaktsu" path="res://levels/forest/Trees/Tree-1/Tree-1-1.png" id="12_gforw"]
 [ext_resource type="Script" path="res://levels/shop/player_money.gd" id="12_mcrxx"]
-[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause.tscn" id="12_y5fna"]
+[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause/pause.tscn" id="12_y5fna"]
 [ext_resource type="Texture2D" uid="uid://gg5vogkqoii1" path="res://levels/forest/Trees/Tree-1/Tree-1-2.png" id="13_xiq0u"]
 [ext_resource type="Texture2D" uid="uid://bqmdiiitahlqh" path="res://levels/forest/Trees/Tree-3/Tree-3-3.png" id="14_cpho0"]
 [ext_resource type="Texture2D" uid="uid://d3lopdfrqo0lt" path="res://levels/forest/Trees/Tree-3/Tree-3-4.png" id="15_3gihs"]

@@ -59,6 +59,8 @@ func _return_to_menu():
 	PlayerInventorySaverLoader.new().save_scene()
 	get_tree().change_scene_to_file("res://menus/main_menu/menu.tscn")
 
+
+
 func _new_scene():
 	GlobalData.level_enemies_killed = 0
 	
@@ -88,3 +90,6 @@ func _on_autosave_timeout() -> void:
 	PlayerInventorySaverLoader.new().save_scene()
 	GlobalDataSaverLoader.new().save_scene()
 	auto_save_timer.start()
+
+func _on_tree_exited() -> void:
+	GlobalAudioPlayer.stop_stream()

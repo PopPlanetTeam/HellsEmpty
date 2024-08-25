@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://duv0usm4l0py5" path="res://levels/forest/Stones/Stone-1.png" id="30_wbqh6"]
 [ext_resource type="Texture2D" uid="uid://d3rx4rkwxyfd5" path="res://levels/forest/Stones/Stone-2.png" id="31_wqxhv"]
 [ext_resource type="Texture2D" uid="uid://udyvgvao1gpu" path="res://levels/forest/Sculptures/Sculpture-1.png" id="32_m3skb"]
-[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause.tscn" id="33_for10"]
+[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause/pause.tscn" id="33_for10"]
 [ext_resource type="Texture2D" uid="uid://cu43x3in6wbmw" path="res://levels/forest/Sculptures/Sculture-2.png" id="33_fuwfq"]
 [ext_resource type="AudioStream" uid="uid://nbxlpgxwj2bc" path="res://musics/Forest - OST - Hells Empty.wav" id="37_8t1nf"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="45_80xk6"]
