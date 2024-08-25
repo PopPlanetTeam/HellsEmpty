@@ -22,6 +22,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="Coins" type="Label" parent="."]
+offset_left = 958.0
+offset_top = 44.0
+offset_right = 1007.0
+offset_bottom = 67.0
+text = "COINS"
+
 [node name="ButtonsContainer" type="VBoxContainer" parent="."]
 offset_left = 679.0
 offset_top = 511.0
@@ -41,6 +48,15 @@ text = "Back to Shop"
 [node name="SaveButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
 text = "Save"
+
+[node name="SavedEmoji" type="Label" parent="ButtonsContainer/SaveButton"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 42.0
+offset_bottom = 33.0
+text = "💾"
 
 [node name="QuitButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2

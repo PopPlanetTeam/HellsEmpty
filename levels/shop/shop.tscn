@@ -1412,11 +1412,13 @@ zoom = Vector2(2.333, 2.333)
 
 [node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_y5fna")]
 
-[node name="PlayerMoney" type="Label" parent="PlayerNoWeapon/Camera2D"]
-offset_left = 146.853
-offset_top = -320.28
-offset_right = 576.853
-offset_bottom = -219.28
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerNoWeapon/Camera2D"]
+
+[node name="PlayerMoney" type="Label" parent="PlayerNoWeapon/Camera2D/CanvasLayer"]
+offset_left = 1481.0
+offset_top = 10.0
+offset_right = 1911.0
+offset_bottom = 111.0
 theme_override_font_sizes/font_size = 50
 text = "MONEY"
 horizontal_alignment = 1
@@ -1424,6 +1426,7 @@ vertical_alignment = 1
 script = ExtResource("12_mcrxx")
 
 [node name="GoToDesert" type="Area2D" parent="."]
+visible = false
 position = Vector2(881, 35)
 collision_layer = 0
 collision_mask = 2

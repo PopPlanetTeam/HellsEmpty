@@ -4,7 +4,7 @@ extends VBoxContainer
 @onready var back_to_shop = $BackToShopButton
 @onready var save = $SaveButton
 @onready var quit = $QuitButton
-
+@onready var saved_emoji = $SaveButton/SavedEmoji
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	back_to_menu.text = tr("BACK_TO_MAIN_MENU").to_upper()
@@ -24,5 +24,16 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_save_button_pressed() -> void:
-	PlayerInventorySaverLoader.new().save_scene()
-	GlobalDataSaverLoader.new().save_scene()
+	var player_saver = PlayerInventorySaverLoader.new()
+	var global_data_saver = GlobalDataSaverLoader.new()
+	player_saver.save_complete.connect(_on_save_complete)
+	global_data_saver.save_complete.connect(_on_save_complete)
+	player_saver.save_scene()
+	global_data_saver.save_scene()
+	
+func _on_save_complete() -> void:
+	saved_emoji.visible = true
+	get_tree().create_timer(2.0).timsdeout.connect(_on_timer_timeout)
+
+func _on_timer_timeout() -> void:
+	saved_emoji.visible = false
