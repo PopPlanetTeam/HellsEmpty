@@ -4,7 +4,6 @@ class_name FollowingCamera
 @export var player_spawns: Node
 
 ## The camera will follow the player. This script should be attached to the camera node.
-
 func _ready():
 	pass
 	
