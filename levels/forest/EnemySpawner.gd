@@ -8,13 +8,15 @@ class_name EnemySpawner
 @onready var number_of_enemies : int = 0
 
 func _ready():
-	pass
+	for i in range(number_of_enemies, MAX_NUMBER_OF_ENEMIES):
+		spawn_new_enemy() 
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if number_of_enemies < MAX_NUMBER_OF_ENEMIES:
-		spawn_new_enemy()
-		number_of_enemies += 1
+	#if number_of_enemies < MAX_NUMBER_OF_ENEMIES:
+		#spawn_new_enemy()
+		#number_of_enemies += 1
+		pass
 
 func spawn_new_enemy() -> void:
 	var scale = Vector2(2.2, 2.2)
@@ -27,11 +29,9 @@ func spawn_new_enemy() -> void:
 	
 	var enemy_died_signal = enemy.died
 	enemy_died_signal.connect(spawn_new_enemy)
-	#add_sibling(enemy)
 	add_child(enemy)
+	number_of_enemies += 1
 
-# This function will get all the child markers, sort by distance to the player
-# and choose one of the best 3 at random
 func get_position_to_spawn() -> Vector2:
 	var is_marker_2d_lambda = func(obect) -> bool : return obect is Marker2D
 	var node_children : Array[Node] = get_children()
@@ -43,6 +43,18 @@ func get_position_to_spawn() -> Vector2:
 	
 	var choosed_location : Marker2D = markers.slice(0, closest_marker_points_to_consider).pick_random()
 	
-	const scale_factor = 100.0
-	var random_position_arround_marker = Vector2([-1.0, 1.0].pick_random(), [-1.0, 1.0].pick_random()).normalized() * scale_factor
-	return choosed_location.global_position + random_position_arround_marker
+	var p1 : Vector2 = markers.slice(0, closest_marker_points_to_consider).pick_random().global_position
+	var p2 : Vector2 = markers.slice(0, closest_marker_points_to_consider).pick_random().global_position
+	
+	var scale_factor = randf()
+	
+	var position = (p1-p2) * scale_factor
+	
+	#const minimum_distance = 500
+	#
+	#var _dist = position - player_position
+	#if _dist.length() < minimum_distance:
+		#print("Too close")
+		#position += _dist.normalized() * minimum_distance
+	
+	return position

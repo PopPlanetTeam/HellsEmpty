@@ -33,7 +33,7 @@ func _ready() -> void:
 				GlobalData.player = player
 				player.weapon_slot.assign_weapon(PlayerInventory.current_weapon)
 				
-				player.player_died.connect(_return_to_menu)
+	player.player_died.connect(_return_to_menu)
 
 
 func _return_to_menu():
