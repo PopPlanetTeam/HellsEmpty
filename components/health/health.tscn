@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx7e2bwi2l7h3"]
+[gd_scene load_steps=3 format=3 uid="uid://cx7e2bwi2l7h3"]
 
 [ext_resource type="Script" path="res://components/health/health.gd" id="1_xr437"]
+[ext_resource type="FontFile" uid="uid://c0llncmdnx832" path="res://fonts/Square.ttf" id="2_oapqv"]
 
 [node name="Health" type="Node2D"]
 script = ExtResource("1_xr437")
@@ -17,4 +18,5 @@ offset_right = 50.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_oapqv")
+theme_override_font_sizes/font_size = 16

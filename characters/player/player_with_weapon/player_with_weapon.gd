@@ -35,18 +35,15 @@ func _on_hit_box_damage_taken(_amount: float, knockback_taken: Vector2):
 	weapon_slot.set_weapon_enabled(true)
 
 
-func _on_picker_area_entered(area):
-	var parent_obj = area.get_parent()
+func pick_weapon(weapon_pick: WeaponPick):
+	var weapon: PackedScene = weapon_pick.get_weapon()
+	if weapon:
+		# Get weapon instance
+		var weapon_instance = weapon.instantiate()
 
-	if parent_obj is WeaponPick:
-		var weapon: PackedScene = parent_obj.get_weapon()
-		if weapon:
-			# Get weapon instance
-			var weapon_instance = weapon.instantiate()
+		# Delete weapon pick
+		weapon_pick.queue_free()
 
-			# Delete weapon pick
-			parent_obj.queue_free()
+		self.weapon_slot.assign_weapon(weapon_instance)
 
-			self.weapon_slot.assign_weapon(weapon_instance)
-
-			return
+		return

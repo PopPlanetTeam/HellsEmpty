@@ -26,7 +26,7 @@ func Enter():
 func Exit():
 	pass
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	_player = GlobalData.player
 
 	if _player != null:
@@ -46,7 +46,7 @@ func _physics_process(_delta):
 		# Calculates the direction and velocity towards the player
 		navigation_agent.target_position = _player.global_position
 		var direction = _enemy.global_position.direction_to(navigation_agent.get_next_path_position()).normalized()
-		_enemy.velocity = _enemy.velocity.lerp(direction * _enemy.speed, smooth_factor)
+		_enemy.velocity = _enemy.velocity.lerp(direction * _enemy.speed * delta * 60, smooth_factor)
 		
 		# Animates the enemy
 		_enemy.animation_sprites.play("run")

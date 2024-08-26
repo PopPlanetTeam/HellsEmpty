@@ -80,7 +80,7 @@ func _physics_process(_delta):
 		# Get the direction with the highest interest
 		var direction_to_player = _possible_directions[max_index]
 
-		# Smooth the movement using linear interpolation
+		# Smooth the movement using spherical interpolation
 		var current_direction = _enemy.velocity.normalized()
 		var new_direction = current_direction.slerp(direction_to_player, smooth_factor).normalized()
 
