@@ -1,10 +1,9 @@
 extends Node
 class_name PlayerInventorySaverLoader
 
-var _root_node: Node
+signal save_complete
+signal load_complete
 
-func _ready():
-	_root_node = get_tree().get_root()
 
 func save_scene():
 	var save = PlayerInventorySave.new()
@@ -12,11 +11,10 @@ func save_scene():
 	save.coins_ammount = PlayerInventory.coins_amount
 	save.unlocked_weapons = PlayerInventory.unlocked_weapons
 	save.current_weapon = load(PlayerInventory.current_weapon.scene_file_path)
-	# var packed_scene_weapon = PackedScene.new()
-	# packed_scene_weapon.pack(PlayerInventory.current_weapon)
-	# save.current_weapon = packed_scene_weapon
 	
 	ResourceSaver.save(save, "res://saves/player/inventory.tres")
+	
+	save_complete.emit()
 
 func load_scene():
 	var save = load("res://saves/player/inventory.tres") as PlayerInventorySave
@@ -29,3 +27,5 @@ func load_scene():
 	PlayerInventory.coins_amount = save.coins_ammount
 	PlayerInventory.unlocked_weapons = save.unlocked_weapons
 	PlayerInventory.current_weapon = save.current_weapon.instantiate()
+	
+	load_complete.emit()

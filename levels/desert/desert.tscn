@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=45 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -10,12 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://vobk73dbbqqu" path="res://components/map/chests/chest_small.tscn" id="8_qnxfj"]
 [ext_resource type="PackedScene" uid="uid://ddak21lokvpxm" path="res://components/pickups/coin/coin.tscn" id="9_aof2a"]
 [ext_resource type="Script" path="res://components/damage_tilemap/damage_tilemap.gd" id="10_sysmy"]
-[ext_resource type="Script" path="res://components/cameras/following_camera.gd" id="11_83a47"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="Script" path="res://components/map/chests/chests_group_node.gd" id="12_215nv"]
+[ext_resource type="PackedScene" uid="uid://dpsfn0lfgc47w" path="res://levels/LevelProgress.tscn" id="12_iqvbb"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
-[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause.tscn" id="12_vh8ng"]
-[ext_resource type="Script" path="res://levels/desert/level_progress.gd" id="13_8s1me"]
+[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause/pause.tscn" id="12_vh8ng"]
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="14_e8w7s"]
 [ext_resource type="PackedScene" uid="uid://da22xr0ykypco" path="res://components/pickups/heart/heart.tscn" id="15_fqqwi"]
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="15_kly4v"]
@@ -234,26 +233,17 @@ region_rect = Rect2(80, 615, 79.3972, 45)
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("11_j4mmx")]
 
-[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon" node_paths=PackedStringArray("player_spawns")]
+[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
 zoom = Vector2(6, 6)
 limit_left = -1170
 limit_top = -777
 limit_right = 3227
 limit_bottom = 900
 editor_draw_limits = true
-script = ExtResource("11_83a47")
-player_spawns = NodePath("../../PlayerSpawns")
 
 [node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_vh8ng")]
 
-[node name="LevelProgress" type="Label" parent="PlayerNoWeapon/Camera2D"]
-unique_name_in_owner = true
-offset_left = 488.0
-offset_top = -340.0
-offset_right = 608.0
-offset_bottom = -209.0
-text = "TESTE"
-script = ExtResource("13_8s1me")
+[node name="CanvasLayer" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_iqvbb")]
 
 [node name="Chests" type="Node2D" parent="." groups=["chest_save"]]
 
@@ -282,6 +272,7 @@ position = Vector2(3166, -120)
 contents = Array[ExtResource("14_e8w7s")]([SubResource("Resource_ogx6l"), SubResource("Resource_osu0t"), SubResource("Resource_oio4c"), SubResource("Resource_gnqwk")])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_p0xb2")
 script = ExtResource("12_215nv")
 
@@ -490,6 +481,7 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_5eebr")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_p0xb2")
 
 [node name="PlayerSpawns" type="Node" parent="."]
@@ -507,5 +499,6 @@ script = ExtResource("16_mrk3c")
 wait_time = 3.0
 autostart = true
 
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="player_died" from="PlayerNoWeapon" to="." method="_on_player_no_weapon_player_died"]
 [connection signal="timeout" from="Autosave" to="." method="_on_autosave_timeout"]

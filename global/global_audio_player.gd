@@ -12,3 +12,5 @@ func play_stream(audioStream: AudioStream, db: float = 0.0):
 func stop_stream():
 	stop()
 	self.stream = null
+	
+	

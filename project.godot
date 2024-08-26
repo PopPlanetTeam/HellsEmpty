@@ -24,6 +24,7 @@ GlobalAudioPlayer="*res://global/global_audio_player.gd"
 SceneManager="*res://scene/scene_manager.gd"
 FadeTransition="*res://transitions/fade_transition/fade_transition.tscn"
 Shop="*res://global/shop.gd"
+SwtichNodes="*res://components/scripts/switch_nodes.gd"
 
 [debug]
 

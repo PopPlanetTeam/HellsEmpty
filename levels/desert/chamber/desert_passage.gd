@@ -8,5 +8,5 @@ func _ready():
 	_desert_pscene = load(desert_scene) as PackedScene
 
 func _on_area_entered(area):
-	if area.get_parent()  is PlayerBase:
+	if area.get_parent() is PlayerBase:
 		SceneManager.change_scene_packed(get_tree().current_scene, _desert_pscene)

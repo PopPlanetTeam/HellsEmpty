@@ -1,14 +1,16 @@
 extends Node2D
 
+@onready var audio = $Audio
+
 func _ready():
 	# Idioma padrão será Português dos guri
 	TranslationServer.set_locale("br")
-	
 
 	%OpcoesMenu.visible = false
+	audio.play()
 
-func _process(_delta):
-	if Input.is_action_just_pressed("toggle_fullscreen"):
+func _input(event):
+	if event.is_action_pressed("toggle_fullscreen"):
 		var current_mode = DisplayServer.window_get_mode()
 
 		if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:

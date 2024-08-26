@@ -74,7 +74,6 @@ enemies_spawner = NodePath("EnemySpawn")
 saver_loader = NodePath("SceneSaverLoader")
 
 [node name="NavigationSource" type="TileMap" parent="." groups=["navigation"]]
-visible = false
 tile_set = ExtResource("1_yi7rn")
 format = 2
 layer_0/name = "Navigation"
@@ -360,7 +359,7 @@ position = Vector2(641, -189)
 [node name="Marker2D67" type="Marker2D" parent="EnemySpawn"]
 position = Vector2(717, -155)
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player_spawns")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1054)
 scale = Vector2(0.25, 0.25)
 zoom = Vector2(6, 6)
@@ -370,7 +369,6 @@ limit_right = 1097
 limit_bottom = 1110
 editor_draw_limits = true
 script = ExtResource("4_ibnig")
-player_spawns = NodePath("../PlayerSpawn")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.24, 0.19856, 0.1728, 1)
