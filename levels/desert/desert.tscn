@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dj5245roosyq6"]
+[gd_scene load_steps=44 format=3 uid="uid://dj5245roosyq6"]
 
 [ext_resource type="TileSet" uid="uid://bd362efpppnr7" path="res://levels/desert/desert.tres" id="1_ceihk"]
 [ext_resource type="Script" path="res://levels/desert/desert.gd" id="1_ov8vq"]
@@ -12,9 +12,7 @@
 [ext_resource type="Script" path="res://components/damage_tilemap/damage_tilemap.gd" id="10_sysmy"]
 [ext_resource type="PackedScene" uid="uid://c5wobxnhte8w7" path="res://characters/player/player_no_weapon/player_no_weapon.tscn" id="11_j4mmx"]
 [ext_resource type="Script" path="res://components/map/chests/chests_group_node.gd" id="12_215nv"]
-[ext_resource type="PackedScene" uid="uid://dpsfn0lfgc47w" path="res://levels/LevelProgress.tscn" id="12_iqvbb"]
 [ext_resource type="PackedScene" uid="uid://cjiv3j7llqmgb" path="res://components/weapon_pick/weapon_pick.tscn" id="12_oeuh5"]
-[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause/pause.tscn" id="12_vh8ng"]
 [ext_resource type="Script" path="res://components/map/chests/chest_item/chest_item.gd" id="14_e8w7s"]
 [ext_resource type="PackedScene" uid="uid://da22xr0ykypco" path="res://components/pickups/heart/heart.tscn" id="15_fqqwi"]
 [ext_resource type="PackedScene" uid="uid://qeh5nnhw3rf2" path="res://components/map/chests/chest_big.tscn" id="15_kly4v"]
@@ -22,6 +20,7 @@
 [ext_resource type="Script" path="res://components/save_stuff/scene_saver_loader.gd" id="16_mrk3c"]
 [ext_resource type="PackedScene" uid="uid://b027dih6dqe3i" path="res://components/pickups/power_ups/2x_cadence/2x_cadence.tscn" id="20_ye4hh"]
 [ext_resource type="PackedScene" uid="uid://d2j8cjvv54878" path="res://components/pickups/power_ups/3x_damage/3x_damage.tscn" id="21_nrt61"]
+[ext_resource type="PackedScene" uid="uid://brxg2lrltt3wo" path="res://components/cameras/camera_2d.tscn" id="22_fe4j4"]
 [ext_resource type="PackedScene" uid="uid://oa6nmf6nuisd" path="res://scene/scene_portal.tscn" id="22_pwbcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfq5l"]
@@ -232,18 +231,6 @@ region_enabled = true
 region_rect = Rect2(80, 615, 79.3972, 45)
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("11_j4mmx")]
-
-[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
-zoom = Vector2(6, 6)
-limit_left = -1170
-limit_top = -777
-limit_right = 3227
-limit_bottom = 900
-editor_draw_limits = true
-
-[node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_vh8ng")]
-
-[node name="CanvasLayer" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_iqvbb")]
 
 [node name="Chests" type="Node2D" parent="." groups=["chest_save"]]
 
@@ -471,12 +458,12 @@ saver_loader = NodePath("../SceneSaverLoader")
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_7qgof")
 
-[node name="SafeHousePortal" parent="." node_paths=PackedStringArray("saver_loader") instance=ExtResource("22_pwbcj")]
+[node name="ShopPortal" parent="." node_paths=PackedStringArray("saver_loader") instance=ExtResource("22_pwbcj")]
 position = Vector2(3216, 104)
-scene_to_go_path = "C:/Users/henri/Documents/GitHub/HellsEmpty/levels/safe_house/safe_house.tscn"
+scene_to_go_path = "res://levels/shop/shop.tscn"
 saver_loader = NodePath("../SceneSaverLoader")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeHousePortal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopPortal"]
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_5eebr")
 
@@ -498,6 +485,9 @@ script = ExtResource("16_mrk3c")
 [node name="Autosave" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Camera2D" parent="." instance=ExtResource("22_fe4j4")]
+scale = Vector2(0.25, 0.25)
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="player_died" from="PlayerNoWeapon" to="." method="_on_player_no_weapon_player_died"]

@@ -6,10 +6,10 @@ extends SceneBase
 @export var song_volume_db: float = 0.0
 
 @onready var enemy_spawner: EnemySpawnerDesert = $EnemySpawner
-@onready var next_level_portal: ScenePortal = $SafeHousePortal
+@onready var next_level_portal: ScenePortal = $ShopPortal
 @onready var exit_passage: TileMap = $ExitPassage
 @onready var player = $PlayerNoWeapon
-@onready var pause = $Pause
+@onready var pause = %Pause
 @onready var auto_save_timer : Timer = $Autosave
 
 
@@ -21,6 +21,7 @@ func _ready():
 	_set_exit_passage_enabled(false)
 	
 	GlobalData.level_enemies_killed = 0
+	GlobalData.current_level_goal = kills_to_win
 	
 	player.player_died.connect(_game_over_scene)
 

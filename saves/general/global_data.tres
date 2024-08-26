@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GlobalDataSave" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://components/save_stuff/global_data/save.gd" id="1_iqg5w"]
+[ext_resource type="Script" path="res://components/save_stuff/global_data/save.gd" id="1_mriqa"]
 
 [resource]
-script = ExtResource("1_iqg5w")
-total_enemies_killed = 528
+script = ExtResource("1_mriqa")
+total_enemies_killed = 1
