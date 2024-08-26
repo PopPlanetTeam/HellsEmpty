@@ -10,11 +10,13 @@ script = ExtResource("1_25e77")
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 metadata/_edit_lock_ = true
 
 [node name="GameOver" type="Label" parent="."]
+layout_mode = 0
 offset_left = 776.0
 offset_top = 208.0
 offset_right = 1120.0
@@ -26,6 +28,7 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="RunStats" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 872.0
 offset_top = 464.0
 offset_right = 1020.0
@@ -44,6 +47,7 @@ layout_mode = 2
 text = "TIME SURVIVED"
 
 [node name="ButtonsContainer" parent="." instance=ExtResource("2_w1bjk")]
+layout_mode = 0
 offset_left = 880.0
 offset_top = 816.0
 offset_right = 1038.0

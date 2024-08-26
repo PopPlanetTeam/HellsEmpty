@@ -4,6 +4,7 @@ class_name PlayerInventorySaverLoader
 signal save_complete
 signal load_complete
 
+const SAVE_PATH = "user://saves/player/inventory.tres"
 
 func save_scene():
 	var save = PlayerInventorySave.new()
@@ -12,12 +13,12 @@ func save_scene():
 	save.unlocked_weapons = PlayerInventory.unlocked_weapons
 	save.current_weapon = load(PlayerInventory.current_weapon.scene_file_path)
 	
-	ResourceSaver.save(save, "res://saves/player/inventory.tres")
+	ResourceSaver.save(save, SAVE_PATH)
 	
 	save_complete.emit()
 
 func load_scene():
-	var save = load("res://saves/player/inventory.tres") as PlayerInventorySave
+	var save = load(SAVE_PATH) as PlayerInventorySave
 
 	if not save:
 		print("No save found. Going with default values.")
