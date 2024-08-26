@@ -13,4 +13,4 @@ func _ready() -> void:
 	var collected_coins = PlayerInventory.coins_amount - GlobalData.total_level_coins_collected
 	coins_collected.text = tr("COINS_COLLECTED") + ": " + str(collected_coins)
 	var survived_time = (Time.get_ticks_msec() / 1000.) - GlobalData.total_time_survived
-	time_survived.text = tr("TIME_SURVIVED") + ": " + str(survived_time) + "s"
+	time_survived.text = tr("TIME_SURVIVED") + ": " + str(survived_time).pad_decimals(2) + "s"
