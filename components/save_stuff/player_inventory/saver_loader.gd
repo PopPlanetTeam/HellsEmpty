@@ -4,14 +4,17 @@ class_name PlayerInventorySaverLoader
 signal save_complete
 signal load_complete
 
-const SAVE_PATH = "user://saves/player/inventory.tres"
+const SAVE_PATH = "user://inventory.tres"
 
 func save_scene():
 	var save = PlayerInventorySave.new()
 	
 	save.coins_ammount = PlayerInventory.coins_amount
 	save.unlocked_weapons = PlayerInventory.unlocked_weapons
-	save.current_weapon = load(PlayerInventory.current_weapon.scene_file_path)
+	if PlayerInventory.current_weapon != null:
+		save.current_weapon = load(PlayerInventory.current_weapon.scene_file_path) 
+	else :
+		save.current_weapon = PackedScene.new()
 	
 	ResourceSaver.save(save, SAVE_PATH)
 	

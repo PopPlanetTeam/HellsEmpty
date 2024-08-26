@@ -23,7 +23,11 @@ func _on_picker_area_entered(area):
 			player_with_weapon.global_position = self.global_position
 			player_with_weapon.set_scale(self.get_scale())
 			player_with_weapon.weapon_slot.assign_weapon(weapon_instance)
-
+		
+			SwitchNodes.transfer_all_children_added_on_this_scene(self, GlobalData.player)
+		
+			self.player_died.get_connections() \
+				.map(func (sgn): GlobalData.player.player_died.connect(sgn["callable"]))
 			# Update the attributes of the player with weapon
 			player_with_weapon.set_attributes(self.get_attributes())
 

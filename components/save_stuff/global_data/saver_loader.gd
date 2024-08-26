@@ -1,7 +1,7 @@
 extends Node
 class_name GlobalDataSaverLoader
 
-const SAVE_PATH = "usr://saves/general/global_data.tres"
+const SAVE_PATH = "user://global_data.tres"
 
 signal save_complete
 signal load_complete
