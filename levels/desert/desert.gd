@@ -23,7 +23,7 @@ func _ready():
 	GlobalData.level_enemies_killed = 0
 	GlobalData.current_level_goal = kills_to_win
 	
-	player.player_died.connect(_game_over_scene)
+	GlobalData.player.player_died.connect(_game_over_scene)
 
 	if level_song:
 		GlobalAudioPlayer.play_stream(level_song, song_volume_db)

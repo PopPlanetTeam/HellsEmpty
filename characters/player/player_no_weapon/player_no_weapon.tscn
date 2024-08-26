@@ -502,4 +502,3 @@ position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_2ob4g")
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]
-[connection signal="area_entered" from="Picker" to="." method="_on_picker_area_entered"]

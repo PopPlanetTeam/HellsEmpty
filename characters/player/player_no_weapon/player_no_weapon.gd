@@ -1,39 +1,36 @@
 extends PlayerBase
 class_name PlayerNoWeapon
 
-func _on_picker_area_entered(area):
-	var parent_obj = area.get_parent()
+func pick_weapon(weapon_pick: WeaponPick):
+	var weapon: PackedScene = weapon_pick.get_weapon()
+	if weapon:
+		var weapon_instance = weapon.instantiate()
+		var player_with_weapon = GlobalData.player_with_weapon_scene.instantiate()
+		
+		# Delete weapon pick
+		weapon_pick.queue_free()
+
+		# Add player with weapon to the scene
+		self.get_parent().call_deferred("add_child", player_with_weapon)
+		await player_with_weapon.ready
+
+		GlobalData.player = player_with_weapon
+		
+		# Set player with weapon position, scale and assign weapon
+		player_with_weapon.global_position = self.global_position
+		player_with_weapon.set_scale(self.get_scale())
+		player_with_weapon.weapon_slot.assign_weapon(weapon_instance)
 	
-	if parent_obj is WeaponPick:
-		var weapon: PackedScene = parent_obj.get_weapon()
-		if weapon:
-			var weapon_instance = weapon.instantiate()
-			var player_with_weapon = GlobalData.player_with_weapon_scene.instantiate()
-			
-			# Delete weapon pick
-			parent_obj.queue_free()
+		SwitchNodes.transfer_all_children_added_on_this_scene(self, GlobalData.player)
+	
+		self.player_died.get_connections() \
+			.map(func (sgn): GlobalData.player.player_died.connect(sgn["callable"]))
+		# Update the attributes of the player with weapon
+		player_with_weapon.set_attributes(self.get_attributes())
 
-			# Add player with weapon to the scene
-			self.get_parent().call_deferred("add_child", player_with_weapon)
-			await player_with_weapon.ready
-
-			GlobalData.player = player_with_weapon
-			
-			# Set player with weapon position, scale and assign weapon
-			player_with_weapon.global_position = self.global_position
-			player_with_weapon.set_scale(self.get_scale())
-			player_with_weapon.weapon_slot.assign_weapon(weapon_instance)
-		
-			SwitchNodes.transfer_all_children_added_on_this_scene(self, GlobalData.player)
-		
-			self.player_died.get_connections() \
-				.map(func (sgn): GlobalData.player.player_died.connect(sgn["callable"]))
-			# Update the attributes of the player with weapon
-			player_with_weapon.set_attributes(self.get_attributes())
-
-			# Delete player without weapon
-			self.queue_free()
-			return
+		# Delete player without weapon
+		self.queue_free()
+		return
 
 func _on_hit_box_damage_taken(_amount, knockback_taken):
 	self._knockback = knockback_taken

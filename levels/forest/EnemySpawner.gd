@@ -16,13 +16,12 @@ func _process(delta):
 		pass
 
 func spawn_new_enemy() -> void:
-	var scale = Vector2(2.2, 2.2)
-	
-	var enemy = enemies_to_spawn.pick_random().instantiate()
+	var enemy: EnemyBase = enemies_to_spawn.pick_random().instantiate()
 	
 	enemy.global_position = get_position_to_spawn()
-	enemy.scale = scale
-	enemy.speed *= scale.x
+	enemy.speed *= (scale.x + randf())
+	enemy.chase_distance *= 10
+	enemy.run_away_distance *= 10
 	
 	var enemy_died_signal = enemy.died
 	enemy_died_signal.connect(spawn_new_enemy)

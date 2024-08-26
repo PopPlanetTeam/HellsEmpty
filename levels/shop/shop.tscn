@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://tjoxdhib3wpw"]
+[gd_scene load_steps=72 format=3 uid="uid://tjoxdhib3wpw"]
 
 [ext_resource type="Texture2D" uid="uid://eunfdsj2a0de" path="res://levels/shop/tiles/Damp Dungeon Tileset.png" id="1_0htse"]
 [ext_resource type="Script" path="res://levels/shop/shop.gd" id="1_48ic5"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://d3q1exbs4vlf3" path="res://levels/forest/Trees/Tree-3/Tree-3-1.png" id="22_sjvcb"]
 [ext_resource type="Texture2D" uid="uid://c1owviy68p1rh" path="res://levels/forest/Trees/Tree-3/Tree-3-2.png" id="23_82xpa"]
 [ext_resource type="PackedScene" uid="uid://brxg2lrltt3wo" path="res://components/cameras/camera_2d.tscn" id="35_evcqg"]
+[ext_resource type="FontFile" uid="uid://c0llncmdnx832" path="res://fonts/Square.ttf" id="35_gmo3x"]
 [ext_resource type="Script" path="res://levels/shop/unlock_forest.gd" id="36_y2ydx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s66lo"]
@@ -1327,6 +1328,9 @@ sources/0 = SubResource("TileSetAtlasSource_c7wpm")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1a0"]
 size = Vector2(596.125, 956)
 
+[sub_resource type="LabelSettings" id="LabelSettings_okuj5"]
+font = ExtResource("35_gmo3x")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xn1vo"]
 size = Vector2(79, 155)
 
@@ -1389,24 +1393,25 @@ script = ExtResource("4_x3mxt")
 [node name="SMGContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(-351, -384)
 scale = Vector2(0.5, 0.5)
-price = 11000
+price = 1100
 scene_path = ExtResource("5_kf2wx")
 
 [node name="PistolContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(-128, -383)
 scale = Vector2(0.5, 0.5)
+price = 500
 scene_path = ExtResource("6_pytb6")
 
 [node name="RevolverContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(129, -383)
 scale = Vector2(0.5, 0.5)
-price = 5000
+price = 100
 scene_path = ExtResource("7_71lpt")
 
 [node name="RocketLauncherContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(353, -383)
 scale = Vector2(0.5, 0.5)
-price = 20000
+price = 5000
 scene_path = ExtResource("8_p5nwd")
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("4_ppuhn")]
@@ -1432,9 +1437,9 @@ offset_left = -110.0
 offset_top = -45.0
 offset_right = 114.0
 offset_bottom = 30.0
-theme_override_font_sizes/font_size = 20
 text = "UNLOCK FOREST MAP
 0/200 SOULS"
+label_settings = SubResource("LabelSettings_okuj5")
 horizontal_alignment = 1
 vertical_alignment = 1
 

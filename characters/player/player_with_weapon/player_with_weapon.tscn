@@ -2093,6 +2093,7 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("1_wjd5o")
 weapon_slot = NodePath("AnimationContainer/WeaponSlot")
 animation_player = NodePath("AnimationPlayer")
+provides_collision = 0
 
 [node name="Collision" type="CollisionShape2D" parent="." index="0"]
 position = Vector2(6, 46)
@@ -2143,4 +2144,3 @@ position = Vector2(6, 12)
 shape = SubResource("RectangleShape2D_mi2w2")
 
 [connection signal="damage_taken" from="HitBox" to="." method="_on_hit_box_damage_taken"]
-[connection signal="area_entered" from="Picker" to="." method="_on_picker_area_entered"]

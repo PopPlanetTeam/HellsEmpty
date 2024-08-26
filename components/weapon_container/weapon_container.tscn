@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1pxjjslhali4"]
+[gd_scene load_steps=5 format=3 uid="uid://b1pxjjslhali4"]
 
 [ext_resource type="Script" path="res://components/weapon_container/weapon_container.gd" id="1_o2syw"]
+[ext_resource type="FontFile" uid="uid://c0llncmdnx832" path="res://fonts/Square.ttf" id="2_yv7ph"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hcpn"]
+font = ExtResource("2_yv7ph")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p12ha"]
 radius = 39.0128
@@ -13,6 +17,7 @@ offset_left = -19.0
 offset_top = -43.0
 offset_right = 21.0
 offset_bottom = -20.0
+label_settings = SubResource("LabelSettings_3hcpn")
 
 [node name="Area2D" type="Area2D" parent="." groups=["weapon_container_selection_area"]]
 collision_layer = 0

@@ -8,9 +8,9 @@ signal player_died
 @export var animation_player: AnimationPlayer
 
 @export_group("Layers and Masks")
-@export_flags_2d_physics var provides_collision = 0
-@export_flags_2d_physics var scan_collision = 0
-@export_flags_2d_physics var takes_damage = 0
+@export_flags_2d_physics var provides_collision: int = 0
+@export_flags_2d_physics var scan_collision: int = 0
+@export_flags_2d_physics var takes_damage: int = 0
 
 @onready var hitbox: HitBox = $HitBox
 @onready var health: Health = $Health
@@ -118,3 +118,6 @@ func set_power_up_shader(enabled: bool):
 
 		if actives_power_ups == 0:
 			self.material = null
+
+func pick_weapon(_weapon_pick: WeaponPick):
+	pass
