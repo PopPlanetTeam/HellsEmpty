@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmtkoupfau6ud"]
+
+[ext_resource type="Script" path="res://levels/win.gd" id="1_xo3ao"]
+[ext_resource type="LabelSettings" uid="uid://rju7ac3tiokm" path="res://components/cameras/font_hud.tres" id="2_ko5dp"]
+[ext_resource type="PackedScene" uid="uid://defio4bkguk26" path="res://components/pause/buttons_container.tscn" id="3_p8w55"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xo3ao")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 393.0
+offset_right = 1915.0
+offset_bottom = 681.0
+text = "WON_TEXT"
+label_settings = ExtResource("2_ko5dp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsContainer" parent="." instance=ExtResource("3_p8w55")]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 636.0
+offset_right = 1289.0
+offset_bottom = 1055.0
