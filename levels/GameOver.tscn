@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctat1utuikf70"]
+
+[ext_resource type="Script" path="res://levels/game_over.gd" id="1_25e77"]
+[ext_resource type="PackedScene" uid="uid://defio4bkguk26" path="res://components/pause/buttons_container.tscn" id="2_w1bjk"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_25e77")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="GameOver" type="Label" parent="."]
+offset_left = 776.0
+offset_top = 208.0
+offset_right = 1120.0
+offset_bottom = 291.0
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="RunStats" type="VBoxContainer" parent="."]
+offset_left = 872.0
+offset_top = 464.0
+offset_right = 1020.0
+offset_bottom = 541.0
+
+[node name="SoulsCollected" type="Label" parent="RunStats"]
+layout_mode = 2
+text = "SOULS COLLECTED "
+
+[node name="CoinsCollected" type="Label" parent="RunStats"]
+layout_mode = 2
+text = "COINS COLLECTED"
+
+[node name="TimeSurvived" type="Label" parent="RunStats"]
+layout_mode = 2
+text = "TIME SURVIVED"
+
+[node name="ButtonsContainer" parent="." instance=ExtResource("2_w1bjk")]
+offset_left = 880.0
+offset_top = 816.0
+offset_right = 1038.0
+offset_bottom = 952.0

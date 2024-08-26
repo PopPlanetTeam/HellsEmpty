@@ -33,7 +33,7 @@ func _on_save_button_pressed() -> void:
 	
 func _on_save_complete() -> void:
 	saved_emoji.visible = true
-	get_tree().create_timer(2.0).timeout.connect(_on_timer_timeout)
+	get_tree().create_timer(1.0).timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout() -> void:
 	saved_emoji.visible = false

@@ -34,15 +34,6 @@ func _on_player_exited_weapon_selection(area:Area2D):
 		if current_weapon:
 			current_weapon.set_process_input(true)
 		
-# func transfer_all_children_added_on_this_scene(from_node, to_node):
-# 	from_node.get_children(false) \
-# 		.filter(func(child): return child.owner != from_node) \
-# 		.map(func(child): transfer_child(from_node, to_node, child))
-
-# func transfer_child(from_node, to_node, child):
-# 	from_node.remove_child(child)
-# 	to_node.add_child(child)
-
 func change_player_no_weapon_to_player_with_weapon():
 	var player_with_weapon : PlayerWithWeapon = GlobalData.player_with_weapon_scene.instantiate()
 	player_with_weapon.transform = player.transform
@@ -85,10 +76,11 @@ func _input(event: InputEvent) -> void:
 func _on_go_to_desert_area_entered(area: Area2D) -> void:
 	if area.get_parent() is PlayerBase:
 		PlayerInventorySaverLoader.new().save_scene()
+		GlobalData.total_time_survived = Time.get_ticks_msec() / 1000.
+		GlobalData.total_level_coins_collected = PlayerInventory.coins_amount
 		desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 1)
 		SceneManager.last_scene = ""
 		get_tree().change_scene_to_file("res://levels/desert/desert.tscn")
-
 
 func _on_go_to_forest_area_entered(area: Area2D) -> void:
 	if area.get_parent() is PlayerBase:
