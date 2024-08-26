@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var kills_to_win: int = 70
+
 @onready var player : PlayerBase = $PlayerNoWeapon
 @onready var auto_save_timer : Timer = $Autosave
 
@@ -15,6 +17,7 @@ func transfer_child(from_node, to_node, child):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalData.level_enemies_killed = 0
+	GlobalData.current_level_goal = kills_to_win
 	
 	PlayerInventorySaverLoader.new().load_scene()
 	if PlayerInventory.current_weapon != null:
@@ -42,8 +45,10 @@ func _return_to_menu():
 	get_tree().change_scene_to_file("res://menus/main_menu/menu.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	if GlobalData.level_enemies_killed == GlobalData.current_level_goal:
+		# ------------------------------ Coloca tua tela de Game Win aqui, Jelson ------------------------------
+		pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("save"):

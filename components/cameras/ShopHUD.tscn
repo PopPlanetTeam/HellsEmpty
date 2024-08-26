@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://3h6ue66i0sge"]
+
+[ext_resource type="Script" path="res://components/cameras/total_kills.gd" id="1_uxrfh"]
+[ext_resource type="Texture2D" uid="uid://diiywlftwaia6" path="res://components/cameras/kill_count_icon.png" id="3_6ecto"]
+[ext_resource type="Texture2D" uid="uid://8wvllreq56ho" path="res://components/pickups/coin/coin.png" id="4_ugb6q"]
+[ext_resource type="Script" path="res://components/cameras/coins_counter.gd" id="5_sh8l2"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -840.0
+offset_bottom = 100.0
+grow_horizontal = 0
+size_flags_vertical = 4
+alignment = 2
+
+[node name="TotalKill" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "TOTAL KILLS"
+horizontal_alignment = 2
+script = ExtResource("1_uxrfh")
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Control"]
+position = Vector2(32, 32)
+scale = Vector2(3, 3)
+texture = ExtResource("3_6ecto")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_right = 840.0
+offset_bottom = 100.0
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer2/Control"]
+position = Vector2(32, 32)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_ugb6q")
+
+[node name="Coins" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "COINS"
+horizontal_alignment = 2
+script = ExtResource("5_sh8l2")

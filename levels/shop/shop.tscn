@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://tjoxdhib3wpw"]
+[gd_scene load_steps=70 format=3 uid="uid://tjoxdhib3wpw"]
 
 [ext_resource type="Texture2D" uid="uid://eunfdsj2a0de" path="res://levels/shop/tiles/Damp Dungeon Tileset.png" id="1_0htse"]
 [ext_resource type="Script" path="res://levels/shop/shop.gd" id="1_48ic5"]
@@ -22,8 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dcbgk78jxlr57" path="res://levels/forest/Ground tileset/Dark-grass-tileset.png" id="10_b2slp"]
 [ext_resource type="Texture2D" uid="uid://dg5ccj8siatry" path="res://levels/forest/Ground tileset/Bright-grass-tileset.png" id="11_2rp6i"]
 [ext_resource type="Texture2D" uid="uid://dx8wuvstaktsu" path="res://levels/forest/Trees/Tree-1/Tree-1-1.png" id="12_gforw"]
-[ext_resource type="Script" path="res://levels/shop/player_money.gd" id="12_mcrxx"]
-[ext_resource type="PackedScene" uid="uid://cd4o64byq21yk" path="res://components/pause/pause.tscn" id="12_y5fna"]
 [ext_resource type="Texture2D" uid="uid://gg5vogkqoii1" path="res://levels/forest/Trees/Tree-1/Tree-1-2.png" id="13_xiq0u"]
 [ext_resource type="Texture2D" uid="uid://bqmdiiitahlqh" path="res://levels/forest/Trees/Tree-3/Tree-3-3.png" id="14_cpho0"]
 [ext_resource type="Texture2D" uid="uid://d3lopdfrqo0lt" path="res://levels/forest/Trees/Tree-3/Tree-3-4.png" id="15_3gihs"]
@@ -35,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://ctw8yk512yamt" path="res://levels/forest/Trees/Tree-2/Tree-2-4.png" id="21_8du44"]
 [ext_resource type="Texture2D" uid="uid://d3q1exbs4vlf3" path="res://levels/forest/Trees/Tree-3/Tree-3-1.png" id="22_sjvcb"]
 [ext_resource type="Texture2D" uid="uid://c1owviy68p1rh" path="res://levels/forest/Trees/Tree-3/Tree-3-2.png" id="23_82xpa"]
+[ext_resource type="PackedScene" uid="uid://brxg2lrltt3wo" path="res://components/cameras/camera_2d.tscn" id="35_evcqg"]
 [ext_resource type="Script" path="res://levels/shop/unlock_forest.gd" id="36_y2ydx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s66lo"]
@@ -1243,6 +1242,7 @@ sources/0 = SubResource("TileSetAtlasSource_f66j2")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7wpm"]
 texture = ExtResource("3_xieam")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -8, 8, -8, 8, 8, -7, 8)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -1253,6 +1253,7 @@ texture = ExtResource("3_xieam")
 8:0/0 = 0
 9:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -1283,6 +1284,7 @@ texture = ExtResource("3_xieam")
 3:4/0 = 0
 4:4/0 = 0
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -4, 5, -4, 5, 5, -5, 5)
 6:4/0 = 0
 0:5/0 = 0
 1:5/0 = 0
@@ -1379,51 +1381,37 @@ layer_0/tile_data = PackedInt32Array(-262175, 786432, 19)
 [node name="Items" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g1rnk")
 format = 2
-layer_0/tile_data = PackedInt32Array(-1507357, 0, 7, -1900574, 327680, 4, -393198, 327680, 4, 1835042, 327680, 4, 1834993, 327680, 4, -1376278, 0, 1, 262156, 0, 1, -589858, 524288, 1, -65569, 524288, 1, -262175, 65536, 7, -458782, 65536, 7)
+layer_0/tile_data = PackedInt32Array(-1507357, 0, 7, -1900574, 327680, 4, -393198, 327680, 4, 1835042, 327680, 4, 1834993, 327680, 4, -1376278, 0, 1, 262156, 0, 1, -589858, 524288, 1, -65569, 524288, 1, -262175, 65536, 7, -458782, 65536, 7, -1245186, 0, 0)
 
 [node name="Weapons" type="Node2D" parent="."]
 script = ExtResource("4_x3mxt")
 
 [node name="SMGContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(-351, -384)
+scale = Vector2(0.5, 0.5)
 price = 11000
 scene_path = ExtResource("5_kf2wx")
 
 [node name="PistolContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(-128, -383)
+scale = Vector2(0.5, 0.5)
 scene_path = ExtResource("6_pytb6")
 
 [node name="RevolverContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(129, -383)
+scale = Vector2(0.5, 0.5)
 price = 5000
 scene_path = ExtResource("7_71lpt")
 
 [node name="RocketLauncherContainer" parent="Weapons" instance=ExtResource("4_w51y8")]
 position = Vector2(353, -383)
+scale = Vector2(0.5, 0.5)
 price = 20000
 scene_path = ExtResource("8_p5nwd")
 
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("4_ppuhn")]
-scale = Vector2(0.715, 0.715)
-SPEED = 300.0
-
-[node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
-zoom = Vector2(2.333, 2.333)
-
-[node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("12_y5fna")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="PlayerNoWeapon/Camera2D"]
-
-[node name="PlayerMoney" type="Label" parent="PlayerNoWeapon/Camera2D/CanvasLayer"]
-offset_left = 1481.0
-offset_top = 10.0
-offset_right = 1911.0
-offset_bottom = 111.0
-theme_override_font_sizes/font_size = 50
-text = "MONEY"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("12_mcrxx")
+scale = Vector2(0.3, 0.3)
+SPEED = 220.0
 
 [node name="GoToDesert" type="Area2D" parent="."]
 visible = false
@@ -1474,6 +1462,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoToForest"]
 position = Vector2(-60, -2.5)
 shape = SubResource("RectangleShape2D_cee45")
+
+[node name="Camera2D" parent="." instance=ExtResource("35_evcqg")]
+limit_left = -1265
+limit_right = 1387
+shop = true
 
 [connection signal="area_entered" from="GoToDesert" to="." method="_on_go_to_desert_area_entered"]
 [connection signal="area_exited" from="GoToDesert" to="." method="_on_go_to_desert_area_exited"]

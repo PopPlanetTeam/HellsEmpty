@@ -20,4 +20,5 @@ const ENEMY_GROUP = "enemy"
 
 var level_enemies_killed: int = 0
 var total_enemies_killed: int = 0
+var current_level_goal: int
 const WEAPON_CONTAINER_SELECTION_AREA_GROUP = "weapon_container_selection_area"

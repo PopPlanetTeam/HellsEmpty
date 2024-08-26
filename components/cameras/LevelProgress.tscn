@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpsfn0lfgc47w"]
+
+[ext_resource type="Script" path="res://components/cameras/level_progress.gd" id="1_sqhiu"]
+[ext_resource type="Script" path="res://components/cameras/level_goal.gd" id="2_g61fs"]
+[ext_resource type="Texture2D" uid="uid://diiywlftwaia6" path="res://components/cameras/kill_count_icon.png" id="3_rgulg"]
+[ext_resource type="Texture2D" uid="uid://8wvllreq56ho" path="res://components/pickups/coin/coin.png" id="4_l8njs"]
+[ext_resource type="Script" path="res://components/cameras/coins_counter.gd" id="5_ic560"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -840.0
+offset_bottom = 100.0
+grow_horizontal = 0
+size_flags_vertical = 4
+alignment = 2
+
+[node name="LevelProgress" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "KILL COUNTER"
+horizontal_alignment = 2
+script = ExtResource("1_sqhiu")
+
+[node name="Separator" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "/"
+horizontal_alignment = 2
+
+[node name="LevelGoal" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "GOAL"
+horizontal_alignment = 2
+script = ExtResource("2_g61fs")
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Control"]
+position = Vector2(32, 32)
+scale = Vector2(3, 3)
+texture = ExtResource("3_rgulg")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_right = 840.0
+offset_bottom = 100.0
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer2/Control"]
+position = Vector2(32, 32)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_l8njs")
+
+[node name="Coins" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "COINS"
+horizontal_alignment = 2
+script = ExtResource("5_ic560")
