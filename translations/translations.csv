@@ -11,3 +11,4 @@ QUIT,Quit,Sair
 SAVE,Save,Salvar
 COINS_COLLECTED,Coins Collected,Moedas Coletadas
 TIME_SURVIVED,Time Survived,Tempo de Sobrevivência
+WON_TEXT,"You have collected enough souls, now the hell is full again.\nYou can go back on the shop and all weapons are unlocked.\nEnjoy!","Você coletou almas suficientes e o inferno está cheio.\nVocê pode retornar na loja e todas as armas estão desbloqueadas.\nAproveite!"
