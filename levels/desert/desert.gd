@@ -22,16 +22,16 @@ func _ready():
 	
 	GlobalData.level_enemies_killed = 0
 	
-	player.player_died.connect(_return_to_menu)
+	player.player_died.connect(_game_over_scene)
 
 	if level_song:
 		GlobalAudioPlayer.play_stream(level_song, song_volume_db)
 
-func _return_to_menu():
+func _game_over_scene():
 	GlobalAudioPlayer.stop_stream()
 	GlobalDataSaverLoader.new().save_scene()
 	PlayerInventorySaverLoader.new().save_scene()
-	get_tree().change_scene_to_file("res://menus/main_menu/menu.tscn")
+	get_tree().change_scene_to_file("res://levels/GameOver.tscn")
 
 func _new_scene():
 	GlobalData.level_enemies_killed = 0

@@ -554,7 +554,6 @@ tile_map_data = PackedByteArray("AAAwAAEABQAAAAAAAABAACIABQAAAAAAAAAEACoABQAAAAA
 tile_set = SubResource("TileSet_aarcm")
 
 [node name="Chests" type="Node2D" parent="."]
-visible = false
 
 [node name="ChestSmall1" parent="Chests" instance=ExtResource("21_g1r85")]
 position = Vector2(-1144, 2639)
@@ -604,11 +603,6 @@ SPEED = 360.0
 [node name="Camera2D" type="Camera2D" parent="PlayerNoWeapon"]
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(2.4, 2.4)
-
-[node name="Pause" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("33_for10")]
-visible = false
-
-[node name="CanvasLayer" parent="PlayerNoWeapon/Camera2D" instance=ExtResource("33_ehtvw")]
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("49_fyuuu")
@@ -692,6 +686,11 @@ navigation_polygon = SubResource("NavigationPolygon_hbsiq")
 [node name="Autosave" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Pause" parent="." instance=ExtResource("33_for10")]
+visible = false
+
+[node name="LevelProgress" parent="." instance=ExtResource("33_ehtvw")]
 
 [connection signal="finished" from="ForestTheme" to="ForestTheme" method="_on_finished"]
 [connection signal="timeout" from="Autosave" to="." method="_on_autosave_timeout"]

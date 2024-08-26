@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd4o64byq21yk"]
 
 [ext_resource type="Script" path="res://components/pause/pause.gd" id="1_xyu4n"]
-[ext_resource type="Script" path="res://components/pause/buttons_container.gd" id="2_r17p6"]
+[ext_resource type="PackedScene" uid="uid://defio4bkguk26" path="res://components/pause/buttons_container.tscn" id="2_nsixq"]
 
 [node name="Pause" type="CanvasLayer"]
 process_mode = 3
@@ -29,40 +29,4 @@ offset_right = 1007.0
 offset_bottom = 67.0
 text = "COINS"
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="."]
-offset_left = 679.0
-offset_top = 511.0
-offset_right = 1323.0
-offset_bottom = 930.0
-alignment = 1
-script = ExtResource("2_r17p6")
-
-[node name="BackToMenuButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "Back to main menu"
-
-[node name="BackToShopButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "Back to Shop"
-
-[node name="SaveButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "Save"
-
-[node name="SavedEmoji" type="Label" parent="ButtonsContainer/SaveButton"]
-visible = false
-layout_mode = 0
-offset_left = 2.0
-offset_top = 10.0
-offset_right = 42.0
-offset_bottom = 33.0
-text = "💾"
-
-[node name="QuitButton" type="Button" parent="ButtonsContainer"]
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="ButtonsContainer/BackToMenuButton" to="ButtonsContainer" method="_on_back_to_menu_button_pressed"]
-[connection signal="pressed" from="ButtonsContainer/BackToShopButton" to="ButtonsContainer" method="_on_back_to_shop_button_pressed"]
-[connection signal="pressed" from="ButtonsContainer/SaveButton" to="ButtonsContainer" method="_on_save_button_pressed"]
-[connection signal="pressed" from="ButtonsContainer/QuitButton" to="ButtonsContainer" method="_on_quit_button_pressed"]
+[node name="ButtonsContainer" parent="." instance=ExtResource("2_nsixq")]

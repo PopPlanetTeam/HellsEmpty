@@ -13,9 +13,6 @@ func _ready():
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if number_of_enemies < MAX_NUMBER_OF_ENEMIES:
-		#spawn_new_enemy()
-		#number_of_enemies += 1
 		pass
 
 func spawn_new_enemy() -> void:
@@ -37,7 +34,7 @@ func get_position_to_spawn() -> Vector2:
 	var node_children : Array[Node] = get_children()
 	var markers = get_children().filter(is_marker_2d_lambda) as Array[Marker2D]
 	
-	var player_position = GlobalData.player.global_position
+	var player_position = GlobalData.player.global_position if GlobalData.player else Vector2(0,0)
 	var sort_lamda = func(a, b) -> bool : return (a.global_position - player_position).length() < (b.global_position - player_position).length()
 	markers.sort_custom(sort_lamda)
 	
@@ -48,7 +45,7 @@ func get_position_to_spawn() -> Vector2:
 	
 	var scale_factor = randf()
 	
-	var position = (p1-p2) * scale_factor
+	var position = (p1-p2) * scale_factor + p1
 	
 	#const minimum_distance = 500
 	#

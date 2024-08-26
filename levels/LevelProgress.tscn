@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/desert/level_progress.gd" id="1_x1beh"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="LevelProgress" type="CanvasLayer"]
 
 [node name="LevelProgress" type="Label" parent="."]
 offset_left = 1762.0

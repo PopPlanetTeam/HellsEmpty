@@ -3,18 +3,11 @@ extends Node2D
 @onready var player : PlayerBase = $PlayerNoWeapon
 @onready var auto_save_timer : Timer = $Autosave
 
-func transfer_all_children_added_on_this_scene(from_node, to_node):
-	from_node.get_children(false) \
-		.filter(func(child): return child.owner != from_node) \
-		.map(func(child): transfer_child(from_node, to_node, child))
-		
-func transfer_child(from_node, to_node, child):
-	from_node.remove_child(child)
-	to_node.add_child(child)
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalData.level_enemies_killed = 0
+	GlobalData.total_time_survived = Time.get_ticks_msec() / 1000.
+	GlobalData.total_level_coins_collected = PlayerInventory.coins_amount
 	
 	PlayerInventorySaverLoader.new().load_scene()
 	if PlayerInventory.current_weapon != null:
@@ -24,7 +17,7 @@ func _ready() -> void:
 				player_with_weapon.position = player.position
 				player_with_weapon.global_position = player.global_position
 
-				transfer_all_children_added_on_this_scene(player, player_with_weapon)
+				SwitchNodes.transfer_all_children_added_on_this_scene(player, player_with_weapon)
 				self.add_child(player_with_weapon)
 				player_with_weapon.SPEED = player.SPEED
 				player.queue_free()
@@ -33,13 +26,13 @@ func _ready() -> void:
 				GlobalData.player = player
 				player.weapon_slot.assign_weapon(PlayerInventory.current_weapon)
 				
-	player.player_died.connect(_return_to_menu)
+	player.player_died.connect(_game_over_screen)
 
 
-func _return_to_menu():
+func _game_over_screen():
 	GlobalDataSaverLoader.new().save_scene()
 	PlayerInventorySaverLoader.new().save_scene()
-	get_tree().change_scene_to_file("res://menus/main_menu/menu.tscn")
+	get_tree().change_scene_to_file("res://levels/GameOver.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
