@@ -4,7 +4,7 @@ class_name ShopSaverLoader
 signal save_complete
 signal load_complete
 
-const SAVE_PATH = "res://saves/map/forest.tres"
+const SAVE_PATH = "usr://saves/map/forest.tres"
 
 func save_scene():
 	var save = ShopSave.new()
