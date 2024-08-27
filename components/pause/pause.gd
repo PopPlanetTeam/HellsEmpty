@@ -11,6 +11,7 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		SceneManager.keep_global_audio_playing = false
 		coins_label.text = tr("COINS") + ": " + str(PlayerInventory.coins_amount)
 		var pause = get_tree().paused
 		get_tree().paused = !pause

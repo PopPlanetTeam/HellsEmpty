@@ -3,6 +3,7 @@ class_name ScenePortal
 
 @export var scene_to_go_path: String
 @export var saver_loader: SceneSaverLoader
+@export var keep_global_audio_playing: bool = false
 
 var _destinity: PackedScene
 
@@ -29,7 +30,4 @@ func _on_area_entered(area: Area2D) -> void:
 		if not saver_loader.save_completed:
 			await saver_loader.save_complete
 		
-		# Update total enemies killed
-		#GlobalData.total_enemies_killed += GlobalData.level_enemies_killed	
-		
-		SceneManager.change_scene_packed(get_tree().current_scene, _destinity)
+		SceneManager.change_scene_packed(get_tree().current_scene, _destinity, keep_global_audio_playing)
