@@ -9,7 +9,6 @@ extends SceneBase
 @onready var next_level_portal: ScenePortal = $ShopPortal
 @onready var exit_passage: TileMap = $ExitPassage
 @onready var player = $PlayerNoWeapon
-@onready var pause = %Pause
 @onready var auto_save_timer : Timer = $Autosave
 
 
