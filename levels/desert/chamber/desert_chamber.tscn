@@ -210,7 +210,6 @@ position = Vector2(-825, -483)
 
 [node name="EnemySpawn" type="Node2D" parent="."]
 script = ExtResource("12_ircvk")
-disable = true
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawn"]
 position = Vector2(-47, 748)
