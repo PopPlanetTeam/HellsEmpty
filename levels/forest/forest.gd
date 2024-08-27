@@ -39,7 +39,7 @@ func _game_over_screen():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if GlobalData.level_enemies_killed == GlobalData.current_level_goal:
+	if GlobalData.level_enemies_killed >= GlobalData.current_level_goal:
 		get_tree().change_scene_to_file("res://levels/win.tscn")
 
 func _input(event: InputEvent) -> void:

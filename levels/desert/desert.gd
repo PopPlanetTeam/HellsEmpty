@@ -56,7 +56,7 @@ func _new_scene():
 	enemy_spawner.spawn_enemies()
 
 func _process(_delta):
-	if GlobalData.level_enemies_killed == kills_to_win:
+	if GlobalData.level_enemies_killed >= kills_to_win:
 		# Enable portal
 		next_level_portal.set_enabled(true)
 		_set_exit_passage_enabled(true)

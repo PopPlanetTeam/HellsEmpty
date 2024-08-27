@@ -614,7 +614,7 @@ SPEED = 250.0
 y_sort_enabled = true
 script = ExtResource("49_fyuuu")
 enemies_to_spawn = Array[PackedScene]([ExtResource("50_7b1tw"), ExtResource("51_qgtau")])
-closest_marker_points_to_consider = 10
+closest_marker_points_to_consider = 12
 MAX_NUMBER_OF_ENEMIES = 75
 metadata/_edit_lock_ = true
 

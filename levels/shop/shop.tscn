@@ -1431,6 +1431,7 @@ shape = SubResource("RectangleShape2D_mb1a0")
 [node name="UnlockForest" type="Node2D" parent="."]
 position = Vector2(-498, -90)
 script = ExtResource("36_y2ydx")
+souls_needed = 70
 
 [node name="Counter" type="Label" parent="UnlockForest"]
 offset_left = -110.0
@@ -1438,7 +1439,7 @@ offset_top = -45.0
 offset_right = 114.0
 offset_bottom = 30.0
 text = "UNLOCK FOREST MAP
-0/200 SOULS"
+0/70 SOULS"
 label_settings = SubResource("LabelSettings_okuj5")
 horizontal_alignment = 1
 vertical_alignment = 1
