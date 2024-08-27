@@ -453,6 +453,7 @@ position = Vector2(2224, 619)
 position = Vector2(272, -8)
 scene_to_go_path = "res://levels/desert/chamber/desert_chamber.tscn"
 saver_loader = NodePath("../SceneSaverLoader")
+keep_global_audio_playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChamberPortal"]
 position = Vector2(0, -11)

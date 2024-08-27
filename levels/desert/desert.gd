@@ -20,7 +20,6 @@ func _ready():
 	next_level_portal.set_enabled(false)
 	_set_exit_passage_enabled(false)
 	
-	GlobalData.level_enemies_killed = 0
 	GlobalData.current_level_goal = kills_to_win
 	
 	GlobalData.player.player_died.connect(_game_over_scene)
@@ -82,4 +81,5 @@ func _on_autosave_timeout() -> void:
 	auto_save_timer.start()
 
 func _on_tree_exited() -> void:
-	GlobalAudioPlayer.stop_stream()
+	if not SceneManager.keep_global_audio_playing:
+		GlobalAudioPlayer.stop_stream()

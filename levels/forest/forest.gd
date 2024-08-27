@@ -7,7 +7,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalData.level_enemies_killed = 0
 	GlobalData.current_level_goal = kills_to_win
 	
 	GlobalData.total_time_survived = Time.get_ticks_msec() / 1000.

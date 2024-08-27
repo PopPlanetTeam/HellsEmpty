@@ -16,8 +16,11 @@ func _game_over_scene():
 	PlayerInventorySaverLoader.new().save_scene()
 	get_tree().change_scene_to_file("res://levels/GameOver.tscn")
 
-
 func _on_autosave_timeout() -> void:
 	GlobalDataSaverLoader.new().save_scene()
 	PlayerInventorySaverLoader.new().save_scene()
 	auto_save_timer.start()
+
+func _on_tree_exited() -> void:
+	if not SceneManager.keep_global_audio_playing:
+		GlobalAudioPlayer.stop_stream()
