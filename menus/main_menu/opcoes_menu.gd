@@ -3,6 +3,9 @@ extends Control
 enum LANGUAGES {PORTUGUES, ENGLISH}
 
 func _ready():
+	_update_texts()
+
+func _update_texts():
 	%LanguageLabel.text = tr("IDIOMA")
 	%FullscreenLabel.text = tr("FULLSCREEN")
 	%FullscreenButton.text = tr("HABILITADO")
@@ -18,6 +21,8 @@ func _on_language_selector_item_selected(index):
 		LANGUAGES.ENGLISH:
 			TranslationServer.set_locale("us")
 			get_tree().call_group("main_menu", "change_options_language", "us")
+	
+	_update_texts()
 
 func _on_fullscreen_button_toggled(toggled_on):
 	if toggled_on:

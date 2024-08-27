@@ -167,6 +167,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 170, 75)
 
 [node name="Chests" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="ChestSmall" parent="Chests" instance=ExtResource("10_mn7ao")]
 position = Vector2(-430, 722)
@@ -192,8 +193,24 @@ contents = Array[ExtResource("12_lnf71")]([SubResource("Resource_pelvd")])
 position = Vector2(781, -256)
 contents = Array[ExtResource("12_lnf71")]([SubResource("Resource_lxk7k")])
 
+[node name="Bonfires" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Bonfire" parent="Bonfires" instance=ExtResource("4_148an")]
+position = Vector2(-361, 817)
+
+[node name="Bonfire2" parent="Bonfires" instance=ExtResource("4_148an")]
+position = Vector2(88, 378)
+
+[node name="Bonfire3" parent="Bonfires" instance=ExtResource("4_148an")]
+position = Vector2(440, -201)
+
+[node name="Bonfire4" parent="Bonfires" instance=ExtResource("4_148an")]
+position = Vector2(-825, -483)
+
 [node name="EnemySpawn" type="Node2D" parent="."]
 script = ExtResource("12_ircvk")
+disable = true
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawn"]
 position = Vector2(-47, 748)
@@ -490,20 +507,6 @@ energy = 1.38
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_coe51")
 
-[node name="Bonfires" type="Node" parent="."]
-
-[node name="Bonfire" parent="Bonfires" instance=ExtResource("4_148an")]
-position = Vector2(-361, 817)
-
-[node name="Bonfire2" parent="Bonfires" instance=ExtResource("4_148an")]
-position = Vector2(88, 378)
-
-[node name="Bonfire3" parent="Bonfires" instance=ExtResource("4_148an")]
-position = Vector2(440, -201)
-
-[node name="Bonfire4" parent="Bonfires" instance=ExtResource("4_148an")]
-position = Vector2(-825, -483)
-
 [node name="PlayerSpawn" type="Node" parent="."]
 
 [node name="Desert" type="Marker2D" parent="PlayerSpawn"]
@@ -521,6 +524,7 @@ position = Vector2(0, 1114)
 shape = SubResource("CircleShape2D_h5jd0")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_5t6ej")
 
 [node name="SceneSaverLoader" type="Node" parent="."]
