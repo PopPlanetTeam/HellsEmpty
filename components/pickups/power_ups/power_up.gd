@@ -3,6 +3,7 @@ class_name PowerUp
 
 @onready var path_follow = $Path2D/PathFollow2D
 @onready var area_2d = $Area2D
+@onready var sound = $AudioStreamPlayer2D
 
 @export var sprite: Sprite2D
 var duration: float = randf_range(8, 16)
@@ -22,6 +23,7 @@ func on_powerup_area_entered(_area: Area2D) -> void:
 		sprite.visible = false
 		self.call_deferred("set_enabled", false)
 		power_up_active = true
+		sound.play()
 
 		power_up_effect()
 

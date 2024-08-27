@@ -488,4 +488,9 @@ navigation_polygon = SubResource("NavigationPolygon_5t6ej")
 [node name="SceneSaverLoader" type="Node" parent="."]
 script = ExtResource("18_iqbda")
 
+[node name="Autosave" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="area_entered" from="DesertPassage" to="DesertPassage" method="_on_area_entered"]
+[connection signal="timeout" from="Autosave" to="." method="_on_autosave_timeout"]
