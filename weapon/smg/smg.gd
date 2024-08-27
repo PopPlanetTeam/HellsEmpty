@@ -22,8 +22,6 @@ func _input(event):
 		set_process(true)
 	elif event.is_action_released("shoot"):
 		set_process(false)
-		if _firing_sound.playing:
-			_firing_sound.seek(0.99)
 
 func _process(_delta) -> void:
 	if !_can_shoot:
@@ -45,9 +43,6 @@ func _process(_delta) -> void:
 		
 		_can_shoot = false
 		_fire_rate_timer.start()
-	else:
-		if _firing_sound.playing:
-			_firing_sound.seek(0.9)
 
 func _on_fire_rate_timer_timeout() -> void:
 	_can_shoot = true

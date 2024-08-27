@@ -13,6 +13,7 @@ wait_time = 0.16
 
 [node name="FiringSound" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("3_lsmkd")
+volume_db = -7.0
 max_polyphony = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
