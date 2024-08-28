@@ -78,6 +78,10 @@ func _on_go_to_desert_area_entered(area: Area2D) -> void:
 		PlayerInventorySaverLoader.new().save_scene()
 		GlobalData.total_time_survived = Time.get_ticks_msec() / 1000.
 		GlobalData.total_level_coins_collected = PlayerInventory.coins_amount
+		
+		# Reset level kills
+		GlobalData.level_enemies_killed = 0
+		
 		desert_map_tilemap.tile_set.set_physics_layer_collision_layer(0, 1)
 		SceneManager.last_scene = ""
 		get_tree().change_scene_to_file("res://levels/desert/desert.tscn")
@@ -85,4 +89,8 @@ func _on_go_to_desert_area_entered(area: Area2D) -> void:
 func _on_go_to_forest_area_entered(area: Area2D) -> void:
 	if area.get_parent() is PlayerBase:
 		PlayerInventorySaverLoader.new().save_scene()
+		
+		# Reset level kills
+		GlobalData.level_enemies_killed = 0
+		
 		get_tree().change_scene_to_file("res://levels/forest/Forest.tscn")
