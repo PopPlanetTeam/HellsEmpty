@@ -233,6 +233,7 @@ region_rect = Rect2(80, 615, 79.3972, 45)
 [node name="PlayerNoWeapon" parent="." instance=ExtResource("11_j4mmx")]
 
 [node name="Chests" type="Node2D" parent="." groups=["chest_save"]]
+y_sort_enabled = true
 
 [node name="ChestSmall" parent="Chests" instance=ExtResource("8_qnxfj")]
 position = Vector2(-59, -27)

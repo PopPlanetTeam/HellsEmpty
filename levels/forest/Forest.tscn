@@ -565,6 +565,7 @@ tile_map_data = PackedByteArray("AAAwAAEABQAAAAAAAABAACIABQAAAAAAAAAEACoABQAAAAA
 tile_set = SubResource("TileSet_aarcm")
 
 [node name="Chests" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="ChestSmall1" parent="Chests" instance=ExtResource("21_g1r85")]
 position = Vector2(-1144, 2639)
