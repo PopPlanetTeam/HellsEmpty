@@ -33,8 +33,6 @@ func _game_over_scene():
 	get_tree().change_scene_to_file("res://levels/GameOver.tscn")
 
 func _new_scene():
-	GlobalData.level_enemies_killed = 0
-	
 	PlayerInventorySaverLoader.new().load_scene()
 	if PlayerInventory.current_weapon != null:
 		if GlobalData.player != null and  GlobalData.player is PlayerNoWeapon:
